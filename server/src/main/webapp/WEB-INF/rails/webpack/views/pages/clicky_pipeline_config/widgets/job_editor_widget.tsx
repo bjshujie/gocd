@@ -57,38 +57,38 @@ export class JobEditor extends MithrilViewComponent<Attrs> {
   view(vnode: m.Vnode<Attrs, this>) {
     const job = vnode.attrs.job;
     return <Form compactForm={true}>
-      <TextField label={"Job name"}
+      <TextField label={"作业名称"}
                  required={true}
                  dataTestId={"job-name-input"}
                  errorText={job.errors().errorsForDisplay("name")}
                  property={job.name}/>
 
-      <TextField label={"Resources"}
+      <TextField label={"资源"}
                  dataTestId={"resources-input"}
-                 helpText={"A comma separated list of resources, that this job requires to run."}
+                 helpText={"作业运行所需要的，使用逗号分隔的多个资源."}
                  errorText={job.errors().errorsForDisplay("resources")}
                  property={job.resources}/>
 
-      <TextField label={["Elastic profile id", <Help content={
+      <TextField label={["弹性配置id", <Help content={
         [
-          "Elastic Profile that this job requires to run. ",
-          <Link target="_blank" href={"/go/admin/elastic_agent_configurations"}>Click here</Link>,
-          " to see and manage all elastic profiles."]}/>
+          "作业运行所需的弹性配置. ",
+          <Link target="_blank" href={"/go/admin/elastic_agent_configurations"}>点击这里</Link>,
+          " 查看或管理所有弹性配置."]}/>
       ]}
                  dataTestId={"elastic-profile-id-input"}
                  errorText={job.errors().errorsForDisplay("elastic_profile_id")}
                  property={job.elasticProfileId}/>
 
       <RadioField dataTestId={"job-timeout"}
-                  label={["Job timeout",
+                  label={["作业超时",
                     <Help
-                      content={"This job will be cancelled by GoCD if it is inactive more than the specified time."}/>
+                      content={"如果此作业超过指定时间处于非活动状态，将取消此作业."}/>
                   ]}
                   property={this.jobTimeout}
                   onchange={(newValue: string) => this.onJobTimeoutChange(job, newValue)}
                   possibleValues={[
-                    {label: "Never", value: "never"},
-                    {label: "Use default (10 minute(s))", value: "10"},
+                    {label: "从不", value: "never"},
+                    {label: "使用默认值 (10 分钟)", value: "10"},
                     {label: [this.labelForCustomJobTimeout(job)], value: "custom"},
                   ]}/>
 
@@ -98,11 +98,11 @@ export class JobEditor extends MithrilViewComponent<Attrs> {
                   onchange={(newValue: string) => this.onRunTypeChange(job, newValue)}
                   possibleValues={[
                     {
-                      label: "Run one instance",
+                      label: "运行一个实例",
                       value: "runSingleInstance"
                     },
                     {
-                      label: "Run on all agents",
+                      label: "在所有节点上运行",
                       value: "runOnAllAgents",
                       tooltip: <Help
                         content={"Job will run on all agents that match its resources (if any) and are in the same environment as this job’s pipeline. This option is particularly useful when deploying to multiple servers."}/>
@@ -111,7 +111,7 @@ export class JobEditor extends MithrilViewComponent<Attrs> {
                       label: [this.labelForCustomRunType(job)],
                       value: "runMultipleInstance",
                       tooltip: <Help
-                        content={"Specified number of instances of job will be created during schedule time."}/>
+                        content={"指定作业在调度时间内作业实例的数量."}/>
                     },
                   ]}/>
     </Form>;

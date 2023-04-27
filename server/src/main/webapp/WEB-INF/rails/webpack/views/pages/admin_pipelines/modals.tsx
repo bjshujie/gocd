@@ -100,7 +100,7 @@ export class MoveConfirmModal extends BasePipelineModal {
   }
 
   title() {
-    return `Move pipeline ${this.originalPipeline().name()}`;
+    return `移动算法 ${this.originalPipeline().name()}`;
   }
 
   buttons() {
@@ -108,10 +108,10 @@ export class MoveConfirmModal extends BasePipelineModal {
       <Buttons.Primary data-test-id="button-move"
                        disabled={this.isLoading() || _.isEmpty(this.selection())}
                        ajaxOperationMonitor={this.ajaxOperationMonitor}
-                       ajaxOperation={this.performOperation.bind(this)}>Move</Buttons.Primary>,
+                       ajaxOperation={this.performOperation.bind(this)}>移动</Buttons.Primary>,
 
       <Buttons.Cancel data-test-id="button-cancel" onclick={() => this.close()}
-                      ajaxOperationMonitor={this.ajaxOperationMonitor}>Cancel</Buttons.Cancel>
+                      ajaxOperationMonitor={this.ajaxOperationMonitor}>取消</Buttons.Cancel>
     ];
   }
 
@@ -126,7 +126,7 @@ export class MoveConfirmModal extends BasePipelineModal {
       <div>
         <SelectField dataTestId="move-pipeline-group-selection"
                      property={this.selection}
-                     label={<span>Select the pipeline group where the pipeline <em>{this.originalPipeline().name()}</em> should be moved to:</span>}>
+                     label={<span>选择算法 <em>{this.originalPipeline().name()}</em> 要被移动的目标算法组:</span>}>
           <SelectFieldOptions items={items} selected={this.selection()}/>
         </SelectField>
       </div>
@@ -144,7 +144,7 @@ export class MoveConfirmModal extends BasePipelineModal {
     return this.apiService.performOperation(
       () => {
         const msg = <span>
-                  The pipeline <em>{this.originalPipeline().name()}</em> was moved from <em>{this.sourceGroup.name()}</em> to <em>{this.selection()}</em>
+                  算法 <em>{this.originalPipeline().name()}</em> 从 <em>{this.sourceGroup.name()}</em> 移动到 <em>{this.selection()}</em>
                 </span>;
         this.successCallback(msg);
         this.close();
@@ -174,18 +174,18 @@ export class CreatePipelineGroupModal extends Modal {
                       errorText={this.group.errors().errorsForDisplay("name")}
                       onchange={() => this.group.validate("name")}
                       required={true}
-                      label={"Pipeline group name"}/>;
+                      label={"算法组名称"}/>;
   }
 
   title() {
-    return "Create new pipeline group";
+    return "创建算法组";
   }
 
   buttons() {
     return [<Buttons.Primary
       data-test-id="button-create"
       disabled={_.isEmpty(this.group.name()) || this.group.errors().hasErrors()}
-      onclick={this.create.bind(this)}>Create</Buttons.Primary>];
+      onclick={this.create.bind(this)}>创建</Buttons.Primary>];
   }
 
   private create() {
@@ -211,7 +211,7 @@ export class ClonePipelineConfigModal extends BasePipelineModal {
   }
 
   title(): string {
-    return `Clone pipeline - ${this.originalPipeline().name()}`;
+    return `克隆算法 - ${this.originalPipeline().name()}`;
   }
 
   buttons(): m.ChildArray {
@@ -223,9 +223,9 @@ export class ClonePipelineConfigModal extends BasePipelineModal {
         data-test-id="button-clone"
         disabled={disabled}
         ajaxOperationMonitor={this.ajaxOperationMonitor}
-        ajaxOperation={this.save.bind(this)}>Clone</Buttons.Primary>,
+        ajaxOperation={this.save.bind(this)}>克隆</Buttons.Primary>,
       <Buttons.Cancel data-test-id="button-cancel" onclick={() => this.close()}
-                      ajaxOperationMonitor={this.ajaxOperationMonitor}>Cancel</Buttons.Cancel>
+                      ajaxOperationMonitor={this.ajaxOperationMonitor}>取消</Buttons.Cancel>
     ];
   }
 
@@ -237,14 +237,14 @@ export class ClonePipelineConfigModal extends BasePipelineModal {
           errorText={this.newPipelineName.errors().errorsForDisplay("name")}
           onchange={() => this.newPipelineName.validate("name")}
           required={true}
-          label="New pipeline name"/>
+          label="新算法名称"/>
         <TextField
           property={this.newPipelineGroupName.name}
           errorText={this.newPipelineGroupName.errors().errorsForDisplay("name")}
           onchange={() => this.newPipelineGroupName.validate("name")}
           required={true}
-          label="Pipeline group name"
-          helpText={"A new pipeline group will be created, if it does not already exist."}/>
+          label="算法组名称"
+          helpText={"如果不存在，新算法组将被创建."}/>
       </Form>
     </FormBody>;
   }
@@ -287,7 +287,7 @@ export class DownloadPipelineModal extends Modal {
   body() {
     return (
       <div>
-        Choose the download format for the pipeline <em>{this.pipeline.name()}</em>:
+        请选择算法 <em>{this.pipeline.name()}</em>下载的格式:
         <ul>
           {this.pluginInfos.map((eachPluginInfo) => {
             return (
@@ -304,11 +304,11 @@ export class DownloadPipelineModal extends Modal {
   }
 
   title() {
-    return `Download pipeline ${this.pipeline.name()}`;
+    return `下载算法 ${this.pipeline.name()}`;
   }
 
   buttons(): m.ChildArray {
-    return [<Buttons.Primary data-test-id="button-close" onclick={this.close.bind(this)}>Close</Buttons.Primary>];
+    return [<Buttons.Primary data-test-id="button-close" onclick={this.close.bind(this)}>关闭</Buttons.Primary>];
   }
 }
 
@@ -332,9 +332,9 @@ export class ExtractTemplateModal extends Modal {
           errorText={this.templateName.errors().errorsForDisplay("name")}
           onchange={() => this.templateName.validate("name")}
           required={true}
-          label={"New template name"}/>
+          label={"新模板名称"}/>
         <div>
-          The pipeline <em>{this.sourcePipelineName}</em> will begin to use this new template.
+          算法 <em>{this.sourcePipelineName}</em> 将开始使用这个新模板.
         </div>
       </div>
     );
@@ -344,11 +344,11 @@ export class ExtractTemplateModal extends Modal {
     return [<Buttons.Primary data-test-id="button-extract-template"
                              disabled={_.isEmpty(this.templateName.name()) || this.templateName.errors()
                                                                                   .hasErrors("name")}
-                             onclick={this.extractTemplate.bind(this)}>Extract template</Buttons.Primary>];
+                             onclick={this.extractTemplate.bind(this)}>抽取模板</Buttons.Primary>];
   }
 
   title(): string {
-    return `Extract template from pipeline ${this.sourcePipelineName}`;
+    return `从算法 ${this.sourcePipelineName} 中抽取模板`;
   }
 
   private extractTemplate() {
@@ -371,7 +371,7 @@ export class DeletePipelineGroupModal extends Modal {
     this.pipelineGrpName = pipelineGrpName;
     this.successCallback = successCallback;
     this.apiService      = apiService ? apiService : new DeletePipelineGroupService(pipelineGrpName);
-    this.message         = <span>Are you sure you want to delete the pipeline group <em>{pipelineGrpName}</em>?</span>;
+    this.message         = <span>您确定要删除算法组 <em>{pipelineGrpName}</em>吗?</span>;
   }
 
   body(): m.Children {
@@ -382,20 +382,20 @@ export class DeletePipelineGroupModal extends Modal {
   }
 
   title(): string {
-    return "Are you sure?";
+    return "您确定吗?";
   }
 
   buttons(): m.ChildArray {
     if (this.errorMessage !== undefined) {
       return [
         <Buttons.Primary ajaxOperationMonitor={this.operationState} data-test-id='button-no-delete'
-                         onclick={this.close.bind(this)}>OK</Buttons.Primary>
+                         onclick={this.close.bind(this)}>确定</Buttons.Primary>
       ];
     }
     return [
       <Buttons.Danger data-test-id='button-delete'
                       ajaxOperationMonitor={this.operationState}
-                      ajaxOperation={this.delete.bind(this)}>Yes Delete</Buttons.Danger>,
+                      ajaxOperation={this.delete.bind(this)}>是的，删除</Buttons.Danger>,
       <Buttons.Cancel ajaxOperationMonitor={this.operationState}
                       data-test-id='button-no-delete' onclick={this.close.bind(this)}
       >No</Buttons.Cancel>
@@ -406,7 +406,7 @@ export class DeletePipelineGroupModal extends Modal {
     return this.apiService.performOperation(
       () => {
         this.successCallback(
-          <span>The pipeline group <em>{this.pipelineGrpName}</em> was deleted successfully!</span>
+          <span>算法组 <em>{this.pipelineGrpName}</em>被成功删除!</span>
         );
         this.close();
       },

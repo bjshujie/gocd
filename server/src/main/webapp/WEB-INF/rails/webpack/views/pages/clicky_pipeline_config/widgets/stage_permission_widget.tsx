@@ -34,14 +34,14 @@ export class StagePermissionWidget extends MithrilViewComponent<Attrs> {
 
   view(vnode: m.Vnode<Attrs>) {
     return <div>
-      <h3>Permissions</h3>
+      <h3>权限</h3>
       <span class={style.help}>All system administrators and pipeline group administrators can operate on this stage (this cannot be overridden).</span>
-      <RadioField label={"For this stage:"}
+      <RadioField label={"该阶段:"}
                   property={this.isInheritingFromPipelineGroup}
                   inline={true}
                   possibleValues={[
-                    {label: "Inherit from the pipeline group", value: "Yes"},
-                    {label: "Specify locally", value: "No"}
+                    {label: "继承自算法组", value: "Yes"},
+                    {label: "本地指定", value: "No"}
                   ]}/>
     </div>;
   }

@@ -43,10 +43,10 @@ describe('EditPipelineGroupModal', () => {
   it('should render text field and label for pipeline group name', () => {
     mount();
     expect(testHelper.byTestId("form-field-label-pipeline-group-name")).toBeInDOM();
-    expect(testHelper.byTestId("form-field-label-pipeline-group-name")).toHaveText("Pipeline group name");
+    expect(testHelper.byTestId("form-field-label-pipeline-group-name")).toHaveText("算法组名称");
 
     expect(testHelper.byTestId("form-field-input-pipeline-group-name")).toBeInDOM();
-    expect(testHelper.byTestId("form-field-input-pipeline-group-name")).toHaveValue("pipeline-group");
+    expect(testHelper.byTestId("form-field-input-pipeline-group-name")).toHaveValue("算法组");
     expect(testHelper.byTestId("form-field-input-pipeline-group-name")).not.toBeDisabled();
   });
 

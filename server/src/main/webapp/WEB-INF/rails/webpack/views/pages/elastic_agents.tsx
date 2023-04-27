@@ -95,7 +95,7 @@ export class ElasticAgentsPage extends Page<null, State> {
   }
 
   pageName(): string {
-    return "弹性工作节点配置";
+    return "弹性节点配置";
   }
 
   oninit(vnode: m.Vnode<null, State>) {

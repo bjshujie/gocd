@@ -50,13 +50,13 @@ export class AgentHeaderPanel extends MithrilViewComponent<AgentHeaderPanelAttrs
         <ButtonGroup>
           <Buttons.Primary data-test-id="delete-agents"
                            disabled={AgentHeaderPanel.isNoneSelected(agentsVM)}
-                           onclick={vnode.attrs.onDelete}>DELETE</Buttons.Primary>
+                           onclick={vnode.attrs.onDelete}>删除</Buttons.Primary>
           <Buttons.Primary data-test-id="enable-agents"
                            disabled={AgentHeaderPanel.isNoneSelected(agentsVM)}
-                           onclick={vnode.attrs.onEnable}>ENABLE</Buttons.Primary>
+                           onclick={vnode.attrs.onEnable}>启用</Buttons.Primary>
           <Buttons.Primary data-test-id="disable-agents"
                            disabled={AgentHeaderPanel.isNoneSelected(agentsVM)}
-                           onclick={vnode.attrs.onDisable}>DISABLE</Buttons.Primary>
+                           onclick={vnode.attrs.onDisable}>禁用</Buttons.Primary>
           <EnvironmentsDropdownButton show={agentsVM.showEnvironments}
                                       agentsVM={agentsVM}
                                       updateEnvironments={vnode.attrs.updateEnvironments}
@@ -71,15 +71,15 @@ export class AgentHeaderPanel extends MithrilViewComponent<AgentHeaderPanelAttrs
 
         <KeyValuePair inline={true} data={new Map(
           [
-            ["Total", this.span(agentsVM.list().length)],
-            ["Pending", this.span(agentsVM.filterBy(AgentConfigState.Pending).length)],
-            ["Enabled", this.span(agentsVM.filterBy(AgentConfigState.Enabled).length, style.enabled)],
-            ["Disabled", this.span(agentsVM.filterBy(AgentConfigState.Disabled).length, style.disabled)]
+            ["总数", this.span(agentsVM.list().length)],
+            ["挂起", this.span(agentsVM.filterBy(AgentConfigState.Pending).length)],
+            ["启用", this.span(agentsVM.filterBy(AgentConfigState.Enabled).length, style.enabled)],
+            ["禁用", this.span(agentsVM.filterBy(AgentConfigState.Disabled).length, style.disabled)]
           ])
         }/>
       </div>
 
-      <SearchField placeholder="Filter Agents" label="Search for agents" property={agentsVM.filterText}/>
+      <SearchField placeholder="过滤节点" label="搜索节点" property={agentsVM.filterText}/>
     </div>);
   }
 

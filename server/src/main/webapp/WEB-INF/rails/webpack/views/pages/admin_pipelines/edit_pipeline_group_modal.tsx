@@ -91,7 +91,7 @@ export class EditPipelineGroupModal extends Modal {
   body(): m.Children {
     let flashMessageHtml;
     const infoTooltip = <div data-test-id="info-tooltip" class={styles.pipelineGroupTooltipWrapper}>
-      <Info content={"Cannot rename pipeline group as it contains remotely defined pipelines"}/>
+      <Info content={"无法重命名算法组，因为它包含远程定义的算法"}/>
     </div>;
     if (this.flashMessage.hasMessage()) {
       flashMessageHtml = <FlashMessage dataTestId={"pipeline-group-flash-message"}
@@ -102,13 +102,13 @@ export class EditPipelineGroupModal extends Modal {
       {flashMessageHtml}
       <div class={styles.pipelineGroupNameWrapper}>
         <TextField
-          title={this.containsPipelinesRemotely ? "Cannot rename pipeline group as it contains remotely defined pipelines" : ""}
-          label={"Pipeline group name"}
+          title={this.containsPipelinesRemotely ? "无法重命名算法组，因为它包含远程定义的算法" : ""}
+          label={"算法组名称"}
           property={this.pipelineGroupViewModel().name}
           readonly={this.containsPipelinesRemotely}/>
         {this.containsPipelinesRemotely ? infoTooltip : ""}
       </div>
-      <CollapsiblePanel header={"User permissions"}
+      <CollapsiblePanel header={"用户权限"}
                         expanded={true}
                         onexpand={() => this.userPermissionCollapseState(true)}
                         oncollapse={() => this.userPermissionCollapseState(false)}
@@ -116,10 +116,10 @@ export class EditPipelineGroupModal extends Modal {
                         actions={<Secondary dataTestId={"add-user-permission"}
                                             onclick={this.addUserAuthorization.bind(this)}>Add</Secondary>}>
         <RenderErrors dataTestId="errors-on-users" errors={this.pipelineGroupViewModel().errorsOnUsers()}/>
-        <Table data={this.userPermissionData()} headers={["Name", "View", "Operate", "Admin", ""]}
+        <Table data={this.userPermissionData()} headers={["名称", "视图", "操作", "管理", ""]}
                data-test-id="users-permissions"/>
       </CollapsiblePanel>
-      <CollapsiblePanel header={"Role permissions"}
+      <CollapsiblePanel header={"角色权限"}
                         expanded={true}
                         onexpand={() => this.rolePermissionCollapseState(true)}
                         oncollapse={() => this.rolePermissionCollapseState(false)}
@@ -127,20 +127,20 @@ export class EditPipelineGroupModal extends Modal {
                         actions={<Secondary dataTestId={"add-role-permission"}
                                             onclick={this.addRoleAuthorization.bind(this)}>Add</Secondary>}>
         <RenderErrors dataTestId="errors-on-roles" errors={this.pipelineGroupViewModel().errorsOnRoles()}/>
-        <Table data={this.rolePermissionData()} headers={["Name", "View", "Operate", "Admin", ""]}
+        <Table data={this.rolePermissionData()} headers={["名称", "视图", "操作", "管理", ""]}
                data-test-id="roles-permissions"/>
       </CollapsiblePanel>
     </div>;
   }
 
   title(): string {
-    return "Edit Pipeline Group";
+    return "编辑算法组";
   }
 
   buttons(): m.ChildArray {
     return [
-      <Primary data-test-id="save-pipeline-group" onclick={this.performSave.bind(this)}>Save</Primary>,
-      <Cancel data-test-id="cancel-button" onclick={this.close.bind(this)}>Cancel</Cancel>
+      <Primary data-test-id="save-pipeline-group" onclick={this.performSave.bind(this)}>保存</Primary>,
+      <Cancel data-test-id="cancel-button" onclick={this.close.bind(this)}>取消</Cancel>
     ];
   }
 
@@ -231,7 +231,7 @@ export class EditPipelineGroupModal extends Modal {
       PipelineGroupCRUD.update(this.pipelineGroupName, this.pipelineGroupViewModel().getUpdatedPipelineGroup(), this.etag)
                        .then((result) => {
                          result.do(() => {
-                           this.onSuccessfulSave(`Pipeline group ${this.pipelineGroupViewModel().name()} updated successfully.`);
+                           this.onSuccessfulSave(`算法组 ${this.pipelineGroupViewModel().name()} 更新成功.`);
                            this.close();
                          }, (errorResponse) => {
                            if (errorResponse.body) {

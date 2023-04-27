@@ -141,7 +141,7 @@ export class ResourcesDropdownButton extends AbstractDropdownButton<ResourcesAtt
                             onclick={(e: MouseEvent) => {
                               vnode.attrs.agentsVM.showEnvironments(false);
                               this.toggleDropdown(vnode, e);
-                            }}>RESOURCES</Buttons.Primary>;
+                            }}>资源</Buttons.Primary>;
   }
 
   protected body(vnode: m.Vnode<DropdownAttrs & ResourcesAttrs>) {

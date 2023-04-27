@@ -102,8 +102,8 @@ export abstract class TabHandler<T> extends Page<null, T> {
 
   changeRoute(newRoute: string, success: () => void): void {
     if (this.hasEntityConfigChanged()) {
-      new ConfirmationDialog("Unsaved changes",
-                             "There are unsaved changes on your form. 'Proceed' will discard these changes",
+      new ConfirmationDialog("变更未保存",
+                             "在表单中有未保存的变更. '继续处理' 变更将被丢弃",
                              () => {
                                this.reset();
                                this.flashMessage.clear();
@@ -252,13 +252,13 @@ export abstract class TabHandler<T> extends Page<null, T> {
                    this.reset.call(this);
                    this.flashMessage.clear();
                  }}>
-            RESET
+            重置
           </Reset>
           <Primary data-test-id={"save"}
                    ajaxOperationMonitor={this.ajaxOperationMonitor}
                    ajaxOperation={this.save.bind(this)}>
             {saveSuccessOrFailureIdentifier}
-            SAVE
+            保存
           </Primary>
         </div>
       );

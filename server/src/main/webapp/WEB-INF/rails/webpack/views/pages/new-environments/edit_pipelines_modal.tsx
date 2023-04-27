@@ -39,7 +39,7 @@ export class PipelineFilterWidget extends MithrilViewComponent<SelectAllNoneWidg
     return <div class={styles.pipelineFilterWrapper}>
       <span>Pipelines</span>
       <div class={styles.searchFieldWrapper}>
-        <SearchField label="pipeline-search" placeholder="pipeline name"
+        <SearchField label="pipeline-search" placeholder="算法名称"
                      property={vnode.attrs.pipelinesVM.searchText}/>
       </div>
     </div>;

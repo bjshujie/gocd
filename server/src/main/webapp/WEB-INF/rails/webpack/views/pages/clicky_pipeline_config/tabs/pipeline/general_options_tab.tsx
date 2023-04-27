@@ -25,22 +25,22 @@ import {PipelineConfigRouteParams} from "views/pages/clicky_pipeline_config/tab_
 
 export class GeneralOptionsTabContent extends TabContent<PipelineConfig> {
   static tabName(): string {
-    return "General";
+    return "通用";
   }
 
   getPipelineSchedulingCheckBox(entity: PipelineConfig, templateConfig: TemplateConfig) {
     let additionalHelpText: string = "";
     if (entity.isUsingTemplate()) {
-      additionalHelpText = ` Since this pipeline is based on '${entity.template()}' template, automatic/manual behaviour of the pipeline is determined by the template's first stage.`;
+      additionalHelpText = ` 因为该算法基于 '${entity.template()}' 模板, 决定算法的自动/手动动作在模板的第一个阶段被设置.`;
     }
 
     const stage: Stage = entity.template() ? templateConfig.firstStage() : entity.firstStage();
     if (stage) {
-      return <CheckboxField label="Automatic pipeline scheduling"
+      return <CheckboxField label="自动算法调度"
                             errorText={entity.errors().errorsForDisplay("")}
                             dataTestId={"automatic-pipeline-scheduling"}
                             readonly={entity.isDefinedInConfigRepo() || entity.isUsingTemplate()}
-                            helpText={`If unchecked, this pipeline will only schedule in response to a Manual/API/Timer trigger. Unchecking this box is the same as making the first stage manual.${additionalHelpText}`}
+                            helpText={`如果未勾选，算法将只能通过手动/API/定时器启动. 未勾选与在第一阶段设置为手动相同.${additionalHelpText}`}
                             property={stage.approval().typeAsStream()}/>;
     }
   }

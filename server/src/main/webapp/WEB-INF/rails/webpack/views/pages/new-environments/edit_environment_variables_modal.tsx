@@ -51,14 +51,14 @@ export class EditEnvironmentVariablesModal extends Modal {
   }
 
   title(): string {
-    return "Edit Environment Variables";
+    return "编辑环境变量";
   }
 
   buttons(): m.ChildArray {
     return [
       <Primary data-test-id="save-button" onclick={this.performSave.bind(this)}
-               disabled={this.isLoading()}>Save</Primary>,
-      <Cancel data-test-id="cancel-button" onclick={this.close.bind(this)} disabled={this.isLoading()}>Cancel</Cancel>
+               disabled={this.isLoading()}>保存</Primary>,
+      <Cancel data-test-id="cancel-button" onclick={this.close.bind(this)} disabled={this.isLoading()}>取消</Cancel>
     ];
   }
 
@@ -76,7 +76,7 @@ export class EditEnvironmentVariablesModal extends Modal {
         this.modalState = ModalState.OK;
         result.do(
           () => {
-            this.onSuccessfulSave("Environment variables updated successfully");
+            this.onSuccessfulSave("环境变量更新成功");
             this.close();
           },
           (errorResponse: any) => {

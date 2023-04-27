@@ -52,10 +52,10 @@ export class MaintenanceModeWidget extends MithrilViewComponent<Attrs> {
         : "GoCD Server has no running subsystems.";
     }
 
-    let updatedByMessage = "GoCD server maintenance mode is disabled by default.";
+    let updatedByMessage = "服务器维护模式默认关闭.";
     if (maintenanceModeInfo.metdata.updatedBy !== null) {
       if (maintenanceModeInfo.metdata.updatedBy === "GoCD") {
-        updatedByMessage = `GoCD Server is started in maintenance mode at ${maintenanceModeInfo.metdata.updatedOn}.`;
+        updatedByMessage = `服务器在 ${maintenanceModeInfo.metdata.updatedOn} 开始了维护模式.`;
       } else {
         updatedByMessage = `${maintenanceModeInfo.metdata.updatedBy} changed the maintenance mode state on ${maintenanceModeInfo.metdata.updatedOn}.`;
       }
@@ -64,8 +64,7 @@ export class MaintenanceModeWidget extends MithrilViewComponent<Attrs> {
     return (
       <div class={styles.maintenanceModeWidget} data-test-id="maintenance-mode-widget">
         <p data-test-id="maintenance-mode-description" class={styles.maintenanceModeDescription}>
-          When put into maintenance mode, it is safe to restart or upgrade the GoCD server without having any running
-          jobs reschedule when the server is back up.
+          当服务器处于维护模式，服务器在备份时无任何作业正运行，可以安全的重新启动或升级
           &nbsp;
           <Link target="_blank" href={docsUrl("/advanced_usage/maintenance_mode.html")}>Learn more..</Link>
         </p>
@@ -75,7 +74,7 @@ export class MaintenanceModeWidget extends MithrilViewComponent<Attrs> {
             {updatedByMessage}
           </span>
           <span class={styles.switchWrapper} data-test-id="switch-wrapper">
-            <span class={styles.maintenanceModeLabel}>Enable Maintenance Mode:</span>
+            <span class={styles.maintenanceModeLabel}>启用维护模式:</span>
             <SwitchBtn inProgress={maintenanceModeInfo.maintenanceModeState() && maintenanceModeInfo.hasRunningSystems}
                        field={() => maintenanceModeInfo.maintenanceModeState()}
                        onclick={vnode.attrs.toggleMaintenanceMode}/>

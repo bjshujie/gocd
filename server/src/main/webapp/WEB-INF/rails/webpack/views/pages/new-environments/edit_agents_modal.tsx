@@ -73,7 +73,7 @@ export class UnavailableElasticAgentsWidget extends MithrilViewComponent<Unavail
       return;
     }
 
-    const title = "Unavailable Agents (Elastic Agents):";
+    const title = "不可用节点 (弹性节点):";
     return <div class={styles.pipelinesContainer} data-test-id={s.slugify(title)}>
       <div class={styles.header}> {title} </div>
       <ul>
@@ -98,7 +98,7 @@ export class AgentFilterWidget extends MithrilViewComponent<AgentFilterWidgetAtt
     return <div class={styles.pipelineFilterWrapper}>
       <span>Agents</span>
       <div class={styles.searchFieldWrapper}>
-        <SearchField label="agent-search" placeholder="agent hostname"
+        <SearchField label="agent-search" placeholder="节点主机名"
                      property={vnode.attrs.agentsVM.searchText}/>
       </div>
     </div>;
@@ -121,7 +121,7 @@ export class EditAgentsModal extends Modal {
   }
 
   title(): string {
-    return "Edit Agents Association";
+    return "编辑节点关联";
   }
 
   body(): m.Children {
@@ -132,10 +132,10 @@ export class EditAgentsModal extends Modal {
     let noAgentsMsg: m.Child;
     if (this.agentsVM.agents().length === 0) {
       noAgentsMsg = <FlashMessage type={MessageType.info}
-                                  message={'There are no agents available!'}/>;
+                                  message={'无可用节点!'}/>;
     } else if (this.agentsVM.filteredAgents().length === 0) {
       noAgentsMsg = <FlashMessage type={MessageType.info}
-                                  message={`No agents matching search text '${this.agentsVM.searchText()}' found!`}/>;
+                                  message={`无匹配查询文本 '${this.agentsVM.searchText()}'的节点!`}/>;
     }
 
     return <div>
@@ -149,7 +149,7 @@ export class EditAgentsModal extends Modal {
     return [
       <Primary data-test-id="save-button" onclick={this.performSave.bind(this)}
                disabled={this.isLoading()}>Save</Primary>,
-      <Cancel data-test-id="cancel-button" onclick={this.close.bind(this)} disabled={this.isLoading()}>Cancel</Cancel>
+      <Cancel data-test-id="cancel-button" onclick={this.close.bind(this)} disabled={this.isLoading()}>取消</Cancel>
     ];
   }
 
@@ -175,15 +175,15 @@ export class EditAgentsModal extends Modal {
   private agentsHtml() {
     return <div className={styles.allPipelinesWrapper}>
       <AgentCheckboxListWidget agents={this.agentsVM.availableAgents()}
-                               title={"Available Agents:"}
+                               title={"可用节点:"}
                                readonly={false}
                                agentSelectedFn={this.agentsVM.agentSelectedFn.bind(this.agentsVM)}/>
       <AgentCheckboxListWidget agents={this.agentsVM.configRepoEnvironmentAgents()}
-                               title={"Agents associated with this environment in configuration repository:"}
+                               title={"关联该环境的节点在配置仓库中:"}
                                readonly={true}
                                agentSelectedFn={this.agentsVM.agentSelectedFn.bind(this.agentsVM)}/>
       <AgentCheckboxListWidget agents={this.agentsVM.environmentElasticAgents()}
-                               title={"Elastic Agents associated with this environment:"}
+                               title={"弹性节点关联该环境:"}
                                readonly={true}
                                agentSelectedFn={this.agentsVM.agentSelectedFn.bind(this.agentsVM)}/>
       <UnavailableElasticAgentsWidget agents={this.agentsVM.elasticAgentsNotBelongingToCurrentEnv()}/>

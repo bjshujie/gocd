@@ -74,32 +74,32 @@ class PipelineWidget extends MithrilViewComponent<PipelineWidgetAttrs> {
   private static messageForOperation(pipeline: PipelineWithOrigin,
                                      operation: "move" | "clone" | "edit" | "delete" | "extract template from") {
     if (operation === "extract template from" && pipeline.usesTemplate()) {
-      return `Cannot ${operation} pipeline '${pipeline.name()}' because it uses a template.`;
+      return `无法 ${operation} 算法 '${pipeline.name()}' 因为它在使用模板.`;
     }
     if (operation === "delete") {
       if (pipeline.isDefinedRemotely()) {
-        return `Cannot delete pipeline '${pipeline.name()}' defined in configuration repository '${pipeline.origin().id()}'.`;
+        return `无法删除算法 '${pipeline.name()}' 因为它在配置仓库中有定义 '${pipeline.origin().id()}'.`;
       }
       if (pipeline.environment() !== undefined && pipeline.environment() !== null) {
-        return `Cannot delete pipeline '${pipeline.name()}' as it is present in environment '${pipeline.environment()}'.`;
+        return `无法删除算法 '${pipeline.name()}' 因为它存在于环境 '${pipeline.environment()}'中.`;
       }
       if (pipeline.dependantPipelines() !== undefined && pipeline.dependantPipelines()!.length > 0) {
         const dependentPipelineNames = pipeline.dependantPipelines().map(d => d.dependent_pipeline_name);
-        return `Cannot delete pipeline '${pipeline.name()}' as pipeline(s) '${dependentPipelineNames}' depends on it.`;
+        return `无法删除算法 '${pipeline.name()}' 因为算法 '${dependentPipelineNames}' 依赖于它.`;
       }
     }
 
-    return `${s.capitalize(operation)} pipeline '${pipeline.name()}'`;
+    return `${s.capitalize(operation)} 算法 '${pipeline.name()}'`;
   }
 
   private static messageForMove(pipeline: PipelineWithOrigin, canMovePipeline: boolean) {
     if (pipeline.origin().isDefinedInConfigRepo()) {
-      return `Cannot move pipeline '${pipeline.name()}' as it is defined in configuration repository '${pipeline.origin().id()}'.`;
+      return `无法移动算法 '${pipeline.name()}' 因为它在配置仓库中有定义 '${pipeline.origin().id()}'.`;
     }
     if (!canMovePipeline) {
-      return `Cannot move pipeline '${pipeline.name()}' as there are no other group(s).`;
+      return `无法移动算法 '${pipeline.name()}' 因为没有其它的算法组.`;
     }
-    return `Move pipeline '${pipeline.name()}'`;
+    return `移动算法 '${pipeline.name()}'`;
   }
 
   private actions(vnode: m.Vnode<PipelineWidgetAttrs, this>, eachPipeline: PipelineWithOrigin) {
@@ -152,7 +152,7 @@ class PipelineGroupWidget extends MithrilViewComponent<PipelineGroupAttrs> {
              class={styles.pipelineGroupRow}>
           <div data-test-id={`pipeline-group-name-${s.slugify(grpName)}`}
                class={styles.pipelineGroupName}>
-            <span>Pipeline Group:</span>
+            <span>算法组:</span>
             <span data-test-id="pipeline-group-name" class={styles.value}>{grpName}</span>
           </div>
           <div class={styles.pipelineGroupActionButtons}>{this.actions(vnode)}</div>
@@ -170,7 +170,7 @@ class PipelineGroupWidget extends MithrilViewComponent<PipelineGroupAttrs> {
     } else {
       return (
         <div class={styles.noPipelinesDefinedMessage}>
-          <FlashMessage message="There are no pipelines defined in this pipeline group." type={MessageType.info}/>
+          <FlashMessage message="此算法组中未定义任何算法." type={MessageType.info}/>
         </div>
       );
     }
@@ -182,7 +182,7 @@ class PipelineGroupWidget extends MithrilViewComponent<PipelineGroupAttrs> {
         <Primary icon={ButtonIcon.ADD}
                  dataTestId={`create-pipeline-in-group-${s.slugify(vnode.attrs.group.name())}`}
                  onclick={vnode.attrs.createPipelineInGroup.bind(vnode.attrs, vnode.attrs.group.name())}>
-          Add new pipeline
+          创建一个新算法
         </Primary>
         <span class={styles.iconGroupWrapper}>
           <IconGroup>
@@ -191,7 +191,7 @@ class PipelineGroupWidget extends MithrilViewComponent<PipelineGroupAttrs> {
               onclick={() => vnode.attrs.doEditPipelineGroup(vnode.attrs.group.name())}/>
             <Delete disabled={vnode.attrs.group.hasPipelines()}
                     data-test-id={`delete-pipeline-group-${s.slugify(vnode.attrs.group.name())}`}
-                    title="Move or delete all pipelines within this group in order to delete it."
+                    title="要删除算法组，请先移除或删除该组中的所有算法"
                     onclick={vnode.attrs.doDeleteGroup.bind(vnode.attrs, vnode.attrs.group)}/>
           </IconGroup>
         </span>
@@ -204,11 +204,11 @@ export class PipelineGroupsWidget extends MithrilViewComponent<Attrs> {
 
   public static helpTextWhenEmpty() {
     return <ul data-test-id="pipelines-help-text">
-      <li>Only GoCD system administrators are allowed to create a pipeline group.
-        <Link href={docsUrl("configuration/pipelines.html")} externalLinkIcon={true}> Learn More</Link>
+      <li>仅系统管理员允许创建算法组.
+        <Link href={docsUrl("configuration/pipelines.html")} externalLinkIcon={true}> 学习更多</Link>
       </li>
-      <li>A GoCD Administrator can authorize users and roles to be administrators for pipeline groups.
-        <Link href={docsUrl("configuration/delegating_group_administration.html")} externalLinkIcon={true}> Learn More</Link>
+      <li>管理员可授权用户和角色管理算法组.
+        <Link href={docsUrl("configuration/delegating_group_administration.html")} externalLinkIcon={true}> 学习更多</Link>
       </li>
     </ul>;
   }
@@ -224,7 +224,7 @@ export class PipelineGroupsWidget extends MithrilViewComponent<Attrs> {
         Learn More
       </Link>
     </span>;
-        const msg         = `Either '${target}' pipeline group has not been set up or you are not authorized to view the same.`;
+        const msg         = `编辑 '${target}' 尚未设置算法组，或者您无权查看该算法组.`;
         return <FlashMessage dataTestId="anchor-pipeline-grp-not-present" type={MessageType.alert}>
           {msg} {docLink}
         </FlashMessage>;
@@ -239,7 +239,7 @@ export class PipelineGroupsWidget extends MithrilViewComponent<Attrs> {
     </span>;
       return [
         <FlashMessage type={MessageType.info}>
-          Either no pipelines have been defined or you are not authorized to view the same. {docLink}
+          要么没有定义算法，要么您无权查看相同的算法. {docLink}
         </FlashMessage>,
         <div className={styles.tips}>
           {PipelineGroupsWidget.helpTextWhenEmpty()}

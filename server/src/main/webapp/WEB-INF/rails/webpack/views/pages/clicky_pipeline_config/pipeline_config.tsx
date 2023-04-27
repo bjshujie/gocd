@@ -80,7 +80,7 @@ export class PipelineConfigPage<T> extends TabHandler<T> {
     const isValid = this.getEntity().isValid();
 
     if (!isValid) {
-      const msg = "Validation Failed! Please fix the below errors before submitting.";
+      const msg = "验证失败！请在提交前修正以下错误.";
       this.flashMessage.setMessage(MessageType.alert, msg);
       return Promise.reject();
     }
@@ -88,7 +88,7 @@ export class PipelineConfigPage<T> extends TabHandler<T> {
     const possibleRenames = PipelineConfigSPARouteHelper.getPossibleRenames(this.getEntity());
     return this.getEntity().update(this.etag()).then((result) => {
       return result.do((successResponse) => {
-        this.flashMessage.setMessage(MessageType.success, "Saved Successfully!");
+        this.flashMessage.setMessage(MessageType.success, "保存成功!");
         PipelineConfigSPARouteHelper.updateRouteIfEntityRenamed(possibleRenames);
         this.onSuccess(result, successResponse);
       }, this.onFailure.bind(this));
@@ -103,7 +103,7 @@ export class PipelineConfigPage<T> extends TabHandler<T> {
   }
 
   pageName(): string {
-    return "Pipelines";
+    return "算法";
   }
 
   fetchData(vnode: m.Vnode<null, T>): Promise<any> {

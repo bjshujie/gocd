@@ -66,10 +66,10 @@ export class ElasticAgentsWidget extends MithrilViewComponent<AgentsWidgetAttrs>
         <div class={style.leftContainer}>
           <KeyValuePair inline={true} data={new Map(
             [
-              ["Total", this.span(vnode.attrs.agentsVM.list().length)],
-              ["Pending", this.span(vnode.attrs.agentsVM.filterBy(AgentConfigState.Pending).length)],
-              ["Enabled", this.span(vnode.attrs.agentsVM.filterBy(AgentConfigState.Enabled).length, style.enabled)],
-              ["Disabled", this.span(vnode.attrs.agentsVM.filterBy(AgentConfigState.Disabled).length, style.disabled)]
+              ["总数", this.span(vnode.attrs.agentsVM.list().length)],
+              ["挂起", this.span(vnode.attrs.agentsVM.filterBy(AgentConfigState.Pending).length)],
+              ["启用", this.span(vnode.attrs.agentsVM.filterBy(AgentConfigState.Enabled).length, style.enabled)],
+              ["禁用", this.span(vnode.attrs.agentsVM.filterBy(AgentConfigState.Disabled).length, style.disabled)]
             ])
           }/>
         </div>
@@ -77,7 +77,7 @@ export class ElasticAgentsWidget extends MithrilViewComponent<AgentsWidgetAttrs>
         <SearchField placeholder="Filter Agents" label="Search for agents" property={vnode.attrs.agentsVM.filterText}/>
       </div>
       <Table data={tableData}
-             headers={["", "Agent Name", "Sandbox", "OS", "IP Address", "Status", "Free Space", "Environments"]}
+             headers={["", "节点名称", "沙盒", "操作系统", "IP 地址", "状态", "剩余空间", "环境"]}
              sortHandler={vnode.attrs.agentsVM.agentsSortHandler}/>
     </div>;
   }
@@ -115,9 +115,9 @@ export class ElasticAgentsWidget extends MithrilViewComponent<AgentsWidgetAttrs>
   private pluginIcon(pluginInfos: PluginInfos, agent: Agent) {
     const pluginInfo = pluginInfos.findByPluginId(agent.elasticPluginId!);
     if (pluginInfo && pluginInfo.imageUrl) {
-      return <HeaderIcon name="Plugin Icon" imageUrl={pluginInfo.imageUrl} noMargin={true}/>;
+      return <HeaderIcon name="插件 Icon" imageUrl={pluginInfo.imageUrl} noMargin={true}/>;
     } else {
-      return <HeaderIcon name="Plugin does not have an icon" noMargin={true}/>;
+      return <HeaderIcon name="插件无 icon" noMargin={true}/>;
     }
   }
 }

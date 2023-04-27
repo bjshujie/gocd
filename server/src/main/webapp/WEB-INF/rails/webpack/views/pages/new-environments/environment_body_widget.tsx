@@ -41,7 +41,7 @@ export class ElementListWidget extends MithrilViewComponent<ElementListWidgetAtt
       <div class={styles.envBodyElementHeader} data-test-id={`${s.slugify(vnode.attrs.name)}-header`}>
         <span>{vnode.attrs.name}</span>
         <Icons.Edit iconOnly={true}
-                    title={environment.canAdminister() ? undefined : `You dont have permissions to edit '${environment.name()}' environment.`}
+                    title={environment.canAdminister() ? undefined : `您没有编辑环境 '${environment.name()}' 的权限.`}
                     disabled={!environment.canAdminister()}
                     onclick={vnode.attrs.modalToRender.bind(vnode.attrs.modalToRender, environment)}/>
       </div>
@@ -82,22 +82,22 @@ export class EnvironmentBody extends MithrilComponent<EnvironmentBodyAttrs, Envi
     const environment = vnode.attrs.environment;
 
     const plainTextVariables: m.Child = environment.environmentVariables().plainTextVariables().length === 0
-      ? <HelpText helpText="No Plain Text Environment Variables are defined." helpTextId="no-plain-text-env-var"/>
+      ? <HelpText helpText="未定义普通文本环境变量." helpTextId="no-plain-text-env-var"/>
       : <ul>{environment.environmentVariables().plainTextVariables().map(this.representPlainEnvVar)}</ul>;
 
     const secureVariables: m.Child = environment.environmentVariables().secureVariables().length === 0
-      ? <HelpText helpText="No Secure Environment Variables are defined." helpTextId="no-secure-env-var"/>
+      ? <HelpText helpText="未定义保密环境变量." helpTextId="no-secure-env-var"/>
       : <ul>{environment.environmentVariables().secureVariables().map(this.representSecureEnvVar)}</ul>;
 
     return <div class={styles.envBody} data-test-id={`environment-body-for-${environment.name()}`}>
-      <ElementListWidget name={"Pipelines"}
+      <ElementListWidget name={"算法"}
                          modalToRender={vnode.state.renderPipelinesModal}
                          environment={environment}>
         <ul data-test-id={`pipelines-content`}>
           {environment.pipelines().map((pipeline) => <li>{pipeline.name()}</li>)}
         </ul>
       </ElementListWidget>
-      <ElementListWidget name={"Agents"}
+      <ElementListWidget name={"节点"}
                          modalToRender={vnode.state.renderAgentsModal}
                          environment={environment}>
         <ul data-test-id={`agents-content`}>
@@ -107,13 +107,13 @@ export class EnvironmentBody extends MithrilComponent<EnvironmentBodyAttrs, Envi
           })}
         </ul>
       </ElementListWidget>
-      <ElementListWidget name={"Environment Variables"}
+      <ElementListWidget name={"环境变量"}
                          modalToRender={vnode.state.renderEnvironmentsVariablesModal}
                          environment={environment}>
         <div data-test-id={`environment-variables-content`}>
-          <div className={styles.envVarHeading}> Plain Text Environment Variables:</div>
+          <div className={styles.envVarHeading}> 普通文本环境变量:</div>
           {plainTextVariables}
-          <div className={styles.envVarHeading}> Secure Environment Variables:</div>
+          <div className={styles.envVarHeading}> 保密环境变量:</div>
           {secureVariables}
         </div>
       </ElementListWidget>

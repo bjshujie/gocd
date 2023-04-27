@@ -34,8 +34,8 @@ export class EnvironmentHeader extends MithrilViewComponent<EnvironmentHeaderAtt
     return <div class={styles.envHeader} data-test-id={`environment-header-for-${environment.name()}`}>
       <span title={environment.name()}
             class={styles.envName} data-test-id="env-name">{environment.name()}</span>
-      <KeyValuePair inline={true} data={new Map([["Pipeline Count", environment.pipelines().length]])}/>
-      <KeyValuePair inline={true} data={new Map([["Agent Count", agentCount]])}/>
+      <KeyValuePair inline={true} data={new Map([["算法数量", environment.pipelines().length]])}/>
+      <KeyValuePair inline={true} data={new Map([["节点数量", agentCount]])}/>
     </div>;
   }
 }

@@ -99,7 +99,7 @@ export class StaticAgentsWidget extends MithrilViewComponent<AgentsWidgetAttrs> 
       <Table data={tableData}
              headers={[
                StaticAgentsWidget.globalCheckBox(vnode),
-               "Agent Name", "Sandbox", "OS", "IP Address", "Status", "Free Space", "Resources", "Environments", ""]}
+               "节点名称", "沙盒", "操作系统", "IP 地址", "状态", "剩余空间", "资源", "环境", ""]}
              sortHandler={vnode.attrs.agentsVM.agentsSortHandler}/>
 
     </div>;

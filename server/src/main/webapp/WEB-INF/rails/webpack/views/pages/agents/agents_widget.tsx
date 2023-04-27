@@ -39,7 +39,7 @@ interface AgentsWidgetAttrs extends RequiresPluginInfos {
 
 export class AgentsWidget extends MithrilViewComponent<AgentsWidgetAttrs> {
   view(vnode: m.Vnode<AgentsWidgetAttrs>) {
-    return <Tabs tabs={["Static", "Elastic"]} contents={[
+    return <Tabs tabs={["静态节点", "弹性节点"]} contents={[
       <StaticAgentsWidget agentsVM={vnode.attrs.staticAgentsVM}
                           onEnable={vnode.attrs.onEnable}
                           onDisable={vnode.attrs.onDisable}

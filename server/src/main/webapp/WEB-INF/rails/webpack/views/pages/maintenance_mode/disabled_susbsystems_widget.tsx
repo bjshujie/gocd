@@ -27,29 +27,29 @@ interface Attrs {
 class InformationWhenNotInMaintenanceMode extends MithrilViewComponent<Attrs> {
   view(vnode: m.Vnode<Attrs>) {
     return <div data-test-id="info-when-not-in-maintenance-mode">
-      <h3 data-test-id="info-when-not-in-maintenance-mode-header">Enabling GoCD Server Maintenance mode will:</h3>
+      <h3 data-test-id="info-when-not-in-maintenance-mode-header">启用服务器维护模式将:</h3>
       <ul class={styles.gocdSubSystemInfo}>
         <SubsystemInfoWithIconWidget isReadOnly={true}
                                      dataTestId={"stop-material"}
-                                     text={"Stop the material subsystem so that no new materials are polled."}/>
+                                     text={"停止资料子系统，这样不会有新的资源被轮询拉取."}/>
         <SubsystemInfoWithIconWidget isReadOnly={true}
                                      dataTestId="stop-config-repo"
-                                     text={"Stop polling on config repositories."}/>
+                                     text={"停止轮询配置仓库."}/>
         <SubsystemInfoWithIconWidget isReadOnly={true}
                                      dataTestId="stop-pipeline-scheduling"
-                                     text={"Stop the scheduling subsystem so that no new pipelines are triggered (automatically or through timers)."}/>
+                                     text={"停止调度子系统，这样不会有新的算法实例被调度（自动或通过定时器）."}/>
         <SubsystemInfoWithIconWidget isReadOnly={true}
                                      dataTestId="stop-work-assignment"
-                                     text={"Stop the agent subsystem, so that no agents can pick up work if they’re idle."}/>
+                                     text={"停止节点子系统，这样处于空闲状态的节点不会去获取一个作业."}/>
         <SubsystemInfoWithIconWidget isReadOnly={true}
                                      dataTestId="stop-manual-trigger"
-                                     text={"Prevent users from triggering pipelines."}/>
+                                     text={"禁止用户启动一个算法."}/>
         <SubsystemInfoWithIconWidget isReadOnly={true}
                                      dataTestId="stop-config-changes"
-                                     text={"Prevent users from modifying configurations."}/>
+                                     text={"禁用用户修改配置."}/>
         <SubsystemInfoWithIconWidget isReadOnly={true}
                                      dataTestId="stop-db-changes"
-                                     text={"Prevent users from performing operations that modifies state in the database or filesystem. "}/>
+                                     text={"禁止用户修改数据库或文件系统状态的操作. "}/>
       </ul>
     </div>;
   }

@@ -71,15 +71,14 @@ export class BackupWidget extends MithrilComponent<Attrs> {
 
   private lastBackupDetails(vnode: m.Vnode<Attrs>) {
     if (vnode.attrs.lastBackupTime && vnode.attrs.lastBackupUser) {
-      return <p>Last backup was taken
-        by <span>'{vnode.attrs.lastBackupUser}'</span> at <span>{vnode.attrs.lastBackupTime.toLocaleString()}</span>
+      return <p>最近一次备份由 <span>'{vnode.attrs.lastBackupUser}'</span> 于 <span>{vnode.attrs.lastBackupTime.toLocaleString()}进行</span>
       </p>;
     }
   }
 
   private backupHelp() {
     return <div class={styles.backupHelp}>
-      <h3 class={styles.helpHeading}>On performing a backup, GoCD will create a backup of:</h3>
+      <h3 class={styles.helpHeading}>正在执行备份, 将会创建:</h3>
       <ul class={styles.helpItem}>
         <li>
           <strong>Configuration</strong> - An archive named <code>config-dir.zip</code> containing XML configuration, Jetty server
@@ -112,9 +111,8 @@ export class BackupWidget extends MithrilComponent<Attrs> {
 
   private backupConfigHelp(vnode: m.Vnode<Attrs>) {
     return <div class={styles.backupConfigHelp}>
-      <p>Backups are stored in <strong class={styles.backupLocation}>{vnode.attrs.backupLocation}</strong></p>
-      <p>To configure backups, please see <a target="_blank" href={docsUrl("advanced_usage/cron_backup.html")}>backup
-        configuration documentation</a></p>
+      <p>备份存储于 <strong class={styles.backupLocation}>{vnode.attrs.backupLocation}</strong></p>
+      <p>备份配置请查看 <a target="_blank" href={docsUrl("advanced_usage/cron_backup.html")}>备份配置文档</a></p>
     </div>;
   }
 

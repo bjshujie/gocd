@@ -54,11 +54,11 @@ export class CreateEnvModal extends Modal {
     }
     return <Form>
       <FlashMessage type={MessageType.info}
-                    message={"Pipelines, agents and environment variables can be added post creation of the environment."}/>
+                    message={"可在创建环境后在该环境中添加算法，节点和环境变量."}/>
       <div class={styles.createEnvErrMsgContainer}>
         {flashMsg}
       </div>
-      <TextField label="Environment name"
+      <TextField label="环境名称"
                  property={this.environment.name}
                  errorText={this.environment.errors().errorsForDisplay("name")}
                  required={true}/>
@@ -66,13 +66,13 @@ export class CreateEnvModal extends Modal {
   }
 
   title(): string {
-    return "Add New Environment";
+    return "创建环境";
   }
 
   buttons() {
     return [<ButtonGroup>
-      <Cancel data-test-id="button-cancel" onclick={() => this.close()} disabled={this.isLoading()}>Cancel</Cancel>
-      <Primary data-test-id="button-save" onclick={this.validateAndPerformSave.bind(this)} disabled={this.isLoading()}>Save</Primary>
+      <Cancel data-test-id="button-cancel" onclick={() => this.close()} disabled={this.isLoading()}>取消</Cancel>
+      <Primary data-test-id="button-save" onclick={this.validateAndPerformSave.bind(this)} disabled={this.isLoading()}>保存</Primary>
     </ButtonGroup>];
   }
 
@@ -86,7 +86,7 @@ export class CreateEnvModal extends Modal {
                       this.modalState = ModalState.OK;
                       result.do(
                         (successResponse: SuccessResponse<ObjectWithEtag<EnvironmentWithOrigin>>) => {
-                          this.onSuccessfulSave(<span>Environment <em>{this.environment.name()}</em> created successfully. Now pipelines, agents and environment variables can be added to the same.</span>);
+                          this.onSuccessfulSave(<span>环境 <em>{this.environment.name()}</em> 创建成功. 现在可以添加算法、节点和环境变量.</span>);
                           this.close();
                         },
                         (errorResponse: any) => {

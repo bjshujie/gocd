@@ -32,7 +32,7 @@ interface WidgetAttrs {
 
 class AgentAnalyticsModal extends AnalyticsModal<Agent> {
   title(): string {
-    return `Analytics for agent: ${this.entity.hostname}`;
+    return `节点分析: ${this.entity.hostname}`;
   }
 
   protected getUrlParams(): { [p: string]: string | number } {

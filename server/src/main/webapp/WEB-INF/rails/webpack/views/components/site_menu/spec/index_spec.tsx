@@ -40,7 +40,7 @@ describe("Site Menu", () => {
     const admin     = helper.qa("a").item(4);
     expect(dashboard).toHaveText("Dashboard");
     expect(dashboard).toHaveAttr("href", "/go/pipelines");
-    expect(agents).toHaveText("工作节点");
+    expect(agents).toHaveText("节点");
     expect(agents).toHaveAttr("href", "/go/agents");
     expect(materials).toHaveText("Materials");
     expect(materials).toHaveAttr("href", "/go/materials");
@@ -51,7 +51,7 @@ describe("Site Menu", () => {
     expect(findMenuItem("/go/admin/config_repos")).toHaveText("配置仓库");
     expect(findMenuItem("/go/admin/environments")).toHaveText("环境");
     expect(findMenuItem("/go/admin/templates")).toHaveText("模板");
-    expect(findMenuItem("/go/admin/elastic_agent_configurations")).toHaveText("弹性工作节点配置");
+    expect(findMenuItem("/go/admin/elastic_agent_configurations")).toHaveText("弹性节点配置");
     expect(findMenuItem("/go/admin/config_xml")).toHaveText("配置 XML");
     expect(findMenuItem("/go/admin/artifact_stores")).toHaveText("文档存储");
     expect(findMenuItem("/go/admin/secret_configs")).toHaveText("保密管理");
@@ -84,7 +84,7 @@ describe("Site Menu", () => {
     const admin     = helper.qa("a").item(4);
     expect(dashboard).toHaveText("Dashboard");
     expect(dashboard).toHaveAttr("href", "/go/pipelines");
-    expect(agents).toHaveText("工作节点");
+    expect(agents).toHaveText("节点");
     expect(agents).toHaveAttr("href", "/go/agents");
     expect(materials).toHaveText("Materials");
     expect(materials).toHaveAttr("href", "/go/materials");
@@ -95,7 +95,7 @@ describe("Site Menu", () => {
     expect(findMenuItem("/go/admin/config_repos")).toHaveText("配置仓库");
     expect(findMenuItem("/go/admin/templates")).toHaveText("模板");
     expect(findMenuItem("/go/admin/environments")).toHaveText("环境");
-    expect(findMenuItem("/go/admin/elastic_agent_configurations")).toHaveText("弹性工作节点配置");
+    expect(findMenuItem("/go/admin/elastic_agent_configurations")).toHaveText("弹性节点配置");
     expect(findMenuItem("/go/admin/config_xml")).toBeFalsy();
     expect(findMenuItem("/go/admin/config/server")).toBeFalsy();
     expect(findMenuItem("/go/admin/users")).toBeFalsy();
@@ -124,7 +124,7 @@ describe("Site Menu", () => {
     const admin     = helper.qa("a").item(4);
     expect(dashboard).toHaveText("Dashboard");
     expect(dashboard).toHaveAttr("href", "/go/pipelines");
-    expect(agents).toHaveText("工作节点");
+    expect(agents).toHaveText("节点");
     expect(agents).toHaveAttr("href", "/go/agents");
     expect(materials).toHaveText("Materials");
     expect(materials).toHaveAttr("href", "/go/materials");
@@ -135,7 +135,7 @@ describe("Site Menu", () => {
     expect(findMenuItem("/go/admin/environments")).toHaveText("环境");
     expect(findMenuItem("/go/admin/config_repos")).toHaveText("配置仓库");
     expect(findMenuItem("/go/admin/templates")).toHaveText("模板");
-    expect(findMenuItem("/go/admin/elastic_agent_configurations")).toHaveText("弹性工作节点配置");
+    expect(findMenuItem("/go/admin/elastic_agent_configurations")).toHaveText("弹性节点配置");
     expect(findMenuItem("/go/admin/pipelines/snippet")).toHaveText("配置 XML");
     expect(findMenuItem("/go/admin/config/server")).toBeFalsy();
     expect(findMenuItem("/go/admin/users")).toBeFalsy();
@@ -163,7 +163,7 @@ describe("Site Menu", () => {
     const admin     = helper.qa("a").item(3);
     expect(dashboard).toHaveText("Dashboard");
     expect(dashboard).toHaveAttr("href", "/go/pipelines");
-    expect(agents).toHaveText("工作节点");
+    expect(agents).toHaveText("节点");
     expect(agents).toHaveAttr("href", "/go/agents");
     expect(materials).toHaveText("Materials");
     expect(materials).toHaveAttr("href", "/go/materials");
@@ -185,14 +185,14 @@ describe("Site Menu", () => {
     const admin     = helper.qa("a").item(3);
     expect(dashboard).toHaveText("Dashboard");
     expect(dashboard).toHaveAttr("href", "/go/pipelines");
-    expect(agents).toHaveText("工作节点");
+    expect(agents).toHaveText("节点");
     expect(agents).toHaveAttr("href", "/go/agents");
     expect(materials).toHaveText("Materials");
     expect(materials).toHaveAttr("href", "/go/materials");
     expect(admin).toHaveText("系统管理");
     expect(findMenuItem("/go/admin/environments")).toHaveText("环境");
     expect(findMenuItem("/go/admin/config_repos")).toHaveText("配置仓库");
-    expect(findMenuItem("/go/admin/elastic_agent_configurations")).toHaveText("弹性工作节点配置");
+    expect(findMenuItem("/go/admin/elastic_agent_configurations")).toHaveText("弹性节点配置");
     expect(findMenuItem("/go/admin/scms")).toBeFalsy();
 
     expect(helper.qa(`a${sel.siteSubNavLink}`)).toHaveLength(3);

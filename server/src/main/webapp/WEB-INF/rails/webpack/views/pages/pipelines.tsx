@@ -108,7 +108,7 @@ export class PipelineCreatePage extends Page<{}, State> {
             <StageEditor stage={stage}/>
           </UserInputPane>
           <ConceptDiagram image={stageImg}>
-            A <strong>阶段</strong> 是作业的集合, 一个 <strong>作业</strong> 是要执行的算法的一片断.
+            一个<strong>阶段</strong> 是作业的集合, 一个 <strong>作业</strong> 是要执行的算法的一片断.
           </ConceptDiagram>
         </FillableSection>,
 
@@ -122,8 +122,7 @@ export class PipelineCreatePage extends Page<{}, State> {
             </AdvancedSettings>
           </UserInputPane>
           <ConceptDiagram image={jobImg}>
-            A <strong>job</strong> is like a script, where each sequential step is called a <strong>task</strong>. Typically, a task is a single
-            command.
+            一个<strong>作业</strong> 例如是一段脚本，它会按顺序调用每一步的 <strong>任务</strong>. 典型的一个任务就是一条命令.
           </ConceptDiagram>
         </FillableSection>
       ]),
@@ -161,8 +160,8 @@ export class PipelineCreatePage extends Page<{}, State> {
 
   helpText(): m.Children {
     return <div>
-      To read about the basic pipeline setup, follow
-      <Link href={docsUrl('configuration/quick_pipeline_setup.html')} externalLinkIcon={true}> this.</Link>
+      关于算法基本设置, 请查看
+      <Link href={docsUrl('configuration/quick_pipeline_setup.html')} externalLinkIcon={true}> 这里.</Link>
     </div>;
   }
 }

@@ -44,12 +44,12 @@ export class EnvironmentsDropdownButton extends AbstractDropdownButton<EnvAttrs>
                     onclick={(e: MouseEvent) => {
                       vnode.attrs.agentsVM.showResources(false);
                       this.toggleDropdown(vnode, e);
-                    }}>ENVIRONMENTS</Primary>;
+                    }}>环境</Primary>;
   }
 
   protected body(vnode: m.Vnode<DropdownAttrs & EnvAttrs>) {
     if (this.triStateCheckboxMap.size === 0) {
-      return <strong>No environments are defined.</strong>;
+      return <strong>未定义环境.</strong>;
     }
 
     return [
@@ -65,7 +65,7 @@ export class EnvironmentsDropdownButton extends AbstractDropdownButton<EnvAttrs>
       }),
       <div class={Style.dropdownContentFooter}>
         <Primary data-test-id="environment-to-apply"
-                 onclick={this.apply.bind(this, vnode)} disabled={this.areAllEnvsDisabled()}>Apply</Primary>
+                 onclick={this.apply.bind(this, vnode)} disabled={this.areAllEnvsDisabled()}>应用</Primary>
       </div>
     ];
   }
@@ -122,9 +122,9 @@ export class EnvironmentsDropdownButton extends AbstractDropdownButton<EnvAttrs>
 
   private static getTooltipContent(disabled: boolean, unknown: boolean) {
     if (disabled) {
-      return "Cannot edit Environment associated from Config Repo";
+      return "无法编辑与配置创建关联的环境";
     } else if (unknown) {
-      return "Environment is not defined in config XML";
+      return "在配置 XML中未配置资源";
     }
     return "";
   }
