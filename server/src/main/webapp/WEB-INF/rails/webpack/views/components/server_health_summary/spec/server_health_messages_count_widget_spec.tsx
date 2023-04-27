@@ -51,7 +51,7 @@ describe("ServerHealthMessagesCountWidget", () => {
   it("should render the count of errors and warnings", () => {
     helper.mount(() => <ServerHealthMessagesCountWidget serverHealthMessages={Stream(serverHealthMessages)}/>);
 
-    expect(helper.byTestId("server-health-messages-count")).toContainText("1 error and 1 warning");
+    expect(helper.byTestId("server-health-messages-count")).toContainText("1 个错误和 1 个警告");
   });
 
   it("should render the list of messages in modal on click", () => {

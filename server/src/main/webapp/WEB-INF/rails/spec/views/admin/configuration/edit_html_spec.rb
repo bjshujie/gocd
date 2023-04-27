@@ -56,8 +56,8 @@ describe "admin/configuration/edit.html.erb" do
               expect(form_heading).to have_selector("div.config_change_timestamp", :text => "Last modified: #{difference} by Ali")
               expect(form_heading).to have_selector("div.config_change_timestamp[title='Last modified: #{difference} by Ali']")
               form_heading.find("div.buttons-group").tap do |buttons_group|
-                expect(buttons_group).to have_selector("input#save_config[class='link_as_button primary'][type='submit'][value='SAVE'][disabled='disabled']")
-                expect(buttons_group).to have_selector("a#cancel_edit[class='link_as_button'][href='config_xml_view_path']", :text => "Cancel")
+                expect(buttons_group).to have_selector("input#save_config[class='link_as_button primary'][type='submit'][value='保存'][disabled='disabled']")
+                expect(buttons_group).to have_selector("a#cancel_edit[class='link_as_button'][href='config_xml_view_path']", :text => "取消")
               end
             end
             admin.find("div#content_area").tap do |content_area|

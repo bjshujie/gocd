@@ -71,7 +71,7 @@ describe("defaultJobTimeoutWidget", () => {
   describe("Cancel", () => {
     it("should render cancel button", () => {
       mount(new DefaultJobTimeout(0));
-      expect(helper.byTestId("cancel")).toHaveText("Cancel");
+      expect(helper.byTestId("cancel")).toHaveText("取消");
     });
 
     it("should call onCancel", () => {

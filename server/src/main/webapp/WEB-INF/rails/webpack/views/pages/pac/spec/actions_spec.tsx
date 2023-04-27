@@ -65,7 +65,7 @@ describe("AddPaC: Actions Section", () => {
     expect(top).toBeTruthy();
 
     expect(helper.q(sel.btnCancel, top)).toBeTruthy();
-    expect(helper.q(sel.btnCancel, top).textContent).toBe("Cancel");
+    expect(helper.q(sel.btnCancel, top).textContent).toBe("取消");
 
     const saveActions = helper.q(sel.finishBtnWrapper, top);
     expect(saveActions).toBeTruthy();
@@ -74,7 +74,7 @@ describe("AddPaC: Actions Section", () => {
     expect(helper.q(sel.errorResponse, saveActions).textContent).toBe("");
 
     expect(helper.q(sel.btnPrimary, saveActions)).toBeTruthy();
-    expect(helper.q(sel.btnPrimary, saveActions).textContent).toBe("Save");
+    expect(helper.q(sel.btnPrimary, saveActions).textContent).toBe("保存");
   });
 
   it("Does not create a config repo unless the model validates", () => {

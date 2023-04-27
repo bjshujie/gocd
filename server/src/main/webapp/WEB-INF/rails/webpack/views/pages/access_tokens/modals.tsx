@@ -37,7 +37,7 @@ export class GenerateTokenModal extends BaseModal {
   }
 
   title(): string {
-    return "Create Access Token";
+    return "创建访问令牌";
   }
 
   body(): m.Children {
@@ -50,7 +50,7 @@ export class GenerateTokenModal extends BaseModal {
     if (this.hasToken()) {
       return (<div>
         <FlashMessage type={MessageType.info}
-                      message="Make sure to copy your new personal access token now. You won't be able to see it again!"/>
+                      message="请确保现成复制了您的新个人访问令牌. 您将无法再看到令牌信息!"/>
         <CopyField size={Size.MATCH_PARENT} property={this.accessToken().token} buttonDisableReason=""/>
       </div>);
     } else {
@@ -61,7 +61,7 @@ export class GenerateTokenModal extends BaseModal {
                             rows={5}
                             size={Size.MATCH_PARENT}
                             errorText={this.accessToken().errors().errorsForDisplay("description")}
-                            helpText="What's this token for?"/>;
+                            helpText="这个令牌是用来做什么的?"/>;
 
     }
   }
@@ -85,7 +85,7 @@ export class GenerateTokenModal extends BaseModal {
 
   protected afterSuccess() {
     this.accessTokens().push(this.accessToken);
-    this.onSuccessfulSave("Access token was successfully created.");
+    this.onSuccessfulSave("访问令牌被成功创建.");
   }
 
   private hasToken() {

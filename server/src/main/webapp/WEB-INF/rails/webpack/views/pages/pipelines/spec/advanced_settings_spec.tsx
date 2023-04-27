@@ -38,7 +38,7 @@ describe("AddPipeline: AdvancedSettings", () => {
     const top = helper.q(sel.advancedSettings);
     expect(top).toBeTruthy();
     expect(helper.q(sel.summary, top)).toBeTruthy();
-    expect(helper.text(sel.summary, top)).toBe("Advanced Settings");
+    expect(helper.text(sel.summary, top)).toBe("高级设置");
 
     expect(helper.q(sel.details, top)).toBeTruthy();
     expect(helper.q(`${sel.details} .foo`, top)).toBeTruthy();

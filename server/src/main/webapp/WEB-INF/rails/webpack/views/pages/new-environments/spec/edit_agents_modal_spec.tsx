@@ -249,9 +249,9 @@ describe("Edit Agents Modal", () => {
 
   it('should render buttons', () => {
     expect(helper.byTestId("cancel-button")).toBeInDOM();
-    expect(helper.byTestId("cancel-button")).toHaveText("Cancel");
+    expect(helper.byTestId("cancel-button")).toHaveText("取消");
     expect(helper.byTestId("save-button")).toBeInDOM();
-    expect(helper.byTestId("save-button")).toHaveText("Save");
+    expect(helper.byTestId("save-button")).toHaveText("保存");
   });
 
   it('should disable save and cancel button if modal state is loading', () => {

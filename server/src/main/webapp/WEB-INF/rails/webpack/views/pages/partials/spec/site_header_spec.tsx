@@ -42,11 +42,11 @@ describe("Site Header", () => {
             showAnalyticsDashboard: false
           });
     expect(helper.text(`.${styles.userLink}`)).toBe("Jon Doe");
-    expect(findMenuItem("/go/preferences/notifications")).toHaveText("Preferences");
-    expect(findMenuItem("/go/access_tokens")).toHaveText("Personal Access Tokens");
-    expect(findMenuItem("/go/auth/logout")).toHaveText("Sign out");
+    expect(findMenuItem("/go/preferences/notifications")).toHaveText("个人设置");
+    expect(findMenuItem("/go/access_tokens")).toHaveText("我的访问令牌");
+    expect(findMenuItem("/go/auth/logout")).toHaveText("退出");
     expect(findMenuItem("/go/materials")).toHaveText("Materials");
-    expect(findMenuItem("https://gocd.org/help")).toHaveText("Need Help?");
+    expect(findMenuItem("https://gocd.org/help")).toHaveText("需要帮助?");
   });
 
   it("should not display the user menu when logged in as anonymous", () => {
@@ -64,7 +64,7 @@ describe("Site Header", () => {
     expect(findMenuItem("/go/access_tokens")).toBeFalsy();
     expect(findMenuItem("/go/auth/logout")).toBeFalsy();
     expect(findMenuItem("/go/materials")).toHaveText("Materials");
-    expect(findMenuItem("https://gocd.org/help")).toHaveText("Need Help?");
+    expect(findMenuItem("https://gocd.org/help")).toHaveText("需要帮助?");
   });
 
   function mount(attrs: Attrs) {

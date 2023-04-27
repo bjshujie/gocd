@@ -153,63 +153,63 @@ export class SiteMenu extends MithrilViewComponent<Attrs> {
     if (vnode.attrs.canViewAdminPage) {
       if (vnode.attrs.isUserAdmin) {
         adminMenu = (
-          <SiteNavItem isDropDown={true} text="Admin">
+          <SiteNavItem isDropDown={true} text="系统管理">
             <div class={styles.subNavigation}>
               <SiteSubNav>
-                <SiteSubNavItem href="/go/admin/pipelines" text="Pipelines"/>
-                <SiteSubNavItem href="/go/admin/environments" text="Environments"/>
-                <SiteSubNavItem href="/go/admin/templates" text="Templates"/>
-                <SiteSubNavItem href="/go/admin/config_xml" text="Config XML"/>
-                <SiteSubNavItem href="/go/admin/package_repositories/new" text="Package Repositories"/>
+                <SiteSubNavItem href="/go/admin/pipelines" text="算法"/>
+                <SiteSubNavItem href="/go/admin/environments" text="环境"/>
+                <SiteSubNavItem href="/go/admin/templates" text="模板"/>
+                <SiteSubNavItem href="/go/admin/config_xml" text="配置 XML"/>
+                <SiteSubNavItem href="/go/admin/package_repositories/new" text="包仓库"/>
               </SiteSubNav>
               <SiteSubNav>
-                <SiteSubNavItem href="/go/admin/elastic_agent_configurations" text="Elastic Agent Configurations"/>
-                <SiteSubNavItem href="/go/admin/config_repos" text="Config Repositories"/>
-                <SiteSubNavItem href="/go/admin/artifact_stores" text="Artifact Stores"/>
-                <SiteSubNavItem href="/go/admin/secret_configs" text="Secret Management"/>
-                <SiteSubNavItem href="/go/admin/scms" text="Pluggable SCMs"/>
+                <SiteSubNavItem href="/go/admin/elastic_agent_configurations" text="弹性工作节点配置"/>
+                <SiteSubNavItem href="/go/admin/config_repos" text="配置仓库"/>
+                <SiteSubNavItem href="/go/admin/artifact_stores" text="文档存储"/>
+                <SiteSubNavItem href="/go/admin/secret_configs" text="保密管理"/>
+                <SiteSubNavItem href="/go/admin/scms" text="SCM 插件"/>
               </SiteSubNav>
               <SiteSubNav>
-                <SiteSubNavHeading text="Server configuration"/>
-                <SiteSubNavItem href="/go/admin/config/server" text="Server Configuration"/>
-                <SiteSubNavItem href="/go/admin/maintenance_mode" text="Server Maintenance Mode"/>
-                <SiteSubNavItem href="/go/admin/backup" text="Backup"/>
-                <SiteSubNavItem href="/go/admin/plugins" text="Plugins"/>
+                <SiteSubNavHeading text="服务器配置"/>
+                <SiteSubNavItem href="/go/admin/config/server" text="服务器配置"/>
+                <SiteSubNavItem href="/go/admin/maintenance_mode" text="服务器维护模式"/>
+                <SiteSubNavItem href="/go/admin/backup" text="备份"/>
+                <SiteSubNavItem href="/go/admin/plugins" text="插件"/>
               </SiteSubNav>
               <SiteSubNav>
-                <SiteSubNavHeading text="Security"/>
-                <SiteSubNavItem href="/go/admin/security/auth_configs" text="Authorization Configuration"/>
-                <SiteSubNavItem href="/go/admin/security/roles" text="Role configuration"/>
-                <SiteSubNavItem href="/go/admin/users" text="Users Management"/>
-                <SiteSubNavItem href="/go/admin/admin_access_tokens" text="Access Tokens Management"/>
+                <SiteSubNavHeading text="安全"/>
+                <SiteSubNavItem href="/go/admin/security/auth_configs" text="授权配置"/>
+                <SiteSubNavItem href="/go/admin/security/roles" text="角色配置"/>
+                <SiteSubNavItem href="/go/admin/users" text="用户管理"/>
+                <SiteSubNavItem href="/go/admin/admin_access_tokens" text="访问令牌管理"/>
               </SiteSubNav>
             </div>
           </SiteNavItem>
         );
       } else if (vnode.attrs.isGroupAdmin) {
-        adminMenu = <SiteNavItem isDropDown={true} text="Admin">
+        adminMenu = <SiteNavItem isDropDown={true} text="系统管理">
           <div class={classnames(styles.subNavigation, styles.hasOnlyOneOption)}>
             <SiteSubNav>
-              <SiteSubNavItem href="/go/admin/pipelines" text="Pipelines"/>
-              <SiteSubNavItem href="/go/admin/environments" text="Environments"/>
-              <SiteSubNavItem href="/go/admin/templates" text="Templates"/>
-              <SiteSubNavItem href="/go/admin/pipelines/snippet" text="Config XML"/>
-              <SiteSubNavItem href="/go/admin/plugins" text="Plugins"/>
-              <SiteSubNavItem href="/go/admin/package_repositories/new" text="Package Repositories"/>
-              <SiteSubNavItem href="/go/admin/config_repos" text="Config Repositories"/>
-              <SiteSubNavItem href="/go/admin/elastic_agent_configurations" text="Elastic Agent Configurations"/>
-              <SiteSubNavItem href="/go/admin/scms" text="Pluggable SCMs"/>
+              <SiteSubNavItem href="/go/admin/pipelines" text="算法"/>
+              <SiteSubNavItem href="/go/admin/environments" text="环境"/>
+              <SiteSubNavItem href="/go/admin/templates" text="模板"/>
+              <SiteSubNavItem href="/go/admin/pipelines/snippet" text="配置 XML"/>
+              <SiteSubNavItem href="/go/admin/plugins" text="插件"/>
+              <SiteSubNavItem href="/go/admin/package_repositories/new" text="包仓库"/>
+              <SiteSubNavItem href="/go/admin/config_repos" text="配置仓库"/>
+              <SiteSubNavItem href="/go/admin/elastic_agent_configurations" text="弹性工作节点配置"/>
+              <SiteSubNavItem href="/go/admin/scms" text="SCM 插件"/>
             </SiteSubNav>
           </div>
         </SiteNavItem>;
       } else if (vnode.attrs.canViewTemplates) {
-        adminMenu = <SiteNavItem isDropDown={true} text="Admin">
+        adminMenu = <SiteNavItem isDropDown={true} text="系统管理">
           <div class={classnames(styles.subNavigation, styles.hasOnlyOneOption)}>
             <SiteSubNav>
-              <SiteSubNavItem href="/go/admin/environments" text="Environments"/>
-              <SiteSubNavItem href="/go/admin/templates" text="Templates"/>
-              <SiteSubNavItem href="/go/admin/config_repos" text="Config Repositories"/>
-              <SiteSubNavItem href="/go/admin/elastic_agent_configurations" text="Elastic Agent Configurations"/>
+              <SiteSubNavItem href="/go/admin/environments" text="环境"/>
+              <SiteSubNavItem href="/go/admin/templates" text="模板"/>
+              <SiteSubNavItem href="/go/admin/config_repos" text="配置仓库"/>
+              <SiteSubNavItem href="/go/admin/elastic_agent_configurations" text="弹性工作节点配置"/>
             </SiteSubNav>
           </div>
         </SiteNavItem>;
@@ -217,12 +217,12 @@ export class SiteMenu extends MithrilViewComponent<Attrs> {
     } else {
       //Normal users now too have access to environments and config-repo!!
       adminMenu = (
-        <SiteNavItem isDropDown={true} text="Admin">
+        <SiteNavItem isDropDown={true} text="系统管理">
           <div class={classnames(styles.subNavigation, styles.hasOnlyOneOption)}>
             <SiteSubNav>
-              <SiteSubNavItem href="/go/admin/environments" text="Environments"/>
-              <SiteSubNavItem href="/go/admin/config_repos" text="Config Repositories"/>
-              <SiteSubNavItem href="/go/admin/elastic_agent_configurations" text="Elastic Agent Configurations"/>
+              <SiteSubNavItem href="/go/admin/environments" text="环境"/>
+              <SiteSubNavItem href="/go/admin/config_repos" text="配置仓库"/>
+              <SiteSubNavItem href="/go/admin/elastic_agent_configurations" text="弹性工作节点配置"/>
             </SiteSubNav>
           </div>
         </SiteNavItem>
@@ -232,7 +232,7 @@ export class SiteMenu extends MithrilViewComponent<Attrs> {
     return <nav class={styles.mainMenu}>
       <ul class={styles.siteNav}>
         <SiteNavItem href="/go/pipelines" text="Dashboard"/>
-        <SiteNavItem href="/go/agents" text="Agents"/>
+        <SiteNavItem href="/go/agents" text="工作节点"/>
         <SiteNavItem href="/go/materials" text="Materials"/>
         {analyticsMenu}
         {adminMenu}

@@ -90,7 +90,7 @@ export class PipelinePauseHeader extends MithrilComponent<Attrs, State> {
               vnode.state.pipelineStatus().isPaused(false);
               vnode.state.pipelineStatus().pausedBy(undefined);
               vnode.state.pipelineStatus().pausedCause(undefined);
-              vnode.attrs.flashMessage.setMessage(MessageType.success, "Pipeline unpaused Successfully!");
+              vnode.attrs.flashMessage.setMessage(MessageType.success, "算法被成功恢复执行!");
 
               if (vnode.attrs.onPipelineUnpause) {
                 vnode.attrs.onPipelineUnpause(result);
@@ -115,15 +115,15 @@ export class PipelinePauseHeader extends MithrilComponent<Attrs, State> {
                                 property={vnode.state.pipelineStatus()!.pausedCause}
                                 rows={5}
                                 dataTestId="pause-pipeline-textarea"
-                                label="Specify the reason why you want to stop scheduling on this pipeline"/>;
+                                label="请填写您要暂停该算法执行的原因"/>;
 
-    new ConfirmationDialog("Pause pipeline", body, () => {
+    new ConfirmationDialog("暂停算法", body, () => {
       return vnode.state.pipelineStatus().pause().then((result) => {
         result.do(() => {
           const user = document.body.getAttribute("data-user-display-name") as string;
           vnode.state.pipelineStatus().isPaused(true);
           vnode.state.pipelineStatus().pausedBy(user);
-          vnode.attrs.flashMessage.setMessage(MessageType.success, "Pipeline paused Successfully!");
+          vnode.attrs.flashMessage.setMessage(MessageType.success, "算法被成功暂停!");
 
           if (vnode.attrs.onPipelinePause) {
             vnode.attrs.onPipelinePause(result);
@@ -144,7 +144,7 @@ export class PipelinePauseHeader extends MithrilComponent<Attrs, State> {
       return;
     }
 
-    let pauseMessage     = "Scheduling is paused";
+    let pauseMessage     = "调度被暂停";
     const pipelineStatus = vnode.state.pipelineStatus()!;
     if (pipelineStatus.pausedBy()) {
       pauseMessage += ` by ${pipelineStatus.pausedBy()}`;

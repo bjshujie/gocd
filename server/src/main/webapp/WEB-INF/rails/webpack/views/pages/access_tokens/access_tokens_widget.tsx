@@ -95,10 +95,10 @@ export class AccessTokensWidgetForCurrentUser extends MithrilViewComponent<Attrs
 
   getRevokeButton(vnode: m.Vnode<Attrs>, accessToken: Stream<AccessToken>) {
     if (accessToken().revoked()) {
-      return <span class={styles.revoked}>Revoked</span>;
+      return <span class={styles.revoked}>撤销</span>;
     }
     return <Buttons.Default data-test-id="button-revoke"
-                            onclick={vnode.attrs.onRevoke.bind(this, accessToken)}>Revoke</Buttons.Default>;
+                            onclick={vnode.attrs.onRevoke.bind(this, accessToken)}>撤销</Buttons.Default>;
   }
 
   private getActiveTokensView(vnode: m.Vnode<Attrs>) {
@@ -112,7 +112,7 @@ export class AccessTokensWidgetForCurrentUser extends MithrilViewComponent<Attrs
     }
 
     return <div class={styles.activeTokensTable}>
-      <Table headers={["Description", "Created At", "Last Used", "Revoke"]}
+      <Table headers={["描述", "创建时间", "最近使用时间", "是否被撤销"]}
              data={activeTokensData}/>
     </div>;
   }
@@ -126,7 +126,7 @@ export class AccessTokensWidgetForCurrentUser extends MithrilViewComponent<Attrs
 
     return <div class={styles.revokedTokensTable}>
       <Table data={revokedTokensData}
-             headers={["Description", "Created At", "Last Used", "Revoked By", "Revoked At", "Revoked Message"]}/>
+             headers={["描述", "创建时间", "最近使用时间", "撤销人", "撤销时间", "撤销信息"]}/>
     </div>;
   }
 
@@ -160,10 +160,10 @@ export class AccessTokensWidgetForAdmin extends MithrilViewComponent<AdminAttrs>
 
   public static helpTextWhenNoTokensCreated() {
     return <ul data-test-id="access_token_info">
-      <li>Navigate to <a href="/go/access_tokens">Personal Access Tokens</a>.</li>
-      <li>Click on "Generate Token" to create new personal access token.</li>
-      <li>The generated token can be used to access the GoCD API.
-        <Link href={docsUrl('configuration/access_tokens.html')} externalLinkIcon={true}> Learn More</Link>
+      <li>Navigate to <a href="/go/access_tokens">个人访问令牌</a>.</li>
+      <li>点击 "生成Token" 来创建新的个人访问令牌.</li>
+      <li>新创生成的令牌可用于访问系统API.
+        <Link href={docsUrl('configuration/access_tokens.html')} externalLinkIcon={true}> 学习更多</Link>
       </li>
     </ul>;
   }
@@ -182,7 +182,7 @@ export class AccessTokensWidgetForAdmin extends MithrilViewComponent<AdminAttrs>
           <SearchField property={vnode.attrs.searchText} dataTestId={"search-box"} placeholder={"Search tokens"}/>
         </div>
         <Tabs
-          tabs={["Active Tokens", "Revoked Tokens"]}
+          tabs={["激活的令牌", "已撤销停牌"]}
           contents={[
             this.getActiveTokensView(accessTokens.activeTokens(), vnode.attrs.onRevoke, vnode.attrs.searchText()),
             this.getRevokedTokensView(accessTokens.revokedTokens(), vnode.attrs.searchText())
@@ -195,10 +195,10 @@ export class AccessTokensWidgetForAdmin extends MithrilViewComponent<AdminAttrs>
   getRevokeButton(accessToken: Stream<AccessToken>,
                   onRevoke: (accessToken: Stream<AccessToken>, e: MouseEvent) => void) {
     if (accessToken().revoked()) {
-      return <span class={styles.revoked}>Revoked</span>;
+      return <span class={styles.revoked}>撤销</span>;
     }
     return <Buttons.Default data-test-id="button-revoke"
-                            onclick={onRevoke.bind(this, accessToken)}>Revoke</Buttons.Default>;
+                            onclick={onRevoke.bind(this, accessToken)}>撤销</Buttons.Default>;
   }
 
   private filterBySearchText(accessTokens: AccessTokens, searchText?: string) {
@@ -217,11 +217,11 @@ export class AccessTokensWidgetForAdmin extends MithrilViewComponent<AdminAttrs>
 
     const accessTokenDataPostFilter = this.getActiveTokensData(allActiveTokens, onRevoke, searchText);
     if (accessTokenDataPostFilter.length === 0) {
-      return <p>There are no active tokens matching your search query.</p>;
+      return <p>无匹配您的查询激活的令牌.</p>;
     }
 
     return <div class={styles.activeTokensTable}>
-      <Table headers={["Created By", "Description", "Created At", "Last Used", "Revoke"]}
+      <Table headers={["创建人", "描述", "创建时间", "最后使用时间", "是否已撤销"]}
              data={accessTokenDataPostFilter}/></div>;
   }
 
@@ -233,12 +233,12 @@ export class AccessTokensWidgetForAdmin extends MithrilViewComponent<AdminAttrs>
     const revokedTokensData = this.getRevokedTokensData(allRevokedTokens, searchText);
 
     if (revokedTokensData.length === 0) {
-      return <p>There are no revoked tokens matching your search query.</p>;
+      return <p>无匹配您的查询撤销的令牌.</p>;
     }
 
     return <div class={styles.revokedTokensTable}>
       <Table data={revokedTokensData}
-             headers={["Created By", "Description", "Created At", "Last Used", "Revoked By", "Revoked At", "Revoked Message"]}/>
+             headers={["创建人", "描述", "创建时间", "最后使用时间", "撤销人", "撤销时间", "撤销信息"]}/>
     </div>;
   }
 

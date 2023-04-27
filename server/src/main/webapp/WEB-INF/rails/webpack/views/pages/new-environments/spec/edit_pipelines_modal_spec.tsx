@@ -261,9 +261,9 @@ describe("Edit Pipelines Modal", () => {
 
   it('should render buttons', () => {
     expect(helper.byTestId("cancel-button")).toBeInDOM();
-    expect(helper.byTestId("cancel-button")).toHaveText("Cancel");
+    expect(helper.byTestId("cancel-button")).toHaveText("取消");
     expect(helper.byTestId("save-button")).toBeInDOM();
-    expect(helper.byTestId("save-button")).toHaveText("Save");
+    expect(helper.byTestId("save-button")).toHaveText("保存");
   });
 
   it("should render config repo pipelines with config repo link", () => {

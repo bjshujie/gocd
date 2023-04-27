@@ -61,7 +61,7 @@ export class AccessTokensPage extends Page<null, State> {
   }
 
   pageName(): string {
-    return "Personal Access Tokens";
+    return "个人访问令牌";
   }
 
   headerPanel(vnode: m.Vnode<null, State>): any {

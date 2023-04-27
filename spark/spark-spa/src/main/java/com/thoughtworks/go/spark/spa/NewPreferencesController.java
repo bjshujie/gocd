@@ -59,7 +59,7 @@ public class NewPreferencesController implements SparkController {
                 .put("smtp_configured", goConfigService.isSmtpEnabled())
                 .build();
         Map<String, Object> object = Map.of(
-            "viewTitle", "Preferences",
+            "viewTitle", "个人设置",
             "meta", meta
         );
         return new ModelAndView(object, null);

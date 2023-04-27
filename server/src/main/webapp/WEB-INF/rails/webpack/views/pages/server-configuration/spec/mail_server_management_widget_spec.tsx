@@ -50,8 +50,8 @@ describe("MailServerManagementWidget", () => {
 
     expect(helper.byTestId("cancel")).toBeInDOM();
     expect(helper.byTestId("save")).toBeInDOM();
-    expect(helper.byTestId("cancel")).toHaveText("Cancel");
-    expect(helper.byTestId("save")).toHaveText("Save");
+    expect(helper.byTestId("cancel")).toHaveText("取消");
+    expect(helper.byTestId("save")).toHaveText("保存");
   });
 
   describe("Save", () => {
@@ -70,7 +70,7 @@ describe("MailServerManagementWidget", () => {
   describe("Cancel", () => {
     it("should render cancel button", () => {
       mount(new MailServer());
-      expect(helper.byTestId("cancel")).toHaveText("Cancel");
+      expect(helper.byTestId("cancel")).toHaveText("取消");
     });
 
     it("should call onCancel", () => {
@@ -113,15 +113,15 @@ describe("MailServerManagementWidget", () => {
       mount(new MailServer());
 
       expect(helper.byTestId("test-connection-icon-success")).toBeInDOM();
-      expect(helper.textByTestId("flash-message-success")).toContain("Connection OK");
+      expect(helper.textByTestId("flash-message-success")).toContain("连接成功");
     });
 
     it('should show failure icon on the button', () => {
-      testMailResponse(new FlashMessageModel(MessageType.alert, "Not Acceptable"));
+      testMailResponse(new FlashMessageModel(MessageType.alert, "不可接受"));
       mount(new MailServer());
 
       expect(helper.byTestId("test-connection-icon-alert")).toBeInDOM();
-      expect(helper.textByTestId("flash-message-alert")).toContain("Not Acceptable");
+      expect(helper.textByTestId("flash-message-alert")).toContain("不可接受");
     });
   });
 

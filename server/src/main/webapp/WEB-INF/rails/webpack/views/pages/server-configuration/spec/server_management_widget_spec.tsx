@@ -96,7 +96,7 @@ describe("ServerManagementWidget", () => {
     it("should render cancel button", () => {
       mount(new SiteUrls());
       expect(helper.byTestId("cancel")).toBeInDOM();
-      expect(helper.byTestId("cancel")).toHaveText("Cancel");
+      expect(helper.byTestId("cancel")).toHaveText("取消");
     });
 
     it("should call onCancel", () => {

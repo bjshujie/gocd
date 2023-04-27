@@ -92,8 +92,8 @@ describe("ClonePipelineConfigModal", () => {
     m.redraw.sync();
     const modalTestHelper = new TestHelper().forModal();
 
-    expect(modal).toContainTitle(`Clone pipeline - blah`);
-    expect(modal).toContainButtons(["Cancel", "Clone"]);
+    expect(modal).toContainTitle(`克隆算法 - blah`);
+    expect(modal).toContainButtons(["取消", "克隆"]);
 
     modalTestHelper.oninput(modalTestHelper.byTestId("form-field-input-new-pipeline-name"), "new-pipeline-name");
     modalTestHelper.oninput(modalTestHelper.byTestId("form-field-input-pipeline-group-name"), "new-pipeline-group");
@@ -158,7 +158,7 @@ describe("MoveConfirmModal", () => {
     m.redraw.sync();
     const modalTestHelper = new TestHelper().forModal();
     expect(modal).toContainTitle(`Move pipeline ${pipelineGroups[0].pipelines()[0].name()}`);
-    expect(modal).toContainButtons(["Cancel", "Move"]);
+    expect(modal).toContainButtons(["取消", "移动"]);
 
     const targetPipelineGroup = pipelineGroupsJSON.groups[1].name;
 
@@ -181,7 +181,7 @@ describe("MoveConfirmModal", () => {
     m.redraw.sync();
     const modalTestHelper = new TestHelper().forModal();
     expect(modal).toContainTitle(`Move pipeline ${pipelineGroups[0].pipelines()[0].name()}`);
-    expect(modal).toContainButtons(["Cancel", "Move"]);
+    expect(modal).toContainButtons(["取消", "移动"]);
 
     const targetPipelineGroup = pipelineGroupsJSON.groups[1].name;
 

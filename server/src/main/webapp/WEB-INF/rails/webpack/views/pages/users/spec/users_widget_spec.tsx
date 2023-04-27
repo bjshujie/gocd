@@ -97,12 +97,12 @@ describe("UsersWidget", () => {
     expect(helper.textByTestId("user-username")).toContain("bob");
     expect(helper.textByTestId("user-display-name")).toContain("Bob");
     expect(helper.textByTestId("user-email")).toContain("bob@example.com");
-    expect(helper.textByTestId("user-enabled")).toContain("Yes");
+    expect(helper.textByTestId("user-enabled")).toContain("是");
 
     expect(helper.allByTestId("user-username")[1].textContent).toContain("alice");
     expect(helper.allByTestId("user-display-name")[1].textContent).toContain("Alice");
     expect(helper.allByTestId("user-email")[1].textContent).toContain("alice@example.com");
-    expect(helper.allByTestId("user-enabled")[1].textContent).toContain("No");
+    expect(helper.allByTestId("user-enabled")[1].textContent).toContain("否");
   });
 
   it("should render in progress icon if update operation is in progress", () => {

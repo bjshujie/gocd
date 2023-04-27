@@ -55,8 +55,8 @@ export class SiteHeader extends MithrilViewComponent<Attrs> {
           </a>
 
           <ul class={styles.userSubnav}>
-            <SiteSubNavItem href="/go/preferences/notifications" text="Preferences"/>
-            <SiteSubNavItem href="/go/access_tokens" text="Personal Access Tokens"/>
+            <SiteSubNavItem href="/go/preferences/notifications" text="个人设置"/>
+            <SiteSubNavItem href="/go/access_tokens" text="个人访问令牌"/>
             <SiteSubNavItem href="/go/auth/logout" text="退出"/>
           </ul>
         </div>
