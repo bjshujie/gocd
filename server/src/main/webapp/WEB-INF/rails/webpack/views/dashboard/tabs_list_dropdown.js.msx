@@ -46,7 +46,7 @@ const ViewTabsDropdownToggle = {
     const vm = vnode.attrs.vm;
     function toggleTabsListDropdown(e) { e.stopPropagation(); vm.toggleTabsListDropdown(); }
 
-    return <button class="tabs-list-dropdown-toggle" onclick={toggleTabsListDropdown} title="Views list">
+    return <button class="tabs-list-dropdown-toggle" onclick={toggleTabsListDropdown} title="视图列表">
       <i class="icon_tabs-list" />
     </button>;
   }

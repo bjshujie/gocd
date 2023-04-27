@@ -89,7 +89,7 @@ export class AuthConfigsPage extends Page<null, State> {
   }
 
   pageName(): string {
-    return "Authorization Configurations";
+    return "授权配置";
   }
 
   headerPanel(vnode: m.Vnode<null, State>): any {

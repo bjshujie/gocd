@@ -62,7 +62,7 @@ export class BackupPage extends Page<null, State> {
   }
 
   pageName() {
-    return "Backup";
+    return "备份";
   }
 
   headerPanel(vnode: m.Vnode<null, State>): any {

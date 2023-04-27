@@ -69,7 +69,7 @@ export class ComparePage extends Page<null, State> {
   }
 
   pageName(): string {
-    return "Compare";
+    return "对比";
   }
 
   fetchData(vnode: m.Vnode<null, State>): Promise<any> {

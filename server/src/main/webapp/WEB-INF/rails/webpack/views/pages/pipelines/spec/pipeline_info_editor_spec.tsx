@@ -38,7 +38,7 @@ describe("AddPipeline: PipelineInfoEditor", () => {
 
   it("Generates structure", () => {
     expect(helper.byTestId("form-field-label-pipeline-name")).toBeTruthy();
-    expect(helper.byTestId("form-field-label-pipeline-name").textContent).toBe("Pipeline Name*");
+    expect(helper.byTestId("form-field-label-pipeline-name").textContent).toBe("算法名称*");
 
     expect(helper.byTestId("form-field-input-pipeline-name")).toBeTruthy();
   });

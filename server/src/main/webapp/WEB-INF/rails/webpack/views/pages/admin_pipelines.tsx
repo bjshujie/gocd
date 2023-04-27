@@ -124,7 +124,7 @@ export class AdminPipelinesPage extends Page<null, State> {
     };
 
     vnode.state.doDeletePipeline = (pipeline) => {
-      const message = <span>Are you sure you want to delete the pipeline <em>{pipeline.name()}</em>?</span>;
+      const message = <span>您确定删除算法 <em>{pipeline.name()}</em> 吗?</span>;
 
       const modal: DeleteConfirmModal = new DeleteConfirmModal(message, () => {
         return ApiRequestBuilder.DELETE(SparkRoutes.adminPipelineConfigPath(pipeline.name()), ApiVersion.latest)
@@ -156,7 +156,7 @@ export class AdminPipelinesPage extends Page<null, State> {
             (successResponse) => {
               const msg = (
                 <span>
-                  A new template <em>{templateName}</em> was created successfully. The pipeline <em>{pipeline.name()}</em> uses this template!
+                  新模板 <em>{templateName}</em> 已成功创建. 算法 <em>{pipeline.name()}</em> 使用该模板!
                 </span>
               );
               vnode.state.onSuccessfulSave(msg);
@@ -215,7 +215,7 @@ export class AdminPipelinesPage extends Page<null, State> {
           document.body.removeChild(tempLink);
           URL.revokeObjectURL(blobUrl);
         }).catch((error) => {
-          const msg = "There was an unknown error downloading the pipeline configuration. Please refresh the page and try again.";
+          const msg = "下载算法配置时存在未知错误. 请刷新页面并重试.";
           vnode.state.onError(msg);
           this.scrollToTop();
         }).finally(() => {
@@ -304,14 +304,14 @@ export class AdminPipelinesPage extends Page<null, State> {
       <Buttons.Secondary css={buttonStyle}
                          icon={ButtonIcon.ADD}
                          disabled={!headerMeta().isUserAdmin}
-                         title={headerMeta().isUserAdmin ? "Create a new pipeline group" : "Only GoCD system administrators are allowed to create a pipeline group."}
+                         title={headerMeta().isUserAdmin ? "创建新算法组" : "仅允许系统管理员创建算法组."}
                          onclick={vnode.state.createPipelineGroup.bind(vnode.state)}
                          data-test-id="create-new-pipeline-group">Create new pipeline group</Buttons.Secondary>
     ];
     if (!_.isEmpty(vnode.state.pipelineGroups())) {
       const searchBox = <div className={configRepoStyles.wrapperForSearchBox}>
         <SearchField property={vnode.state.searchText} dataTestId={"search-box"}
-                     placeholder="Search for a pipeline name"/>
+                     placeholder="查询算法名称"/>
       </div>;
       headerButtons.splice(0, 0, searchBox);
     }

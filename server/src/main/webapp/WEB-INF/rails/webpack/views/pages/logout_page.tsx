@@ -25,11 +25,11 @@ export class LogoutPagePage extends Page {
   }
 
   pageName(): string {
-    throw new Error("Unsupported!");
+    throw new Error("不支持!");
   }
 
   componentToDisplay(vnode: m.Vnode): m.Children {
-    throw new Error("Unsupported!");
+    throw new Error("不支持!");
   }
 
   fetchData(vnode: m.Vnode): Promise<any> {

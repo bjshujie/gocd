@@ -71,7 +71,7 @@ public class CompareController implements SparkController {
         bombIfNotFound(pipelineName, fromCounter);
         bombIfNotFound(pipelineName, toCounter);
         Map<String, Object> object = Map.of(
-            "viewTitle", "Compare",
+            "viewTitle", "对比",
             "meta", meta(request)
         );
         return new ModelAndView(object, null);

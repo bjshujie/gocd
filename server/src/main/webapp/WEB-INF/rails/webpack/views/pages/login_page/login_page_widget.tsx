@@ -37,7 +37,7 @@ class LoginFormWidget extends MithrilViewComponent<AuthPluginInfo> {
           <ul class={styles.loginFormFields}>
             <li><input type="text"
                        name="j_username"
-                       placeholder="Username"
+                       placeholder="用户名"
                        class={styles.loginInput}
                        autofocus={true}
                        autocomplete="off"
@@ -47,7 +47,7 @@ class LoginFormWidget extends MithrilViewComponent<AuthPluginInfo> {
                        data-test-id="form-field-input-username"/></li>
             <li><input type="password"
                        name="j_password"
-                       placeholder="Password"
+                       placeholder="密码"
                        class={styles.loginInput}
                        autocomplete="off"
                        autocapitalize="off"
@@ -57,7 +57,7 @@ class LoginFormWidget extends MithrilViewComponent<AuthPluginInfo> {
             /></li>
 
             <li>
-              <button class={styles.loginButton}>Sign in</button>
+              <button class={styles.loginButton}>登录</button>
             </li>
           </ul>
         </form>

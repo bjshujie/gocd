@@ -28,7 +28,7 @@ const GroupingSwitch = {
     const vm = vnode.attrs.vm;
 
     return <Dropdown model={vm}
-                     label="Group pipelines by:"
+                     label="算法分组按:"
                      attrName="scheme"
                      class="grouping_select"
                      items={vm.groupByItems}/>;
@@ -70,7 +70,7 @@ export const DashboardWidget = {
 
         <div class="dashboard-container">
           {[<RewardBanner
-            rewardText="Congratulations! You just created your first pipeline in GoCD!"
+            rewardText="恭喜! 您刚刚创建了您的第一个算法!"
             key="addPipeline"
             query={m.parseQueryString(window.location.search).new_pipeline_name}
           />]}

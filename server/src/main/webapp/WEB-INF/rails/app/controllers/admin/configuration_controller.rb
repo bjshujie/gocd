@@ -30,12 +30,12 @@ class Admin::ConfigurationController < AdminController
     result = HttpLocalizedOperationResult.new
     config_validity = admin_service.updateConfig(params[:go_config], result)
     unless config_validity.isValid()
-      flash.now[:error] = 'Save failed, see errors below'
+      flash.now[:error] = '保存失败，请查看以下错误'
       @errors = [config_validity.errorMessage()]
       fetch_config
       if switch_to_split_pane?(config_validity)
-        flash.now[:error] = 'Someone has modified the configuration and your changes are in conflict. Please review, amend and retry.'
-        @flash_help_link = "<a class='' href='#{CurrentGoCDVersion.docs_url('configuration/configuration_reference.html')}' target='_blank'>Help Topic: Configuration</a>"
+        flash.now[:error] = '其它人修改了配置，与您的更改存在冲突。请复查、修改并重试.'
+        @flash_help_link = "<a class='' href='#{CurrentGoCDVersion.docs_url('configuration/configuration_reference.html')}' target='_blank'>帮助主题：配置</a>"
         @conflicted_config = GoConfig.new(params[:go_config])
         fetch_cruise_config_revision @go_config.md5
         @render_config_via_ajax = true
@@ -47,7 +47,7 @@ class Admin::ConfigurationController < AdminController
         render :edit and return
       end
     end
-    flash[:success] = config_validity.wasMerged() ? "Saved successfully. The configuration was modified by someone else, but your changes were merged successfully." : 'Saved successfully.'
+    flash[:success] = config_validity.wasMerged() ? "保存成功. 配置已被其他人修改，但您的更改已成功合并." : '保存成功.'
     redirect_to config_view_path
   end
 

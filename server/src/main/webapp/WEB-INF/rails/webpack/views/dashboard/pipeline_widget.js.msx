@@ -41,7 +41,7 @@ export const PipelineWidget = {
       });
     } else {
       pipelineInstances = (<div class="no_instance">
-        <p>You haven't run this pipeline yet. Click the play button to run pipeline.</p>
+        <p>您尚未启动该算法，请点击运行按钮启动算法.</p>
       </div>);
     }
 

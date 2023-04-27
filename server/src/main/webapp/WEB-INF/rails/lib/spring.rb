@@ -21,7 +21,7 @@ class Spring
   def self.bean(bean_name)
     context.get_bean(bean_name)
   rescue => e
-    puts "Error loading bean #{bean_name} : #{e}"
+    puts "加载bean #{bean_name} 错误: #{e}"
     beans = context.bean_definition_names.collect { |bean| bean }
     puts "Defined beans are: #{beans.sort.join(', ')}"
     raise e

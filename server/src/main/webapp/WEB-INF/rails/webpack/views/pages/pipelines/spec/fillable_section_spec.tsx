@@ -42,6 +42,6 @@ describe("AddPipeline: FillableSection", () => {
   it("Renders child elements", () => {
     const top = helper.q(sel.fillable);
     expect(top.querySelector(".foo")).toBeTruthy();
-    expect(top.querySelector(".foo")!.textContent).toBe("Some content");
+    expect(top.querySelector(".foo")!.textContent).toBe("输入一些内容");
   });
 });

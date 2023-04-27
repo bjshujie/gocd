@@ -67,7 +67,7 @@ export const PipelineOperationsWidget = {
         buttons:          () => {
           return [
             {
-              text:    "OK",
+              text:    "确定",
               class:   'save primary',
               onclick: () => {
                 self.pause(pipeline);
@@ -75,7 +75,7 @@ export const PipelineOperationsWidget = {
               }
             },
             {
-              text:    "CLOSE",
+              text:    "关闭",
               class:   'save secondary',
               onclick: () => self.destroyPausePopup(modal)
             }
@@ -93,7 +93,7 @@ export const PipelineOperationsWidget = {
       if (textStatus === 'parsererror') {
         return `Error occurred while fetching trigger with options information for pipeline "${pipelineName}". Check server logs for more information.`;
       }
-      return "There was an unknown error.";
+      return "未知错误.";
     };
 
     self.destroyPausePopup = (modal) => {
@@ -133,7 +133,7 @@ export const PipelineOperationsWidget = {
         buttons: () => {
           return [
             {
-              text:    "Trigger Pipeline",
+              text:    "启动算法",
               class:   'save primary',
               onclick: () => {
                 const isValid = self.triggerWithOptionsInfo().validate();
@@ -147,7 +147,7 @@ export const PipelineOperationsWidget = {
               }
             },
             {
-              text:    "CLOSE",
+              text:    "关闭",
               class:   'save secondary',
               onclick: onModalClose
             }
@@ -225,7 +225,7 @@ export const PipelineOperationsWidget = {
                       aria-label={pausedTitlenLabel} title={pausedTitlenLabel}/>
           </li>
         </ul>
-        <a href={pipeline.historyPath} class="pipeline_history">History</a>
+        <a href={pipeline.historyPath} class="pipeline_history">历史</a>
         {pipelinePauseMessage}
       </div>
     );

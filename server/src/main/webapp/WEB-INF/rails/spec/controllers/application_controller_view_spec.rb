@@ -36,7 +36,7 @@ describe NonApiController do
       get :localized_not_found_action
       expect(response.status).to eq(404)
       expect(response.body).to have_selector("div.biggest", :text=>":(")
-      expect(response.body).to have_selector("h3", :text=>"You do not have view permissions for pipeline 'mingle'.")
+      expect(response.body).to have_selector("h3", :text=>"您没有查看算法的权限")
     end
 
     it "should fail with double_render error when not rendering error" do

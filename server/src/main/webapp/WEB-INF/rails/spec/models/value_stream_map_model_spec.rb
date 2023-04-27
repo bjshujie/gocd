@@ -221,7 +221,7 @@ describe ValueStreamMapModel do
 
     p3_node = vsm.addDownstreamNode(PipelineDependencyNode.new(CaseInsensitiveString.new("p3"), "p3"), CaseInsensitiveString.new("current"))
     p3_node.setViewType(com.thoughtworks.go.domain.valuestreammap.VSMViewType::NO_PERMISSION)
-    p3_node.setMessage("You are not authorized to view this pipeline")
+    p3_node.setMessage("您未授权查看些算法")
 
 
     vsm_path_partial = proc do |pipeline_name, counter|
@@ -269,7 +269,7 @@ describe ValueStreamMapModel do
     expect(nodeP3.instances.size).to eq(0)
     expect(nodeP3.view_type).to eq("NO_PERMISSION")
     expect(nodeP3.locator).to eq("")
-    expect(nodeP3.message).to eq("You are not authorized to view this pipeline")
+    expect(nodeP3.message).to eq("您未授权查看些算法")
 
     nodeDummy = graph_model.levels[2].nodes[1]
     expect(nodeDummy.node_type).to eq(DependencyNodeType::DUMMY.to_s)
@@ -301,7 +301,7 @@ describe ValueStreamMapModel do
     expect(git_instance.revision).to eq(modification.getRevision())
     expect(git_instance.user).to eq(modification.getUserName())
     expect(git_instance.comment).to eq(modification.getComment())
-    expect(git_instance.modified_time).to eq("less than a minute ago")
+    expect(git_instance.modified_time).to eq("不到一分钟前")
   end
 
   it "should create VSM json model for material correctly" do
@@ -325,7 +325,7 @@ describe ValueStreamMapModel do
     expect(git_instance.revision).to eq(modification.getRevision())
     expect(git_instance.user).to eq(modification.getUserName())
     expect(git_instance.comment).to eq(modification.getComment())
-    expect(git_instance.modified_time).to eq("less than a minute ago")
+    expect(git_instance.modified_time).to eq("不到一分钟前")
   end
 
   def modifications

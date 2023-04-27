@@ -64,7 +64,7 @@ RSpec::Matchers.define :allow_action do |verb, expected_action, **args|
     end
 
     if @exception
-      messages << "An exception was raised #{@exception.message}."
+      messages << "引发了异常 #{@exception.message}."
     end
 
     messages.join("\n")
@@ -112,7 +112,7 @@ RSpec::Matchers.define :disallow_action do |verb, expected_action, **args|
     end
 
     if @exception
-      messages << "An exception was raised #{@exception.message}."
+      messages << "引发了异常 #{@exception.message}."
     end
 
     if @failed_with_bad_status

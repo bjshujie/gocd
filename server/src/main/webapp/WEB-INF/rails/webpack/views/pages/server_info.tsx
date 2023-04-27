@@ -33,7 +33,7 @@ export class ServerInfoPage extends Page<null, {}> {
   }
 
   pageName(): string {
-    return "Server Details";
+    return "服务器详情";
   }
 
   fetchData(vnode: m.Vnode<null, {}>): Promise<any> {

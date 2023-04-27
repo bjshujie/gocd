@@ -37,11 +37,11 @@ export class LoginPage extends Page<null> {
   }
 
   pageName(): string {
-    throw new Error("Unsupported!");
+    throw new Error("不支持!");
   }
 
   componentToDisplay(vnode: m.Vnode<null>): m.Children {
-    throw new Error("Unsupported!");
+    throw new Error("不支持!");
   }
 
   protected getMeta(): AuthPluginInfo {

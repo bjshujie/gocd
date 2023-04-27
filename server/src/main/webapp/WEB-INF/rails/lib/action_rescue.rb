@@ -22,7 +22,7 @@ module ActionRescue
       redirect_to :root
       return
     end
-    render_error_template 'Server error occured. Check log for details.', 500
+    render_error_template '服务器错误. 请查看日志详情.', 500
   end
 
   def format_exception(exception)
@@ -37,7 +37,7 @@ module ActionRescue
     elsif exception.respond_to?(:backtrace)
       exception.backtrace.join("\n")
     else
-      "could not extract stacktrace from exception: #{exception.class} (#{exception})"
+      "无法从异常中抽取堆栈跟踪信息: #{exception.class} (#{exception})"
     end
   end
 

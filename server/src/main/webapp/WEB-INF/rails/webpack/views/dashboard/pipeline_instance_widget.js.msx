@@ -73,12 +73,11 @@ export const PipelineInstanceWidget = {
 
     return (
       <div class="pipeline_instance">
-        <label class="pipeline_instance-label">Instance: {instance.label}</label>
+        <label class="pipeline_instance-label">实例: {instance.label}</label>
         <div class="more_info">
           <ul class="info">
-            <li><a href={instance.comparePath}>Compare</a></li>
-            <li><a onclick={vnode.state.toggleDropdown.bind(vnode)} aria-label="Changes" title="Changes"><span class="changes">Changes</span></a></li>
-            <li><a href={instance.vsmPath} title="Value Stream Map">VSM</a></li>
+            <li><a href={instance.comparePath}>对比</a></li>
+            <li><a href={instance.vsmPath} title="Value Stream Map">图形显示</a></li>
           </ul>
           {dropdownWidget}
         </div>

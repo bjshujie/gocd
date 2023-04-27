@@ -36,7 +36,7 @@ export class PipelineInstanceWidget extends MithrilViewComponent<InstanceAttrs> 
 
   view(vnode: m.Vnode<InstanceAttrs, this>): m.Children | void | null {
     if (!vnode.attrs.instance) {
-      return <FlashMessage type={MessageType.alert} message="Please select an instance!"/>;
+      return <FlashMessage type={MessageType.alert} message="请选择一个实例!"/>;
     }
     const scheduledDate = vnode.attrs.instance.scheduledDate();
     return <div data-test-id="pipeline-instance-widget">
@@ -44,8 +44,7 @@ export class PipelineInstanceWidget extends MithrilViewComponent<InstanceAttrs> 
       <div class={styles.pipelineInstanceDescription}>
         <StagesWidget stages={vnode.attrs.instance.stages()}/>
         <div data-test-id="triggered-by">
-          Triggered
-          by {vnode.attrs.instance.buildCause().getApprover()} on {PipelineInstanceWidget.getTimeToDisplay(scheduledDate)}
+          触发自 {vnode.attrs.instance.buildCause().getApprover()} on {PipelineInstanceWidget.getTimeToDisplay(scheduledDate)}
         </div>
       </div>
       <div data-test-id="instance-material-revisions" class={styles.materialRevisions}>

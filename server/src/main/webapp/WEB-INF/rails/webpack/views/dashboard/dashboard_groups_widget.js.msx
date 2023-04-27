@@ -67,10 +67,9 @@ class Dropdown {
         aria-label={vm.ariaLabelForNewPipeline()}
         title={vm.titleForNewPipeline()}
         disabled={!vm.canAdminister}
-        text="New Pipeline">
+        text="创建算法">
         <ul class="new-pipeline-items">
-          <li class="new-pipeline-item"><a href={paths.new}>Use Pipeline Wizard</a></li>
-          <li class="new-pipeline-item"><a href={paths.asCode}>Use Pipelines as Code</a></li>
+          <li class="new-pipeline-item"><a href={paths.new}>使用算法向导</a></li>
         </ul>
       </Buttons.SimpleDropdown>;
   }

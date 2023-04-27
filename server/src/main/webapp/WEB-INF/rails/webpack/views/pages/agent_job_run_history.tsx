@@ -43,7 +43,7 @@ export class AgentJobRunHistoryPage extends Page<null, State> {
   }
 
   pageName() {
-    return "Agent Job Run History";
+    return "工作节点作业执行历史";
   }
 
   fetchData(vnode: m.Vnode<null, State>): Promise<any> {

@@ -77,7 +77,7 @@ class ApplicationController < ActionController::Base
   end
 
   def unresolved
-    render_error_response 'The url you are trying to reach appears to be incorrect.', 404, false
+    render_error_response '您试图访问的url似乎不正确.', 404, false
   end
 
   def error_template_for_request

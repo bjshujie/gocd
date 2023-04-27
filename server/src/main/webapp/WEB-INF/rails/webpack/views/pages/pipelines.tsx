@@ -62,7 +62,7 @@ export class PipelineCreatePage extends Page<{}, State> {
   private model = new PipelineConfigVM();
 
   pageName(): string {
-    return "Add a New Pipeline";
+    return "创建新算法";
   }
 
   oninit(vnode: m.Vnode<{}, State>) {
@@ -84,40 +84,38 @@ export class PipelineCreatePage extends Page<{}, State> {
     const mergedPkgRepos                                    = PackageRepositoriesPage.getMergedList(vnode.state.packageRepositories, vnode.state.packages);
     return [
       <FillableSection>
-        <UserInputPane heading="Part 1: Material">
+        <UserInputPane heading="部分 1: 启动器">
           <MaterialEditor material={material} showExtraMaterials={true} pluggableScms={vnode.state.scmMaterials()} pipelineGroupName={this.model.pipeline.group()}
                           readonly={false} packageRepositories={mergedPkgRepos} pluginInfos={vnode.state.pluginInfos()}/>
         </UserInputPane>
         <ConceptDiagram image={materialImg}>
-          A <strong>material</strong> triggers your pipeline to run. Typically this is a <strong>source repository</strong> or an <strong>upStream
-          pipeline</strong>.
+          A <strong>material</strong> 启动您的算法. 典型为一个 <strong>启动器</strong> 或者是 <strong>上流算法</strong>.
         </ConceptDiagram>
       </FillableSection>,
 
       <FillableSection>
-        <UserInputPane heading="Part 2: Pipeline Name">
+        <UserInputPane heading="部分 2: 算法名称">
           <PipelineInfoEditor pipelineConfig={pipeline} isUsingTemplate={isUsingTemplate}/>
         </UserInputPane>
         <ConceptDiagram image={pipelineImg}>
-          In GoCD, a <strong>pipeline</strong> is a representation of a <strong>workflow</strong>. Pipelines consist of one or
-          more <strong>stages</strong>.
+          <strong>算法</strong> 代表一个 <strong>工作流程</strong>. 算法包含一个或多个 <strong>阶段</strong>.
         </ConceptDiagram>
       </FillableSection>,
 
       this.model.whenTemplateAbsent(() => [
         <FillableSection>
-          <UserInputPane heading="Part 3: Stage Details">
+          <UserInputPane heading="部分 3: 阶段详情">
             <StageEditor stage={stage}/>
           </UserInputPane>
           <ConceptDiagram image={stageImg}>
-            A <strong>stage</strong> is a group of jobs, and a <strong>job</strong> is a piece of work to execute.
+            A <strong>阶段</strong> 是作业的集合, 一个 <strong>作业</strong> 是要执行的算法的一片断.
           </ConceptDiagram>
         </FillableSection>,
 
         <FillableSection>
-          <UserInputPane heading="Part 4: Job and Tasks">
+          <UserInputPane heading="部分 4: 作业和任务">
             <JobEditor job={job}/>
-            <TaskTerminalField label="Type your tasks below at the prompt" property={job.tasks} errorText={job.errors().errorsForDisplay("tasks")}
+            <TaskTerminalField label="在下面的提示符中输入您的任务" property={job.tasks} errorText={job.errors().errorsForDisplay("tasks")}
                                required={true}/>
             <AdvancedSettings forceOpen={_.some(job.environmentVariables(), (env) => env.errors().hasErrors())}>
               <EnvironmentVariablesWidget environmentVariables={job.environmentVariables()}/>

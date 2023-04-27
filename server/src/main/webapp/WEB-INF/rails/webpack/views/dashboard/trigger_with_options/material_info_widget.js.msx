@@ -68,22 +68,22 @@ export const MaterialInfoWidget = {
           </li>
 
           <li class="name-value_pair destination">
-            <label>Destination</label>
+            <label>目标</label>
             <span class="value">{destination}</span>
           </li>
 
           <li class="name-value_pair date">
-            <label>Date</label>
+            <label>日期</label>
             <span class="value">{date}</span>
           </li>
 
           <li class="name-value_pair user">
-            <label>User</label>
+            <label>用户</label>
             <span class="value">{user}</span>
           </li>
 
           <li class="name-value_pair comment">
-            <label>Comment</label>
+            <label>说明</label>
             <span class="value">{comment}</span>
           </li>
 

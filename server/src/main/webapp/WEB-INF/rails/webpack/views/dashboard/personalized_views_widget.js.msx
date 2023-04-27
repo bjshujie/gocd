@@ -40,7 +40,7 @@ export const PersonalizedViewsWidget = {
 
 const AddTab = {
   view(vnode) {
-    return <button class="add-tab" {...vnode.attrs} title="Add a view">
+    return <button class="add-tab" {...vnode.attrs} title="添加视图">
       <i class="icon_add" />
     </button>;
   }

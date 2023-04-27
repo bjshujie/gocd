@@ -234,7 +234,7 @@ export class ConfigReposPage extends Page<null, State> {
   }
 
   pageName(): string {
-    return "Config repositories";
+    return "配置仓库";
   }
 
   helpText(): m.Children {

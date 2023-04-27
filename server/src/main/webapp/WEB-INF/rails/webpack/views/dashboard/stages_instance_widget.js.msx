@@ -31,12 +31,12 @@ export const StagesInstanceWidget = {
       const modal = new Modal({
         size:    'small',
         title:   `Trigger stage ${stage.name}`,
-        body:    () => <div class="manual-stage-trigger-body">Do you want to trigger stage '<em>{stage.name}</em>'?</div>,
+        body:    () => <div class="manual-stage-trigger-body">您是否要启动阶段 '<em>{stage.name}</em>'?</div>,
         onclose: () => modal.destroy(),
         buttons: () => {
           return [
             {
-              text:    "OK",
+              text:    "确定",
               class:   'save primary',
               onclick: () => {
                 stage.trigger().then((res) => {
@@ -50,7 +50,7 @@ export const StagesInstanceWidget = {
               }
             },
             {
-              text:    "CLOSE",
+              text:    "关闭",
               class:   'save secondary',
               onclick: () => {
                 return modal.destroy();

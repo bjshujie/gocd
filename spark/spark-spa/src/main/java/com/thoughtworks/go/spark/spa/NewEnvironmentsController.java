@@ -51,7 +51,7 @@ public class NewEnvironmentsController implements SparkController {
 
     public ModelAndView index(Request request, Response response) {
         Map<String, Object> object = Map.of(
-            "viewTitle", "Environments"
+            "viewTitle", "环境"
         );
 
         return new ModelAndView(object, null);

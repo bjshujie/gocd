@@ -105,7 +105,7 @@ describe('PackageFieldsSpec', () => {
     expect(helper.byTestId('package-msg')).not.toBeInDOM();
     const msgElement = helper.byTestId('package-repo-msg');
     expect(msgElement).toBeInDOM();
-    expect(msgElement.textContent).toBe('Create New or select existing.');
+    expect(msgElement.textContent).toBe('创建或选择已存在的.');
     expect(helper.q('a', msgElement)).toHaveAttr('href', SparkRoutes.packageRepositoriesSPA());
   });
 
@@ -128,7 +128,7 @@ describe('PackageFieldsSpec', () => {
 
     const msgElement = helper.byTestId('package-msg');
     expect(msgElement).toBeInDOM();
-    expect(msgElement.textContent).toBe('Create New or select existing.');
+    expect(msgElement.textContent).toBe('创建或选择已存在的.');
     expect(helper.q('a', msgElement)).toHaveAttr('href', SparkRoutes.packageRepositoriesSPA() + "#!pkg-repo-name/create-package");
   });
 
@@ -203,7 +203,7 @@ describe('PackageFieldsSpec', () => {
 
     const pkgRepoMsgElement = helper.byTestId('package-repo-msg');
     expect(pkgRepoMsgElement).toBeInDOM();
-    expect(pkgRepoMsgElement.textContent).toBe('Create New or select existing.');
+    expect(pkgRepoMsgElement.textContent).toBe('创建或选择已存在的.');
     expect(helper.q('a', pkgRepoMsgElement)).toHaveAttr('href', SparkRoutes.packageRepositoriesSPA());
 
     const pkgMsgElement = helper.byTestId('package-msg');

@@ -25,7 +25,7 @@ export const ActionableMessage = {
     if (config) {
       const hide = () => vm.actionPopup(null);
       const classes = _.uniq(_.compact(["actionable-message", config.class]));
-      const BUTTON_DEFAULTS = { class: "button", text: "OK", onclick: hide };
+      const BUTTON_DEFAULTS = { class: "button", text: "确定", onclick: hide };
 
       return <div class={classes.join(" ")}>
         <i class="revert" onclick={config.onabort || hide}></i>

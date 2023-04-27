@@ -39,7 +39,7 @@ export const PipelinePauseModalBody = {
                value={pauseMessage()}
                label={[
                  <span
-                   class="required">Specify a reason for pausing schedule on pipeline {vnode.attrs.pipelineName}</span>,
+                   class="required">请填写暂停算法的原因 {vnode.attrs.pipelineName}</span>,
                ]}
       />
     </div>);

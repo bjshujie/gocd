@@ -115,7 +115,7 @@ export class RolesPage extends Page<null, State> {
   }
 
   pageName(): string {
-    return "Server Roles";
+    return "服务器角色";
   }
 
   headerPanel(vnode: m.Vnode<null, State>) {

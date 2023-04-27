@@ -27,7 +27,7 @@ export const SortableViewTabs = {
     const vm    = vnode.attrs.vm;
     const attrs = {
       class:        "dashboard-tabs-sortable",
-      "aria-label": "Dashboard Views",
+      "aria-label": "Dashboard视图",
       onscroll:     throttleRaf(() => vm.hideAllDropdowns())
     };
 
@@ -118,7 +118,7 @@ function initSavePopup(vm) {
           <span class="reason">{JSON.parse(xhr.responseText).message}</span>
         </span>,
         onabort: onreset,
-        buttons: [{class: "btn-secondary", text: "Revert", onclick: onreset}]
+        buttons: [{class: "btn-secondary", text: "反转", onclick: onreset}]
       });
 
       m.redraw();
@@ -127,7 +127,7 @@ function initSavePopup(vm) {
 
   vm.actionPopup({
     class:   "save-tab-order-confirmation",
-    body:    <span class="save-tab-order-message">Save view order?</span>,
+    body:    <span class="save-tab-order-message">保存视图顺序?</span>,
     onabort: onreset,
     buttons: [
       {class: "btn-link", text: "Revert", onclick: onreset},

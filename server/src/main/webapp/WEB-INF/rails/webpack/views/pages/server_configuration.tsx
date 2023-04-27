@@ -218,7 +218,7 @@ export class ServerConfigurationPage extends Page<null, State> {
   }
 
   pageName(): string {
-    return "Server Configuration";
+    return "服务器配置";
   }
 
   fetchData(vnode: m.Vnode<null, State>): Promise<any> {

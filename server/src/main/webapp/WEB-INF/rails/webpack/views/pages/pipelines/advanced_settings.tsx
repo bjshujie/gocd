@@ -41,7 +41,7 @@ export class AdvancedSettings extends MithrilViewComponent<Attrs> {
 
   view(vnode: m.Vnode<Attrs>): m.Children | void | null {
     return <dl class={classnames(css.advancedSettings, {[css.lockOpen]: vnode.attrs.forceOpen})}>
-      <dt class={css.summary}>Advanced Settings</dt>
+      <dt class={css.summary}>高级设置</dt>
       <dd class={css.details}>{vnode.children}</dd>
     </dl>;
   }

@@ -54,7 +54,7 @@ function personalizeEditor(opts, personalization, model) {
 
   function deleteView() {
     const dialog = new Modal({
-      title:   "Delete View",
+      title:   "删除视图",
       size:    "overlay-delete-view",
       body:    () => m("span", null, [
         "Do you want to delete view ",
@@ -74,7 +74,7 @@ function personalizeEditor(opts, personalization, model) {
           }).fail((xhr) => {
             const reason = mrequest.unwrapErrorExtractMessage(xhr.responseText);
             dialog.replace({
-              title:   "Delete View",
+              title:   "删除视图",
               size:    "overlay-delete-view",
               body:    () => m("span", {"class": "server-error-response"}, [
                 m("i", {"class": "icon_alert"}),
@@ -88,28 +88,28 @@ function personalizeEditor(opts, personalization, model) {
             });
           }).always(m.redraw);
         }
-      }, {text: "Cancel", class: "btn-link"}]
+      }, {text: "取消", class: "btn-link"}]
     });
   }
 
   const buttons = [
-    {text: "Save", class: "btn-save", disabled: vm.invalid, onclick: save, tooltipText: vm.firstError},
-    {text: "Cancel", class: "btn-cancel btn-link"}
+    {text: "保存", class: "btn-save", disabled: vm.invalid, onclick: save, tooltipText: vm.firstError},
+    {text: "取消", class: "btn-cancel btn-link"}
   ];
 
   const disabled    = () => (model.names().length < 2);
   const tooltipText = () => {
     if (disabled()) {
-      return "Cannot delete the last view. You must have at least one.";
+      return "不能删除最后一个视频. 至少存在一个视图.";
     }
   };
 
   if (existing) {
-    buttons.unshift({text: "Delete View", class: "btn-delete", onclick: deleteView, disabled, tooltipText});
+    buttons.unshift({text: "删除视图", class: "btn-delete", onclick: deleteView, disabled, tooltipText});
   }
 
   this.modal = new Modal({
-    title:       existing ? `Edit ${opts.name}` : "Create new view",
+    title:       existing ? `编辑 ${opts.name}` : "创建新视图",
     size:        "overlay-personalize-editor",
     body:        () => m(PersonalizationModalWidget, {vm, save}),
     globalClick: () => {

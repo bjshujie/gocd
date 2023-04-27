@@ -119,7 +119,7 @@ export class SecretConfigsPage extends Page<null, State> {
   }
 
   pageName(): string {
-    return "Secret Configs";
+    return "保密设置";
   }
 
   fetchData(vnode: m.Vnode<null, State>): Promise<any> {

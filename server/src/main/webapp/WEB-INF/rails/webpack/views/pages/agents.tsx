@@ -138,7 +138,7 @@ export class AgentsPage extends Page<null, State> {
   }
 
   private static pluralizeAgent(count: number) {
-    return count > 1 ? "agents" : "agent";
+    return count > 1 ? "计算节点" : "计算节点";
   }
 
   private onResult(result: ApiResult<string>, action: string, count: number) {

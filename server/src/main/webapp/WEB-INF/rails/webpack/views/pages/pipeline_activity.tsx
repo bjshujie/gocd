@@ -90,8 +90,8 @@ export class PipelineActivityPage extends Page<null, State> implements ResultAwa
   }
 
   runPipeline() {
-    new ConfirmationDialog("Run pipeline",
-      <div>{`Do you want to run the pipeline '${this.meta.pipelineName}'?`}</div>,
+    new ConfirmationDialog("运行算法",
+      <div>{`你确定执行算法 '${this.meta.pipelineName}' 吗?`}</div>,
                            () => this.service
                                      .run(this.meta.pipelineName)
                                      .then((result) => this.handleActionApiResponse(result, () => {
@@ -101,8 +101,8 @@ export class PipelineActivityPage extends Page<null, State> implements ResultAwa
   }
 
   runStage(stage: Stage) {
-    new ConfirmationDialog("Run stage",
-      <div>{`Do you want to run the stage '${stage.stageName()}'?`}</div>,
+    new ConfirmationDialog("运行阶段",
+      <div>{`您确定运行阶段 '${stage.stageName()}' 吗?`}</div>,
                            () => this.service
                                      .runStage(stage)
                                      .then((result) => this.handleActionApiResponse(result, () => {
@@ -144,7 +144,7 @@ export class PipelineActivityPage extends Page<null, State> implements ResultAwa
   }
 
   pageName(): string {
-    return "Pipeline Activity";
+    return "算法活动";
   }
 
   fetchData(vnode: m.Vnode<null, State>): Promise<any> {

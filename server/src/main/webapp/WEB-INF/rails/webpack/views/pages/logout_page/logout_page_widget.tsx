@@ -41,7 +41,7 @@ export class LogoutPageWidget extends MithrilViewComponent<AuthPluginInfo> {
         <div class={styles.logoutGraphics}>
           <img src={loggedOut}/>
         </div>
-        <p>You have been logged out. <a href={LOGIN_PAGE_URL}>Click here</a> to login again.</p>
+        <p>您已退出. <a href={LOGIN_PAGE_URL}>点进这里</a> 重新登录.</p>
       </div>
     );
   }
@@ -53,8 +53,8 @@ export class LogoutPageWidget extends MithrilViewComponent<AuthPluginInfo> {
           <img src={loggedOut}/>
         </div>
         <p>
-          You have been logged out.
-          You will be automatically redirected to the <a href={LOGIN_PAGE_URL}>login page</a> in a few seconds.
+          您已退出.
+          您将在几秒种内自动被重定向到 <a href={LOGIN_PAGE_URL}>登录页</a>
         </p>
       </div>
     );

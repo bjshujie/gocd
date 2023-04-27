@@ -96,7 +96,7 @@ export class ArtifactStoresPage extends Page<null, State> {
   }
 
   pageName(): string {
-    return "Artifact Stores";
+    return "文件存储";
   }
 
   headerPanel(vnode: m.Vnode<null, State>): any {

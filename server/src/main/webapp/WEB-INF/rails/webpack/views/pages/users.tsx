@@ -96,8 +96,8 @@ export class UsersPage extends Page<null, State> {
     vnode.state.onDelete = (usersToDelete, e) => {
       const enabledUsers = usersToDelete.selectedUsers().enabledUsers();
       if (enabledUsers.length > 0) {
-        const message = `Failed to delete enabled user(s) "${enabledUsers.userNamesOfSelectedUsers()
-                                                                         .join(",")}". Disable the user(s) and try again.`;
+        const message = `删除已启用的用户失败 "${enabledUsers.userNamesOfSelectedUsers()
+                                                                         .join(",")}". 停用用户并重试.`;
         this.flashMessage.setMessage(MessageType.alert,
                                      message);
         return;
@@ -165,7 +165,7 @@ export class UsersPage extends Page<null, State> {
     let bannerToDisplay;
     if (vnode.state.userViewHelper().noAdminsConfigured()) {
       bannerToDisplay = (<FlashMessage type={MessageType.warning}
-                                       message="There are currently no administrators defined in the configuration. This makes everyone an administrator. We recommend that you explicitly make user a system administrator."/>);
+                                       message="当前未定义管理员，任何人都被视为管理员，我们建议您明确的创建系统管理员."/>);
     }
 
     return (
@@ -180,7 +180,7 @@ export class UsersPage extends Page<null, State> {
   }
 
   pageName(): string {
-    return "Users Management";
+    return "用户管理";
   }
 
   headerPanel(vnode: m.Vnode<null, State>) {

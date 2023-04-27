@@ -38,14 +38,14 @@ describe AdminController do
       expect(controller).to receive(:action_has_layout?).and_return(true)
       expect(controller).to receive_render_with({:template => "shared/config_error.html", :layout => "application", :status => 404})
       expect(controller.send(:assert_load, :junk, nil)).to be_falsey
-      expect(controller.instance_variable_get('@message')).to eq("Error occurred while trying to complete your request.")
+      expect(controller.instance_variable_get('@message')).to eq("完成您的请求时发生了错误.")
     end
 
     it "should not render error page layout when action doesn't have one" do
       expect(controller).to receive(:action_has_layout?).and_return(false)
       expect(controller).to receive_render_with({:template => "shared/config_error.html", :layout => nil, :status => 404})
       expect(controller.send(:assert_load, :junk, nil)).to be_falsey
-      expect(controller.instance_variable_get('@message')).to eq("Error occurred while trying to complete your request.")
+      expect(controller.instance_variable_get('@message')).to eq("完成您的请求时发生了错误.")
     end
 
     it "should allow caller to use custom error message and status" do
@@ -67,7 +67,7 @@ describe AdminController do
       expect(controller.send(:assert_load_eval, :junk) do
         nil
       end).to be_falsey
-      expect(controller.instance_variable_get('@message')).to eq("Error occurred while trying to complete your request.")
+      expect(controller.instance_variable_get('@message')).to eq("完成您的请求时发生了错误.")
     end
 
     it "should NOT render error twice in same flow, when an error occurs" do
@@ -78,7 +78,7 @@ describe AdminController do
       controller.send(:assert_load, :foo, nil)
       controller.send(:assert_load, :bar, nil)
 
-      expect(controller.instance_variable_get('@message')).to eq("Error occurred while trying to complete your request.")
+      expect(controller.instance_variable_get('@message')).to eq("完成您的请求时发生了错误.")
     end
 
     it "should catch exceptions and render error when eval_loading fails" do
@@ -87,7 +87,7 @@ describe AdminController do
       expect(controller.send(:assert_load_eval, :junk) do
         raise "foo bar"
       end).to be_falsey
-      expect(controller.instance_variable_get('@message')).to eq("Error occurred while trying to complete your request.")
+      expect(controller.instance_variable_get('@message')).to eq("完成您的请求时发生了错误.")
     end
 
     it "should use custom message and status when evaluation is null" do
@@ -104,7 +104,7 @@ describe AdminController do
       controller.instance_variable_set(:@should_not_render_layout, true)
       expect(controller).to receive_render_with({:template => "shared/config_error.html", :layout => nil, :status => 404})
       expect(controller.send(:assert_load, :junk, nil)).to be_falsey
-      expect(controller.instance_variable_get('@message')).to eq("Error occurred while trying to complete your request.")
+      expect(controller.instance_variable_get('@message')).to eq("完成您的请求时发生了错误.")
     end
   end
 

@@ -124,7 +124,7 @@ export class MaintenanceModePage extends Page<null, State> {
   }
 
   headerPanel() {
-    return <HeaderPanel title="Server Maintenance Mode" help={this.helpText()}/>;
+    return <HeaderPanel title="服务器维护模式" help={this.helpText()}/>;
   }
 
   fetchData(vnode: m.Vnode<null, State>) {
@@ -137,6 +137,6 @@ export class MaintenanceModePage extends Page<null, State> {
   }
 
   pageName(): string {
-    return "Server Maintenance Mode";
+    return "服务器维护模式";
   }
 }

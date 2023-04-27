@@ -51,7 +51,7 @@ export class TemplateConfigPage<T> extends TabHandler<T> {
   }
 
   pageName(): string {
-    return "Templates";
+    return "模板";
   }
 
   fetchData(vnode: m.Vnode<null, T>): Promise<any> {

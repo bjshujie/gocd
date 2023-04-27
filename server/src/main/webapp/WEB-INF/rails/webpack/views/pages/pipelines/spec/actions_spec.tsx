@@ -65,7 +65,7 @@ describe("AddPipeline: Actions Section", () => {
     expect(top).toBeTruthy();
 
     expect(helper.q(sel.btnCancel, top)).toBeTruthy();
-    expect(helper.q(sel.btnCancel, top).textContent).toBe("Cancel");
+    expect(helper.q(sel.btnCancel, top).textContent).toBe("取消");
 
     const saveActions = helper.q(sel.saveBtns, top);
     expect(saveActions).toBeTruthy();
@@ -74,10 +74,10 @@ describe("AddPipeline: Actions Section", () => {
     expect(helper.q(errSel.errorResponse, saveActions).textContent).toBe("");
 
     expect(helper.q(sel.btnSecondary, saveActions)).toBeTruthy();
-    expect(helper.q(sel.btnSecondary, saveActions).textContent).toBe("Save + Edit Full Config");
+    expect(helper.q(sel.btnSecondary, saveActions).textContent).toBe("保存 + 编辑完整配置");
 
     expect(helper.q(sel.btnPrimary, saveActions)).toBeTruthy();
-    expect(helper.q(sel.btnPrimary, saveActions).textContent).toBe("Save + Run This Pipeline");
+    expect(helper.q(sel.btnPrimary, saveActions).textContent).toBe("保存 + 启动该算法");
   });
 
   it("Does not create a pipeline unless the model validates", () => {
@@ -87,7 +87,7 @@ describe("AddPipeline: Actions Section", () => {
 
     expect(config.isValid).toHaveBeenCalled();
     expect(config.create).not.toHaveBeenCalled();
-    expect(helper.text(errSel.errorResponse)).toBe("Please fix the validation errors above before proceeding.");
+    expect(helper.text(errSel.errorResponse)).toBe("请在继续处理前修正验证错误");
   });
 
   it("Cancel goes to the dashboard but does not create", () => {
@@ -100,7 +100,7 @@ describe("AddPipeline: Actions Section", () => {
   it("Displays errors when save fails and marks any fields with specific errors", (done) => {
     config.isValid = jasmine.createSpy("isValid").and.returnValue(true);
     const createPromise = createFailedResp(config).
-      catch(() => done.fail("shouldn't have gotten here; 400 responses are handled in then()"));
+      catch(() => done.fail("不应该到达这里; 400 响应在 then() 中处理"));
 
     config.create = jasmine.createSpy("create").and.returnValue(createPromise);
 
@@ -122,7 +122,7 @@ describe("AddPipeline: Actions Section", () => {
   it("Displays errors for unimplemented fields", (done) => {
     config.isValid = jasmine.createSpy("isValid").and.returnValue(true);
     const createPromise = createFailedRespWithUnboundErrors(config).
-      catch(() => done.fail("shouldn't have gotten here; 400 responses are handled in then()"));
+      catch(() => done.fail("不应该到达这里; 400 响应在 then() 中处理"));
 
     config.create = jasmine.createSpy("create").and.returnValue(createPromise);
 
@@ -135,7 +135,7 @@ describe("AddPipeline: Actions Section", () => {
         expect(helper.text(errSel.errorResponse)).toBe("uh-oh!: pipelineConfig.materials[0].something: unknown. error.");
         const mat = Array.from(config.materials()).pop()!;
         expect(mat.attributes()!.errors().hasErrors("url")).toBe(true);
-        expect(mat.attributes()!.errors().errorsForDisplay("url")).toBe("This url is bogus.");
+        expect(mat.attributes()!.errors().errorsForDisplay("url")).toBe("此url是伪造的.");
         done();
       }, 0);
     });
@@ -196,7 +196,7 @@ function createFailedResp(config: PipelineConfig): Promise<ApiResult<string>> {
       message: "uh-oh!",
       data: {
         materials: [
-          {errors: {url: ["This url is bogus"]}}
+          {errors: {url: ["此url是伪造的"]}}
         ],
         stages: []
       }
@@ -210,7 +210,7 @@ function createFailedRespWithUnboundErrors(config: PipelineConfig): Promise<ApiR
       message: "uh-oh!",
       data: {
         materials: [
-          {errors: {url: ["This url is bogus"], something: ["unknown", "error"]}}
+          {errors: {url: ["此url是伪造的"], something: ["unknown", "error"]}}
         ],
         stages: []
       }
@@ -220,6 +220,6 @@ function createFailedRespWithUnboundErrors(config: PipelineConfig): Promise<ApiR
 
 function runSuccessResp(config: PipelineConfig): Promise<ApiResult<string>> {
   return new Promise<ApiResult<string>>((resolve) => {
-    resolve(ApiResult.success(JSON.stringify({message: `Request to schedule pipeline ${config.name()} accepted`}), 202, new Map()));
+    resolve(ApiResult.success(JSON.stringify({message: `对算法 ${config.name()} 的启动请求已被接受`}), 202, new Map()));
   });
 }

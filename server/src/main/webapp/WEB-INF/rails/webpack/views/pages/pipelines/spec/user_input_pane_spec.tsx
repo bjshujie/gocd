@@ -42,7 +42,7 @@ describe("AddPipeline: UserInputPane", () => {
     expect(helper.text(sel.sectionHeading, top)).toBe("Episode IV: A New Hope");
 
     expect(helper.q(sel.sectionNote, top)).toBeTruthy();
-    expect(helper.text(sel.sectionNote, top)).toBe("* denotes a required field");
+    expect(helper.text(sel.sectionNote, top)).toBe("* 星号为必填字段");
   });
 
   it("Renders child elements", () => {

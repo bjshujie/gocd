@@ -27,7 +27,7 @@ export class PluginsPage extends Page {
   private pluginInfos?: PluginInfos;
 
   pageName() {
-    return "Plugins";
+    return "插件";
   }
 
   componentToDisplay() {

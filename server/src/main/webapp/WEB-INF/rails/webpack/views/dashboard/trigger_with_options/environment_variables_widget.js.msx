@@ -26,7 +26,7 @@ export const Plain = {
   view(vnode) {
     return (
       <div class="environment-variables-tab-content">
-        <p class="small-txt">Override environment and pipeline level variables</p>
+        <p class="small-txt">覆盖环境和算法级别的变量</p>
         <dl class="environment-variables plain key-value-pair">
           {
             _.map(vnode.attrs.variables, (variable) => {
@@ -35,7 +35,7 @@ export const Plain = {
               if (hasChanged) {
                 mayBeOverridenText = (
                   <div class="overridden-message">
-                    <label>The value is overridden. Default value :</label>
+                    <label>该值已被覆盖. 默认值 :</label>
                     <p>{variable.getOriginalValue()}</p>
                   </div>);
               }
@@ -79,7 +79,7 @@ export const Secure = {
 
     return (
       <div class="environment-variables-tab-content">
-        <p class="small-txt">Override secure environment and pipeline level variables</p>
+        <p class="small-txt">覆盖环境和算法级别的保密变量</p>
         <dl class="environment-variables secure key-value-pair">
           {
             _.map(variables, (variable) => {
@@ -87,10 +87,10 @@ export const Secure = {
               let overrideOrResetBtn;
               if (isEditing) {
                 overrideOrResetBtn = (
-                  <a class="reset" onclick={vnode.state.reset.bind(vnode.state, variable)}>Reset</a>);
+                  <a class="reset" onclick={vnode.state.reset.bind(vnode.state, variable)}>重置</a>);
               } else {
                 overrideOrResetBtn = (<a class="override"
-                                         onclick={vnode.state.override.bind(vnode.state, variable)}>Override</a>);
+                                         onclick={vnode.state.override.bind(vnode.state, variable)}>覆盖</a>);
               }
 
               return (

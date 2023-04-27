@@ -57,7 +57,7 @@ export class SiteHeader extends MithrilViewComponent<Attrs> {
           <ul class={styles.userSubnav}>
             <SiteSubNavItem href="/go/preferences/notifications" text="Preferences"/>
             <SiteSubNavItem href="/go/access_tokens" text="Personal Access Tokens"/>
-            <SiteSubNavItem href="/go/auth/logout" text="Sign out"/>
+            <SiteSubNavItem href="/go/auth/logout" text="退出"/>
           </ul>
         </div>
       );
@@ -83,7 +83,7 @@ export class SiteHeader extends MithrilViewComponent<Attrs> {
             <NotificationCenter/>
             <ServerHealthSummary/>
             <a class={styles.needHelp} href="https://gocd.org/help" target="_blank">
-              Need Help?
+              需要帮助?
             </a>
             {userMenu}
           </div>

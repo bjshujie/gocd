@@ -32,7 +32,7 @@ describe("AddPipeline: JobEditor", () => {
 
   it("Generates structure", () => {
     expect(helper.byTestId("form-field-label-job-name")).toBeTruthy();
-    expect(helper.byTestId("form-field-label-job-name").textContent).toBe("Job Name*");
+    expect(helper.byTestId("form-field-label-job-name").textContent).toBe("作业名称*");
 
     expect(helper.byTestId("form-field-input-job-name")).toBeTruthy();
   });

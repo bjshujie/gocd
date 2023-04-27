@@ -33,8 +33,8 @@ function createModal(pluginId, metricId, pipeline) {
 
   const modal = new Modal({
     size:    "analytics-modal",
-    title:   `Analytics for pipeline: ${pipeline.name}`,
-    body:    () => (m(AnalyticsiFrameWidget, {model, uid, title: "Pipeline Build Time", pluginId, init})),
+    title:   `算法分析: ${pipeline.name}`,
+    body:    () => (m(AnalyticsiFrameWidget, {model, uid, title: "算法构建时间", pluginId, init})),
     onclose: () => modal.destroy(),
     buttons: []
   });
