@@ -379,21 +379,21 @@ class ConsoleActivityMonitorTest {
             when(timeProvider.currentTimeMillis()).thenReturn(now.plusMinutes(2).plusSeconds(1).getMillis());//just over warning time limit i.e. 2 minutes
             consoleActivityMonitor.cancelUnresponsiveJobs(scheduleService);
 
-            verify(serverHealthService).update(ServerHealthState.warningWithHtml("Job 'foo/stage/job' is not responding",
-                    "Job <a href='/go/tab/build/detail/foo/12/stage/2/job'>foo/stage/job</a> is currently running but it has not been assigned an agent in the last 2 minute(s). This job may be hung.", general(forJob("foo", "stage", "job"))));
+            verify(serverHealthService).update(ServerHealthState.warningWithHtml("作业 'foo/stage/job' 没有响应",
+                    "作业 <a href='/go/tab/build/detail/foo/12/stage/2/job'>foo/stage/job</a> 当前正在运行，但在最近2分钟内尚未为其分配节点。此作业可能被挂起.", general(forJob("foo", "stage", "job"))));
 
             when(timeProvider.currentTimeMillis()).thenReturn(now.plusMinutes(4).plusSeconds(1).getMillis());//after 4 minutes
             consoleActivityMonitor.cancelUnresponsiveJobs(scheduleService);
 
-            verify(serverHealthService).update(ServerHealthState.warningWithHtml("Job 'foo/stage/job' is not responding",
-                    "Job <a href='/go/tab/build/detail/foo/12/stage/2/job'>foo/stage/job</a> is currently running but it has not been assigned an agent in the last 4 minute(s). This job may be hung.", general(forJob("foo", "stage", "job"))));
+            verify(serverHealthService).update(ServerHealthState.warningWithHtml("作业 'foo/stage/job' 没有响应",
+                    "作业 <a href='/go/tab/build/detail/foo/12/stage/2/job'>foo/stage/job</a> 当前正在运行，但在最近4分钟内尚未为其分配节点。此作业可能被挂起.", general(forJob("foo", "stage", "job"))));
 
             when(goConfigService.getUnresponsiveJobTerminationThreshold(any(JobIdentifier.class))).thenReturn(360 * 60 * 1000L);//6 hours
             when(timeProvider.currentTimeMillis()).thenReturn(now.plusHours(1).plusMinutes(2).plusSeconds(1).getMillis());//after 62 minutes
             consoleActivityMonitor.cancelUnresponsiveJobs(scheduleService);
 
-            verify(serverHealthService).update(ServerHealthState.warningWithHtml("Job 'foo/stage/job' is not responding",
-                    "Job <a href='/go/tab/build/detail/foo/12/stage/2/job'>foo/stage/job</a> is currently running but it has not been assigned an agent in the last 62 minute(s). This job may be hung.", general(forJob("foo", "stage", "job"))));
+            verify(serverHealthService).update(ServerHealthState.warningWithHtml("作业 'foo/stage/job' 没有响应",
+                    "作业 <a href='/go/tab/build/detail/foo/12/stage/2/job'>foo/stage/job</a> 当前正在运行，但在最近62分钟内尚未为其分配节点。此作业可能被挂起.", general(forJob("foo", "stage", "job"))));
         }
 
         @Test
@@ -442,7 +442,7 @@ class ConsoleActivityMonitorTest {
             when(timeProvider.currentTimeMillis()).thenReturn(new DateTime(1972, 1, 1, 1, 1, 0, 0).getMillis());
             consoleActivityMonitor.cancelUnresponsiveJobs(scheduleService);
 
-            verify(consoleService).appendToConsoleLog(unresponsiveJob, "Go cancelled this job as it has not been assigned an agent for more than 5 minute(s)");
+            verify(consoleService).appendToConsoleLog(unresponsiveJob, "该作业被取消，因为超过5分钟还没有被分配节点");
         }
 
         @Test

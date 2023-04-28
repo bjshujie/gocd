@@ -118,7 +118,7 @@ public class ConsoleActivityMonitor {
     private void addJobHungWarning(JobIdentifier jobIdentifier, long difference, LogMessages messages) {
         String namespacedJob = format("%s/%s/%s", jobIdentifier.getPipelineName(), jobIdentifier.getStageName(), jobIdentifier.getBuildName());
         serverHealthService.update(ServerHealthState.warningWithHtml(
-                format("Job '%s' is not responding", namespacedJob),
+                format("作业 '%s' 没有响应", namespacedJob),
                 messages.hungWarningMessage(jobIdentifier.buildLocator(), namespacedJob, inMinutes(difference)),
                 HealthStateType.general(forJob(jobIdentifier.getPipelineName(), jobIdentifier.getStageName(), jobIdentifier.getBuildName()))));
     }

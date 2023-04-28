@@ -104,7 +104,7 @@ export class PluginWidget extends MithrilViewComponent<Attrs> {
                                                             ["Target GoCD Version", pluginInfo.about.targetGoVersion],
                                                           ]);
     if (pluginInfo.hasErrors()) {
-      pluginData = pluginData.set("There were errors loading the plugin", pluginInfo.getErrors());
+      pluginData = pluginData.set("加载插入存在错误", pluginInfo.getErrors());
     }
 
     return (

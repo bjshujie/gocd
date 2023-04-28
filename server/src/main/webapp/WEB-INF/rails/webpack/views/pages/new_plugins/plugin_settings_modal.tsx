@@ -44,7 +44,7 @@ export class PluginSettingsModal extends Modal {
   }
 
   title() {
-    return "Edit plugin settings";
+    return "编辑插件设置";
   }
 
   body() {

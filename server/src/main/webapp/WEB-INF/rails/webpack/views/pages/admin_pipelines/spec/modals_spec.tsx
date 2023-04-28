@@ -50,7 +50,7 @@ describe("CreatePipelineGroupModal", () => {
   });
 
   it("should render modal", () => {
-    expect(modal).toContainTitle("Create new pipeline group");
+    expect(modal).toContainTitle("创建算法组");
     expect(modal).toContainButtons(["Create"]);
 
     modalTestHelper.oninput(modalTestHelper.byTestId("form-field-input-pipeline-group-name"), "new-pipeline-group");

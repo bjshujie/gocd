@@ -49,7 +49,7 @@ export class ServerHealthMessagesModal extends Modal {
   }
 
   title(): string {
-    return "Error and warning messages";
+    return "错误和警告信息";
   }
 
   private messageView(message: ServerHealthMessage) {
