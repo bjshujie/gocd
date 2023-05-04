@@ -56,7 +56,7 @@
           return "N/A";
         }
         var time = new Date(timestamp);
-        return moment(time).format('DD MMM YYYY [at] HH:mm:ss [Local Time]');
+        return moment(time).format('YYYY-MM-DD HH:mm:ss [本地时间]');
       };
 
       $(".job_details_content").attr("data-result", status).removeData("data-result");

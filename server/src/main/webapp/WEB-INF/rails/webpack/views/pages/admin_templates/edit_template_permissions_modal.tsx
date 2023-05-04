@@ -130,8 +130,8 @@ export class EditTemplatePermissionsModal extends Modal {
 
   buttons(): m.ChildArray {
     return [
-      <Primary data-test-id="save-pipeline-group" onclick={this.performSave.bind(this)}>Save</Primary>,
-      <Cancel data-test-id="cancel-button" onclick={this.close.bind(this)}>Cancel</Cancel>
+      <Primary data-test-id="save-pipeline-group" onclick={this.performSave.bind(this)}>保存</Primary>,
+      <Cancel data-test-id="cancel-button" onclick={this.close.bind(this)}>取消</Cancel>
     ];
   }
 

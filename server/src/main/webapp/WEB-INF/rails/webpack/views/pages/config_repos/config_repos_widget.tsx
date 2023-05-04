@@ -321,7 +321,7 @@ export class ConfigReposWidget extends MithrilViewComponent<CollectionAttrs> {
     const configRepoUrl = "/advanced_usage/pipelines_as_code.html";
     const docLink       = <span data-test-id="doc-link">
        <Link href={docsUrl(configRepoUrl)} target="_blank" externalLinkIcon={true}>
-        Learn More
+        学习更多
       </Link>
     </span>;
 

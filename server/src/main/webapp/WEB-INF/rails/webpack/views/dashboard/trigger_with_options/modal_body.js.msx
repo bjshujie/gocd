@@ -62,7 +62,7 @@ export const ModalBody = {
     if (showPlainTextVars) {
       environmentVarsTab        = (
         <li class={self.visibilityClassForTab(envKey)} onclick={vm.selectTab.bind(vm, envKey)}>
-          Environment variables
+          环境变量
         </li>
       );
       environmentVarsTabContent = (
@@ -76,7 +76,7 @@ export const ModalBody = {
     if (showSecureVars) {
       secureVarsTab = (
         <li class={self.visibilityClassForTab(secureEnvKey)} onclick={vm.selectTab.bind(vm, secureEnvKey)}>
-          Secure Environment variables
+          保存环境变量
         </li>
       );
 

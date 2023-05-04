@@ -39,7 +39,7 @@ describe('MaterialsWidgetSpec', () => {
 
     const helpElement = helper.byTestId("materials-help");
     expect(helpElement).toBeInDOM();
-    expect(helpElement.textContent).toBe('A material is a cause for a pipeline to run. The GoCD Server continuously polls configured materials and when a new change or commit is found, the corresponding pipelines are run or "triggered". Learn More');
+    expect(helpElement.textContent).toBe('A material is a cause for a pipeline to run. The GoCD Server continuously polls configured materials and when a new change or commit is found, the corresponding pipelines are run or "triggered". 学习更多');
     expect(helper.q('a', helpElement)).toHaveAttr('href', docsUrl('introduction/concepts_in_go.html#materials'));
   });
 

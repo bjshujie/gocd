@@ -59,7 +59,7 @@
           var timestamp = parseInt(jQuery(timeSpan).attr("data"));
           if (isNaN(timestamp)) return;
           var time = new Date(timestamp);
-          jQuery(timeSpan).text(moment(time).format('DD MMM YYYY [at] HH:mm:ss [Local Time]'));
+          jQuery(timeSpan).text(moment(time).format('YYYY-MM-DD HH:mm:ss [本地时间]'));
         });
       };
 

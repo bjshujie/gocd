@@ -90,7 +90,7 @@ export class AddStageModal extends Modal {
   }
 
   title(): string {
-    return "Add new stage";
+    return "新增阶段";
   }
 
   buttons(): m.ChildArray {

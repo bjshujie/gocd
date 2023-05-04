@@ -59,7 +59,7 @@ describe("AccessTokensWidgetForAdminSpec", () => {
 
     const helpElement = helper.byTestId("access_token_info");
     expect(helpElement).toBeInDOM();
-    expect(helpElement.textContent).toContain('Navigate to Personal Access Tokens.Click on "Generate Token" to create new personal access token.The generated token can be used to access the GoCD API. Learn More');
+    expect(helpElement.textContent).toContain('Navigate to Personal Access Tokens.Click on "Generate Token" to create new personal access token.The generated token can be used to access the GoCD API. 学习更多');
     expect(helper.qa('a', helpElement)[0]).toHaveAttr('href', '/go/access_tokens');
     expect(helper.qa('a', helpElement)[1]).toHaveAttr('href', docsUrl("configuration/access_tokens.html"));
 

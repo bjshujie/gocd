@@ -48,16 +48,15 @@ export class PipelineActions extends MithrilViewComponent<Attrs> {
     return (
       <footer class={css.actions}>
         <Buttons.Cancel css={css} onclick={this.onCancel.bind(this)} small={false}
-                        ajaxOperationMonitor={this.ajaxOperationMonitor}>Cancel</Buttons.Cancel>
+                        ajaxOperationMonitor={this.ajaxOperationMonitor}>取消</Buttons.Cancel>
         <div class={css.saveBtns}>
           <ServerErrors message={this.globalError} details={this.globalErrorDetail}/>
 
           <Buttons.Secondary css={css} ajaxOperation={this.onSave.bind(this, true, vnode.attrs.pipelineConfig)}
-                             ajaxOperationMonitor={this.ajaxOperationMonitor} small={false}>Save + Edit Full
+                             ajaxOperationMonitor={this.ajaxOperationMonitor} small={false}>保存 + 编辑详情
             Config</Buttons.Secondary>
           <Buttons.Primary css={css} ajaxOperation={this.onSave.bind(this, false, vnode.attrs.pipelineConfig)}
-                           ajaxOperationMonitor={this.ajaxOperationMonitor} small={false}>Save + Run This
-            Pipeline</Buttons.Primary>
+                           ajaxOperationMonitor={this.ajaxOperationMonitor} small={false}>保存 + 运行</Buttons.Primary>
         </div>
       </footer>
     );
@@ -94,7 +93,7 @@ export class PipelineActions extends MithrilViewComponent<Attrs> {
         this.globalError(reason);
       }).finally(m.redraw);
     } else {
-      this.globalError("Please fix the validation errors above before proceeding.");
+      this.globalError("请先修复上面的验证错误，然后再继续.");
       return Promise.resolve();
     }
   }

@@ -35,7 +35,7 @@ export class StagePermissionWidget extends MithrilViewComponent<Attrs> {
   view(vnode: m.Vnode<Attrs>) {
     return <div>
       <h3>权限</h3>
-      <span class={style.help}>All system administrators and pipeline group administrators can operate on this stage (this cannot be overridden).</span>
+      <span class={style.help}>所有系统管理员和算法组管理员都可以对此阶段进行操作（这一点无法被覆盖）.</span>
       <RadioField label={"该阶段:"}
                   property={this.isInheritingFromPipelineGroup}
                   inline={true}

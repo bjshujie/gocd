@@ -43,7 +43,7 @@ export class ComparisonResultWidget extends MithrilViewComponent<Attrs> {
       warning = <div data-test-id="info-msg" class={styles.infoMsg}><InfoCircle iconOnly={true}/>This comparison
         involves a pipeline instance
         that was triggered with a non-sequential material revision.
-        <Link href={docsUrl("advanced_usage/compare_pipelines.html")} target="_blank" externalLinkIcon={true}> Learn More</Link>
+        <Link href={docsUrl("advanced_usage/compare_pipelines.html")} target="_blank" externalLinkIcon={true}> 学习更多</Link>
       </div>;
     }
 

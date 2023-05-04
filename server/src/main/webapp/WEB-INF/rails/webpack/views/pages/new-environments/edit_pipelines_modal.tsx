@@ -199,8 +199,8 @@ export class EditPipelinesModal extends Modal {
   buttons(): m.ChildArray {
     return [
       <Primary data-test-id="save-button" onclick={this.performSave.bind(this)}
-               disabled={this.isLoading()}>Save</Primary>,
-      <Cancel data-test-id="cancel-button" onclick={this.close.bind(this)} disabled={this.isLoading()}>Cancel</Cancel>
+               disabled={this.isLoading()}>保存</Primary>,
+      <Cancel data-test-id="cancel-button" onclick={this.close.bind(this)} disabled={this.isLoading()}>取消</Cancel>
     ];
   }
 

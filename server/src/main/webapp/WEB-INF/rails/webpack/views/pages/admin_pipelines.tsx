@@ -254,7 +254,7 @@ export class AdminPipelinesPage extends Page<null, State> {
   }
 
   pageName(): string {
-    return "Pipelines";
+    return "算法组";
   }
 
   fetchData(vnode: m.Vnode<null, State>): Promise<any> {
@@ -306,7 +306,7 @@ export class AdminPipelinesPage extends Page<null, State> {
                          disabled={!headerMeta().isUserAdmin}
                          title={headerMeta().isUserAdmin ? "创建新算法组" : "仅允许系统管理员创建算法组."}
                          onclick={vnode.state.createPipelineGroup.bind(vnode.state)}
-                         data-test-id="create-new-pipeline-group">Create new pipeline group</Buttons.Secondary>
+                         data-test-id="create-new-pipeline-group">创建新算法组</Buttons.Secondary>
     ];
     if (!_.isEmpty(vnode.state.pipelineGroups())) {
       const searchBox = <div className={configRepoStyles.wrapperForSearchBox}>

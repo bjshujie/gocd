@@ -86,7 +86,7 @@ export class StageHeaderWidget extends MithrilComponent<StageHeaderAttrs, StageH
         </div>
         <div data-test-id="cancelled-on-container" className={styles.triggeredByContainer}>
           on <span title={vnode.attrs.stageInstance().cancelledOnServerTime()}
-                   className={styles.triggeredByAndOn}>{vnode.attrs.stageInstance().cancelledOn()}</span> Local Time
+                   className={styles.triggeredByAndOn}>{vnode.attrs.stageInstance().cancelledOn()}</span> 本地时间
         </div>
       </div>);
 
@@ -197,14 +197,14 @@ export class StageHeaderWidget extends MithrilComponent<StageHeaderAttrs, StageH
           </div>
           <div data-test-id="triggered-on-container" className={styles.triggeredByContainer}>
             on <span title={vnode.attrs.stageInstance().triggeredOnServerTime()}
-                     className={styles.triggeredByAndOn}>{vnode.attrs.stageInstance().triggeredOn()}</span> Local Time
+                     className={styles.triggeredByAndOn}>{vnode.attrs.stageInstance().triggeredOn()}</span> 本地时间
             <span className={styles.durationSeparator}>|</span>
             Duration: <span className={styles.triggeredByAndOn}>{vnode.attrs.stageInstance().stageDuration()}</span>
           </div>
         </div>
         <div data-test-id="stage-details-page-link" class={styles.stageDetailsPageLink}>
           {dummyContainer}
-          <Link href={stageDetailsPageLink} externalLinkIcon={true} target={"_blank"}>Go to Stage Details Page</Link>
+          <Link href={stageDetailsPageLink} externalLinkIcon={true} target={"_blank"}>阶段详情</Link>
         </div>
       </div>
     </div>;

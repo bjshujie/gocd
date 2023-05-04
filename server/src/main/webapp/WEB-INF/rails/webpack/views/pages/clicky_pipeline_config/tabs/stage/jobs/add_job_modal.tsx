@@ -49,7 +49,7 @@ export class AddJobModal extends Modal {
 
   private readonly existingJobNames: string[];
 
-  private readonly errorMsg = `Another job with the same name already exists!`;
+  private readonly errorMsg = `另一个同名作业已存在!`;
 
   constructor(stage: Stage, templateConfig: TemplateConfig, pipelineConfig: PipelineConfig,
               routeParams: PipelineConfigRouteParams, ajaxOperationMonitor: Stream<OperationState>,
@@ -109,7 +109,7 @@ export class AddJobModal extends Modal {
   }
 
   title(): string {
-    return "Add new Job";
+    return "新增作业";
   }
 
   onbeforeupdate(vnode: m.VnodeDOM<any, this>): any {
@@ -121,11 +121,11 @@ export class AddJobModal extends Modal {
       <Buttons.Primary data-test-id="save-job"
                        disabled={this.hasDuplicateNameError()}
                        onclick={this.onSave.bind(this)}>
-        Save
+        保存
       </Buttons.Primary>,
       <Buttons.Cancel data-test-id="button-cancel"
                       onclick={this.onClose.bind(this)}>
-        Cancel
+        取消
       </Buttons.Cancel>
     ];
   }

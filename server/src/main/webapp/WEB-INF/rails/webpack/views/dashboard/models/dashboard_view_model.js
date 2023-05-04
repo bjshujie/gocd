@@ -85,11 +85,11 @@ function GroupingMixin() {
     groupByItems: [
       {
         id:   "pipeline_groups",
-        text: "Pipeline Groups"
+        text: "算法组"
       },
       {
         id:   "environments",
-        text: "Environments"
+        text: "环境"
       }
     ],
 

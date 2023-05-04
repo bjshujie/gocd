@@ -146,10 +146,10 @@ export class NewRoleModal extends BaseRoleModal {
   buttons() {
     return [<ButtonGroup>
       <Buttons.Cancel data-test-id="button-cancel" ajaxOperationMonitor={this.ajaxOperationMonitor}
-                      onclick={(e: MouseEvent) => this.close()}>Cancel</Buttons.Cancel>
+                      onclick={(e: MouseEvent) => this.close()}>取消</Buttons.Cancel>
       <Buttons.Primary data-test-id="button-save"
                        ajaxOperationMonitor={this.ajaxOperationMonitor}
-                       ajaxOperation={this.validateAndPerformSave.bind(this)}>Save</Buttons.Primary>
+                       ajaxOperation={this.validateAndPerformSave.bind(this)}>保存</Buttons.Primary>
       {this.saveFailureIdentifier}
     </ButtonGroup>];
   }
@@ -192,11 +192,11 @@ abstract class ModalWithFetch extends BaseRoleModal {
   buttons() {
     return [<ButtonGroup>
       <Buttons.Cancel data-test-id="button-cancel" ajaxOperationMonitor={this.ajaxOperationMonitor}
-                      onclick={(e: MouseEvent) => this.close()}>Cancel</Buttons.Cancel>
+                      onclick={(e: MouseEvent) => this.close()}>取消</Buttons.Cancel>
       <Buttons.Primary data-test-id="button-save"
                        ajaxOperationMonitor={this.ajaxOperationMonitor}
                        ajaxOperation={this.validateAndPerformSave.bind(this)}
-                       disabled={this.isStale()}>Save</Buttons.Primary>
+                       disabled={this.isStale()}>保存</Buttons.Primary>
       {this.saveFailureIdentifier}
     </ButtonGroup>];
   }

@@ -29,7 +29,7 @@ export abstract class EnvironmentVariablesTabContent extends TabContent<Pipeline
   private isDefinedInConfigRepository: Stream<boolean> = Stream<boolean>(false);
 
   static tabName(): string {
-    return "Environment Variables";
+    return "环境变量";
   }
 
   protected renderer(entity: PipelineConfig | Stage | Job, templateConfig: TemplateConfig): m.Children {

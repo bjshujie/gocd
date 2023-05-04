@@ -21,7 +21,7 @@ import org.apache.commons.lang3.StringUtils;
 
 @AttributeAwareConfigTag(value = "artifact", attribute = "type", attributeValue = "build")
 public class BuildArtifactConfig extends BuiltinArtifactConfig {
-    public static final String ARTIFACT_PLAN_DISPLAY_NAME = "Build Artifact";
+    public static final String ARTIFACT_PLAN_DISPLAY_NAME = "构建文档";
 
     public BuildArtifactConfig() {
     }

@@ -221,7 +221,7 @@ export class PipelineGroupsWidget extends MithrilViewComponent<Attrs> {
         const pipelineUrl = "configuration/pipeline_group_admin_config.html";
         const docLink     = <span data-test-id="doc-link">
        <Link href={docsUrl(pipelineUrl)} target="_blank" externalLinkIcon={true}>
-        Learn More
+        学习更多
       </Link>
     </span>;
         const msg         = `编辑 '${target}' 尚未设置算法组，或者您无权查看该算法组.`;
@@ -234,7 +234,7 @@ export class PipelineGroupsWidget extends MithrilViewComponent<Attrs> {
       const pipelineUrl = "configuration/pipelines.html";
       const docLink     = <span data-test-id="doc-link">
        <Link href={docsUrl(pipelineUrl)} target="_blank" externalLinkIcon={true}>
-        Learn More
+        学习更多
       </Link>
     </span>;
       return [

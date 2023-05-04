@@ -74,7 +74,7 @@ export class ElasticAgentsWidget extends MithrilViewComponent<AgentsWidgetAttrs>
           }/>
         </div>
 
-        <SearchField placeholder="Filter Agents" label="Search for agents" property={vnode.attrs.agentsVM.filterText}/>
+        <SearchField placeholder="过虑节点" label="Search for agents" property={vnode.attrs.agentsVM.filterText}/>
       </div>
       <Table data={tableData}
              headers={["", "节点名称", "沙盒", "操作系统", "IP 地址", "状态", "剩余空间", "环境"]}

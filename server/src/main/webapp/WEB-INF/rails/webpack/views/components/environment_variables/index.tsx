@@ -38,7 +38,7 @@ export class GroupedEnvironmentVariables extends MithrilComponent<GroupedEnviron
   view(vnode: m.Vnode<GroupedEnvironmentVariablesAttrs>): m.Children {
     let noEnvironmentVariablesConfiguredMessage: m.Children;
     if (vnode.attrs.environmentVariables.length === 0) {
-      noEnvironmentVariablesConfiguredMessage = `No ${vnode.attrs.title} are configured.`;
+      noEnvironmentVariablesConfiguredMessage = `未配置 ${vnode.attrs.title} .`;
     }
 
     return <div class={styles.groupContainer}>
@@ -47,7 +47,7 @@ export class GroupedEnvironmentVariables extends MithrilComponent<GroupedEnviron
       {vnode.attrs.environmentVariables.map((envVar) => this.renderEnvironmentVariableWidget(vnode, envVar))}
       <Secondary small={true} icon={ButtonIcon.ADD} data-test-id={`add-${s.slugify(vnode.attrs.title)}-btn`}
                  onclick={vnode.attrs.onAdd.bind(this)}>
-        Add
+        新增
       </Secondary>
     </div>;
   }
@@ -70,12 +70,12 @@ export class EnvironmentVariablesWidget extends MithrilComponent<EnvironmentVari
   view(vnode: m.Vnode<EnvironmentVariablesWidgetAttrs, {}>): m.Children {
     return <div>
       <GroupedEnvironmentVariables environmentVariables={vnode.attrs.environmentVariables.plainTextVariables()}
-                                   title="Plain Text Variables"
+                                   title="普通变量"
                                    onAdd={EnvironmentVariablesWidget.onAdd.bind(this, false, vnode)}
                                    onRemove={(envVar: EnvironmentVariable) => EnvironmentVariablesWidget.onRemove(envVar,
                                                                                                                   vnode)}/>
       <GroupedEnvironmentVariables environmentVariables={vnode.attrs.environmentVariables.secureVariables()}
-                                   title="Secure Variables"
+                                   title="保存变量"
                                    onAdd={EnvironmentVariablesWidget.onAdd.bind(this, true, vnode)}
                                    onRemove={(envVar: EnvironmentVariable) => EnvironmentVariablesWidget.onRemove(envVar,
                                                                                                                   vnode)}/>

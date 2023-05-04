@@ -38,7 +38,7 @@ describe("Job model", () => {
     expect(job.isValid()).toBe(false);
     expect(job.errors().count()).toBe(1);
     expect(job.errors().keys()).toEqual(["name"]);
-    expect(job.errors().errorsForDisplay("name")).toBe("Invalid name. This must be alphanumeric and can contain hyphens, underscores and periods (however, it cannot start with a period). The maximum allowed length is 255 characters.");
+    expect(job.errors().errorsForDisplay("name")).toBe("无效的名称。只能包含字母数字、连字符、下划线和点（但不能以点开头）。允许的最大长度为255个字符。");
   });
 
   it("should include at least one task", () => {
@@ -46,7 +46,7 @@ describe("Job model", () => {
     expect(job.isValid()).toBe(false);
     expect(job.errors().count()).toBe(1);
     expect(job.errors().keys()).toEqual(["tasks"]);
-    expect(job.errors().errorsForDisplay("tasks")).toBe("Tasks must be present. A job must have at least one task.");
+    expect(job.errors().errorsForDisplay("tasks")).toBe("任务必须存在，一个作业至少拥有一个任务.");
   });
 
   it("adopts errors in server response", () => {
@@ -136,7 +136,7 @@ describe("Job model", () => {
 
     expect(job.isValid()).toBeFalse();
     expect(job.errors().count()).toBe(2);
-    expect(job.errors().errorsForDisplay('timeout')).toBe('Timeout must be a positive integer.');
-    expect(job.errors().errorsForDisplay('runInstanceCount')).toBe('Run instance count must be a positive integer.');
+    expect(job.errors().errorsForDisplay('timeout')).toBe('超时必须是一个正整数。');
+    expect(job.errors().errorsForDisplay('runInstanceCount')).toBe('运行实例数必须是正整数。');
   });
 });

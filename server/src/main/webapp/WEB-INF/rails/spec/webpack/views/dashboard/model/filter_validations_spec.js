@@ -28,7 +28,7 @@ describe("FilterValidations", () => {
 
     obj.validate("name");
     expect(obj.errors().hasErrors()).toBe(true);
-    expect(obj.errors().errorsForDisplay("name")).toBe("Name must be present.");
+    expect(obj.errors().errorsForDisplay("name")).toBe("名称为必填项，请输入.");
   });
 
   it("validates name should not contain leading or trailing spaces", () => {

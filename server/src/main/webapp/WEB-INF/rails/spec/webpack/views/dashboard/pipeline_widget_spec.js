@@ -218,7 +218,7 @@ describe("Dashboard Pipeline Widget", () => {
       });
 
       it("should unpause a pipeline", async () => {
-        const responseMessage = `Pipeline '${pipeline.name}' unpaused successfully.`;
+        const responseMessage = `算法 '${pipeline.name}' 恢复功能.`;
         jasmine.Ajax.stubRequest(`/go/api/pipelines/${pipeline.name}/unpause`, undefined, 'POST').andReturn({
           responseText:    JSON.stringify({"message": responseMessage}),
           responseHeaders: {
@@ -321,7 +321,7 @@ describe("Dashboard Pipeline Widget", () => {
       });
 
       it("should pause a pipeline", async () => {
-        const responseMessage = `Pipeline '${pipeline.name}' paused successfully.`;
+        const responseMessage = `算法 '${pipeline.name}' 暂停成功.`;
         jasmine.Ajax.stubRequest(`/go/api/pipelines/${pipeline.name}/pause`, undefined, 'POST').andReturn({
           responseText:    JSON.stringify({"message": responseMessage}),
           responseHeaders: {
@@ -378,7 +378,7 @@ describe("Dashboard Pipeline Widget", () => {
       });
 
       it("should pause pipeline and close popup when enter is pressed inside the pause popup", async () => {
-        const responseMessage = `Pipeline '${pipeline.name}' paused successfully.`;
+        const responseMessage = `算法 '${pipeline.name}' 暂停成功.`;
         jasmine.Ajax.stubRequest(`/go/api/pipelines/${pipeline.name}/pause`, undefined, 'POST').andReturn({
           responseText:    JSON.stringify({"message": responseMessage}),
           responseHeaders: {
@@ -447,7 +447,7 @@ describe("Dashboard Pipeline Widget", () => {
         helper.unmount();
         mount(true, pauseInfo, dashboard);
 
-        const responseMessage = `Pipeline '${pipeline.name}' paused successfully.`;
+        const responseMessage = `算法 '${pipeline.name}' 暂停成功.`;
         jasmine.Ajax.stubRequest(`/go/api/pipelines/${pipeline.name}/pause`, undefined, 'POST').andReturn({
           responseText:    JSON.stringify({"message": responseMessage}),
           responseHeaders: {

@@ -133,7 +133,7 @@ describe("ElasticAgentWizard", () => {
         expect(clusterProfileObj.create).toHaveBeenCalled();
         expect(wizard.close).not.toHaveBeenCalled();
         expect(helper.text(`.${styles.footerError}`, modalContext()))
-          .toBe("Please fix the validation errors above before proceeding.");
+          .toBe("请先修复上面的验证错误，然后再继续.");
         wizard.close();
         done();
       });

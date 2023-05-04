@@ -45,12 +45,12 @@ export class PacActions extends MithrilViewComponent<Attrs> {
   view(vnode: m.Vnode<Attrs>): m.Children | void | null {
     return (
       <div class={css.actions}>
-        <Buttons.Cancel css={css} onclick={this.onCancel.bind(this)} small={false}>Cancel</Buttons.Cancel>
+        <Buttons.Cancel css={css} onclick={this.onCancel.bind(this)} small={false}>取消</Buttons.Cancel>
 
         <div class={css.finishBtnWrapper}>
           <div class={css.errorResponse}>{this.globalError()}</div>
 
-          <Buttons.Primary css={css} onclick={this.onSave.bind(this, vnode.attrs.configRepo())} small={false} disabled={!!vnode.attrs.disabled}>Save</Buttons.Primary>
+          <Buttons.Primary css={css} onclick={this.onSave.bind(this, vnode.attrs.configRepo())} small={false} disabled={!!vnode.attrs.disabled}>保存</Buttons.Primary>
         </div>
       </div>
     );
@@ -79,7 +79,7 @@ export class PacActions extends MithrilViewComponent<Attrs> {
 
       });
     } else {
-      this.globalError("Please fix the validation errors above before proceeding.");
+      this.globalError("请先修复上面的验证错误，然后再继续.");
     }
   }
 

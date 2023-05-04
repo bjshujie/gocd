@@ -20,7 +20,7 @@ import {TestHelper} from "views/pages/spec/test_helper";
 
 describe("AddPipeline: ConceptDiagram", () => {
   const helper = new TestHelper();
-  const image = require("../../../../../app/assets/images/go_logo.svg");
+  const image = require("../../../../../app/assets/images/lingbo_logo.svg");
 
   beforeEach(() => {
     helper.mount(() => <ConceptDiagram image={image}>A <strong>simple</strong> explanation</ConceptDiagram>);

@@ -90,7 +90,7 @@ describe("Environment Variables Widget", () => {
     it("should display no environment variables are configured message", () => {
       mount(new EnvironmentVariables());
 
-      const expectedMsg = "No Plain Text Variables are configured.";
+      const expectedMsg = "未配置普通变量.";
       expect(helper.byTestId("plain-text-variables-msg")).toContainText(expectedMsg);
     });
   });
@@ -117,7 +117,7 @@ describe("Environment Variables Widget", () => {
     it("should display no environment variables are configured message", () => {
       mount(new EnvironmentVariables());
 
-      const expectedMsg = "No Secure Variables are configured.";
+      const expectedMsg = "未配置保密变量.";
       expect(helper.byTestId("secure-variables-msg")).toContainText(expectedMsg);
     });
   });

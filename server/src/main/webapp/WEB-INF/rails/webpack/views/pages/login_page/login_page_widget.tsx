@@ -23,7 +23,7 @@ import {v4 as uuid} from 'uuid';
 import {FlashMessage, MessageType} from "views/components/flash_message";
 import styles from "./login_page_widget.scss";
 
-const gocdLogo = require("./gocd_logo.svg");
+const gocdLogo = require("./lingbo_logo.svg");
 
 class LoginFormWidget extends MithrilViewComponent<AuthPluginInfo> {
   private readonly formID = `login-form-${uuid()}`;
@@ -139,7 +139,7 @@ export class LoginPageWidget extends MithrilViewComponent<AuthPluginInfo> {
         <div class={styles.loginForm}>
           <div class={styles.loginContainer}>
           <div class={styles.loginGraphics}>
-            <img src={gocdLogo}/>
+            <img src={gocdLogo}/> 凌波算法调度平台
           </div>
           <div class={styles.loginMethods}>
             {this.maybeShowLoginFormWidget(vnode)}

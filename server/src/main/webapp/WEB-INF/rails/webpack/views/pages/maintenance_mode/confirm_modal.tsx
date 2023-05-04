@@ -28,8 +28,8 @@ export class ToggleConfirmModal extends Modal {
 
   constructor(message: m.Children,
               onsave: () => Promise<any>,
-              title         = "Are you sure?",
-              confirmAction = "Save") {
+              title         = "您确定吗?",
+              confirmAction = "保存") {
     super(Size.small);
     this.message       = message;
     this.modalTitle    = title;
@@ -52,7 +52,7 @@ export class ToggleConfirmModal extends Modal {
                        ajaxOperation={this.onsave.bind(this)}>{this.confirmAction}</Buttons.Primary>,
       <Buttons.Cancel data-test-id="button-cancel"
                       ajaxOperationMonitor={this.ajaxOperationMonitor}
-                      onclick={this.close.bind(this)}>Cancel</Buttons.Cancel>
+                      onclick={this.close.bind(this)}>取消</Buttons.Cancel>
     ];
   }
 }

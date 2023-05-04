@@ -48,8 +48,8 @@ export abstract class AbstractTaskModal extends Modal {
     }
 
     return [
-      <Primary data-test-id="save-pipeline-group" disabled={this.disableSave()} onclick={this.addTaskAndSave.bind(this)}>Save</Primary>,
-      <Cancel data-test-id="cancel-button" onclick={this.close.bind(this)}>Cancel</Cancel>
+      <Primary data-test-id="save-pipeline-group" disabled={this.disableSave()} onclick={this.addTaskAndSave.bind(this)}>保存</Primary>,
+      <Cancel data-test-id="cancel-button" onclick={this.close.bind(this)}>取消</Cancel>
     ];
   }
 

@@ -110,7 +110,7 @@ describe("ConfigReposWidget", () => {
   it("should render a message when there are no config repos", () => {
     models([]);
     helper.redraw();
-    expect(helper.textByTestId("flash-message-info")).toBe("Either no config repositories have been set up or you are not authorized to view the same. Learn More");
+    expect(helper.textByTestId("flash-message-info")).toBe("Either no config repositories have been set up or you are not authorized to view the same. 学习更多");
     expect(helper.byTestId("doc-link")).toBeInDOM();
     expect(helper.q("a", helper.byTestId("doc-link"))).toHaveAttr("href", docsUrl("advanced_usage/pipelines_as_code.html"));
   });
@@ -494,7 +494,7 @@ describe("ConfigReposWidget", () => {
 
     const errorMsgElement = helper.byTestId("anchor-config-repo-not-present");
     expect(errorMsgElement).toBeInDOM();
-    expect(errorMsgElement.innerText).toBe("Either 'cr-test' config repository has not been set up or you are not authorized to view the same. Learn More");
+    expect(errorMsgElement.innerText).toBe("Either 'cr-test' config repository has not been set up or you are not authorized to view the same. 学习更多");
 
     expect(helper.q("a", errorMsgElement)).toBeInDOM();
     expect(helper.q("a", errorMsgElement).getAttribute("href")).toBe(docsUrl("advanced_usage/pipelines_as_code.html"));

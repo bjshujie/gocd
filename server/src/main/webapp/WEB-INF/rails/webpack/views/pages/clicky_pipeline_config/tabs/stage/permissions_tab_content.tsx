@@ -69,16 +69,16 @@ export class PermissionsWidget extends MithrilViewComponent<Attrs> {
       const users     = entity.approval().authorization()._users;
       const roles     = entity.approval().authorization()._roles;
       const errors    = entity.approval().authorization().errors();
-      const msg       = "The pipeline group that this pipeline belongs to has permissions configured. You can add only those users and roles that have permissions to operate on this pipeline group.";
+      const msg       = "此管理所属的管理组已配置权限。您只能添加那些有权对此算法组进行操作的用户和角色.";
 
       localPermissionsMsg = <FlashMessage dataTestId="local-permission-msg" message={msg} type={MessageType.info}/>;
       permissionsView     = this.localPermissionsView(users, roles, errors, vnode.attrs.isEntityDefinedInConfigRepository, vnode);
     }
 
-    const globalMsg = "All system administrators and pipeline group administrators can operate on this stage (this cannot be overridden).";
+    const globalMsg = "所有系统管理员和算法组管理员都可以对此阶段进行操作（这一点无法被覆盖）.";
     return <div class={styles.mainContainer} data-test-id="permissions-tab">
       <FlashMessage type={MessageType.info} message={globalMsg}/>
-      <h3 data-test-id="permissions-heading">Permissions for this stage:</h3>
+      <h3 data-test-id="permissions-heading">阶段权限:</h3>
       <div class={styles.radioWrapper}>
         <RadioField onchange={this.onPermissionsToggleChange.bind(this, vnode, entity)}
                     property={vnode.attrs.selectedPermission}
@@ -86,14 +86,14 @@ export class PermissionsWidget extends MithrilViewComponent<Attrs> {
                     inline={true}
                     possibleValues={[
                       {
-                        label: "Inherit from the Pipeline Group",
+                        label: "继承自算法组",
                         value: "inherit",
-                        helpText: "Inherit authorization from the pipeline group."
+                        helpText: "从算法组继承授权."
                       },
                       {
-                        label: "Specify locally",
+                        label: "本地指定",
                         value: "local",
-                        helpText: "Define specific permissions locally. This will override pipeline group authorization."
+                        helpText: "在本地定义特定权限。这将覆盖算法组授权."
                       }
                     ]}>
         </RadioField>
@@ -128,14 +128,14 @@ export class PermissionsWidget extends MithrilViewComponent<Attrs> {
   private localPermissionsView(users: Array<Stream<string>>, roles: Array<Stream<string>>, errors: Errors, readOnly: boolean, vnode: m.Vnode<Attrs>) {
     return <div data-test-id="users-and-roles">
       <div data-test-id="users">
-        <h3>Users</h3>
+        <h3>用户</h3>
         <FlashMessage message={errors.errorsForDisplay("users")} dataTestId="users-errors" type={MessageType.alert}/>
         {users.map((user, index) => this.getInputField("username", user, users, index, new RolesSuggestionProvider(Stream([] as string[]), []), readOnly))}
         {this.addEntityButton(users, readOnly, "add-user-permission-button")}
       </div>
 
       <div data-test-id="roles">
-        <h3>Roles</h3>
+        <h3>角色</h3>
         <FlashMessage message={errors.errorsForDisplay("roles")} dataTestId="roles-errors" type={MessageType.alert}/>
         {roles.map((role, index) => this.getInputField("role",role,roles,index,new RolesSuggestionProvider(vnode.attrs.allRoles,roles.map(s => s())),readOnly))}
         {this.addEntityButton(roles, readOnly, "add-role-permission-button")}
@@ -183,7 +183,7 @@ export class PermissionsTabContent extends TabContent<Stage> {
   }
 
   static tabName(): string {
-    return "Permissions";
+    return "权限";
   }
 
   protected renderer(entity: Stage, templateConfig: TemplateConfig): m.Children {

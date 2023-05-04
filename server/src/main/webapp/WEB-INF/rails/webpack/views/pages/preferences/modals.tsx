@@ -111,11 +111,11 @@ abstract class BaseModal extends Modal {
     return [
       <ButtonGroup>
         <Cancel data-test-id="button-cancel" onclick={() => this.close()}
-                ajaxOperationMonitor={this.ajaxOperationMonitor}>Cancel</Cancel>
+                ajaxOperationMonitor={this.ajaxOperationMonitor}>取消</Cancel>
         <Primary data-test-id="button-save"
                  disabled={this.isLoading()}
                  ajaxOperationMonitor={this.ajaxOperationMonitor}
-                 ajaxOperation={this.performOperation.bind(this)}>Save</Primary>
+                 ajaxOperation={this.performOperation.bind(this)}>保存</Primary>
         {this.saveFailureIdentifier}
       </ButtonGroup>
     ];

@@ -290,8 +290,8 @@ export class KitchenSink extends MithrilComponent<null, any> {
         <Secondary>Button</Secondary>
         <Secondary>Secondary Button</Secondary>
         <Reset>Reset Button</Reset>
-        <Cancel>Cancel</Cancel>
-        <Danger>Delete</Danger>
+        <Cancel>取消</Cancel>
+        <Danger>删除</Danger>
         <hr/>
 
         <h3>Button with icon:</h3>

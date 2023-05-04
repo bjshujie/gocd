@@ -29,7 +29,7 @@ export class JobEditor extends MithrilViewComponent<Attrs> {
   view(vnode: m.Vnode<Attrs>) {
     return <FormBody>
       <Form last={true} compactForm={true}>
-        <IdentifierInputField label="Job Name" helpText={IDENTIFIER_FORMAT_HELP_MESSAGE} placeholder="e.g., run-unit-tests" property={vnode.attrs.job.name} errorText={vnode.attrs.job.errors().errorsForDisplay("name")} required={true}/>
+        <IdentifierInputField label="作业名称" helpText={IDENTIFIER_FORMAT_HELP_MESSAGE} placeholder="作业名称" property={vnode.attrs.job.name} errorText={vnode.attrs.job.errors().errorsForDisplay("name")} required={true}/>
       </Form>
     </FormBody>;
   }

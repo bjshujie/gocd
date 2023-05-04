@@ -53,7 +53,7 @@ export class ArtifactsTabContent extends TabContent<Job> {
   }
 
   static tabName(): string {
-    return "Artifacts";
+    return "文档";
   }
 
   protected renderer(entity: Job, templateConfig: TemplateConfig): m.Children {
@@ -72,7 +72,7 @@ export class ArtifactsTabContent extends TabContent<Job> {
 
     if (entity.artifacts().length === 0) {
       artifacts = [<FlashMessage type={MessageType.info}
-                                 message={"No artifacts configured. Click 'Add Artifact' to configure artifacts."}/>];
+                                 message={"未配置文档，点击'新建文档'来配置文档."}/>];
     }
 
     return <div data-test-id="artifacts">
@@ -88,15 +88,15 @@ export class ArtifactsTabContent extends TabContent<Job> {
   private getBuiltInArtifactHeaders() {
     return <div class={styles.builtInArtifactHeader} data-test-id="tabs-header">
       <span data-test-id="type-header">
-        Type: <Tooltip.Info size={TooltipSize.small}
+        类型: <Tooltip.Info size={TooltipSize.small}
                             content={"There are 3 types of artifacts - build, test and external. When 'Test Artifact' is selected, GoCD will use this artifact to generate a test report. When artifact type external is selected, you can configure the external artifact store to which you can push an artifact."}/>
       </span>
       <span data-test-id="source-header">
-        Source: <Tooltip.Info size={TooltipSize.small}
+        源文件: <Tooltip.Info size={TooltipSize.small}
                               content={"The file or folders to publish to the server. GoCD will only upload files that are in the working directory of the job. You can use wildcards to specify the files and folders to upload (** means any path, * means any file or folder name)."}/>
       </span>
       <span data-test-id="destination-header">
-        Destination: <Tooltip.Info size={TooltipSize.small}
+        目标目录: <Tooltip.Info size={TooltipSize.small}
                                    content={"The destination is relative to the artifacts folder of the current instance on the server side. If it is not specified, the artifact will be stored in the root of the artifacts directory"}/>
       </span>
     </div>;
@@ -119,12 +119,12 @@ export class ArtifactsTabContent extends TabContent<Job> {
         </div>
         <TextField dataTestId={`artifact-source-${artifact.source() || ""}`}
                    readonly={readonly}
-                   placeholder="source"
+                   placeholder="源文件"
                    errorText={artifact.errors().errorsForDisplay('source')}
                    property={artifact.source}/>
         <TextField dataTestId={`artifact-destination-${artifact.destination() || ""}`}
                    readonly={readonly}
-                   placeholder="destination"
+                   placeholder="目标目录"
                    errorText={artifact.errors().errorsForDisplay('destination')}
                    property={artifact.destination}/>
         {removeArtifact}
@@ -237,7 +237,7 @@ export class ArtifactsTabContent extends TabContent<Job> {
         <Secondary small={true} dataTestId={"add-artifact-button"}
                    disabled={!!noArtifactStoreError}
                    onclick={this.addArtifact.bind(this, artifacts)}>
-          Add Artifact
+          添加文档
         </Secondary>
       </div>
     </div>);

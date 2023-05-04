@@ -70,15 +70,15 @@ public class PipelinePauseService {
             pauseCause = "";
         }
         if (isPipelinePaused(pipelineName)) {
-            result.conflict("Failed to pause pipeline '" +pipelineName + "'. Pipeline '" +pipelineName + "' is already paused.");
+            result.conflict("暂停算法 '" +pipelineName + "'失败. 算法 '" +pipelineName + "' 已经暂停.");
             return;
         }
         try {
             pausePipeline(pipelineName, pauseCause, pausedBy);
-            result.setMessage("Pipeline '" + pipelineName + "' paused successfully.");
+            result.setMessage("算法 '" + pipelineName + "' 暂停成功.");
         } catch (Exception e) {
             LOGGER.error("[Pipeline Pause] Failed to pause pipeline", e);
-            result.internalServerError("Server error occured. Check log for details.");
+            result.internalServerError("服务器发生错误，查看日志以获得详细信息.");
         }
     }
 
@@ -101,7 +101,7 @@ public class PipelinePauseService {
         }
         try {
             unpausePipeline(pipelineName, unpausedBy);
-            result.setMessage("Pipeline '" + pipelineName + "' unpaused successfully.");
+            result.setMessage("算法 '" + pipelineName + "' 恢复成功.");
         } catch (Exception e) {
             LOGGER.error("[Pipeline Unpause] Failed to unpause pipeline", e);
             result.internalServerError("Server error occured. Check log for details.");

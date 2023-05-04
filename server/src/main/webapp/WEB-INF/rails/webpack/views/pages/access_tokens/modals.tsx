@@ -73,9 +73,9 @@ export class GenerateTokenModal extends BaseModal {
       return [
         <Buttons.Primary data-test-id="button-save"
                          ajaxOperationMonitor={this.operationState}
-                         ajaxOperation={this.performOperation.bind(this)}>Generate</Buttons.Primary>,
+                         ajaxOperation={this.performOperation.bind(this)}>生成</Buttons.Primary>,
         <Buttons.Cancel data-test-id="button-cancel" ajaxOperationMonitor={this.operationState}
-                        onclick={() => this.close()}>Cancel</Buttons.Cancel>];
+                        onclick={() => this.close()}>取消</Buttons.Cancel>];
     }
   }
 

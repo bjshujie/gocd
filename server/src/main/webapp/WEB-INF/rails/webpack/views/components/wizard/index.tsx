@@ -34,11 +34,11 @@ export abstract class Step {
   footer(wizard: Wizard): m.Children {
     return [
       <Buttons.Cancel onclick={wizard.close.bind(wizard)}
-                      data-test-id="cancel">Cancel</Buttons.Cancel>,
+                      data-test-id="cancel">取消</Buttons.Cancel>,
       <Buttons.Primary data-test-id="previous" onclick={wizard.previous.bind(wizard, 1)} align="right"
-                       disabled={wizard.isFirstStep()}>Previous</Buttons.Primary>,
+                       disabled={wizard.isFirstStep()}>上一步</Buttons.Primary>,
       <Buttons.Primary data-test-id="next" onclick={wizard.next.bind(wizard, 1)} align="right"
-                       disabled={wizard.isLastStep()}>Next</Buttons.Primary>
+                       disabled={wizard.isLastStep()}>下一步</Buttons.Primary>
     ];
   }
 }

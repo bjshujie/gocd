@@ -33,13 +33,13 @@ export class ConfigurationTypeWidget extends MithrilComponent<ConfigurationTypeA
     const readonly = vnode.attrs.entityReOrderHandler.hasOrderChanged() || vnode.attrs.readonly || vnode.attrs.isPipelineDefinedOriginallyFromTemplate();
 
     return <div class={styles.configurationTypeContainer} data-test-id="configuration-type">
-      <RadioField label="Configuration Type"
+      <RadioField label="配置类型"
                   property={vnode.attrs.property}
                   readonly={readonly}
                   inline={true}
                   possibleValues={[
-                    {label: "Use Template", value: "template"},
-                    {label: "Define Stages", value: "stage"}
+                    {label: "使用模板", value: "template"},
+                    {label: "定义阶段", value: "stage"}
                   ]}>
       </RadioField>
     </div>;

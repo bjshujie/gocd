@@ -115,10 +115,10 @@ export class TimelineModal extends Modal {
 
   buttons(): m.ChildArray {
     return [<ButtonGroup>
-      <Cancel data-test-id="button-cancel" onclick={() => this.close()} disabled={this.isLoading()}>Cancel</Cancel>
+      <Cancel data-test-id="button-cancel" onclick={() => this.close()} disabled={this.isLoading()}>取消</Cancel>
       <Primary data-test-id="button-select-instance"
                onclick={this.compare.bind(this)}
-               disabled={this.isLoading()}>Select this instance</Primary>
+               disabled={this.isLoading()}>选择该实例</Primary>
     </ButtonGroup>];
   }
 

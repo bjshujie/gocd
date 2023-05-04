@@ -27,7 +27,7 @@ import {PipelineConfigRouteParams} from "views/pages/clicky_pipeline_config/tab_
 export class ProjectManagementTabContent extends TabContent<PipelineConfig> {
   static tabName(): string {
 
-    return "Project Management";
+    return "项目管理";
   }
 
   hideRequiredAsterix(trackingTool: TrackingTool) {
@@ -40,17 +40,16 @@ export class ProjectManagementTabContent extends TabContent<PipelineConfig> {
 
   protected renderer(entity: PipelineConfig, templateConfig: TemplateConfig) {
     return <div>
-      <h3>Tracking Tool Integration
+      <h3>跟踪工具集成
         <Help
-          content={"Can be used to specify links to an issue tracker. Go will construct a link based on the commit message that " +
-          "you can use to take you to your tracking tool (Mingle card, JIRA issue, Trac issue etc)."}/>
+          content={"可用于指定指向问题跟踪器的链接，服务器将基本消息生成一个链接."}/>
       </h3>
       <Form compactForm={true}>
         <TextField property={entity.trackingTool().regex}
-                   label={"Pattern"}
+                   label={"模式"}
                    readonly={entity.isDefinedInConfigRepo()}
                    errorText={entity.trackingTool().errors().errorsForDisplay("regex")}
-                   helpText={"A regular expression to identify card or bug numbers from your checkin comments."}
+                   helpText={"一个正则表达式，用于从签入注释中识别卡号或错误号。"}
                    docLink={"integration"}
                    hideRequiredAsterix={this.hideRequiredAsterix(entity.trackingTool())}
                    dataTestId={"project-management-pattern"}
@@ -60,7 +59,7 @@ export class ProjectManagementTabContent extends TabContent<PipelineConfig> {
                    label={"URI"}
                    readonly={entity.isDefinedInConfigRepo()}
                    errorText={entity.trackingTool().errors().errorsForDisplay("urlPattern")}
-                   helpText={"The URI to your tracking tool. This must contain the string ${ID} which will be replaced with the number identified using the pattern."}
+                   helpText={"跟踪工具的URI。这必须包含字符串$｛ID｝，该字符串将被替换为使用模式标识的数字."}
                    docLink={"integration"}
                    dataTestId={"project-management-uri"}
                    hideRequiredAsterix={this.hideRequiredAsterix(entity.trackingTool())}

@@ -29,7 +29,7 @@ describe('PolicyWidgetSpecs', () => {
   it('should display info regarding default policy on when no policy have been configured', () => {
     mount();
 
-    const infoText = "Configure the policy below to manage access to GoCD entities for users in this role. Learn More";
+    const infoText = "Configure the policy below to manage access to GoCD entities for users in this role. 学习更多";
     expect(helper.byTestId("flash-message-info")).toBeInDOM();
     expect(helper.byTestId("flash-message-info")).toContainText(infoText);
     expect(helper.q("a", helper.byTestId("flash-message-info")).getAttribute("href")).toEqual(docsUrl("configuration/dev_authorization.html#role-based-access-control"));

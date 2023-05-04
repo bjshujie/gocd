@@ -26,7 +26,7 @@ describe("Parameters model", () => {
     param = new PipelineParameter("", "");
     expect(param.isValid()).toBe(false);
     expect(param.errors().count()).toBe(1);
-    expect(param.errors().errorsForDisplay("name")).toBe("Name must be present.");
+    expect(param.errors().errorsForDisplay("name")).toBe("名称为必填项，请输入.");
 
     param = new PipelineParameter("invalid name", "");
     expect(param.isValid()).toBe(false);

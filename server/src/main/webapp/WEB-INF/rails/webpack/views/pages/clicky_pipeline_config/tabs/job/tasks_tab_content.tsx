@@ -167,7 +167,7 @@ export class TasksWidget extends MithrilComponent<Attrs, State> {
 
                      vnode.state.modal.render();
                    }}>
-          Add Task
+          添加任务
         </Secondary>
       </div>);
     }
@@ -190,10 +190,10 @@ export class TasksWidget extends MithrilComponent<Attrs, State> {
   }
 
   private static getTableHeaders(isEditable: boolean) {
-    const headers = ["Task Type", "Properties", "Run If Condition", "On Cancel"];
+    const headers = ["任务类型", "属性", "运行条件", "取消时执行任务"];
 
     if (isEditable) {
-      headers.push("Remove");
+      headers.push("删除");
     }
 
     return headers;
@@ -272,7 +272,7 @@ export class TasksWidget extends MithrilComponent<Attrs, State> {
 
   private deleteTask(vnode: m.Vnode<Attrs, State>, taskToDelete: Task, taskIndex: number) {
     new ConfirmationDialog(
-      "Delete Task",
+      "删除任务",
       <div>Do you want to delete the task at index '<em>{taskIndex + 1}</em>'?</div>,
       this.onDelete.bind(this, vnode, taskToDelete, taskIndex)
     ).render();

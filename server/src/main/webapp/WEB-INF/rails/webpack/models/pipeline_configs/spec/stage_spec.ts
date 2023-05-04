@@ -40,7 +40,7 @@ describe("Stage model", () => {
     expect(stage.isValid()).toBe(false);
     expect(stage.errors().count()).toBe(1);
     expect(stage.errors().keys()).toEqual(["name"]);
-    expect(stage.errors().errorsForDisplay("name")).toBe("Invalid name. This must be alphanumeric and can contain hyphens, underscores and periods (however, it cannot start with a period). The maximum allowed length is 255 characters.");
+    expect(stage.errors().errorsForDisplay("name")).toBe("无效的名称。只能包含字母数字、连字符、下划线和点（但不能以点开头）。允许的最大长度为255个字符。");
   });
 
   it("should include a job", () => {
@@ -143,6 +143,6 @@ describe("Stage model", () => {
 
     expect(envVar.errors().count()).toBe(1);
     expect(envVar.errors().keys()).toEqual(["name"]);
-    expect(envVar.errors().errorsForDisplay("name")).toBe("Name must be present.");
+    expect(envVar.errors().errorsForDisplay("name")).toBe("名称为必填项，请输入.");
   });
 });

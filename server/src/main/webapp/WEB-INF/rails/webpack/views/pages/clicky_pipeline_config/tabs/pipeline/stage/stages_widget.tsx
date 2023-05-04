@@ -68,7 +68,7 @@ export class StagesWidget extends MithrilComponent<Attrs, State> {
     if (vnode.attrs.isEditable) {
       addStageBtn = <Secondary dataTestId={"add-stage-button"}
                                disabled={readonly} title={disabledTitle}
-                               onclick={() => vnode.state.getModal().render()}>Add new stage</Secondary>;
+                               onclick={() => vnode.state.getModal().render()}>新增阶段</Secondary>;
     }
 
     return <div data-test-id={"stages-container"}>
@@ -83,9 +83,9 @@ export class StagesWidget extends MithrilComponent<Attrs, State> {
   }
 
   private static getTableHeaders(isEditable: boolean) {
-    const headers = ["Stage Name", "Trigger Type", "Jobs"];
+    const headers = ["阶段名称", "启动类型", "作业"];
     if (isEditable) {
-      headers.push("Remove");
+      headers.push("删除");
     }
     return headers;
   }
@@ -104,7 +104,7 @@ export class StagesWidget extends MithrilComponent<Attrs, State> {
       let deleteDisabledMessage: string | undefined;
 
       if (Array.from(stages.values()).length === 1) {
-        deleteDisabledMessage = "Can not delete the only stage from the pipeline.";
+        deleteDisabledMessage = "无法从算法中删除唯一阶段.";
       }
 
       const stageDependentPipelines = vnode.attrs.dependentPipelines().reduce((dependent, ele) => {
@@ -115,7 +115,7 @@ export class StagesWidget extends MithrilComponent<Attrs, State> {
       }, [] as string[]);
 
       if (stageDependentPipelines.length > 0) {
-        deleteDisabledMessage = `Can not delete stage '${stage.name()}' as pipeline(s) '${stageDependentPipelines}' depends on it.`;
+        deleteDisabledMessage = `无法删除阶段 '${stage.name()}' 因为算法 '${stageDependentPipelines}' 依赖于它.`;
       }
 
       const cells: m.Child[] = [
@@ -137,8 +137,8 @@ export class StagesWidget extends MithrilComponent<Attrs, State> {
 
   private deleteStage(vnode: m.Vnode<Attrs, State>, stageToDelete: Stage, index: number) {
     new ConfirmationDialog(
-      "Delete Stage",
-      <div>Do you want to delete the stage '<em>{stageToDelete.name()}</em>'?</div>,
+      "删除阶段",
+      <div>您要删除阶段 '<em>{stageToDelete.name()}</em>'吗?</div>,
       this.onDelete.bind(this, vnode, stageToDelete, index)
     ).render();
   }
@@ -146,7 +146,7 @@ export class StagesWidget extends MithrilComponent<Attrs, State> {
   private onDelete(vnode: m.Vnode<Attrs, State>, stageToDelete: Stage, index: number) {
     vnode.attrs.stages().delete(stageToDelete);
     return vnode.attrs.pipelineConfigSave().then(() => {
-      vnode.attrs.flashMessage.setMessage(MessageType.success, `Stage '${stageToDelete.name()}' deleted successfully.`);
+      vnode.attrs.flashMessage.setMessage(MessageType.success, `阶段 '${stageToDelete.name()}' 删除成功.`);
     }).catch((_errorResponse: ErrorResponse) => {
       const newStages = Array.from(vnode.attrs.stages().values()).splice(0, index);
       newStages.push(stageToDelete);

@@ -84,7 +84,7 @@ describe("AddPaC: Actions Section", () => {
 
     expect(configRepo.isValid).toHaveBeenCalled();
     expect(ConfigReposCRUD.create).not.toHaveBeenCalled();
-    expect(helper.text(sel.errorResponse)).toBe("Please fix the validation errors above before proceeding.");
+    expect(helper.text(sel.errorResponse)).toBe("请先修复上面的验证错误，然后再继续.");
   });
 
   it("Cancel goes to the dashboard but does not create", () => {

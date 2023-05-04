@@ -154,7 +154,7 @@ public class ConsoleActivityMonitor {
 
             @Override
             public String hungWarningMessage(String buildLocator, String namespacedJob, String difference) {
-                return format("Job <a href='/go/tab/build/detail/%s'>%s</a> is currently running but it has not been assigned an agent in the last %s minute(s). This job may be hung.", buildLocator, namespacedJob, difference);
+                return format("作业 <a href='/go/tab/build/detail/%s'>%s</a> 当前正在运行，但在最近%s分钟内尚未为其分配节点。此作业可能被挂起.", buildLocator, namespacedJob, difference);
             }
         };
     }

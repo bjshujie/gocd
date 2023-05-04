@@ -132,14 +132,14 @@ export const Pipeline = function (info) {
   };
 
   const TooltipText = {
-    NO_OPERATE_PERMISSION:   "You do not have permission to trigger the pipeline",
-    PIPELINE_PAUSED:         "Cannot trigger pipeline - Pipeline is currently paused.",
-    PIPELINE_LOCKED:         "Cannot trigger pipeline - Pipeline is currently locked.",
-    FIRST_STAGE_IN_PROGRESS: "Cannot trigger pipeline - First stage is still in progress.",
-    NO_EDIT_PERMISSION:      "You do not have permission to edit the pipeline.",
-    NO_UNLOCK_PERMISSION:    "You do not have permission to unlock the pipeline.",
-    NO_PAUSE_PERMISSION:     "You do not have permission to pause the pipeline.",
-    NO_UNPAUSE_PERMISSION:   "You do not have permission to unpause the pipeline."
+    NO_OPERATE_PERMISSION:   "您没有权限启动算法",
+    PIPELINE_PAUSED:         "无法启动算法 - 算法当前被暂停.",
+    PIPELINE_LOCKED:         "无法启动算法 - 算法当前被锁定.",
+    FIRST_STAGE_IN_PROGRESS: "无法启动算法 - 第一阶段仍在处理中.",
+    NO_EDIT_PERMISSION:      "您没有权限编辑算法.",
+    NO_UNLOCK_PERMISSION:    "您没有权限解锁算法.",
+    NO_PAUSE_PERMISSION:     "您没有权限暂停算法.",
+    NO_UNPAUSE_PERMISSION:   "您没有权限恢复算法."
   };
 };
 

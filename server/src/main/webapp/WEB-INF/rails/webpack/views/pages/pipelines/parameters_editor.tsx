@@ -54,7 +54,7 @@ export class PipelineParametersEditor extends MithrilViewComponent<Attrs> {
                                    dataTestId={"add-param"}
                                    icon={ButtonIcon.ADD}
                                    onclick={this.add.bind(this, vnode.attrs.paramList)}>
-        Add
+        新增
       </Secondary>;
     }
 
@@ -63,12 +63,12 @@ export class PipelineParametersEditor extends MithrilViewComponent<Attrs> {
         <Form last={true} compactForm={true}>
           <div class={css.parameters}>
             <label>
-              Parameters
+              参数
               <Tooltip.Help size={TooltipSize.medium}
-                            content={<span>Parameters help reduce repetition within your configurations and combined with templates allow you to setup complex configurations. <a
-                              href="https://docs.gocd.org/current/configuration/admin_use_parameters_in_configuration.html">Read more</a></span>}/>
+                            content={<span>参数有助于减少配置中的重复，与模板相结合可以设置复杂的配置. <a
+                              href="https://docs.gocd.org/current/configuration/admin_use_parameters_in_configuration.html">阅读更多</a></span>}/>
             </label>
-            <Table headers={["name", "value", ""]} data={
+            <Table headers={["名称", "值", ""]} data={
               _.map(vnode.attrs.paramList(), (param, i) => {
                 const elements = [
                   <IdentifierInputField dataTestId={`form-field-input-param-name-${i}`}

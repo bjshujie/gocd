@@ -107,7 +107,7 @@ export class AgentsPage extends Page<null, State> {
   }
 
   pageName(): string {
-    return "Agents";
+    return "节点";
   }
 
   fetchData(vnode: m.Vnode<null, State>): Promise<any> {
@@ -127,8 +127,8 @@ export class AgentsPage extends Page<null, State> {
 
   helpText(): m.Children {
     return <span>
-      GoCD Agents are the workers in the GoCD ecosystem. Agents pick up jobs which are assigned to them, execute the tasks in the job and report the status of the job to the GoCD Server.
-      <Link href={docsUrl("introduction/concepts_in_go.html#agent")} externalLinkIcon={true}> Learn More</Link>
+      节点用于执行实际的计算任务。节点会选取分配给它们的一个作业，执行作业中的任务，并且向服务器报告作业的状态。
+      <Link href={docsUrl("introduction/concepts_in_go.html#agent")} externalLinkIcon={true}> 学习更多</Link>
     </span>;
   }
 

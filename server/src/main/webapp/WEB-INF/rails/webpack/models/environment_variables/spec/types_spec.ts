@@ -92,7 +92,7 @@ describe("Environment Variable Model", () => {
       envVar.name("");
 
       expect(envVar.isValid()).toBe(false);
-      expect(envVar.errors().errors("name")).toContain("Name must be present");
+      expect(envVar.errors().errors("name")).toContain("名称为必填项，请输入");
     });
   });
 

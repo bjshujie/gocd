@@ -35,6 +35,6 @@ describe("TemplateConfig model", () => {
     expect(pip.errors().keys()).toEqual(["name"]);
     expect(pip.errors().errorsForDisplay("name"))
       .toBe(
-        "Invalid name. This must be alphanumeric and can contain hyphens, underscores and periods (however, it cannot start with a period). The maximum allowed length is 255 characters.");
+        "无效的名称。只能包含字母数字、连字符、下划线和点（但不能以点开头）。允许的最大长度为255个字符。");
   });
 });

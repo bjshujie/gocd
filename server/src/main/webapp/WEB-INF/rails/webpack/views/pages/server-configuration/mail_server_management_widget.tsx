@@ -143,10 +143,10 @@ export class MailServerManagementWidget extends MithrilViewComponent<MailServerM
           <ButtonGroup>
             <Cancel data-test-id={"cancel"}
                     ajaxOperationMonitor={this.ajaxOperationMonitor}
-                    onclick={() => vnode.attrs.onCancel(vnode.attrs.mailServerVM())}>Cancel</Cancel>
+                    onclick={() => vnode.attrs.onCancel(vnode.attrs.mailServerVM())}>取消</Cancel>
             <Primary data-test-id={"save"}
                      ajaxOperationMonitor={this.ajaxOperationMonitor}
-                     ajaxOperation={() => vnode.attrs.onMailServerManagementSave(vnode.attrs.mailServerVM().entity())}>Save</Primary>
+                     ajaxOperation={() => vnode.attrs.onMailServerManagementSave(vnode.attrs.mailServerVM().entity())}>保存</Primary>
           </ButtonGroup>
         </div>
       </FormBody>

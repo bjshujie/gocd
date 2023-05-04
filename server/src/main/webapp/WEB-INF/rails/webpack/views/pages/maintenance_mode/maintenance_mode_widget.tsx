@@ -66,7 +66,7 @@ export class MaintenanceModeWidget extends MithrilViewComponent<Attrs> {
         <p data-test-id="maintenance-mode-description" class={styles.maintenanceModeDescription}>
           当服务器处于维护模式，服务器在备份时无任何作业正运行，可以安全的重新启动或升级
           &nbsp;
-          <Link target="_blank" href={docsUrl("/advanced_usage/maintenance_mode.html")}>Learn more..</Link>
+          <Link target="_blank" href={docsUrl("/advanced_usage/maintenance_mode.html")}>学习更多..</Link>
         </p>
 
         <div class={styles.maintenanceModeInfo}>

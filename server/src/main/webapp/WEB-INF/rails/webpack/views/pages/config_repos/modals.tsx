@@ -64,7 +64,7 @@ class MaterialEditWidget extends MithrilViewComponent<EditableMaterial> {
       findByPluginId(repo.pluginId());
 
     const infoMsg = <span>Configure rules to allow which environment/pipeline group/pipeline the config repository can refer to. By default, the config repository cannot refer to an entity unless explicitly allowed. <Link
-      href={docsUrl("advanced_usage/pipelines_as_code.html")} target="_blank" externalLinkIcon={true}>Learn More</Link></span>;
+      href={docsUrl("advanced_usage/pipelines_as_code.html")} target="_blank" externalLinkIcon={true}>学习更多</Link></span>;
 
     return [
       showIf(!!error, () => <div class={styles.errorWrapper}>{error}</div>),
@@ -374,9 +374,9 @@ export abstract class ConfigRepoModal extends Modal {
     return [
       this.saveFailureIdentifier,
       <Buttons.Primary data-test-id="button-ok" ajaxOperation={this.save.bind(this)}
-                       ajaxOperationMonitor={this.ajaxOperationMonitor}>Save</Buttons.Primary>,
+                       ajaxOperationMonitor={this.ajaxOperationMonitor}>保存</Buttons.Primary>,
       <Buttons.Cancel data-test-id="button-cancel" onclick={this.close.bind(this)}
-                      ajaxOperationMonitor={this.ajaxOperationMonitor}>Cancel</Buttons.Cancel>
+                      ajaxOperationMonitor={this.ajaxOperationMonitor}>取消</Buttons.Cancel>
     ];
   }
 

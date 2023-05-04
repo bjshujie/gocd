@@ -231,7 +231,7 @@ describe("Environment Model - Environment", () => {
     env.environmentVariables().push(new EnvironmentVariableWithOrigin("", new Origin(OriginType.GoCD)));
     expect(env.isValid()).toBe(false);
 
-    expect(env.environmentVariables()[4].errors().errors("name")).toEqual(["Name must be present"]);
+    expect(env.environmentVariables()[4].errors().errors("name")).toEqual(["名称为必填项，请输入"]);
   });
 
   it('should give error for environment variables with same name', () => {

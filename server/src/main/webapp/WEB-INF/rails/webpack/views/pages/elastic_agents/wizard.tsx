@@ -260,15 +260,15 @@ class ClusterProfileStep extends Step {
   footer(wizard: Wizard): m.Children {
     return [
       <Buttons.Cancel css={wizardButtonStyles} onclick={wizard.close.bind(wizard)}
-                      data-test-id="cancel">Cancel</Buttons.Cancel>,
+                      data-test-id="cancel">取消</Buttons.Cancel>,
       <Buttons.Primary css={wizardButtonStyles} data-test-id="next"
                        disabled={!this.selectedPluginSupportsClusterProfiles}
                        ajaxOperation={this.saveClusterProfileAndNext.bind(this, wizard)}
-                       align="right">Save + Next</Buttons.Primary>,
+                       align="right">保存 + 下一步</Buttons.Primary>,
       <Buttons.Secondary css={wizardButtonStyles} data-test-id="save-cluster-profile"
                          disabled={!this.selectedPluginSupportsClusterProfiles}
                          ajaxOperation={this.saveClusterProfileAndExit.bind(this, wizard)}
-                         align="right">Save Cluster Profile + Exit</Buttons.Secondary>,
+                         align="right">保存集群配置 + 退出</Buttons.Secondary>,
       <span class={styles.footerError}>{this.footerError()}</span>,
     ];
   }
@@ -279,7 +279,7 @@ class ClusterProfileStep extends Step {
                  result.do(
                    (result) => {
                      this.etag = result.body.etag;
-                     this.onSuccessfulSave(<span>The cluster profile <em>{this.clusterProfile().id()}</em> was saved successfully!</span>);
+                     this.onSuccessfulSave(<span>集群配置 <em>{this.clusterProfile().id()}</em> 保存成功!</span>);
                      wizard.close();
                    },
                    (errorResponse) => {
@@ -322,7 +322,7 @@ class ClusterProfileStep extends Step {
     if (result.getStatusCode() === 422 && errorResponse.body) {
       const json = JSON.parse(errorResponse.body);
       this.clusterProfile(ClusterProfile.fromJSON(json.data));
-      this.footerError("Please fix the validation errors above before proceeding.");
+      this.footerError("请先修复上面的验证错误，然后再继续.");
       this.errMessage(json.message);
     } else {
       this.footerError("Save Failed!");
@@ -346,10 +346,10 @@ class ReadOnlyClusterProfileStep extends ClusterProfileStep {
   footer(wizard: Wizard): m.Children {
     return [
       <Buttons.Cancel css={wizardButtonStyles} onclick={wizard.close.bind(wizard)}
-                      data-test-id="cancel">Cancel</Buttons.Cancel>,
+                      data-test-id="cancel">取消</Buttons.Cancel>,
       <Buttons.Primary css={wizardButtonStyles} data-test-id="next"
                        onclick={() => wizard.next()}
-                       align="right">Show Elastic Profile</Buttons.Primary>,
+                       align="right">显示弹性设置</Buttons.Primary>,
       <span class={styles.footerError}>{this.footerError()}</span>,
     ];
   }
@@ -381,11 +381,11 @@ class EditClusterProfileStep extends ClusterProfileStep {
   footer(wizard: Wizard): m.Children {
     return [
       <Buttons.Cancel css={wizardButtonStyles} onclick={wizard.close.bind(wizard)}
-                      data-test-id="cancel">Cancel</Buttons.Cancel>,
+                      data-test-id="cancel">取消</Buttons.Cancel>,
       <Buttons.Primary css={wizardButtonStyles} data-test-id="save-cluster-profile"
                        disabled={!this.selectedPluginSupportsClusterProfiles}
                        ajaxOperation={this.saveClusterProfileAndExit.bind(this, wizard)}
-                       align="right">Save Cluster Profile</Buttons.Primary>,
+                       align="right">保存集群设置</Buttons.Primary>,
       <span class={styles.footerError}>{this.footerError()}</span>,
     ];
   }
@@ -451,11 +451,11 @@ class ElasticProfileStep extends Step {
   footer(wizard: Wizard): m.Children {
     return [
       <Buttons.Cancel onclick={wizard.close.bind(wizard)} css={wizardButtonStyles}
-                      data-test-id="cancel">Cancel</Buttons.Cancel>,
+                      data-test-id="cancel">取消</Buttons.Cancel>,
       <Buttons.Primary data-test-id="finish" align="right" css={wizardButtonStyles}
-                       ajaxOperation={this.saveAndFinish.bind(this, wizard)}>Finish</Buttons.Primary>,
+                       ajaxOperation={this.saveAndFinish.bind(this, wizard)}>完成</Buttons.Primary>,
       <Buttons.Primary data-test-id="previous" onclick={wizard.previous.bind(wizard, 1)} css={wizardButtonStyles}
-                       align="right">Previous</Buttons.Primary>,
+                       align="right">上一步</Buttons.Primary>,
       <span class={styles.footerError}>{this.footerError()}</span>
     ];
   }
@@ -510,7 +510,7 @@ class ElasticProfileStep extends Step {
     if (result.getStatusCode() === 422 && errorResponse.body) {
       const json = JSON.parse(errorResponse.body);
       this.elasticProfile(ElasticAgentProfile.fromJSON(json.data));
-      this.footerError("Please fix the validation errors above before proceeding.");
+      this.footerError("请先修复上面的验证错误，然后再继续.");
       this.errMessage(json.message);
     } else {
       this.footerError("Save Failed!");
@@ -525,11 +525,11 @@ class AddElasticProfileToExistingClusterStep extends ElasticProfileStep {
   footer(wizard: Wizard): m.Children {
     return [
       <Buttons.Cancel onclick={wizard.close.bind(wizard)} css={wizardButtonStyles}
-                      data-test-id="cancel">Cancel</Buttons.Cancel>,
+                      data-test-id="cancel">取消</Buttons.Cancel>,
       <Buttons.Primary data-test-id="finish" align="right" css={wizardButtonStyles}
-                       ajaxOperation={this.saveAndFinish.bind(this, wizard)}>Save</Buttons.Primary>,
+                       ajaxOperation={this.saveAndFinish.bind(this, wizard)}>保存</Buttons.Primary>,
       <Buttons.Secondary data-test-id="previous" onclick={wizard.previous.bind(wizard, 1)} css={wizardButtonStyles}
-                         align="right">Show Cluster Profile</Buttons.Secondary>,
+                         align="right">显示集群设置</Buttons.Secondary>,
       <span class={styles.footerError}>{this.footerError()}</span>
     ];
   }
@@ -570,11 +570,11 @@ class EditElasticProfileStep extends ElasticProfileStep {
   footer(wizard: Wizard): m.Children {
     return [
       <Buttons.Cancel onclick={wizard.close.bind(wizard)} css={wizardButtonStyles}
-                      data-test-id="cancel">Cancel</Buttons.Cancel>,
+                      data-test-id="cancel">取消</Buttons.Cancel>,
       <Buttons.Primary data-test-id="finish" align="right" css={wizardButtonStyles}
-                       ajaxOperation={this.saveAndFinish.bind(this, wizard)}>Save</Buttons.Primary>,
+                       ajaxOperation={this.saveAndFinish.bind(this, wizard)}>保存</Buttons.Primary>,
       <Buttons.Secondary data-test-id="previous" onclick={wizard.previous.bind(wizard, 1)} css={wizardButtonStyles}
-                         align="right">Show Cluster Profile</Buttons.Secondary>,
+                         align="right">显示集群设置</Buttons.Secondary>,
       <span class={styles.footerError}>{this.footerError()}</span>
     ];
   }

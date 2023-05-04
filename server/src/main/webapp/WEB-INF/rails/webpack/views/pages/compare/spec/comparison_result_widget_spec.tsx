@@ -55,7 +55,7 @@ describe('ComparisonResultWidgetSpec', () => {
 
     expect(helper.byTestId("info-msg")).toBeInDOM();
     expect(helper.byTestId("comparison-result-widget")).toBeInDOM();
-    expect(infoMsgElement.textContent).toBe("This comparison involves a pipeline instance that was triggered with a non-sequential material revision. Learn More");
+    expect(infoMsgElement.textContent).toBe("This comparison involves a pipeline instance that was triggered with a non-sequential material revision. 学习更多");
     expect(helper.q('a', infoMsgElement)).toBeInDOM();
     expect(helper.q('a', infoMsgElement)).toHaveAttr('href', docsUrl('advanced_usage/compare_pipelines.html'));
     expect(helper.byTestId("Info Circle-icon")).toBeInDOM();

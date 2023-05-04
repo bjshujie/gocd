@@ -52,10 +52,10 @@ export class JobTimeoutConfigurationWidget extends MithrilViewComponent<JobTimeo
           <ButtonGroup>
             <Cancel data-test-id={"cancel"}
                     ajaxOperationMonitor={this.ajaxOperationMonitor}
-                    onclick={() => vnode.attrs.onCancel(vnode.attrs.defaultJobTimeoutVM())}>Cancel</Cancel>
+                    onclick={() => vnode.attrs.onCancel(vnode.attrs.defaultJobTimeoutVM())}>取消</Cancel>
             <Primary data-test-id={"save"}
                      ajaxOperation={() => vnode.attrs.onDefaultJobTimeoutSave(jobTimeout)}
-                     ajaxOperationMonitor={this.ajaxOperationMonitor}>Save</Primary>
+                     ajaxOperationMonitor={this.ajaxOperationMonitor}>保存</Primary>
           </ButtonGroup>
         </div>
       </FormBody>

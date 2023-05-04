@@ -37,7 +37,7 @@ const GroupHeading = {
 
     return <div class="dashboard-group_title">
       <f.link disabled={!vm.canAdminister} href={paths.show} class="dashboard-group_name"
-              aria-label={vm.label()}>{vm.name || "Pipelines not in any Environment"}</f.link>
+              aria-label={vm.label()}>{vm.name || "算法不属于任何环境"}</f.link>
       {vm.name && <f.link class="edit_config dashboard-group_edit-config" disabled={!vm.canAdminister} href={paths.edit}
                           tooltipText={vm.tooltipForEdit()} title={vm.titleForEdit()} aria-label={vm.ariaLabelForEdit()}/>}
       {vnode.attrs.showPrompt ? [<BehaviorPrompt

@@ -38,7 +38,7 @@ describe("Custom Tab Tab Content", () => {
     const job = Job.fromJSON(JobTestData.with("test"));
     mount(job);
 
-    const helpText = "Custom Tabs lets you add new tabs within the Job Details page.";
+    const helpText = "自定义选项卡允许您在“作业详细信息”页面中添加新选项卡.";
     const link     = (helper.q("a", helper.byTestId("custom-tab-doc-link")) as HTMLLinkElement);
 
     expect(helper.byTestId("flash-message-info")).toContainText(helpText);
@@ -49,13 +49,13 @@ describe("Custom Tab Tab Content", () => {
     const job = Job.fromJSON(JobTestData.with("test"));
     mount(job);
 
-    const tabNameDescription = "Name of the tab which will appear in the Job Detail Page.";
-    const tabPathDescription = "The artifact that will be rendered in the custom tab. This is typically a html or xml file.";
+    const tabNameDescription = "将显示在作业详细信息页面中的选项卡的名称.";
+    const tabPathDescription = "将在自定义选项卡中呈现的文档。这通常是一个html或xml文件.";
 
-    expect(helper.byTestId("name-header")).toContainText("Tab Name");
+    expect(helper.byTestId("name-header")).toContainText("选项卡名称");
     expect(helper.allByTestId("tooltip-wrapper")[0]).toContainText(tabNameDescription);
 
-    expect(helper.byTestId("path-header")).toContainText("Path");
+    expect(helper.byTestId("path-header")).toContainText("路径");
     expect(helper.allByTestId("tooltip-wrapper")[1]).toContainText(tabPathDescription);
   });
 

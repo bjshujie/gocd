@@ -191,7 +191,7 @@ describe("Dashboard", () => {
     describe("Unpause", () => {
       it('should unpause a pipeline with appropriate headers', async () => {
         jasmine.Ajax.stubRequest(`/go/api/pipelines/${pipelineJson.name}/unpause`, undefined, 'POST').andReturn({
-          responseText: JSON.stringify({"message": `Pipeline '${pipelineJson.name}' paused successfully.`}),
+          responseText: JSON.stringify({"message": `算法 '${pipelineJson.name}' 暂停成功.`}),
           responseHeaders: {
             'Content-Type': 'application/vnd.go.cd.v1+json'
           },

@@ -46,25 +46,25 @@ describe("ServerHealthMessages", () => {
   it("should return a summary message when there are both warnings and errors", () => {
     const messages = new ServerHealthMessages([createError(), createWarning()]);
 
-    expect(messages.summaryMessage()).toEqual("1 error and 1 warning");
+    expect(messages.summaryMessage()).toEqual("1 个错误和 1 个警告");
   });
 
   it("should pluralize errors and warnings", () => {
     const messages = new ServerHealthMessages([createError(), createWarning(), createError(), createWarning()]);
 
-    expect(messages.summaryMessage()).toEqual("2 errors and 2 warnings");
+    expect(messages.summaryMessage()).toEqual("2 错误和 2 个警告");
   });
 
   it("should return a summary message when there only errors", () => {
     const messages = new ServerHealthMessages([createError(), createError()]);
 
-    expect(messages.summaryMessage()).toEqual("2 errors");
+    expect(messages.summaryMessage()).toEqual("2 个错误");
   });
 
   it("should return a summary message when there only warnings", () => {
     const messages = new ServerHealthMessages([createWarning(), createWarning()]);
 
-    expect(messages.summaryMessage()).toEqual("2 warnings");
+    expect(messages.summaryMessage()).toEqual("2 个警告");
   });
 
   it("should return true when there are messages", () => {

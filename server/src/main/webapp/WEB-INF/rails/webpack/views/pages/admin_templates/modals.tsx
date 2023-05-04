@@ -201,7 +201,7 @@ export class ShowTemplateModal extends Modal {
           <KeyValuePair data={stageProperties}/>
         </div>
         <Tabs
-          tabs={["Environment Variables", "Permissions"]}
+          tabs={["环境变量", "权限"]}
           contents={
             [this.environmentVariables(stage.environment_variables), this.stagePermissions(stage)]}/>
       </div>
@@ -224,7 +224,7 @@ export class ShowTemplateModal extends Modal {
           <KeyValuePair data={jobProperties}/>
         </div>
         <Tabs
-          tabs={["Tasks", "Artifacts", "Environment Variables", "Custom Tabs"]}
+          tabs={["任务", "文档", "环境变量", "自定义选项卡"]}
           contents={[this.tasks(job.tasks), this.artifacts(job.artifacts), this.environmentVariables(job.environment_variables), this.tabs(
             job.tabs)]}/>
       </div>
@@ -259,7 +259,7 @@ export class ShowTemplateModal extends Modal {
 
   private environmentVariables(variables: EnvironmentVariableJSON[]) {
     if (_.isEmpty(variables)) {
-      return <FlashMessage message="No environment variables have been configured." type={MessageType.info}/>;
+      return <FlashMessage message="未配置环境变量." type={MessageType.info}/>;
     }
 
     const data = new Map(variables.map((eachVar) => {

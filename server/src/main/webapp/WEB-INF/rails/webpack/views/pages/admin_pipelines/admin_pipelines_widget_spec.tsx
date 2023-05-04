@@ -63,7 +63,7 @@ describe("PipelineGroupsWidget", () => {
     });
 
     expect(helper.textByTestId("flash-message-info"))
-      .toEqual("Either no pipelines have been defined or you are not authorized to view the same. Learn More");
+      .toEqual("Either no pipelines have been defined or you are not authorized to view the same. 学习更多");
     expect(helper.q("a", helper.byTestId("flash-message-info")).getAttribute("href"))
       .toEqual(docsUrl("configuration/pipelines.html"));
   });
@@ -168,7 +168,7 @@ describe("PipelineGroupsWidget", () => {
     expect(anchorErrorMsgElement).toBeInDOM();
     expect(anchorErrorMsgElement.innerText)
       .toBe(
-        "Either 'grp-test' pipeline group has not been set up or you are not authorized to view the same. Learn More");
+        "Either 'grp-test' pipeline group has not been set up or you are not authorized to view the same. 学习更多");
 
     expect(helper.q("a", anchorErrorMsgElement)).toBeInDOM();
     expect(helper.q("a", anchorErrorMsgElement).getAttribute("href"))

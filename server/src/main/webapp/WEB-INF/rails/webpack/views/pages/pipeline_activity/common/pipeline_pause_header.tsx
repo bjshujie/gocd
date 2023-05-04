@@ -144,10 +144,10 @@ export class PipelinePauseHeader extends MithrilComponent<Attrs, State> {
       return;
     }
 
-    let pauseMessage     = "调度被暂停";
+    let pauseMessage     = "调度由";
     const pipelineStatus = vnode.state.pipelineStatus()!;
     if (pipelineStatus.pausedBy()) {
-      pauseMessage += ` by ${pipelineStatus.pausedBy()}`;
+      pauseMessage += ` ${pipelineStatus.pausedBy()} 暂停`;
     }
     if (pipelineStatus.pausedCause()) {
       pauseMessage += ` (${pipelineStatus.pausedCause()})`;

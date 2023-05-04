@@ -57,7 +57,7 @@ export class StagesTabContent extends TabContent<PipelineConfig | TemplateConfig
   }
 
   static tabName(): string {
-    return "Stages";
+    return "阶段";
   }
 
   public shouldShowSaveAndResetButtons(): boolean {

@@ -23,7 +23,7 @@ describe("SystemNotifications", () => {
     read: false,
     type: "UpdateCheck",
     link: "link_1",
-    linkText: "read more"
+    linkText: "阅读更多"
   };
   const allNotificationsJSON = [
     {
@@ -32,7 +32,7 @@ describe("SystemNotifications", () => {
       read: false,
       type: "UpdateCheck",
       link: "link_1",
-      linkText: "read more"
+      linkText: "阅读更多"
     },
     {
       id: "id2",
@@ -40,7 +40,7 @@ describe("SystemNotifications", () => {
       read: false,
       type: "SomethingOfImportance",
       link: "link_2",
-      linkText: "read more"
+      linkText: "阅读更多"
     }
   ] as Notification[];
   beforeEach(() => {
@@ -54,13 +54,13 @@ describe("SystemNotifications", () => {
     expect(allNotifications.first().id).toBe("id1");
     expect(allNotifications.first().type).toBe("UpdateCheck");
     expect(allNotifications.first().link).toBe("link_1");
-    expect(allNotifications.first().linkText).toBe("read more");
+    expect(allNotifications.first().linkText).toBe("阅读更多");
     expect(allNotifications.first().read).toBe(false);
 
     expect(allNotifications.last().id).toBe("id2");
     expect(allNotifications.last().type).toBe("SomethingOfImportance");
     expect(allNotifications.last().link).toBe("link_2");
-    expect(allNotifications.last().linkText).toBe("read more");
+    expect(allNotifications.last().linkText).toBe("阅读更多");
     expect(allNotifications.last().read).toBe(false);
   });
 
@@ -82,7 +82,7 @@ describe("SystemNotifications", () => {
                                                                              read: false,
                                                                              type: "UpdateCheck",
                                                                              link: "link_1",
-                                                                             link_text: "read more"
+                                                                             link_text: "阅读更多"
                                                                            });
   });
 

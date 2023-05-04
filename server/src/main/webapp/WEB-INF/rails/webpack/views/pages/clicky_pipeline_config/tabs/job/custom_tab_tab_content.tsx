@@ -33,12 +33,12 @@ import styles from "./custom_tabs.scss";
 export class CustomTabTabContent extends TabContent<Job> {
 
   static tabName(): string {
-    return "Custom Tabs";
+    return "自定义选项卡";
   }
 
   protected renderer(entity: Job, templateConfig: TemplateConfig): m.Children {
     const readonly = this.isEntityDefinedInConfigRepository();
-    const msg      = "Custom Tabs lets you add new tabs within the Job Details page.";
+    const msg      = "自定义选项卡允许您在“作业详细信息”页面中添加新选项卡.";
     const docLink  = <HelpText helpText=" "
                                docLink="faq/dev_see_artifact_as_tab.html"
                                helpTextId={`custom-tab-doc-link`}/>;
@@ -68,19 +68,19 @@ export class CustomTabTabContent extends TabContent<Job> {
   return (<Secondary small={true}
                      dataTestId={"add-custom-tab-button"}
                      onclick={this.addEmptyTab.bind(null, tabs)}>
-    + Add
+    + 新增
   </Secondary>);
   }
 
   private getTabView(tabs: Tabs, readonly: boolean) {
     const tabsHeader = (<div class={styles.tabsHeader} data-test-id="tabs-header">
       <span data-test-id="name-header">
-        Tab Name: <Tooltip.Info size={TooltipSize.small}
-                                content={"Name of the tab which will appear in the Job Detail Page."}/>
+        选项卡名称: <Tooltip.Info size={TooltipSize.small}
+                                content={"将显示在作业详细信息页面中的选项卡的名称."}/>
       </span>
       <span data-test-id="path-header">
-        Path: <Tooltip.Info size={TooltipSize.small}
-                            content={"The artifact that will be rendered in the custom tab. This is typically a html or xml file."}/>
+        路径: <Tooltip.Info size={TooltipSize.small}
+                            content={"将在自定义选项卡中呈现的文档。这通常是一个html或xml文件."}/>
       </span>
     </div>);
 
@@ -100,11 +100,11 @@ export class CustomTabTabContent extends TabContent<Job> {
         <TextField dataTestId={`tab-name-${tab.name()}`}
                    readonly={readonly}
                    errorText={tab.errors().errorsForDisplay("name")}
-                   placeholder="name" property={tab.name}/>
+                   placeholder="名称" property={tab.name}/>
         <TextField dataTestId={`tab-path-${tab.path()}`}
                    readonly={readonly}
                    errorText={tab.errors().errorsForDisplay("path")}
-                   placeholder="path"
+                   placeholder="路径"
                    property={tab.path}/>
         {removeTab}
       </div>);

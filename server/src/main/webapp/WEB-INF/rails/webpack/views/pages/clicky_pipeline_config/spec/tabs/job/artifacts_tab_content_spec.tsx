@@ -49,7 +49,7 @@ describe("Artifacts Tab", () => {
     mount(job);
 
     expect(job.artifacts()).toHaveLength(0);
-    const expectedMsg = "No artifacts configured. Click 'Add Artifact' to configure artifacts.";
+    const expectedMsg = "未配置文档，点击'新建文档'来配置文档.";
     expect(helper.byTestId("flash-message-info")).toContainText(expectedMsg);
   });
 

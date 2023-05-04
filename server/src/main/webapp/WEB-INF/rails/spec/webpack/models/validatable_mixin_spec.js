@@ -49,7 +49,7 @@ describe('Validatable', () => {
       material.validate();
 
       expect(material.errors()._isEmpty()).toBe(false);
-      expect(material.errors().errors('name')).toEqual(['Name must be present']);
+      expect(material.errors().errors('name')).toEqual(['名称为必填项，请输入']);
     });
 
     it('should be conditional', () => {
@@ -336,7 +336,7 @@ describe('Validatable', () => {
 
       expect(var1.errors()._isEmpty()).toBe(false);
       expect(var1.errors().errors('key')).toEqual(['Key is a duplicate']);
-      expect(var1.errors().errors('name')).toEqual(['Name must be present']);
+      expect(var1.errors().errors('name')).toEqual(['名称为必填项，请输入']);
     });
 
     it('should be invalid if associated attributes are invalid', () => {

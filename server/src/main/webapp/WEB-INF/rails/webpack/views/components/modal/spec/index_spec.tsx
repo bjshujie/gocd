@@ -42,8 +42,8 @@ describe("Modal", () => {
 
       buttons(): m.ChildArray {
         return [
-          <Buttons.Primary>OK</Buttons.Primary>,
-          <Buttons.Cancel>Cancel</Buttons.Cancel>
+          <Buttons.Primary>确定</Buttons.Primary>,
+          <Buttons.Cancel>取消</Buttons.Cancel>
         ];
       }
 

@@ -74,20 +74,20 @@ export class RunIfConditionWidget extends MithrilComponent<Attrs, State> {
   view(vnode: m.Vnode<Attrs, State>) {
     return (
       <div data-test-id="run-if-condition">
-        <h4>Run If Conditions:</h4>
+        <h4>执行条件:</h4>
         <div data-test-id="run-if-condition-help-text" class={styles.runIfConditionHelpText}>
-          Decide whether task should run, based on the status of the job. <Link href={docsUrl("advanced_usage/dev_conditional_task_execution.html")} target="_blank" externalLinkIcon={true}>Learn More</Link>
+          根据作业的状态决定是否运行任务. <Link href={docsUrl("advanced_usage/dev_conditional_task_execution.html")} target="_blank" externalLinkIcon={true}>学习更多</Link>
         </div>
         <div class={styles.runIfCheckboxWrapper}>
-          <CheckboxField label="Passed"
+          <CheckboxField label="通过"
                          readonly={vnode.attrs.readonly || vnode.state.any()}
                          onchange={vnode.state.onchange}
                          property={vnode.state.passed}/>
-          <CheckboxField label="Failed"
+          <CheckboxField label="失败"
                          readonly={vnode.attrs.readonly || vnode.state.any()}
                          onchange={vnode.state.onchange}
                          property={vnode.state.failed}/>
-          <CheckboxField label="Any"
+          <CheckboxField label="任何"
                          readonly={vnode.attrs.readonly}
                          onchange={() => {
                            vnode.state.clearPassedAndFailed();

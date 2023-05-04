@@ -35,7 +35,7 @@ export class StageEditor extends MithrilViewComponent<Attrs> {
 
     return <FormBody>
       <Form last={true} compactForm={true}>
-        <IdentifierInputField label="Stage Name" helpText={IDENTIFIER_FORMAT_HELP_MESSAGE} placeholder="e.g., Test-and-Report" property={stage.name} errorText={stage.errors().errorsForDisplay("name")} required={true}/>
+        <IdentifierInputField label="阶段名称" helpText={IDENTIFIER_FORMAT_HELP_MESSAGE} placeholder="阶段名称" property={stage.name} errorText={stage.errors().errorsForDisplay("name")} required={true}/>
 
         <AdvancedSettings>
           <SwitchBtn label={<div>

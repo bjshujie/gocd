@@ -28,7 +28,7 @@ export class MaterialsWidget extends MithrilViewComponent<MaterialsAttrs> {
   static helpText() {
     return <span>
       A material is a cause for a pipeline to run. The GoCD Server continuously polls configured materials and when a new change or commit is found, the corresponding pipelines are run or "triggered".
-      <Link href={docsUrl("introduction/concepts_in_go.html#materials")} target={"_blank"} externalLinkIcon={true}> Learn More</Link>
+      <Link href={docsUrl("introduction/concepts_in_go.html#materials")} target={"_blank"} externalLinkIcon={true}> 学习更多</Link>
     </span>;
   }
 
@@ -38,7 +38,7 @@ export class MaterialsWidget extends MithrilViewComponent<MaterialsAttrs> {
         <FlashMessage type={MessageType.info}>
           Either no pipelines have been set up or you are not authorized to view the same.&nbsp;
           <Link href={docsUrl("configuration/dev_authorization.html#specifying-permissions-for-pipeline-groups")} target="_blank"
-                externalLinkIcon={true}>Learn More</Link>
+                externalLinkIcon={true}>学习更多</Link>
         </FlashMessage>
         <div data-test-id="materials-help" class={styles.help}>
           {MaterialsWidget.helpText()}

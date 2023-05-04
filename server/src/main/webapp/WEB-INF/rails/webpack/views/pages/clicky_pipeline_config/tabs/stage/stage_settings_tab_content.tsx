@@ -48,9 +48,9 @@ interface Attrs {
 }
 
 export class StageSettingsWidget extends MithrilViewComponent<Attrs> {
-  static readonly APPROVAL_TYPE_HELP = "If turned on, then this stage will automatically schedule once the preceding stage completes successfully. Otherwise, users have to manually trigger this stage. For the first stage in a pipeline, turning this on is the same as checking 'Automatic Pipeline Scheduling' on the pipeline config.";
+  static readonly APPROVAL_TYPE_HELP = "如果启用，则一旦前一阶段成功完成，此阶段将自动启动。否则，用户必须手动触发此阶段。对于算法中的第一阶段，启用此选项与在算法配置中的“自动算法调度”相同.";
 
-  static readonly ALLOW_ONLY_ON_SUCCESS_HELP = "Only allow stage to be scheduled if the previous stage run is successful.";
+  static readonly ALLOW_ONLY_ON_SUCCESS_HELP = "只有在上一阶段运行成功的情况下，才允许启动该阶段.";
 
   view(vnode: m.Vnode<Attrs>) {
     const stage = vnode.attrs.stage;
@@ -59,7 +59,7 @@ export class StageSettingsWidget extends MithrilViewComponent<Attrs> {
     if (!vnode.attrs.isForAddStagePopup) {
       additionalStageSettings = <div data-test-id="additional-stage-settings">
         <div className={styles.switchWrapper}>
-          <SwitchBtn label="Fetch materials"
+          <SwitchBtn label="获取 materials"
                      helpText="Perform material updates or checkouts."
                      dataTestId="fetch-materials-checkbox"
                      disabled={vnode.attrs.readonly}
@@ -67,16 +67,16 @@ export class StageSettingsWidget extends MithrilViewComponent<Attrs> {
                      field={stage.fetchMaterials}/>
         </div>
         <div className={styles.switchWrapper}>
-          <SwitchBtn label="Never cleanup artifacts"
-                     helpText="Never cleanup artifacts for this stage, if purging artifacts is configured at the Server Level."
+          <SwitchBtn label="从不清理文档"
+                     helpText="如果在服务器级别配置了清除工件，则永远不要清除此阶段的文档."
                      dataTestId="never-cleanup-artifacts-checkbox"
                      small={true}
                      disabled={vnode.attrs.readonly}
                      field={stage.neverCleanupArtifacts}/>
         </div>
         <div className={styles.switchWrapper}>
-          <SwitchBtn label="Clean Working Directory"
-                     helpText="Remove all files/directories in the working directory on the agent."
+          <SwitchBtn label="清理工作目录"
+                     helpText="删除节点工作目录中的所有文件/目录."
                      dataTestId="clean-working-directory-checkbox"
                      small={true}
                      disabled={vnode.attrs.readonly}
@@ -86,14 +86,14 @@ export class StageSettingsWidget extends MithrilViewComponent<Attrs> {
     }
 
     return <div data-test-id="stage-settings">
-      <TextField label="Stage name"
+      <TextField label="阶段名称"
                  required={true}
                  readonly={vnode.attrs.readonly}
                  dataTestId="stage-name-input"
                  errorText={stage.errors().errorsForDisplay("name")}
                  property={stage.name}/>
       <div class={styles.switchWrapper}>
-        <SwitchBtn label="Trigger on completion of previous stage"
+        <SwitchBtn label="前一个阶段完成后启动"
                    helpText={StageSettingsWidget.APPROVAL_TYPE_HELP}
                    field={stage.approval().typeAsStream()}
                    disabled={vnode.attrs.readonly}
@@ -102,7 +102,7 @@ export class StageSettingsWidget extends MithrilViewComponent<Attrs> {
                    onclick={StageSettingsWidget.approvalChange.bind(this, stage)}/>
       </div>
       <div class={styles.switchWrapper}>
-        <SwitchBtn label="Allow only on success of previous stage"
+        <SwitchBtn label="仅当前一个阶段成功后启动"
                    helpText={StageSettingsWidget.ALLOW_ONLY_ON_SUCCESS_HELP}
                    small={true}
                    disabled={vnode.attrs.readonly}

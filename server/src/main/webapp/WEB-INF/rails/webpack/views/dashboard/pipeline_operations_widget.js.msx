@@ -61,7 +61,7 @@ export const PipelineOperationsWidget = {
     self.showPausePopup = (pipeline) => {
       const modal = new Modal({
         size:             'medium',
-        title:            `Pause pipeline ${pipeline.name}`,
+        title:            `暂停算法 ${pipeline.name}`,
         body:             () => (<PipelinePauseModalBody pipelineName={pipeline.name} message={self.pauseMessage}/>),
         onclose:          () => self.destroyPausePopup(modal),
         buttons:          () => {
@@ -91,7 +91,7 @@ export const PipelineOperationsWidget = {
 
     const getErrorMessageFromStatus = (textStatus, pipelineName) => {
       if (textStatus === 'parsererror') {
-        return `Error occurred while fetching trigger with options information for pipeline "${pipelineName}". Check server logs for more information.`;
+        return `Error occurred while fetching trigger with options information for pipeline "${pipelineName}". 请查看服务日志以获得更多信息.`;
       }
       return "未知错误.";
     };
@@ -166,18 +166,18 @@ export const PipelineOperationsWidget = {
     let pausedMessage, pauseUnpauseClass, onPauseUnpauseClick;
     let pausedTitlenLabel, playTitlenLabel, playWithOptionsTitlenLabel;
     if (pipeline.isPaused) {
-      pausedTitlenLabel          = "Pipeline Paused";
-      playTitlenLabel            = "Trigger Pipeline Disabled";
-      playWithOptionsTitlenLabel = "Trigger with Options Disabled";
+      pausedTitlenLabel          = "算法已暂停";
+      playTitlenLabel            = "启动算法已禁用";
+      playWithOptionsTitlenLabel = "选项启动算法已禁用";
       pauseUnpauseClass          = `pipeline_btn unpause ${(pipeline.canPause) ? '' : 'disabled'}`;
-      pausedMessage              = `Paused by ${pipeline.pausedBy} (${pipeline.pausedCause || ''})`;
+      pausedMessage              = `由 ${pipeline.pausedBy} 暂停 (${pipeline.pausedCause || ''})`;
       onPauseUnpauseClick        = (pipeline.canPause) && vnode.state.unpause.bind(vnode.state, pipeline);
     } else {
       pauseUnpauseClass          = `pipeline_btn pause ${(pipeline.canPause) ? '' : 'disabled'}`;
       onPauseUnpauseClick        = (pipeline.canPause) && vnode.state.showPausePopup.bind(vnode.state, pipeline);
-      pausedTitlenLabel          = "Pause Pipeline";
-      playTitlenLabel            = "Trigger Pipeline";
-      playWithOptionsTitlenLabel = "Trigger with Options";
+      pausedTitlenLabel          = "暂停算法";
+      playTitlenLabel            = "启动算法";
+      playWithOptionsTitlenLabel = "选项启动算法";
     }
 
 

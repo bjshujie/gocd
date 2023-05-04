@@ -156,7 +156,7 @@ describe("Dashboard Widget", () => {
   });
 
   it("should clear the pause message after the modal is closed", async () => {
-    const responseMessage = `Pipeline 'up42' paused successfully.`;
+    const responseMessage = `算法 'up42' 启动成功.`;
     const pauseCause = "test";
 
     jasmine.Ajax.stubRequest(`/go/api/pipelines/up42/pause`, undefined, 'POST').andReturn({

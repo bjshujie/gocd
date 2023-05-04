@@ -42,7 +42,7 @@ export class JobsTabContent extends TabContent<Stage> {
   private ajaxOperationMonitor?: Stream<OperationState>;
 
   static tabName(): string {
-    return "Jobs";
+    return "作业";
   }
 
   public shouldShowSaveAndResetButtons(): boolean {
@@ -117,8 +117,7 @@ export class JobsWidget extends MithrilViewComponent<Attrs> {
 
     return <div data-test-id={"stages-container"}>
       <div class={styles.jobHelpText}>
-        Manage jobs for this stage. All these jobs will be run in parallel (given sufficient matching agents), so they
-        should not depend on each other.
+        管理该阶段的作业. 这些作业将全部并行运行 (如果有足够的匹配的节点), 因些这些作业间不应该有依赖关系.
       </div>
 
       <Table headers={JobsWidget.getTableHeaders(vnode.attrs.isEditable)}
@@ -130,9 +129,9 @@ export class JobsWidget extends MithrilViewComponent<Attrs> {
   }
 
   private static getTableHeaders(isEditable: boolean) {
-    const headers = ["Job", "Resources", "Run on all", "Run multiple instances"];
+    const headers = ["作业", "资源", "所有节点上运行", "运行多个实例"];
     if (isEditable) {
-      headers.push("Remove");
+      headers.push("删除");
     }
     return headers;
   }
@@ -161,7 +160,7 @@ export class JobsWidget extends MithrilViewComponent<Attrs> {
       if (isEditable) {
         let deleteDisabledMessage: string | undefined;
         if (Array.from(jobs.values()).length === 1) {
-          deleteDisabledMessage = "Can not delete the only job from the stage.";
+          deleteDisabledMessage = "无法从阶段中删除唯一的作业.";
         }
 
         cells.push(<Delete iconOnly={true}
@@ -177,7 +176,7 @@ export class JobsWidget extends MithrilViewComponent<Attrs> {
 
   private deleteJob(vnode: m.Vnode<Attrs>, jobToDelete: Job) {
     new ConfirmationDialog(
-      "Delete Job",
+      "删除作业",
       <div>Do you want to delete the job '<em>{jobToDelete.name()}</em>'?</div>,
       this.onDelete.bind(this, vnode, jobToDelete)
     ).render();
@@ -186,7 +185,7 @@ export class JobsWidget extends MithrilViewComponent<Attrs> {
   private onDelete(vnode: m.Vnode<Attrs>, jobToDelete: Job) {
     vnode.attrs.jobs().delete(jobToDelete);
     return vnode.attrs.pipelineConfigSave().then(() => {
-      vnode.attrs.flashMessage.setMessage(MessageType.success, `Job '${jobToDelete.name()}' deleted successfully.`);
+      vnode.attrs.flashMessage.setMessage(MessageType.success, `任务 '${jobToDelete.name()}' 删除成功.`);
     }).catch((errorResponse: ErrorResponse) => {
       vnode.attrs.jobs().add(jobToDelete);
       vnode.attrs.flashMessage.consumeErrorResponse(errorResponse);

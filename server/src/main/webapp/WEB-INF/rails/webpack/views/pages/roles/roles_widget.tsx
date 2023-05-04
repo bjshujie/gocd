@@ -32,7 +32,7 @@ import {UsersWidget} from "views/pages/roles/users_widget";
 import styles from "./index.scss";
 import {PolicyWidget} from "./policy_widget";
 
-const gocdIcon = require("../../../../app/assets/images/gocd.svg");
+const gocdIcon = require("../../../../app/assets/images/lingbo.svg");
 
 interface Attrs extends EditOperation<GoCDRole | PluginRole>, CloneOperation<GoCDRole | PluginRole>, DeleteOperation<GoCDRole | PluginRole> {
   pluginInfos: PluginInfos;

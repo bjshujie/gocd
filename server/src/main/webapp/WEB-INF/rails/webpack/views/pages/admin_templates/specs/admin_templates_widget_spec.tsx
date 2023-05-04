@@ -33,7 +33,7 @@ describe('AdminTemplatesSpecs', () => {
 
     const infoMsgElement = helper.byTestId("no-template-present-msg");
     expect(infoMsgElement).toBeInDOM();
-    expect(infoMsgElement.innerText.trim()).toBe("Either no templates have been set up or you are not authorized to view the same. Learn More");
+    expect(infoMsgElement.innerText.trim()).toBe("Either no templates have been set up or you are not authorized to view the same. 学习更多");
 
     expect(helper.q("a", infoMsgElement)).toBeInDOM();
     expect(helper.q("a", infoMsgElement).getAttribute("href")).toBe(docsUrl("configuration/pipeline_templates.html"));
@@ -53,7 +53,7 @@ describe('AdminTemplatesSpecs', () => {
 
     const errorMsgElement = helper.byTestId("anchor-template-not-present");
     expect(errorMsgElement).toBeInDOM();
-    expect(errorMsgElement.innerText).toBe("Either 'template1' template has not been set up or you are not authorized to view the same. Learn More");
+    expect(errorMsgElement.innerText).toBe("Either 'template1' template has not been set up or you are not authorized to view the same. 学习更多");
 
     expect(helper.q("a", errorMsgElement)).toBeInDOM();
     expect(helper.q("a", errorMsgElement).getAttribute("href")).toBe(docsUrl("configuration/pipeline_templates.html"));

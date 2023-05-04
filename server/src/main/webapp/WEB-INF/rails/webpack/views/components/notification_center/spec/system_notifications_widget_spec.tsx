@@ -47,7 +47,7 @@ describe("SystemNotificationsWidget", () => {
         read: false,
         type: "UpdateCheck",
         link: "link_1",
-        linkText: "read more"
+        linkText: "阅读更多"
       },
       {
         id: "id2",
@@ -55,7 +55,7 @@ describe("SystemNotificationsWidget", () => {
         read: false,
         type: "SomethingOfImportance",
         link: "link_2",
-        linkText: "read more"
+        linkText: "阅读更多"
       }
     ] as Notification[];
 
@@ -64,11 +64,11 @@ describe("SystemNotificationsWidget", () => {
     const allNotifications = helper.allByTestId("notification-item");
     expect(allNotifications.item(0)).toBeInDOM();
     expect(allNotifications.length).toBe(2);
-    expect(allNotifications.item(0)).toContainText("message 1. read more");
-    expect(helper.q("a", allNotifications.item(0))).toContainText("read more");
+    expect(allNotifications.item(0)).toContainText("message 1. 阅读更多");
+    expect(helper.q("a", allNotifications.item(0))).toContainText("阅读更多");
     expect(helper.byTestId("notification-item_close", allNotifications.item(0))).toContainText("X");
-    expect(allNotifications.item(1)).toContainText("message 2. read more");
-    expect(helper.q("a", allNotifications.item(1))).toContainText("read more");
+    expect(allNotifications.item(1)).toContainText("message 2. 阅读更多");
+    expect(helper.q("a", allNotifications.item(1))).toContainText("阅读更多");
     expect(helper.allByTestId("notification-item_close", allNotifications.item(1))).toContainText("X");
   });
 
@@ -80,7 +80,7 @@ describe("SystemNotificationsWidget", () => {
         read: false,
         type: "UpdateCheck",
         link: "link_1",
-        linkText: "read more"
+        linkText: "阅读更多"
       },
       {
         id: "id2",
@@ -88,7 +88,7 @@ describe("SystemNotificationsWidget", () => {
         read: false,
         type: "SomethingOfImportance",
         link: "link_2",
-        linkText: "read more"
+        linkText: "阅读更多"
       }
     ] as Notification[];
 
@@ -101,7 +101,7 @@ describe("SystemNotificationsWidget", () => {
 
     allNotifications = helper.allByTestId("notification-item");
     expect(allNotifications.length).toBe(1);
-    expect(allNotifications.item(0)).toContainText("message 2. read more");
+    expect(allNotifications.item(0)).toContainText("message 2. 阅读更多");
 
     expect(systemNotifications().find((m: Notification) => {
       return m.id === "id1";

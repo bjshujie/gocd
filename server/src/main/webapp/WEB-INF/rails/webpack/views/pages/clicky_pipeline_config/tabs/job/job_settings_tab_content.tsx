@@ -52,7 +52,7 @@ export class JobSettingsTabContentWidget extends MithrilViewComponent<Attrs> {
     </div>;
 
     const jobTimeoutInNumber: m.Child = <div class={styles.cancelAfterInactivityWrapper}>
-      Cancel after {numberFieldForTimeout} minutes of inactivity
+      非活动状态 {numberFieldForTimeout} 分钟后取消
     </div>;
 
     const numberFieldForRunInstance = <div class={styles.numberFieldWrapper}>
@@ -63,19 +63,19 @@ export class JobSettingsTabContentWidget extends MithrilViewComponent<Attrs> {
     </div>;
 
     const runInstanceInNumber: m.Child = <div class={styles.cancelAfterInactivityWrapper}>
-      Run {numberFieldForRunInstance} instances
+      运行 {numberFieldForRunInstance} 个实例
     </div>;
 
     const timeout = vnode.attrs.defaultJobTimeout() === 0 ? "Never" : `${vnode.attrs.defaultJobTimeout()} minute(s)`;
 
     return <div data-test-id="job-settings-tab">
-      <h3>Basic Settings</h3>
+      <h3>基础设置</h3>
       <TextField required={true}
                  readonly={vnode.attrs.readonly}
                  errorText={entity.errors().errorsForDisplay("name")}
-                 label="Job Name"
+                 label="作业名称"
                  property={entity.name}/>
-      <AutocompleteField label="Resources"
+      <AutocompleteField label="资源"
                          dataTestId={"resources-input"}
                          provider={vnode.attrs.resourcesSuggestions}
                          autoEvaluate={this.isResourcesInputOnFocus()}
@@ -83,38 +83,38 @@ export class JobSettingsTabContentWidget extends MithrilViewComponent<Attrs> {
                          replace={vnode.attrs.resourcesSuggestions.replace.bind(vnode.attrs.resourcesSuggestions)}
                          filter={vnode.attrs.resourcesSuggestions.filter.bind(vnode.attrs.resourcesSuggestions)}
                          onchange={vnode.attrs.resourcesSuggestions.update.bind(vnode.attrs.resourcesSuggestions)}
-                         helpText="The agent resources that the current job requires to run. Specify multiple resources as a comma separated list."
+                         helpText="当前作业运行所需的节点资源。将多个资源指定为逗号分隔的列表."
                          readonly={vnode.attrs.readonly || !!entity.elasticProfileId()}
                          property={entity.resources}/>
-      <AutocompleteField label="Elastic Agent Profile Id"
+      <AutocompleteField label="弹性节点 Profile Id"
                          dataTestId={"elastic-agent-id-input"}
                          autoEvaluate={this.isElasticAgentIdInputOnFocus()}
                          errorText={entity.errors().errorsForDisplay("elasticProfileId")}
                          onchange={vnode.attrs.elasticAgentsSuggestions.update.bind(vnode.attrs.elasticAgentsSuggestions)}
                          provider={vnode.attrs.elasticAgentsSuggestions}
                          readonly={vnode.attrs.readonly || !!entity.resources()}
-                         helpText={<div>The Elastic Agent Profile that the current job requires to run. Visit <a href="/go/admin/elastic_agent_configurations" title="Elastic Agents Configurations">Elastic Agent Configurations</a> page to manage elastic agent profiles.</div>}
+                         helpText={<div>当前作业运行所需的弹性节点配置文件. 请访问 <a href="/go/admin/elastic_agent_configurations" title="弹性节点配置">弹性节点配置</a> 页面来管理弹性节点 profiles.</div>}
                          property={entity.elasticProfileId}/>
-      <h3>Job Timeout</h3>
+      <h3>作业超时设置</h3>
       <RadioField onchange={(val: any) => this.toggleJobTimeout((val as "never" | "default" | "number"), entity)}
                   dataTestId={"job-timout"}
                   readonly={vnode.attrs.readonly}
                   property={entity.jobTimeoutType}
                   possibleValues={[
                     {
-                      label: "Never",
+                      label: "从不",
                       value: "never",
-                      helpText: "Never cancel the job."
+                      helpText: "从不取消作业."
                     },
                     {
-                      label: "Use Default",
+                      label: "使用默认",
                       value: "default",
-                      helpText: `Use the default job timeout specified globally: (${timeout})`
+                      helpText: `使用作业默认全局超时设置: (${timeout})`
                     },
                     {
                       label: jobTimeoutInNumber,
                       value: "number",
-                      helpText: "When the current job is inactive for more than the specified time period (in minutes), GoCD will cancel the job."
+                      helpText: "当前作业处于非活动状态超过指定的时间段（以分钟为单位）时，将取消该作业."
                     },
                   ]}>
       </RadioField>
@@ -125,19 +125,19 @@ export class JobSettingsTabContentWidget extends MithrilViewComponent<Attrs> {
                   dataTestId={"run-type"}
                   possibleValues={[
                     {
-                      label: "Run on one instance",
+                      label: "在一个实例上运行",
                       value: "one",
-                      helpText: "Job will run on the first available agent which matches its resources (if any) and are in the same environment as this job’s pipeline."
+                      helpText: "作业将在与其资源（如果有）匹配的第一个可用节点上运行，该节点与此作业的算法位于同一环境中。"
                     },
                     {
-                      label: "Run on all agents",
+                      label: "在所有节点上运行",
                       value: "all",
-                      helpText: "Job will run on all agents that match its resources (if any) and are in the same environment as this job’s pipeline. This option is particularly useful when deploying to multiple servers."
+                      helpText: "作业将在与其资源匹配的所有节点（如果有）上运行，并且这些节点与此作业的算法处于同一环境中。当部署到多个服务器时，此选项特别有用。"
                     },
                     {
                       label: runInstanceInNumber,
                       value: "number",
-                      helpText: "Specified number of instances of job will be created during schedule time."
+                      helpText: "调度时间内将创建指定数量的作业实例."
                     },
                   ]}>
       </RadioField>

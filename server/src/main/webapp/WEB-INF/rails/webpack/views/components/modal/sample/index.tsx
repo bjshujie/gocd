@@ -54,8 +54,8 @@ export class SampleModal extends Modal {
 
   buttons() {
     return [
-      <Buttons.Primary onclick={this.validate.bind(this)}>OK</Buttons.Primary>,
-      <Buttons.Cancel onclick={this.close.bind(this)}>Cancel</Buttons.Cancel>
+      <Buttons.Primary onclick={this.validate.bind(this)}>确定</Buttons.Primary>,
+      <Buttons.Cancel onclick={this.close.bind(this)}>取消</Buttons.Cancel>
     ];
   }
 }

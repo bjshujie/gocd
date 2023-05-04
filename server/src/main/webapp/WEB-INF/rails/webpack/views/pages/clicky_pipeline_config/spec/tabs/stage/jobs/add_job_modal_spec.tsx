@@ -34,7 +34,7 @@ describe("Add Job Modal", () => {
   afterEach(helper.unmount.bind(helper));
 
   it("should render modal title", () => {
-    expect(modal.title()).toBe("Add new Job");
+    expect(modal.title()).toBe("新增作业");
   });
 
   it("should render job settings tab for defining a new job", () => {

@@ -75,8 +75,8 @@ export class PluginSettingsModal extends Modal {
 
   buttons(): m.ChildArray {
     return [
-      <Buttons.Primary onclick={this.performSave.bind(this)}>Save</Buttons.Primary>,
-      <Buttons.Cancel onclick={this.close.bind(this)}>Cancel</Buttons.Cancel>
+      <Buttons.Primary onclick={this.performSave.bind(this)}>保存</Buttons.Primary>,
+      <Buttons.Cancel onclick={this.close.bind(this)}>取消</Buttons.Cancel>
     ];
   }
 

@@ -27,7 +27,7 @@ export class ParametersTabContent extends TabContent<PipelineConfig> {
   readonly paramList = Stream([] as PipelineParameter[]);
 
   static tabName(): string {
-    return "Parameters";
+    return "参数";
   }
 
   onSuccessfulPipelineConfigSave() {

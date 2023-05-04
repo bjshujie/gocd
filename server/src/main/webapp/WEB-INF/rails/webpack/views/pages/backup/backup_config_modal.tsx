@@ -43,8 +43,9 @@ const backupScheduleHelpText = (
 
 const backupScriptHelpText = (
   <span>
+    备份完成后，将调用该脚本，允许您将备份文件复制到其它的机器或服务。
     After a backup is completed, GoCD will invoke this script, allowing you to copy the backup to another machine or service.
-    See the <a href={docsUrl("/advanced_usage/cron_backup.html")} target="_blank"
+    查看 <a href={docsUrl("/advanced_usage/cron_backup.html")} target="_blank"
                rel="noopener noreferrer">help documentation</a> for more information.
   </span>
 );
@@ -59,23 +60,23 @@ class BackupConfigWidget extends MithrilViewComponent<Attrs> {
 
         <FormBody>
           <Form>
-            <TextField label="Backup schedule"
+            <TextField label="备份计划"
                        helpText={backupScheduleHelpText}
                        property={vnode.attrs.backupConfig().schedule}
                        errorText={vnode.attrs.backupConfig().errors().errorsForDisplay("schedule")}/>
 
-            <TextField label="Post backup script"
+            <TextField label="备份后执行脚本"
                        property={vnode.attrs.backupConfig().postBackupScript}
                        helpText={backupScriptHelpText}
                        errorText={vnode.attrs.backupConfig().errors().errorsForDisplay("postBackupScript")}/>
 
-            <CheckboxField label="Send email on backup failure"
+            <CheckboxField label="备份失败发送邮件"
                            property={vnode.attrs.backupConfig().emailOnFailure}
-                           helpText="If checked, an email will be sent when backup fails, for any reason."/>
+                           helpText="如果勾选，当备份失败后会发送一封邮件，无论什么原因."/>
 
-            <CheckboxField label="Send email on backup success"
+            <CheckboxField label="备份成功发送邮件"
                            property={vnode.attrs.backupConfig().emailOnSuccess}
-                           helpText="If checked, an email will be sent when backup succeeds."/>
+                           helpText="如果勾选，当备份成功后会发送一封邮件."/>
           </Form>
         </FormBody>
       </div>
@@ -119,14 +120,14 @@ export class BackupConfigModal extends Modal {
 
   buttons() {
     if (this.isLoading()) {
-      return [<Primary data-test-id="button-ok" onclick={this.close.bind(this)}>Cancel</Primary>];
+      return [<Primary data-test-id="button-ok" onclick={this.close.bind(this)}>取消</Primary>];
     } else if (this.errorMessage()) {
-      return [<Primary data-test-id="button-ok" onclick={this.close.bind(this)}>Close</Primary>];
+      return [<Primary data-test-id="button-ok" onclick={this.close.bind(this)}>关闭</Primary>];
     } else {
       return [
         <Primary data-test-id="button-ok" icon={this.isSaving() ? ButtonIcon.SPINNER : undefined}
-                 onclick={this.onsave.bind(this, this)}>Save</Primary>,
-        <Cancel data-test-id="button-ok" onclick={this.close.bind(this)}>Cancel</Cancel>
+                 onclick={this.onsave.bind(this, this)}>保存</Primary>,
+        <Cancel data-test-id="button-ok" onclick={this.close.bind(this)}>取消</Cancel>
       ];
     }
   }

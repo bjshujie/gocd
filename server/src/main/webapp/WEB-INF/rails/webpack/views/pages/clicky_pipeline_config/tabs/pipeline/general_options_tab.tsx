@@ -25,7 +25,7 @@ import {PipelineConfigRouteParams} from "views/pages/clicky_pipeline_config/tab_
 
 export class GeneralOptionsTabContent extends TabContent<PipelineConfig> {
   static tabName(): string {
-    return "通用";
+    return "General";
   }
 
   getPipelineSchedulingCheckBox(entity: PipelineConfig, templateConfig: TemplateConfig) {
@@ -47,12 +47,12 @@ export class GeneralOptionsTabContent extends TabContent<PipelineConfig> {
 
   protected renderer(entity: PipelineConfig, templateConfig: TemplateConfig): m.Children {
     return <div>
-      <h3>Basic settings</h3>
+      <h3>基本设置</h3>
       <Form compactForm={true}>
         <TextField property={entity.labelTemplate}
-                   label={"Label Template"}
+                   label={"标签模板"}
                    errorText={entity.errors().errorsForDisplay("labelTemplate")}
-                   helpText={"Customize the label for this pipeline."}
+                   helpText={"自定义标签."}
                    docLink={"configuration/pipeline_labeling.html"}
                    placeholder={"${COUNT}"}
                    readonly={entity.isDefinedInConfigRepo()}
@@ -60,14 +60,14 @@ export class GeneralOptionsTabContent extends TabContent<PipelineConfig> {
         {this.getPipelineSchedulingCheckBox(entity, templateConfig)}
       </Form>
 
-      <h3>Timer Settings</h3>
+      <h3>定时器设置</h3>
       <Form compactForm={true}>
         <TextField property={entity.timer().spec}
-                   label={"Cron Timer Specification"}
+                   label={"Cron 计时器规范"}
                    errorText={entity.timer().errors().errorsForDisplay("spec")}
                    readonly={entity.isDefinedInConfigRepo()}
                    dataTestId={"cron-timer"}
-                   helpText={"A cron-like schedule to build the pipeline. For example to run a pipeline once every night at 10 pm on weekdays, use '0 0 22 ? * MON-FRI'."}
+                   helpText={"类Cron规范的定时器调度算法，例如要设置每周一致周五22：00运行算法一次，可设置Cron规范为 '0 0 22 ? * MON-FRI'."}
                    docLink={"configuration/admin_timer.html"}/>
         <CheckboxField label="Run only on new material"
                        readonly={!entity.timer().spec() || entity.isDefinedInConfigRepo()}
@@ -76,25 +76,25 @@ export class GeneralOptionsTabContent extends TabContent<PipelineConfig> {
                        property={entity.timer().onlyOnChanges}/>
       </Form>
 
-      <h3>Pipeline locking behavior</h3>
+      <h3>计算锁定行为设置</h3>
       <Form compactForm={true}>
         <RadioField property={entity.lockBehavior}
                     readonly={entity.isDefinedInConfigRepo()}
                     possibleValues={[
                       {
-                        label: "Run single instance of pipeline at a time",
+                        label: "每次仅运行一个算法实例",
                         value: "unlockWhenFinished",
-                        helpText: "Only a single instance of the pipeline will be run at a time and the pipeline will NOT be locked upon failure. The pipeline will only be locked to ensure a single instance, but will be unlocked if the pipeline finishes (irrespective of status) or reaches a manual stage."
+                        helpText: "每次仅有一个算法实例在运行，并且当算法失败时不锁定。算法被锁定仅用于保证同时仅有一个算法实例在运行，当算法计算完成或到达了一个需要手工启动的阶段时，算法解除锁定"
                       },
                       {
-                        label: "Run single instance of pipeline and lock on failure",
+                        label: "仅运行一个算法实例，当算法失败时锁定",
                         value: "lockOnFailure",
-                        helpText: "Only a single instance of the pipeline will be run at a time and the pipeline will be locked upon failure. The pipeline can be unlocked manually and will be unlocked if it reaches the final stage, irrespective of the status of that stage. This is particularly useful in deployment scenarios."
+                        helpText: "每次仅有一个算法实例在运行，并且当算法失败时算法被锁定.算法可以手工解除锁定或者当算法执行到了最后的阶段解除锁定，而无论算法的状态如何."
                       },
                       {
-                        label: "Run multiple instances (default)",
+                        label: "同时运行多个算法实例 (默认)",
                         value: "none",
-                        helpText: "This pipeline will not be locked and multiple instances of this pipeline will be allowed to run (default)."
+                        helpText: "算法不会被锁定，并且算法的多个实例允许同时运行 (默认)."
                       },
                     ]}>
         </RadioField>

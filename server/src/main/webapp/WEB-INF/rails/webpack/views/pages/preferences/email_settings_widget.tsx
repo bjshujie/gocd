@@ -66,11 +66,11 @@ export class EmailSettingsWidget extends MithrilViewComponent<Attrs> {
             <Cancel data-test-id={"cancel"}
                     disabled={disabledActionButtons}
                     ajaxOperationMonitor={this.ajaxOperationMonitor}
-                    onclick={vnode.attrs.onCancel.bind(this, vnode.attrs.currentUserVM())}>Cancel</Cancel>
+                    onclick={vnode.attrs.onCancel.bind(this, vnode.attrs.currentUserVM())}>取消</Cancel>
             <Primary data-test-id={"save-email-settings"}
                      disabled={disabledActionButtons}
                      ajaxOperation={vnode.attrs.onSaveEmailSettings.bind(this, vnode.attrs.currentUserVM())}
-                     ajaxOperationMonitor={this.ajaxOperationMonitor}>Save</Primary>
+                     ajaxOperationMonitor={this.ajaxOperationMonitor}>保存</Primary>
           </ButtonGroup>
         </div>
       </FormBody>

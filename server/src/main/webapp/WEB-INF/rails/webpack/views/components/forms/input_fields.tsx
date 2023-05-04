@@ -242,7 +242,7 @@ export class HelpText extends RestyleViewComponent<Styles, HelpTextComponentAttr
 
   static maybeDocLink(docLink?: string) {
     if (!_.isEmpty(docLink)) {
-      return <span>&nbsp;<Link href={docsUrl(docLink)} target="_blank" externalLinkIcon={true}>Learn More</Link></span>;
+      return <span>&nbsp;<Link href={docsUrl(docLink)} target="_blank" externalLinkIcon={true}>学习更多</Link></span>;
     }
   }
 

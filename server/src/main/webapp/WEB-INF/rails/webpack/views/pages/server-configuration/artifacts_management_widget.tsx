@@ -73,10 +73,10 @@ export class ArtifactsManagementWidget extends MithrilViewComponent<ArtifactMana
         </div>
         <div class={styles.buttons}>
           <ButtonGroup>
-            <Cancel data-test-id={"cancel"} ajaxOperationMonitor={this.ajaxOperationMonitor} onclick={() => vnode.attrs.onCancel(vnode.attrs.artifactConfigVM())}>Cancel</Cancel>
+            <Cancel data-test-id={"cancel"} ajaxOperationMonitor={this.ajaxOperationMonitor} onclick={() => vnode.attrs.onCancel(vnode.attrs.artifactConfigVM())}>取消</Cancel>
             <Primary data-test-id={"save"} ajaxOperationMonitor={this.ajaxOperationMonitor}
                      ajaxOperation={() => vnode.attrs.onArtifactConfigSave(artifactConfig, vnode.attrs.artifactConfigVM().etag())}>
-              Save
+              保存
             </Primary>
           </ButtonGroup>
         </div>

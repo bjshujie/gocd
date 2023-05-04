@@ -422,7 +422,7 @@ public class JobConfig implements Validatable, ParamsAttributeAware, Environment
             errors.add(RUN_TYPE, "Job cannot be set to 'run on all agents' when assigned to an elastic agent");
         }
         if(tasks.size() == 0) {
-            errors.add(TASKS, String.format("Job '%s' must have at least one task.", jobName));
+            errors.add(TASKS, String.format("任务 '%s' 必须有至少一个任务.", jobName));
         }
     }
 

@@ -102,8 +102,8 @@ export class MaterialModal extends Modal {
     }
 
     return [
-      <Primary data-test-id="button-save" onclick={this.addOrUpdateEntity.bind(this)}>Save</Primary>,
-      <Cancel data-test-id="button-cancel" onclick={this.close.bind(this)}>Cancel</Cancel>
+      <Primary data-test-id="button-save" onclick={this.addOrUpdateEntity.bind(this)}>保存</Primary>,
+      <Cancel data-test-id="button-cancel" onclick={this.close.bind(this)}>取消</Cancel>
     ];
   }
 

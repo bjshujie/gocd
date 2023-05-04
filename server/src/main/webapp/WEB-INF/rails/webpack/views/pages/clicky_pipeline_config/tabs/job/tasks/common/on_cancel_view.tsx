@@ -37,7 +37,7 @@ export class OnCancelView extends MithrilViewComponent<Attrs> {
     if (vnode.attrs.showOnCancel) {
       onCancelView = <div data-test-id="nant-on-cancel-view">
         <RunIfConditionWidget runIf={vnode.attrs.runIf} readonly={vnode.attrs.readonly}/>
-        <h3>Advanced Option</h3>
+        <h3>高级设置</h3>
         <OnCancelTaskWidget onCancel={vnode.attrs.onCancel}
                             readonly={vnode.attrs.readonly}
                             pluginInfos={vnode.attrs.pluginInfos}/>

@@ -40,35 +40,35 @@ export class ExecTaskModal extends AbstractTaskModal {
 
     let argumentView: m.Children;
     if (attributes.args()) {
-      argumentView = <TextField helpText="command arguments"
+      argumentView = <TextField helpText="命令参数"
                                 errorText={attributes.errors().errorsForDisplay("args")}
                                 readonly={this.readonly}
                                 label="Arguments"
                                 property={attributes.args}/>;
     } else {
-      argumentView = <TextAreaField helpText="Enter each argument on a new line"
+      argumentView = <TextAreaField helpText="在每一个新行输入参数"
                                     errorText={attributes.errors().errorsForDisplay("args")}
                                     readonly={this.readonly}
                                     rows={5}
                                     size={Size.MATCH_PARENT}
                                     resizable={true}
-                                    label="Arguments"
+                                    label="参数"
                                     property={attributes.argsStream.bind(attributes)}/>;
     }
 
     return <div data-test-id="exec-task-modal">
       {this.renderFlashMessage()}
-      <h3>Basic Settings</h3>
-      <TextField helpText="The command or script to be executed, relative to the working directory"
+      <h3>基本设置</h3>
+      <TextField helpText="要执行的命令或脚本，相对于工作目录"
                  errorText={attributes.errors().errorsForDisplay("command")}
                  readonly={this.readonly}
                  required={true}
-                 label="Command"
+                 label="命令"
                  placeholder="ls"
                  property={attributes.command}/>
       {argumentView}
-      <TextField helpText="The directory in which the script or command is to be executed. This is always relative to the directory where the agent checks out materials."
-                 label="Working Directory"
+      <TextField helpText="命令或脚本的执行目录。该目录总是相对于节点检出的资料的目录."
+                 label="工作目录"
                  readonly={this.readonly}
                  errorText={attributes.errors().errorsForDisplay("workingDirectory")}
                  property={attributes.workingDirectory}/>
@@ -81,7 +81,7 @@ export class ExecTaskModal extends AbstractTaskModal {
   }
 
   title(): string {
-    return "Exec Task";
+    return "执行任务";
   }
 
   getTask(): Task {

@@ -76,8 +76,8 @@ export class UserSearchModal extends Modal {
 
   buttons(): m.ChildArray {
     return [
-      <Buttons.Primary data-test-id="button-add" ajaxOperationMonitor={this.ajaxOperationMonitor} ajaxOperation={this.addUser.bind(this)} disabled={_.isEmpty(this.selectedUser())}>Import</Buttons.Primary>,
-      <Buttons.Cancel data-test-id="button-close" ajaxOperationMonitor={this.ajaxOperationMonitor} onclick={this.close.bind(this)}>Cancel</Buttons.Cancel>
+      <Buttons.Primary data-test-id="button-add" ajaxOperationMonitor={this.ajaxOperationMonitor} ajaxOperation={this.addUser.bind(this)} disabled={_.isEmpty(this.selectedUser())}>导入</Buttons.Primary>,
+      <Buttons.Cancel data-test-id="button-close" ajaxOperationMonitor={this.ajaxOperationMonitor} onclick={this.close.bind(this)}>取消</Buttons.Cancel>
     ];
   }
 

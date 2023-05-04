@@ -54,9 +54,9 @@ export class PipelineInfoEditor extends MithrilViewComponent<Attrs> {
   view(vnode: m.Vnode<Attrs>) {
     return <FormBody>
       <Form last={true} compactForm={true}>
-        <IdentifierInputField label="Pipeline Name" helpText={IDENTIFIER_FORMAT_HELP_MESSAGE} placeholder="e.g., My-New-Pipeline" property={vnode.attrs.pipelineConfig.name} errorText={vnode.attrs.pipelineConfig.errors().errorsForDisplay("name")} required={true}/>
+        <IdentifierInputField label="算法名称" helpText={IDENTIFIER_FORMAT_HELP_MESSAGE} placeholder="算法名称" property={vnode.attrs.pipelineConfig.name} errorText={vnode.attrs.pipelineConfig.errors().errorsForDisplay("name")} required={true}/>
       <AdvancedSettings forceOpen={this.hasErrors(vnode)}>
-        <SelectField label="Pipeline Group" property={vnode.attrs.pipelineConfig.group} errorText={vnode.attrs.pipelineConfig.errors().errorsForDisplay("group")} required={true}>
+        <SelectField label="算法组" property={vnode.attrs.pipelineConfig.group} errorText={vnode.attrs.pipelineConfig.errors().errorsForDisplay("group")} required={true}>
           <SelectFieldOptions selected={this.selectedGroup(vnode)} items={this.pipelineGroups()}/>
         </SelectField>
         <TemplateEditor

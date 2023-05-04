@@ -80,7 +80,7 @@ export const DashboardWidget = {
             <SearchBox width="350"
                        class="pipeline-search_dashboard"
                        model={vm} attrName="searchText"
-                       placeholder="Search pipelines"/>
+                       placeholder="搜索算法"/>
           </section>
 
           {messageView}

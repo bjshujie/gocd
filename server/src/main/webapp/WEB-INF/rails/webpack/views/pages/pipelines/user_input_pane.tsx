@@ -46,7 +46,7 @@ export class SectionHeading extends RestyleComponent<Styles> {
   view(vnode: m.Vnode<RestyleAttrs<Styles>>) {
     return [
       <h3 class={this.css.sectionHeading}>{vnode.children}</h3>,
-      <p class={this.css.sectionNote}><span class={this.css.attention}>*</span> denotes a required field</p>
+      <p class={this.css.sectionNote}><span class={this.css.attention}>*</span> 表示必填字段</p>
     ];
   }
 }

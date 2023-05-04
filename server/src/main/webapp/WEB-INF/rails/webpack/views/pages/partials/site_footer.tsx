@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import {apiDocsUrl, docsUrl, GoCDVersion} from "gen/gocd_version";
+import {/*apiDocsUrl,*/ docsUrl, GoCDVersion} from "gen/gocd_version";
 import {MithrilViewComponent} from "jsx/mithril-component";
 import m from "mithril";
 import {Link} from "views/components/link";
@@ -34,30 +34,9 @@ export class SiteFooter extends MithrilViewComponent<Attrs> {
       {SiteFooter.maintenanceModeOrLegacyBrowserBanner(vnode)}
       <div class={styles.left}>
         <p class={styles.content}>Copyright &copy; {GoCDVersion.copyrightYear}&nbsp;
-          <Link href="https://www.thoughtworks.com/products" target="_blank">Thoughtworks, Inc.</Link>
-          &nbsp;Licensed under&nbsp;
-          <Link href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank">
-            Apache License, Version 2.0
-          </Link>.
-          GoCD includes&nbsp;
-          <Link href={`/go/assets/dependency-license-report-${GoCDVersion.fullVersion}`} target="_blank">
-            third-party software
-          </Link>.
-          <span class={styles.gocdVersion}>GoCD Version: {GoCDVersion.formattedVersion}.</span>
+          <Link href="https://www.bjshujie.com/products" target="_blank">Beijing Shujie, Inc.</Link>
+          &nbsp;
         </p>
-      </div>
-      <div class={styles.right}>
-        <div class={styles.social}>
-          <a href="https://github.com/gocd/gocd" title="github" rel="noopener noreferrer" class={styles.github} target="_blank"/>
-          <a href="https://groups.google.com/d/forum/go-cd" rel="noopener noreferrer" title="forums" class={styles.forums} target="_blank"/>
-          <a href={docsUrl()} title="documentation" class={styles.documentation}
-             target="_blank" rel="noopener noreferrer"/>
-          <a href="https://www.gocd.org/plugins/" title="plugins" class={styles.plugins} target="_blank"
-             rel="noopener noreferrer"/>
-          <a href={apiDocsUrl()} title="api" class={styles.api} target="_blank" rel="noopener noreferrer"/>
-          <a href="/go/about" title="about" class={styles.serverDetails} target="_blank"/>
-          <a href="/go/cctray.xml" title="cctray" class={styles.cctray} target="_blank"/>
-        </div>
       </div>
     </div>;
   }
@@ -74,7 +53,7 @@ export class SiteFooter extends MithrilViewComponent<Attrs> {
       return (<div data-test-id="maintenance-mode-banner" class={styles.footerWarningBanner}>
         {updatedByMessage}
         &nbsp;
-        <Link target="_blank" href={docsUrl("/advanced_usage/maintenance_mode.html")}>Learn more..</Link>
+        <Link target="_blank" href={docsUrl("/advanced_usage/maintenance_mode.html")}>学习更多..</Link>
       </div>);
     }
 

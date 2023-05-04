@@ -21,13 +21,13 @@ describe('TabSpec', () => {
     const tab = new Tab("name", "");
 
     expect(tab.isValid()).toBeFalse();
-    expect(tab.errors().errorsForDisplay('path')).toBe('Path must be present.');
+    expect(tab.errors().errorsForDisplay('path')).toBe('路径为必填项，请输入.');
   });
   it('should throw error when path is specified but not name', () => {
     const tab = new Tab("", "path");
 
     expect(tab.isValid()).toBeFalse();
-    expect(tab.errors().errorsForDisplay('name')).toBe('Name must be present.');
+    expect(tab.errors().errorsForDisplay('name')).toBe('名称为必填项，请输入.');
   });
 
   it('should not error out if both are empty', () => {

@@ -37,22 +37,22 @@ describe("Permissions Tab Content", () => {
 
     expect(helper.byTestId("flash-message-info"))
       .toContainText(
-        "All system administrators and pipeline group administrators can operate on this stage (this cannot be overridden).");
+        "所有系统管理员和算法组管理员都可以对此阶段进行操作（这一点无法被覆盖）");
   });
 
   it("should render switch for inherit or specify locally", () => {
     const stage = Stage.fromJSON(PipelineConfigTestData.stage("Test"));
     mount(stage);
 
-    expect(helper.byTestId("permissions-heading")).toContainText("Permissions for this stage:");
+    expect(helper.byTestId("permissions-heading")).toContainText("阶段权限:");
 
     expect(helper.byTestId("input-field-for-inherit")).toBeInDOM();
-    expect(helper.allByTestId("form-field-label")[0]).toContainText("Inherit from the Pipeline Group");
+    expect(helper.allByTestId("form-field-label")[0]).toContainText("继承自算法组");
     expect(helper.q("span", helper.byTestId("input-field-for-inherit")))
       .toContainText("Inherit authorization from the pipeline group.");
 
     expect(helper.byTestId("input-field-for-local")).toBeInDOM();
-    expect(helper.allByTestId("form-field-label")[1]).toContainText("Specify locally");
+    expect(helper.allByTestId("form-field-label")[1]).toContainText("本地指定");
     expect(helper.q("span", helper.byTestId("input-field-for-local")))
       .toContainText("Define specific permissions locally. This will override pipeline group authorization.");
   });
@@ -437,7 +437,7 @@ describe("Permissions Tab Content", () => {
   });
 
   it("should render local permission definition message", () => {
-    const msg = "The pipeline group that this pipeline belongs to has permissions configured. You can add only those users and roles that have permissions to operate on this pipeline group.";
+    const msg = "此管理所属的管理组已配置权限。您只能添加那些有权对此算法组进行操作的用户和角色.";
     const stage = Stage.fromJSON(PipelineConfigTestData.stage("Test"));
     stage.approval().authorization().isInherited(false);
     stage.approval().authorization()._roles.push(Stream("role1"));

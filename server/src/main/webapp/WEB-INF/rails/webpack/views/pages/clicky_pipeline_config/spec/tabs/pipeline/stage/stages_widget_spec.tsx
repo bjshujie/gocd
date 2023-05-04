@@ -144,7 +144,7 @@ describe("Stages Widget", () => {
     mount(pipelineConfig.stages, pipelineConfig.isUsingTemplate());
 
     expect(helper.byTestId("add-stage-button")).toBeInDOM();
-    expect(helper.byTestId("add-stage-button")).toHaveText("Add new stage");
+    expect(helper.byTestId("add-stage-button")).toHaveText("新增阶段");
   });
 
   it("should render render add stage  modal on click of add new stage button", () => {

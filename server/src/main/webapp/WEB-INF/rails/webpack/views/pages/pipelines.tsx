@@ -94,7 +94,7 @@ export class PipelineCreatePage extends Page<{}, State> {
       </FillableSection>,
 
       <FillableSection>
-        <UserInputPane heading="部分 2: 算法名称">
+        <UserInputPane heading="部分 2: 算法详情">
           <PipelineInfoEditor pipelineConfig={pipeline} isUsingTemplate={isUsingTemplate}/>
         </UserInputPane>
         <ConceptDiagram image={pipelineImg}>
