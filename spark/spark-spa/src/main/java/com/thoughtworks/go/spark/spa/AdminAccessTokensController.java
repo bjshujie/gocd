@@ -51,7 +51,7 @@ public class AdminAccessTokensController implements SparkController {
 
     public ModelAndView index(Request request, Response response) {
         Map<String, Object> object = Map.of(
-            "viewTitle", "Admin Access Tokens"
+            "viewTitle", "管理员访问令牌"
         );
         return new ModelAndView(object, null);
     }

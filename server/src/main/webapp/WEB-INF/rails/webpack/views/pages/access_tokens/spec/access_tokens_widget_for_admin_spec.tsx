@@ -59,7 +59,7 @@ describe("AccessTokensWidgetForAdminSpec", () => {
 
     const helpElement = helper.byTestId("access_token_info");
     expect(helpElement).toBeInDOM();
-    expect(helpElement.textContent).toContain('Navigate to Personal Access Tokens.Click on "Generate Token" to create new personal access token.The generated token can be used to access the GoCD API. 学习更多');
+    expect(helpElement.textContent).toContain('导航到“个人访问令牌”。单击“生成令牌”创建新的个人访问令牌。生成的令牌可用于访问Rest API. 学习更多');
     expect(helper.qa('a', helpElement)[0]).toHaveAttr('href', '/go/access_tokens');
     expect(helper.qa('a', helpElement)[1]).toHaveAttr('href', docsUrl("configuration/access_tokens.html"));
 
@@ -72,7 +72,7 @@ describe("AccessTokensWidgetForAdminSpec", () => {
 
     expect(helper.byTestId("access-token-info")).toBeFalsy();
     expect(helper.byTestId("tab-header-0")).toBeInDOM();
-    expect(helper.byTestId("tab-header-0")).toHaveText("Active Tokens");
+    expect(helper.byTestId("tab-header-0")).toHaveText("活动的信息");
     expect(helper.byTestId("tab-header-1")).toBeInDOM();
     expect(helper.textByTestId("tab-header-0")).toContain("Active Token");
   });
@@ -83,7 +83,7 @@ describe("AccessTokensWidgetForAdminSpec", () => {
 
     const activeTokensTab = helper.byTestId("tab-header-0");
     expect(activeTokensTab).toBeInDOM();
-    expect(activeTokensTab).toHaveText("Active Tokens");
+    expect(activeTokensTab).toHaveText("活动令牌·");
 
     const activeTokenTableHeaders = helper.qa("th", helper.byTestId("table-header-row", helper.byTestId("tab-content-0")));
     expect(activeTokenTableHeaders.item(0)).toHaveText("Created By");
@@ -99,9 +99,9 @@ describe("AccessTokensWidgetForAdminSpec", () => {
     assertActiveTokenRow(activeTokenTableRows.item(2), allActiveAccessTokens[2]());
 
     const revokedTokensTab = helper.byTestId("tab-header-1");
-    expect(revokedTokensTab).toHaveText("Revoked Tokens");
+    expect(revokedTokensTab).toHaveText("已吊销令牌·");
     expect(helper.allByTestId("table-header-row", helper.byTestId("tab-content-1"))).toHaveLength(0);
-    expect(helper.byTestId("tab-content-1")).toHaveText("There are no revoked tokens.");
+    expect(helper.byTestId("tab-content-1")).toHaveText("无已吊销令牌·.");
   });
 
   it("should be able to render revoked access tokens data", () => {
@@ -165,7 +165,7 @@ describe("AccessTokensWidgetForAdminSpec", () => {
       helper.redraw();
 
       const tabContent = helper.byTestId("tab-content-0");
-      expect(tabContent).toHaveText("There are no active tokens matching your search query.");
+      expect(tabContent).toHaveText("无匹配您查询条件的活动令牌·.");
     });
 
     it("should show message if the search query results in empty array for revoked tokens", () => {
@@ -179,7 +179,7 @@ describe("AccessTokensWidgetForAdminSpec", () => {
       helper.redraw();
 
       const tabContent = helper.byTestId("tab-content-1");
-      expect(tabContent).toHaveText("There are no revoked tokens matching your search query.");
+      expect(tabContent).toHaveText("无匹配您查询条件的已吊销令牌.");
     });
   });
 

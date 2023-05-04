@@ -66,7 +66,7 @@ export class TemplateEditor extends MithrilComponent<Attrs, State> {
 
     return <div class={classnames({[css.errorText]: errors.hasErrors("template")})}>
       <SwitchBtn small={true}
-                 label="Use Template:"
+                 label="使用模板:"
                  field={isUsingTemplate}
                  onclick={this.toggleTemplate.bind(this, pipelineConfig, paramList, vnode.state)}
       />

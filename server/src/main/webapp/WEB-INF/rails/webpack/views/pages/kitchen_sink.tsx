@@ -459,7 +459,7 @@ export class KitchenSink extends MithrilComponent<null, any> {
                  label="Username"
                  property={formValue}/>,
       <TextField required={true}
-                 errorText="This field must be present"
+                 errorText="该字段为必填项"
                  helpText="Lorem ipsum is the dummy text used by the print and typesetting industry"
                  label="Lorem ipsum"
                  property={formValue}/>,

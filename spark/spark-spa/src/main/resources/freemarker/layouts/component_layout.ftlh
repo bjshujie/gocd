@@ -23,7 +23,7 @@
         data-timezone="${serverTimezoneUTCOffset}"
         data-page-refresh-interval="${spaRefreshInterval}"
         data-page-timeout="${spaTimeout}">
-  <title>${viewTitle} - Go</title>
+  <title>${viewTitle} - 凌波</title>
 
   <link rel="shortcut icon" href="/go/${railsAssetsService.getAssetPath('cruise.ico')}"/>
   <#list webpackAssetsService.getCSSAssetPathsFor("single_page_apps/global", "single_page_apps/${controllerName}") as css>

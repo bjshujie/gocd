@@ -42,7 +42,7 @@ describe("Types", () => {
         expect(elasticProfile.errors().count()).toBe(1);
         expect(elasticProfile.errors().keys()).toEqual(["clusterProfileId"]);
         expect(elasticProfile.errors().errors("clusterProfileId"))
-          .toEqual(["Cluster profile id must be present"]);
+          .toEqual(["集群设置ID为必填项"]);
       });
     });
 

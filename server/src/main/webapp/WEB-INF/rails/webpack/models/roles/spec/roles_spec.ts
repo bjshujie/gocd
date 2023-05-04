@@ -118,10 +118,10 @@ describe("RoleModel", () => {
 
     const policyErrors = goCDRole.policy()[0]().errors();
     expect(policyErrors.count()).toEqual(4);
-    expect(policyErrors.errorsForDisplay("permission")).toEqual("Permission must be present.");
-    expect(policyErrors.errorsForDisplay("action")).toEqual("Action must be present.");
-    expect(policyErrors.errorsForDisplay("type")).toEqual("Type must be present.");
-    expect(policyErrors.errorsForDisplay("resource")).toEqual("Resource must be present.");
+    expect(policyErrors.errorsForDisplay("permission")).toEqual("权限为必填项.");
+    expect(policyErrors.errorsForDisplay("action")).toEqual("动作为必填项.");
+    expect(policyErrors.errorsForDisplay("type")).toEqual("类型为必填项.");
+    expect(policyErrors.errorsForDisplay("resource")).toEqual("资源为必填项.");
   });
 });
 

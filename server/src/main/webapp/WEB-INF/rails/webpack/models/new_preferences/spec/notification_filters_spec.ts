@@ -22,7 +22,7 @@ describe('NotificationFilterSpec', () => {
 
     expect(filter.isValid()).toBeFalse();
     expect(filter.errors().count()).toBe(1);
-    expect(filter.errors().errorsForDisplay('pipeline')).toBe('Pipeline must be present.');
+    expect(filter.errors().errorsForDisplay('pipeline')).toBe('算法为必填项.');
   });
 
   it('should validate presence of stage', () => {
@@ -30,6 +30,6 @@ describe('NotificationFilterSpec', () => {
 
     expect(filter.isValid()).toBeFalse();
     expect(filter.errors().count()).toBe(1);
-    expect(filter.errors().errorsForDisplay('stage')).toBe('Stage must be present.');
+    expect(filter.errors().errorsForDisplay('stage')).toBe('阶段为必填项.');
   });
 });

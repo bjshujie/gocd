@@ -99,8 +99,8 @@ export abstract class RevokeTokenModal extends BaseModal {
       </div>;
     }
     return (
-      <TextAreaField helpText={"您为什么要撤销该 Token?"}
-                     label="您确认要撤销该 Token 吗 ?"
+      <TextAreaField helpText={"您为什么要吊销该令牌?"}
+                     label="您确认要吊销该令牌吗 ?"
                      rows={5}
                      size={Size.MATCH_PARENT}
                      property={this.cause}/>
@@ -108,18 +108,18 @@ export abstract class RevokeTokenModal extends BaseModal {
   }
 
   title(): string {
-    return "撤销 Token";
+    return "吊销令牌";
   }
 
   buttons(): m.ChildArray {
     return [<Buttons.Primary data-test-id="button-revoke-token"
                              ajaxOperationMonitor={this.operationState}
-                             ajaxOperation={this.performOperation.bind(this)}>撤销 Token</Buttons.Primary>,
+                             ajaxOperation={this.performOperation.bind(this)}>吊销令牌</Buttons.Primary>,
       <Buttons.Cancel data-test-id="button-cancel" ajaxOperationMonitor={this.operationState}
                       onclick={() => this.close()}>取消</Buttons.Cancel>];
   }
 
   protected afterSuccess() {
-    this.onSuccessfulSave("访问 Token 被成功撤销.");
+    this.onSuccessfulSave("访问 令牌被成功吊销.");
   }
 }

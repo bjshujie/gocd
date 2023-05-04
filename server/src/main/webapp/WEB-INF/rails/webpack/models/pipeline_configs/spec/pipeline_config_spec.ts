@@ -191,7 +191,7 @@ describe("PipelineConfig model", () => {
 
     expect(isValid).toBeFalse();
     expect(trackingTool.errors().count()).toBe(1);
-    expect(trackingTool.errors().errorsForDisplay("regex")).toBe("Regex must be present.");
+    expect(trackingTool.errors().errorsForDisplay("regex")).toBe("正则表达式为必填项.");
   });
 
   it("tracking tool should validate presence of URI when regex is specified", () => {
@@ -202,7 +202,7 @@ describe("PipelineConfig model", () => {
 
     expect(isValid).toBeFalse();
     expect(trackingTool.errors().count()).toBe(1);
-    expect(trackingTool.errors().errorsForDisplay("urlPattern")).toBe("URL pattern must be present.");
+    expect(trackingTool.errors().errorsForDisplay("urlPattern")).toBe("URL 模式为必填项.");
   });
 
   it("should serialize pipeline config template", () => {

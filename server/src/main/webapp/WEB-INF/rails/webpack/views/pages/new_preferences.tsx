@@ -151,8 +151,8 @@ export class NewPreferencesPage extends Page<null, PreferencesState> {
       : null;
     let smtpErrorMessage;
     if (!vnode.state.isSMTPConfigured) {
-      const message    = <span>SMTP settings are currently not configured. If you are the administrator, you can configure email support at <Link
-        href={"/go/admin/config/server#!email-server"} externalLinkIcon={true}>Mail Server Configuration</Link>.</span>;
+      const message    = <span>SMTP当前未配置。如果您是管理员，则可以在 <Link
+        href={"/go/admin/config/server#!email-server"} externalLinkIcon={true}>邮件服务器配置</Link>中进行配置.</span>;
       smtpErrorMessage = <FlashMessage type={MessageType.info} message={message}/>;
     }
     return [
@@ -163,7 +163,7 @@ export class NewPreferencesPage extends Page<null, PreferencesState> {
   }
 
   pageName(): string {
-    return "Preferences";
+    return "偏好设置";
   }
 
   fetchData(vnode: m.Vnode<null, PreferencesState>): Promise<any> {

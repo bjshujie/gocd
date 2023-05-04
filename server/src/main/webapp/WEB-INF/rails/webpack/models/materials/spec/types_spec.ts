@@ -131,7 +131,7 @@ describe("Material Types", () => {
       expect(material.attributes()!.errors().count()).toBe(2);
       expect(material.attributes()!.errors().keys()).toEqual(["view", "port"]);
       expect(material.attributes()!.errors().errorsForDisplay("port"))
-        .toEqual("Host and port must be present.");
+        .toEqual("主机和端口为必填项.");
     });
 
     it("should should validate Hg material attributes", () => {
@@ -259,7 +259,7 @@ describe("Material Types", () => {
       expect(material.errors().errorsForDisplay('name')).toBe('名称为必填项，请输入.');
 
       expect(material.pluginMetadata().errors().count()).toBe(1);
-      expect(material.pluginMetadata().errors().errorsForDisplay('id')).toBe('Id must be present.');
+      expect(material.pluginMetadata().errors().errorsForDisplay('id')).toBe('Id 为必填项.');
     });
   });
 

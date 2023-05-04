@@ -62,7 +62,7 @@ describe("SecretConfigsModelSpec", () => {
 
       const errors = secretConfig.errors();
       expect(errors.hasErrors()).toBeTruthy();
-      expect(errors.errorsForDisplay("id")).toEqual("Id must be present.");
+      expect(errors.errorsForDisplay("id")).toEqual("Id 为必填项.");
     });
 
     it("should validate format of id", () => {
@@ -86,7 +86,7 @@ describe("SecretConfigsModelSpec", () => {
 
       const errors = secretConfig.errors();
       expect(errors.hasErrors()).toBeTruthy();
-      expect(errors.errorsForDisplay("pluginId")).toEqual("Plugin id must be present.");
+      expect(errors.errorsForDisplay("pluginId")).toEqual("插件 id 为必填项.");
     });
   });
 });

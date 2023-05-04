@@ -54,7 +54,7 @@ export class GenerateTokenModal extends BaseModal {
         <CopyField size={Size.MATCH_PARENT} property={this.accessToken().token} buttonDisableReason=""/>
       </div>);
     } else {
-      return <TextAreaField label={"Description"}
+      return <TextAreaField label={"说明"}
                             required={true}
                             property={this.accessToken().description}
                             resizable={false}

@@ -172,7 +172,7 @@ public class AccessTokenAuthenticationFilterTest {
             assertThat(request.getSession(false)).isSameAs(originalSession);
             assertThat(SessionUtils.getAuthenticationToken(request)).isNull();
             assertThat(response.getStatus()).isEqualTo(401);
-            assertThat(response.getContentAsString()).isEqualTo("{\n  \"message\": \"Invalid Personal Access Token.\"\n}");
+            assertThat(response.getContentAsString()).isEqualTo("{\n  \"message\": \"Invalid Personal 访问令牌.\"\n}");
         }
 
         @Test

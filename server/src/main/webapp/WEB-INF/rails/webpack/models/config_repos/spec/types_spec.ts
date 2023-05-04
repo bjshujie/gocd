@@ -56,7 +56,7 @@ describe("Config Repo Types", () => {
       expect(configRepo.material().attributes()!.errors().count()).toBe(2);
       expect(configRepo.material().attributes()!.errors().keys()).toEqual(["view", "port"]);
       expect(configRepo.material().attributes()!.errors().errorsForDisplay("port"))
-        .toEqual("Host and port must be present.");
+        .toEqual("主机名称端口为必填项");
     });
 
     it("should should validate Hg material attributes", () => {

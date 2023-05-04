@@ -14,7 +14,7 @@
  * limitations under the License.
  -->
 <#-- @ftlvariable name="errorMessage" type="java.lang.String" -->
-<#assign title = 'Exception Detail - GoCD'>
+<#assign title = '异常详情 - 凌波'>
 <#include "shared/_header.ftlh">
 <#include "shared/_flash_message.ftlh">
     <div id="yui-main">

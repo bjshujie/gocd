@@ -30,11 +30,11 @@ export namespace ErrorMessages {
   }
 
   export function mustBePresent(attribute: string) {
-    return `${humanize(attribute).replace(/\bxpath\b/i, "XPath").replace(/\burl\b/i, "URL")} must be present`;
+    return `${humanize(attribute).replace(/\bxpath\b/i, "XPath").replace(/\burl\b/i, "URL")} 为必填项`;
   }
 
   export function mustBePresentIf(attribute: string, condition: string) {
-    return `${humanize(attribute).replace(/\bxpath\b/i, "XPath").replace(/\burl\b/i, "URL")} must be present if ${condition}`;
+    return `${humanize(attribute).replace(/\bxpath\b/i, "XPath").replace(/\burl\b/i, "URL")} 为必填项如果 ${condition}`;
   }
 
   export function mustBeAUrl(attribute: string) {

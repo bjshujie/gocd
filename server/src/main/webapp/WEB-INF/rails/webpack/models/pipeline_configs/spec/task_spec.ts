@@ -33,7 +33,7 @@ describe("Task", () => {
       expect(t.isValid()).toBe(false);
       expect(t.attributes().errors().count()).toBe(1);
       expect(t.attributes().errors().keys()).toEqual(["command"]);
-      expect(t.attributes().errors().errorsForDisplay("command")).toBe("Command must be present.");
+      expect(t.attributes().errors().errorsForDisplay("command")).toBe("命令为必填项.");
 
       expect(new ExecTask("ls", ["-lA"]).isValid());
     });

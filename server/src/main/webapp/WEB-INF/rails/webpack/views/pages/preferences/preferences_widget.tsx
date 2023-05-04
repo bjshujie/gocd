@@ -48,12 +48,12 @@ export class PreferencesWidget extends MithrilViewComponent<PreferencesState> {
           <li data-test-id="my-notifications"
               class={classnames({[styles.active]: vnode.attrs.activeConfiguration === Sections.MY_NOTIFICATIONS})}
               onclick={() => vnode.attrs.route(Sections.MY_NOTIFICATIONS, activeConfigurationVM)}>
-            My Notifications
+            我的通知
           </li>
           <li data-test-id="email-settings"
               class={classnames({[styles.active]: vnode.attrs.activeConfiguration === Sections.EMAIL_SETTINGS})}
               onclick={() => vnode.attrs.route(Sections.EMAIL_SETTINGS, activeConfigurationVM)}>
-            Email Settings
+            Email 设置
           </li>
         </ul>
       </div>

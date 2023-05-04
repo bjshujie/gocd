@@ -48,9 +48,9 @@ describe("AccessTokensWidgetForCurrentUserSpec", () => {
 
     expect(helper.byTestId("access-token-info")).toBeFalsy();
     expect(helper.byTestId("tab-header-0")).toBeInDOM();
-    expect(helper.byTestId("tab-header-0")).toHaveText("Active Tokens");
+    expect(helper.byTestId("tab-header-0")).toHaveText("活动令牌·");
     expect(helper.byTestId("tab-header-1")).toBeInDOM();
-    expect(helper.byTestId("tab-header-1")).toHaveText("Revoked Tokens");
+    expect(helper.byTestId("tab-header-1")).toHaveText("已吊销令牌·");
   });
 
   it("should list all active tokens under active tokens tab", () => {
@@ -58,7 +58,7 @@ describe("AccessTokensWidgetForCurrentUserSpec", () => {
 
     const activeTokensTab = helper.byTestId("tab-header-0");
     expect(activeTokensTab).toBeInDOM();
-    expect(activeTokensTab).toHaveText("Active Tokens");
+    expect(activeTokensTab).toHaveText("活动信息");
 
     const activeTokenTableHeaders = helper.qa("th", helper.byTestId("table-header-row", helper.byTestId("tab-content-0")));
 
@@ -72,25 +72,25 @@ describe("AccessTokensWidgetForCurrentUserSpec", () => {
     assertActiveTokenRow(activeTokenTableRows.item(0), validToken);
 
     const revokedTokensTab = helper.byTestId("tab-header-1");
-    expect(revokedTokensTab).toHaveText("Revoked Tokens");
+    expect(revokedTokensTab).toHaveText("已吊销令牌");
     expect(helper.byTestId("table-header-row", helper.byTestId("tab-content-1"))).toBeFalsy();
-    expect(helper.byTestId("tab-content-1")).toHaveText("You don't have any revoked tokens.");
+    expect(helper.byTestId("tab-content-1")).toHaveText("您没有任何已吊销令牌·.");
   });
 
   it("should list all revoked tokens under revoked tokens tab", () => {
     mount(Stream(new AccessTokens(Stream(revokedToken))));
 
     const activeTokensTab = helper.byTestId("tab-header-0");
-    expect(activeTokensTab).toHaveText("Active Tokens");
+    expect(activeTokensTab).toHaveText("活动令牌·");
     expect(helper.byTestId("table-header-row", helper.byTestId("tab-content-0"))).toBeFalsy();
     expect(helper.byTestId("tab-content-0"))
-      .toHaveText("You don't have any active tokens. Click on 'Generate Token' button to create a new token.");
+      .toHaveText("您没有任何活动令牌。点击“生成令牌”按钮创建一个新的令牌。");
 
     const revokedTokensTab = helper.byTestId("tab-header-1");
     helper.click(revokedTokensTab);
 
     expect(revokedTokensTab).toBeInDOM();
-    expect(revokedTokensTab).toHaveText("Revoked Tokens");
+    expect(revokedTokensTab).toHaveText("已吊销令牌·");
 
     const revokedTokenTableHeaders = helper.qa("th", helper.byTestId("table-header-row", helper.byTestId("tab-content-1")));
     expect(revokedTokenTableHeaders.item(0)).toHaveText("Description");

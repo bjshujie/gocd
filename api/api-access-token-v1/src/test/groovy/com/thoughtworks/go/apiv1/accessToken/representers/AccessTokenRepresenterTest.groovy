@@ -105,7 +105,7 @@ class AccessTokenRepresenterTest {
       AccessTokenRepresenter.toJSON(it, new Routes.CurrentUserAccessToken(), token)
     })
 
-    assertThatJson(json).node("errors").isEqualTo([description: ['must not be blank']])
+    assertThatJson(json).node("errors").isEqualTo([description: ['不能为空']])
   }
 
   static AccessToken.AccessTokenWithDisplayValue randomAccessToken(long id = SecureRandom.longNumber(), persisted = true) {

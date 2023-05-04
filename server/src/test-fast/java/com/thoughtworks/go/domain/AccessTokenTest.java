@@ -36,9 +36,9 @@ class AccessTokenTest {
 
         assertThat(token.errors())
                 .hasSize(3)
-                .containsEntry("authConfigId", List.of("must not be blank"))
-                .containsEntry("description", List.of("must not be blank"))
-                .containsEntry("username", List.of("must not be blank"));
+                .containsEntry("authConfigId", List.of("不能为空"))
+                .containsEntry("description", List.of("不能为空"))
+                .containsEntry("username", List.of("不能为空"));
     }
 
     @Test

@@ -35,7 +35,7 @@ import static org.apache.commons.lang3.StringUtils.isBlank;
 @AllArgsConstructor(access = AccessLevel.NONE)
 @ConfigTag("mailhost")
 public class MailHost implements Validatable, PasswordEncrypter {
-    public static final String DOES_NOT_LOOK_LIKE_A_VALID_EMAIL_ADDRESS = "Does not look like a valid email address.";
+    public static final String DOES_NOT_LOOK_LIKE_A_VALID_EMAIL_ADDRESS = "似乎不是一个有效的邮件地址.";
     @ConfigAttribute(value = "hostname", optional = false)
     private String hostName;
     @ConfigAttribute(value = "port", optional = false)
@@ -99,21 +99,21 @@ public class MailHost implements Validatable, PasswordEncrypter {
     @Override
     public void validate(ValidationContext validationContext) {
         if (isBlank(hostName)) {
-            errors().add("hostname", "Hostname must not be blank.");
+            errors().add("hostname", "主机名不能为空.");
         }
 
         if (port <= 0) {
-            errors().add("port", "Port must be a positive number.");
+            errors().add("port", "端口号必须为正整数.");
         }
 
         if (isBlank(from)) {
-            errors().add("sender_email", "Sender email must not be blank.");
+            errors().add("sender_email", "发送邮件地址不能为空.");
         } else if (!from.matches(".*@.*")) {
             errors().add("sender_email", DOES_NOT_LOOK_LIKE_A_VALID_EMAIL_ADDRESS);
         }
 
         if (isBlank(adminMail)) {
-            errors().add("admin_email", "Admin email must not be blank.");
+            errors().add("admin_email", "管理员邮箱不能为空.");
         } else if (!adminMail.matches(".*@.*")) {
             errors().add("admin_email", DOES_NOT_LOOK_LIKE_A_VALID_EMAIL_ADDRESS);
         }

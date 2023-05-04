@@ -42,7 +42,7 @@ describe("RulesModelSpec", () => {
       rule.isValid();
 
       expect(rule.errors().hasErrors()).toBeTruthy();
-      expect(rule.errors().errorsForDisplay("directive")).toEqual("Directive must be present.");
+      expect(rule.errors().errorsForDisplay("directive")).toEqual("指定为必填项.");
     });
 
     it("should validate action", () => {
@@ -55,7 +55,7 @@ describe("RulesModelSpec", () => {
       rule.isValid();
 
       expect(rule.errors().hasErrors()).toBeTruthy();
-      expect(rule.errors().errorsForDisplay("action")).toEqual("Action must be present.");
+      expect(rule.errors().errorsForDisplay("action")).toEqual("动作为必填项.");
     });
 
     it("should validate type", () => {
@@ -68,7 +68,7 @@ describe("RulesModelSpec", () => {
       rule.isValid();
 
       expect(rule.errors().hasErrors()).toBeTruthy();
-      expect(rule.errors().errorsForDisplay("type")).toEqual("Type must be present.");
+      expect(rule.errors().errorsForDisplay("type")).toEqual("类型为必填项.");
     });
   });
 

@@ -82,12 +82,12 @@ public class CurrentUserAccessTokenControllerV1 extends AbstractUserAccessTokenC
         SecurityAuthConfig authConfig = authConfigService.findProfile(authConfigId);
         if (!extension.supportsPluginAPICallsRequiredForAccessToken(authConfig)) {
             response.status(422);
-            return MessageJson.create(String.format("Can not create Access Token. Please upgrade '%s' plugin to use Access Token Feature.", authConfig.getPluginId()));
+            return MessageJson.create(String.format("无法创建访问令牌. 请升级 '%s' 插件以使用访问令牌特性.", authConfig.getPluginId()));
         }
 
         final JsonReader reader = GsonTransformer.getInstance().jsonReaderFrom(request.body());
 
-        String tokenDescription = reader.optString("description").orElse(null);
+        String tokenDescription = reader.optString("说明").orElse(null);
 
         AccessToken created = accessTokenService.create(tokenDescription, currentUsernameString(), currentUserAuthConfigId(request));
 

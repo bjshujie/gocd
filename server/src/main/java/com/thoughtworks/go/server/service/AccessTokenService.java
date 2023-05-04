@@ -129,7 +129,7 @@ public class AccessTokenService {
 
     private AccessToken revoke(AccessToken fetchedAccessToken, String username, String revokeCause) {
         if (fetchedAccessToken.isRevoked()) {
-            throw new ConflictException("Access token has already been revoked!");
+            throw new ConflictException("访问令牌已被吊销!");
         }
 
         ACCESS_TOKEN_LOGGER.debug("[Access Token] Revoking access token with id: '{}' for user '{}' with revoked cause '{}'.", fetchedAccessToken.getId(), username, revokeCause);

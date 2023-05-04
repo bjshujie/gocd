@@ -55,12 +55,12 @@ export class ServerHealthMessages {
   summaryMessage(): string {
     const messages = [];
     if (this.countErrors() > 0) {
-      messages.push(inflection.pluralize("error", this.countErrors(), true));
+      messages.push(inflection.pluralize("错误", this.countErrors(), true));
     }
     if (this.countWarnings() > 0) {
-      messages.push(inflection.pluralize("warning", this.countWarnings(), true));
+      messages.push(inflection.pluralize("警告", this.countWarnings(), true));
     }
-    return _.join(messages, " and ");
+    return _.join(messages, " 和 ");
   }
 
   collect<T, K extends keyof T>(cb: any): Array<T[K]> {

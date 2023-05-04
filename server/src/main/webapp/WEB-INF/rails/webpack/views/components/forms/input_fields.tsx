@@ -892,7 +892,7 @@ abstract class TextFieldWithButton extends RestyleViewComponent<Styles, TextFiel
 
 export class QuickAddField extends TextFieldWithButton {
   protected name(): m.Child {
-    return "Add";
+    return "添加";
   }
 }
 
@@ -909,7 +909,7 @@ export class CopyField extends TextFieldWithButton {
   }
 
   protected name(): m.Child {
-    return "Copy";
+    return "复制";
   }
 
   protected onButtonClick(vnode: m.Vnode<TextFieldWithButtonAttrs>) {
@@ -921,7 +921,7 @@ export class CopyField extends TextFieldWithButton {
 
 export class SearchFieldWithButton extends QuickAddField {
   protected name(): m.Child {
-    return "Search";
+    return "查询";
   }
 
   protected renderInputField(vnode: m.Vnode<TextFieldWithButtonAttrs>) {

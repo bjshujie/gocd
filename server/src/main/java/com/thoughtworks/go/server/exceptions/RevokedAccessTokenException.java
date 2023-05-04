@@ -19,6 +19,6 @@ import java.util.Date;
 
 public class RevokedAccessTokenException extends RuntimeException {
     public RevokedAccessTokenException(Date revokedAt) {
-        super(String.format("Invalid Personal Access Token. Access token was revoked at: %s", revokedAt));
+        super(String.format("无效的个人访问令牌. 访问令牌在: %s 已被吊销", revokedAt));
     }
 }

@@ -29,7 +29,7 @@ describe NonApiController do
       expect(response.body).to have_selector("div.biggest", :text=>":(")
       expect(response.body).to have_selector("h3", :text=>"it was not found { description }")
       page = Capybara::Node::Simple.new(response.body)
-      expect(page.title).to include("HTTP ERROR 404 - Go")
+      expect(page.title).to include("HTTP ERROR 404 - 凌波")
     end
 
     it "should render erroneous responses" do

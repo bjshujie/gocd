@@ -55,7 +55,7 @@ public class PipelinesController implements SparkController {
 
     public ModelAndView create(Request req, Response res) {
         Map<String, Object> object = Map.of(
-            "viewTitle", "Create a pipeline"
+            "viewTitle", "创建一个新算法"
         );
 
         return new ModelAndView(object, null);

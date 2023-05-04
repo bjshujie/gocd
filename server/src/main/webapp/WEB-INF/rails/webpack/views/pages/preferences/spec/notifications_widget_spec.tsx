@@ -45,7 +45,7 @@ describe('NotificationsWidgetSpec', () => {
     expect(helper.q('table')).toBeInDOM();
     expect(helper.q('notification-filters-info')).not.toBeInDOM();
     expect(helper.q('thead').textContent).toBe('PipelineStageEventCheck-ins Matcher');
-    expect(helper.qa('tbody tr')[0].textContent).toBe('[Any Pipeline][Any Stage]AllMine');
+    expect(helper.qa('tbody tr')[0].textContent).toBe('[任何算法][任何阶段]AllMine');
   });
 
   it('should sent a call to the callbacks', () => {
@@ -68,8 +68,8 @@ describe('NotificationsWidgetSpec', () => {
     expect(helper.q('table')).not.toBeInDOM();
     const helpInfo = helper.byTestId('notification-filters-info');
     expect(helpInfo).toBeInDOM();
-    expect(helper.qa('li', helpInfo)[0].textContent).toBe('Click on "Add Notification Filter" to add a new email notification filter.');
-    expect(helper.qa('li', helpInfo)[1].textContent).toBe('Notifications will only work if security is enabled and mailhost information is correct. You can read more from here.');
+    expect(helper.qa('li', helpInfo)[0].textContent).toBe('单击“添加通知筛选器”添加新的电子邮件通知筛选器.');
+    expect(helper.qa('li', helpInfo)[1].textContent).toBe('只有在启用了安全性并且邮件主机信息正确的情况下，通知才会起作用。你可以在这里阅读更多.');
 
     expect(helper.q('a', helpInfo)).toHaveAttr('href', docsUrl("configuration/dev_notifications.html"));
   });
@@ -78,9 +78,9 @@ describe('NotificationsWidgetSpec', () => {
     mount(false);
 
     expect(helper.byTestId('notification-filter-add')).toBeDisabled();
-    expect(helper.byTestId('notification-filter-add')).toHaveAttr('title', 'Cannot add filter as SMTP settings has not been configured');
+    expect(helper.byTestId('notification-filter-add')).toHaveAttr('title', '无法添加筛选器，因为尚未配置SMTP');
     expect(helper.byTestId('notification-filter-edit')).toBeDisabled();
-    expect(helper.byTestId('notification-filter-edit')).toHaveAttr('title', 'Cannot edit filter as SMTP settings has not been configured');
+    expect(helper.byTestId('notification-filter-edit')).toHaveAttr('title', '无法修改筛选器，因为尚未配置SMTP');
   });
 
   function mount(isSMTPConfigured: boolean = true) {

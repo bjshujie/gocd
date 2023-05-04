@@ -112,6 +112,6 @@ class AccessTokenBasedPluginAuthenticationProviderTest {
 
         InvalidAccessTokenException exception = assertThrows(InvalidAccessTokenException.class, () -> provider.authenticateWithExtension(pluginId, credentials, authConfig, null));
 
-        assertThat(exception.getMessage()).startsWith("Invalid Personal Access Token. Access Token belonging to the user has either been disabled, removed or expired.");
+        assertThat(exception.getMessage()).startsWith("Invalid Personal 访问令牌. 访问令牌 belonging to the user has either been disabled, removed or expired.");
     }
 }

@@ -132,7 +132,7 @@ Validatable.ErrorMessages = {
     return `${s.humanize(attribute)} is a duplicate`;
   },
   mustBePresent(attribute) {
-    return `${s.humanize(attribute).replace(/\bxpath\b/i, 'XPath').replace(/\burl\b/i, 'URL')} must be present`;
+    return `${s.humanize(attribute).replace(/\bxpath\b/i, 'XPath').replace(/\burl\b/i, 'URL')} 插件`;
   },
   mustBeAUrl(attribute) {
     return `${s.humanize(attribute)} must be a valid http(s) url`;

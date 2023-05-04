@@ -34,9 +34,8 @@ export class NotificationsWidget extends MithrilViewComponent<Attrs> {
     if (vnode.attrs.notificationVMs().entity().length === 0) {
       msgOrFilters = <div className={styles.tips} data-test-id="notification-filters-info">
         <ul>
-          <li>Click on "Add Notification Filter" to add a new email notification filter.</li>
-          <li>Notifications will only work if security is enabled and mailhost information is correct. You can read more
-            from <Link target="_blank" href={docsUrl("configuration/dev_notifications.html")}>here</Link>.
+          <li>点击 "增加通知过滤器" 来增加一个新的Email通知筛选器.</li>
+          <li>只有在启用了安全性并且邮件主机信息正确的情况下，通知才会起作用。 你可以在 <Link target="_blank" href={docsUrl("configuration/dev_notifications.html")}>这里</Link>阅读更多.
           </li>
         </ul>
       </div>;
@@ -46,13 +45,13 @@ export class NotificationsWidget extends MithrilViewComponent<Attrs> {
     }
     return <div data-test-id="notifications-widget" class={styles.notificationWrapper}>
       <div className={styles.formHeader}>
-        <h3>Current Notification Filters</h3>
+        <h3>当前通知筛选器</h3>
         <div className={styles.formButton}>
           <Primary icon={ButtonIcon.ADD}
                    disabled={!vnode.attrs.isSMTPConfigured}
                    title={this.getTitle(vnode.attrs.isSMTPConfigured, 'add')}
                    dataTestId={"notification-filter-add"}
-                   onclick={vnode.attrs.onAddFilter.bind(this)}>Add Notification Filter</Primary>
+                   onclick={vnode.attrs.onAddFilter.bind(this)}>增加通知筛选器</Primary>
         </div>
       </div>
       {msgOrFilters}
@@ -83,8 +82,8 @@ export class NotificationsWidget extends MithrilViewComponent<Attrs> {
 
   private getTitle(isSMTPConfigured: boolean, action: 'add' | 'edit') {
     if (isSMTPConfigured) {
-      return `${s.capitalize(action)} Notification Filter`;
+      return `${s.capitalize(action)} 通知筛选器`;
     }
-    return `Cannot ${action} filter as SMTP settings has not been configured`;
+    return `无法 ${action} 通知筛选器，因为尚未配置SMTP`;
   }
 }

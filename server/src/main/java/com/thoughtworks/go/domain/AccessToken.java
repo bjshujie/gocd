@@ -134,19 +134,19 @@ public class AccessToken extends PersistentObject implements Validatable {
     @Override
     public void validate(ValidationContext validationContext) {
         if (isBlank(description)) {
-            errors.add("description", "must not be blank");
+            errors.add("description", "不能为空");
         }
 
         if (isBlank(username)) {
-            errors.add("username", "must not be blank");
+            errors.add("username", "不能为空");
         }
 
         if (isBlank(authConfigId)) {
-            errors.add("authConfigId", "must not be blank");
+            errors.add("authConfigId", "不能为空");
         }
 
         if (createdAt == null) {
-            errors.add("createdAt", "must not be null");
+            errors.add("createdAt", "不能为空");
         }
     }
 

@@ -86,10 +86,10 @@ public class MailHostTest {
 
         assertThat(mailHost.errors())
                 .hasSize(4)
-                .containsEntry("hostname", List.of("Hostname must not be blank."))
-                .containsEntry("port", List.of("Port must be a positive number."))
-                .containsEntry("sender_email", List.of("Sender email must not be blank."))
-                .containsEntry("admin_email", List.of("Admin email must not be blank."))
+                .containsEntry("hostname", List.of("主机名不能为空."))
+                .containsEntry("port", List.of("端口号必须为正整数."))
+                .containsEntry("sender_email", List.of("发送邮件地址不能为空."))
+                .containsEntry("admin_email", List.of("管理员邮箱不能为空."))
         ;
     }
 

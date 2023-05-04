@@ -43,9 +43,9 @@ public class ArtifactsDiskSpaceWarningChecker extends DiskSpaceChecker {
 
     @Override
     protected void createFailure(OperationResult result, long size, long availableSpace) {
-        String msg = "GoCD has less than " + size + "M of disk space available to it.";
+        String msg = "服务器只有少于  " + size + "M 磁盘可用.";
         LOGGER.warn(msg);
-        result.warning("GoCD Server's artifact repository is running low on disk space", msg, ARTIFACTS_DISK_FULL_ID);
+        result.warning("服务的文档仓库正在运行在低磁盘空间下", msg, ARTIFACTS_DISK_FULL_ID);
     }
 
     @Override

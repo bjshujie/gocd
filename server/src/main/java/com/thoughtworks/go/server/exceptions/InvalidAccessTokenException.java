@@ -17,10 +17,10 @@ package com.thoughtworks.go.server.exceptions;
 
 public class InvalidAccessTokenException extends RuntimeException {
     public InvalidAccessTokenException() {
-        super("Invalid Personal Access Token.");
+        super("无效的个人访问令牌。");
     }
 
     public InvalidAccessTokenException(String msg) {
-        super(String.format("Invalid Personal Access Token. %s", msg));
+        super(String.format("无效的个人访问令牌. %s", msg));
     }
 }

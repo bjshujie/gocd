@@ -226,7 +226,7 @@ class CurrentUserAccessTokenControllerV1Test implements ControllerTrait<CurrentU
 
         assertThatResponse()
           .isUnprocessableEntity()
-          .hasJsonMessage("Can not create Access Token. Please upgrade 'plugin-id' plugin to use Access Token Feature.")
+          .hasJsonMessage("无法创建访问令牌. 请升级 'plugin-id' 插件以使用访问令牌特性.")
       }
 
       @Test

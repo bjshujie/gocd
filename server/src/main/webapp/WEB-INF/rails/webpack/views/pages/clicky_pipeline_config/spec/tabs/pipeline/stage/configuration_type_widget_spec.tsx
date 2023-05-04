@@ -30,11 +30,11 @@ describe("Pipeline Template Configuration Type Widget", () => {
     mount();
 
     expect(helper.byTestId("radio-template")).toBeInDOM();
-    expect(helper.q("label", helper.byTestId("input-field-for-template")).innerText).toEqual("Use Template");
+    expect(helper.q("label", helper.byTestId("input-field-for-template")).innerText).toEqual("使用模板");
     expect(helper.byTestId("radio-template")).not.toBeChecked();
 
     expect(helper.byTestId("radio-stage")).toBeInDOM();
-    expect(helper.q("label", helper.byTestId("input-field-for-stage")).innerText).toEqual("Define Stages");
+    expect(helper.q("label", helper.byTestId("input-field-for-stage")).innerText).toEqual("定义阶段");
     expect(helper.byTestId("radio-stage")).toBeChecked();
   });
 

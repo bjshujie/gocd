@@ -20,7 +20,7 @@ shared_examples :layout do
   it "should have title" do
     render :inline => '<% @view_title = "My Title" -%>', :layout => @layout_name
 
-    expect(response.body).to have_title("My Title - Go")
+    expect(response.body).to have_title("My Title - 凌波")
   end
 
   it "should render page error" do

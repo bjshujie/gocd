@@ -50,7 +50,7 @@ import static org.apache.http.HttpStatus.SC_UNAUTHORIZED;
 public class AccessTokenAuthenticationFilter extends OncePerRequestFilter {
     protected final Logger LOGGER = LoggerFactory.getLogger(getClass());
     protected final Logger ACCESS_TOKEN_LOGGER = LoggerFactory.getLogger(AccessToken.class);
-    private static final String BAD_CREDENTIALS_MSG = "Invalid Personal Access Token.";
+    private static final String BAD_CREDENTIALS_MSG = "无效的个人访问令牌.";
     protected final SecurityService securityService;
     private SecurityAuthConfigService securityAuthConfigService;
     private final AccessTokenBasedPluginAuthenticationProvider authenticationProvider;

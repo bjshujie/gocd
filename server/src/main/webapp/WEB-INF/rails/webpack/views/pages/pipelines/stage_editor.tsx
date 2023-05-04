@@ -39,8 +39,8 @@ export class StageEditor extends MithrilViewComponent<Attrs> {
 
         <AdvancedSettings>
           <SwitchBtn label={<div>
-            Automatically run this stage on upstream changes
-            <Tooltip.Help size={TooltipSize.medium} content="Enabling this means that this stage will automatically run when code is updated or its preceding or upstream stage passes. Disabling this means you must trigger this stage manually."/>
+            上游更改自动运行此阶段
+            <Tooltip.Help size={TooltipSize.medium} content="启用这意味着当更新或其前一个或上游阶段通过时，此阶段将自动运行。禁用此选项意味着您必须手动触发此阶段"/>
           </div>} field={stage.approval().state} small={true}/>
         </AdvancedSettings>
       </Form>

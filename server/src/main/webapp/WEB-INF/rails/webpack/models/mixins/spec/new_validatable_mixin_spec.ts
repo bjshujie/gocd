@@ -358,7 +358,7 @@ describe("Validatable", () => {
 
       expect(pipeline.errors().hasErrors()).toBe(false);
       expect(pipeline.material().errors().hasErrors()).toBe(true);
-      expect(pipeline.material().errors().errors("url")).toEqual(["URL must be present"]);
+      expect(pipeline.material().errors().errors("url")).toEqual(["URL为必须项"]);
     });
 
   });
@@ -383,8 +383,8 @@ describe("Validatable", () => {
       material.validate();
 
       expect(material.errors().hasErrors()).toBe(true);
-      expect(material.errors().errors("username")).toEqual(["Username must be present"]);
-      expect(material.errors().errors("password")).toEqual(["Password must be present"]);
+      expect(material.errors().errors("username")).toEqual(["用户名称为必须项"]);
+      expect(material.errors().errors("password")).toEqual(["密码为必须项"]);
     });
 
     it("should be able validate a single attribute", () => {
@@ -393,7 +393,7 @@ describe("Validatable", () => {
       material.validate("username");
 
       expect(material.errors().hasErrors()).toBe(true);
-      expect(material.errors().errors("username")).toEqual(["Username must be present"]);
+      expect(material.errors().errors("username")).toEqual(["用户名称为必须项"]);
       expect(material.errors().hasErrors("password")).toBe(false);
     });
 
@@ -403,13 +403,13 @@ describe("Validatable", () => {
       material.validate();
 
       expect(material.errors().hasErrors()).toBe(true);
-      expect(material.errors().errors("username")).toEqual(["Username must be present"]);
-      expect(material.errors().errors("password")).toEqual(["Password must be present"]);
+      expect(material.errors().errors("username")).toEqual(["用户名称为必须项"]);
+      expect(material.errors().errors("password")).toEqual(["密码为必须项"]);
 
       material.validate();
 
-      expect(material.errors().errors("username")).toEqual(["Username must be present"]);
-      expect(material.errors().errors("password")).toEqual(["Password must be present"]);
+      expect(material.errors().errors("username")).toEqual(["用户名称为必须项"]);
+      expect(material.errors().errors("password")).toEqual(["密码为必须项"]);
     });
 
     it("should clear existing errors for a given attribute before validating", () => {
@@ -418,14 +418,14 @@ describe("Validatable", () => {
       material.validate();
 
       expect(material.errors().hasErrors()).toBe(true);
-      expect(material.errors().errors("username")).toEqual(["Username must be present"]);
-      expect(material.errors().errors("password")).toEqual(["Password must be present"]);
+      expect(material.errors().errors("username")).toEqual(["用户名称为必须项"]);
+      expect(material.errors().errors("password")).toEqual(["密码为必须项"]);
 
       material.username("somename");
       material.validate("username");
 
       expect(material.errors().hasErrors("username")).toBe(false);
-      expect(material.errors().errors("password")).toEqual(["Password must be present"]);
+      expect(material.errors().errors("password")).toEqual(["密码为必须项"]);
     });
   });
 
@@ -586,11 +586,11 @@ describe("Validatable", () => {
     });
 
     it("mustBePresent", () => {
-      expect(ErrorMessages.mustBePresent("id")).toEqual("Id must be present");
-      expect(ErrorMessages.mustBePresent("PluginId")).toEqual("Plugin id must be present");
-      expect(ErrorMessages.mustBePresent("pluginId")).toEqual("Plugin id must be present");
-      expect(ErrorMessages.mustBePresent("plugin_id")).toEqual("Plugin id must be present");
-      expect(ErrorMessages.mustBePresent("plugin id")).toEqual("Plugin id must be present");
+      expect(ErrorMessages.mustBePresent("id")).toEqual("Id 为必填项");
+      expect(ErrorMessages.mustBePresent("PluginId")).toEqual("插件 id 为必填项");
+      expect(ErrorMessages.mustBePresent("pluginId")).toEqual("插件 id 为必填项");
+      expect(ErrorMessages.mustBePresent("plugin_id")).toEqual("插件 id 为必填项");
+      expect(ErrorMessages.mustBePresent("plugin id")).toEqual("插件 id 为必填项");
     });
 
     it("mustBeAUrl", () => {
