@@ -58,7 +58,7 @@ export class KeyValEditor extends RestyleComponent<Styles, CollectionAttrs> {
       <tfoot>
         <tr>
           <td class={this.css.addMore} colspan="4">
-            <Secondary icon={ButtonIcon.ADD} onclick={() => this.append(vnode)} title="Add another property">
+            <Secondary icon={ButtonIcon.ADD} onclick={() => this.append(vnode)} title="添加其他属性">
               Add
             </Secondary>
           </td>

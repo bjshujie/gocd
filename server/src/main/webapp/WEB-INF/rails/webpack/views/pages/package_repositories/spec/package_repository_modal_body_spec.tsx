@@ -57,7 +57,7 @@ describe('PackageRepositoryModalBodySpec', () => {
     expect(helper.byTestId('form-field-input-plugin')).toBeInDOM();
     expect(helper.byTestId('form-field-input-plugin')).not.toBeDisabled();
     expect(helper.byTestId("form-field-input-plugin").children.length).toBe(1);
-    expect(helper.byTestId("form-field-input-plugin").children[0].textContent).toBe('NPM plugin for package repo');
+    expect(helper.byTestId("form-field-input-plugin").children[0].textContent).toBe('用于NPM 插件的包存储');
   });
 
   it('should render the id and name as readonly', () => {

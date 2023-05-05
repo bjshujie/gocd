@@ -39,7 +39,7 @@ describe("PipelineActivityWidget", () => {
     mount(activity);
 
     expect(helper.byTestId("instance-header")).toBeInDOM();
-    expect(helper.byTestId("instance-header")).toHaveText("Instance");
+    expect(helper.byTestId("instance-header")).toHaveText("实例");
   });
 
   it("should render stage name", () => {

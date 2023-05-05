@@ -29,10 +29,9 @@ export class NoPluginsOfTypeInstalled<T extends ExtensionJSON> extends MithrilVi
   view(vnode: m.Vnode<Attrs<T>, this>): m.Children | void | null {
     const message = (
       <div>
-        To use this page, you must ensure that there are one or
-        more {vnode.attrs.extensionType.humanReadableName()} plugins installed. Please see <Link
-        href={vnode.attrs.extensionType.linkForDocs()} target="_blank" externalLinkIcon={true}>this page</Link> for a
-        list of supported plugins.
+          若要使用此页面，您必须确保有一个或
+        多个 {vnode.attrs.extensionType.humanReadableName()} 插件被安装. 请查看 <Link
+        href={vnode.attrs.extensionType.linkForDocs()} target="_blank" externalLinkIcon={true}>这里</Link> 获取支持的插件列表.
       </div>
     );
     return <FlashMessage type={MessageType.warning} message={message}/>;

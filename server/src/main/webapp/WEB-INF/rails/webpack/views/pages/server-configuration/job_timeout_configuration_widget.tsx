@@ -32,16 +32,16 @@ export class JobTimeoutConfigurationWidget extends MithrilViewComponent<JobTimeo
     return <div data-test-id="job-timeout-management-widget" class={styles.formContainer}>
       <FormBody>
         <div class={styles.formHeader}>
-          <h2>Configure your default Job Timeout</h2>
+          <h2>配置默认作业超时</h2>
         </div>
         <div class={styles.formFields}>
           <Form compactForm={true}>
             <CheckboxField dataTestId="checkbox-for-job-timeout"
                            property={jobTimeout.neverTimeout}
-                           label={"Never job timeout"}
+                           label={"作业从不超时"}
                            onchange={() => jobTimeout.defaultJobTimeout(0)}/>
-            <NumberField label="Default Job timeout"
-                         helpText="the job will get cancel after the given minutes of inactivity"
+            <NumberField label="默认作业超时"
+                         helpText="在给定的不活动分钟后，作业将被取消"
                          readonly={jobTimeout.neverTimeout()}
                          property={jobTimeout.defaultJobTimeout}
                          required={true}

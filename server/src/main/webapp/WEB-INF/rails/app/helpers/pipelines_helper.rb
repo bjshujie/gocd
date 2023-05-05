@@ -31,9 +31,9 @@ module PipelinesHelper
   def trigger_message_with_formatted_date_time(date_time, who)
     on = "&nbsp;on&nbsp;<span class='time' data='#{date_time.getTime()}' title='#{date_time.to_long_display_date_time} server time'></span>"
     if who == GoConstants::DEFAULT_APPROVED_BY
-      "<span class='label'>Automatically triggered</span>#{on}".html_safe
+      "<span class='label'>自动启动</span>#{on}".html_safe
     else
-      "<span class='label'>Triggered</span>&nbsp;by&nbsp;<span class='who'>#{html_escape(who)}</span>#{on}".html_safe
+      "<span class='label'>启动</span>&nbsp;by&nbsp;<span class='who'>#{html_escape(who)}</span>#{on}".html_safe
     end
   end
 

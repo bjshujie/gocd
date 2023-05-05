@@ -44,9 +44,8 @@ export class PackageRepositoriesWidget extends MithrilViewComponent<Attrs> {
 
   public static helpText() {
     return <ul>
-      <li>Click on "Create Package Repository" to add new package repository.</li>
-      <li>A package repository can be set up to use packages as a material in the pipelines. You can read more
-        from <Link target="_blank" href={docsUrl("extension_points/package_repository_extension.html")}>here</Link>.
+      <li>单击“创建包存储库”以添加新的包存储库。.</li>
+      <li>可以设置包存储库，将包用作算法中的材料 你可以在 <Link target="_blank" href={docsUrl("extension_points/package_repository_extension.html")}>这里</Link>阅读更多内容.
       </li>
     </ul>;
   }
@@ -56,7 +55,7 @@ export class PackageRepositoriesWidget extends MithrilViewComponent<Attrs> {
       const target           = pkgRepoScrollOptions.sm.getTarget();
       const hasAnchorElement = vnode.attrs.packageRepositories().some((pkgRepo) => pkgRepo.name() === target);
       if (!hasAnchorElement) {
-        const msg = `'${target}' package repository has not been set up.`;
+        const msg = `'${target}' 包存储库尚未设置程序.`;
         return <FlashMessage dataTestId="anchor-package-repo-not-present" type={MessageType.alert} message={msg}/>;
       }
     }

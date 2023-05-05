@@ -73,12 +73,12 @@ class PipelineGroup extends Group {
   }
 
   ariaLabelForNewPipeline() {
-    return this.tooltipForNewPipeline() || 'Create a new pipeline within this group';
+    return this.tooltipForNewPipeline() || '在此组中创建新算法';
   }
 
   titleForNewPipeline() {
     if (this.canAdminister) {
-      return 'Create a new pipeline within this group';
+      return '在此组中创建新算法';
     }
     return "";
   }

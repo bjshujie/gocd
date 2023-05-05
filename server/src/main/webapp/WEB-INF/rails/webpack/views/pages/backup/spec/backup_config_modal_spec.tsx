@@ -41,7 +41,7 @@ describe("BackupConfigModal", () => {
   afterEach(helper.unmount.bind(helper));
 
   it("should render form", () => {
-    expect(modal.title()).toBe("Configure backup settings");
+    expect(modal.title()).toBe("配置备份设置");
     expect(helper.byTestId("form-field-input-backup-schedule")).toBeInDOM();
     expect(helper.byTestId("form-field-input-post-backup-script")).toBeInDOM();
     expect(helper.byTestId("form-field-input-send-email-on-backup-failure")).toBeInDOM();

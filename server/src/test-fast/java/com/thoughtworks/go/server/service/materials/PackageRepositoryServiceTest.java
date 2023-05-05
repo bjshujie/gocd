@@ -131,7 +131,7 @@ public class PackageRepositoryServiceTest {
     void shouldAddErrorWhenPluginIdIsMissing() {
         PackageRepository packageRepository = new PackageRepository();
         service.performPluginValidationsFor(packageRepository);
-        assertThat(packageRepository.getPluginConfiguration().errors().getAllOn(PluginConfiguration.ID)).isEqualTo(List.of("Please select package repository plugin"));
+        assertThat(packageRepository.getPluginConfiguration().errors().getAllOn(PluginConfiguration.ID)).isEqualTo(List.of("请选择包存储库插件"));
     }
 
     @Test
@@ -188,7 +188,7 @@ public class PackageRepositoryServiceTest {
         service.checkConnection(packageRepository, result);
 
         assertThat(result.isSuccessful()).isFalse();
-        assertThat(result.message()).isEqualTo("Could not connect to package repository. Reason(s): Check Connection not implemented!!");
+        assertThat(result.message()).isEqualTo("无法连接到程序包存储库。原因：检查连接未实现！！");
         verify(packageRepositoryExtension).checkConnectionToRepository(eq(pluginId), any(RepositoryConfiguration.class));
     }
 
@@ -208,7 +208,7 @@ public class PackageRepositoryServiceTest {
         PackageMaterialTestHelper.assertPackageConfiguration(packageConfigurations.list(), packageRepository.getConfiguration());
         assertThat(result.isSuccessful()).isFalse();
 
-        assertThat(result.message()).isEqualTo("Could not connect to package repository. Reason(s): Repo invalid!!\nCould not connect");
+        assertThat(result.message()).isEqualTo("无法连接到程序包存储库。原因：存储库无效!!\n无法连接");
         verify(packageRepositoryExtension).checkConnectionToRepository(eq(pluginId), any(RepositoryConfiguration.class));
     }
 
@@ -230,7 +230,7 @@ public class PackageRepositoryServiceTest {
         service.checkConnection(packageRepository, result);
 
         assertThat(result.isSuccessful()).isFalse();
-        assertThat(result.message()).isEqualTo("Could not connect to package repository. Reason(s): Repo invalid!!\nCould not connect");
+        assertThat(result.message()).isEqualTo("无法连接到程序包存储库。原因：存储库无效!!\n无法连接");
 
         ArgumentCaptor<RepositoryConfiguration> argumentCaptor = ArgumentCaptor.forClass(RepositoryConfiguration.class);
         verify(packageRepositoryExtension).checkConnectionToRepository(eq(pluginId), argumentCaptor.capture());

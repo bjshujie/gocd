@@ -62,7 +62,7 @@ export class PermissionsWidget extends MithrilViewComponent<Attrs> {
         const errors    = new Errors();
         permissionsView = this.localPermissionsView(users, roles, errors, true, vnode);
       } else {
-        const msg       = "There is no authorization configured for this stage nor its pipeline group. Only GoCD administrators can operate this stage.";
+        const msg       = "没有为此阶段及其算法组配置授权。只有管理员才能操作此阶段。";
         permissionsView = <FlashMessage message={msg} type={MessageType.info}/>;
       }
     } else {

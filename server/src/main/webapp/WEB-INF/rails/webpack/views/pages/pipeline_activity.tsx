@@ -174,8 +174,7 @@ export class PipelineActivityPage extends Page<null, State> implements ResultAwa
 
   helpText(): m.Children {
     return <div>
-      The pipeline activity helps GoCD users to see the status of historical runs of a pipeline. The current page makes it easier to browse
-      through the pipeline runs by filtering pipeline runs using label, user or material revision (e.g. git commit sha).
+      算法活动帮助用户查看算法的历史运行状态。当前页面通过使用标签、用户过滤算法运行，使浏览算法运行变得更容易。
       <Link href={docsUrl('advanced_usage/pipeline_activity.html')} externalLinkIcon={true}> 学习更多</Link>
     </div>;
   }
@@ -191,9 +190,9 @@ export class PipelineActivityPage extends Page<null, State> implements ResultAwa
     }
 
     return <HeaderPanel title={title} sectionName={this.pageName()} buttons={
-      <SearchField property={this.filterText} label={"Search"}
+      <SearchField property={this.filterText} label={"查询"}
                    dataTestId={"search-field"}
-                   placeholder={"Filter history..."}
+                   placeholder={"过滤历史..."}
                    onchange={this.fetchData.bind(this)}/>
     } help={this.helpText()}/>;
   }

@@ -30,8 +30,8 @@ describe("UserSearchModal", () => {
        const modal = new UserSearchModal(flashMessageModel, refreshUsers);
        modal.render();
        m.redraw.sync();
-       expect(modal).toContainTitle("Import User");
-       expect(modal).toContainButtons(["Cancel", "Import"]);
+       expect(modal).toContainTitle("导入用户");
+       expect(modal).toContainButtons(["取消", "导入"]);
        expect(document.querySelector(`[data-test-id='${modal.id}'] [data-test-id='user-search-query']`)).toBeInDOM();
      }
   );

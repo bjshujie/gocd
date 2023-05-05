@@ -48,7 +48,7 @@ interface Attrs {
 }
 
 export class StageSettingsWidget extends MithrilViewComponent<Attrs> {
-  static readonly APPROVAL_TYPE_HELP = "如果启用，则一旦前一阶段成功完成，此阶段将自动启动。否则，用户必须手动触发此阶段。对于算法中的第一阶段，启用此选项与在算法配置中的“自动算法调度”相同.";
+  static readonly APPROVAL_TYPE_HELP = "如果启用，则一旦前一阶段成功完成，此阶段将自动启动。否则，用户必须手动 启动此阶段。对于算法中的第一阶段，启用此选项与在算法配置中的“自动算法调度”相同.";
 
   static readonly ALLOW_ONLY_ON_SUCCESS_HELP = "只有在上一阶段运行成功的情况下，才允许启动该阶段.";
 

@@ -44,7 +44,7 @@ export class PipelineInstanceWidget extends MithrilViewComponent<InstanceAttrs> 
       <div class={styles.pipelineInstanceDescription}>
         <StagesWidget stages={vnode.attrs.instance.stages()}/>
         <div data-test-id="triggered-by">
-          触发自 {vnode.attrs.instance.buildCause().getApprover()} on {PipelineInstanceWidget.getTimeToDisplay(scheduledDate)}
+          启动自 {vnode.attrs.instance.buildCause().getApprover()} on {PipelineInstanceWidget.getTimeToDisplay(scheduledDate)}
         </div>
       </div>
       <div data-test-id="instance-material-revisions" class={styles.materialRevisions}>

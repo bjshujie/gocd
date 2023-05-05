@@ -458,7 +458,7 @@ public class PipelineInstanceModel implements PipelineInfo {
     }
 
     public String getApprovedByForDisplay() {
-        return "Triggered by " + getApprovedBy();
+        return " 启动自" + getApprovedBy();
     }
 
     public boolean isCurrentlyLocked() {

@@ -170,7 +170,7 @@ public class DefaultPluginJarChangeListener implements PluginJarChangeListener {
             }
         } catch (IllegalArgumentException e) {
             String targetVersions = bundleDescriptor.descriptors().stream().map(descriptor -> descriptor.about().targetGoVersion()).collect(Collectors.joining(" & "));
-            markAllPluginsInBundleAsInvalid(bundleDescriptor, "Incorrect target GoCD version (%s) specified.", targetVersions);
+            markAllPluginsInBundleAsInvalid(bundleDescriptor, "指定的目标版本 (%s) 不正确。", targetVersions);
         }
     }
 

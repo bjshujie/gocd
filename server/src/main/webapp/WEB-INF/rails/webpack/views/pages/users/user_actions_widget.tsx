@@ -80,37 +80,37 @@ class FiltersView extends Dropdown<FiltersViewAttrs> {
            class={classnames({[styles.hidden]: !vnode.attrs.showFilters()},
                                  styles.filterDropdownContent)}>
         <header class={classnames(styles.filterHeader)}>
-          <h4 data-test-id="filter-by-heading" class={classnames(styles.filterByHeading)}> Filter By </h4>
+          <h4 data-test-id="filter-by-heading" class={classnames(styles.filterByHeading)}> 过滤 </h4>
           <Link data-test-id="reset-filter-btn"
                 onclick={vnode.attrs.userFilters().resetFilters.bind(vnode.attrs.userFilters())}>
-            Reset Filters
+            重置过滤
           </Link>
         </header>
         <div class={classnames(styles.filtersBody)}>
           <div class={classnames(styles.filterItems)}>
             <h4 class={classnames(styles.filterItemsHead)}
-                data-test-id="filter-by-privileges-heading">Privileges</h4>
+                data-test-id="filter-by-privileges-heading">特权</h4>
             <Form compactForm={true} data-test-id="filter-by-privileges">
-              <CheckboxField label="System Administrators"
+              <CheckboxField label="系统管理员"
                              property={vnode.attrs.userFilters().superAdmins}/>
-              <CheckboxField label="Normal Users"
+              <CheckboxField label="普通用户"
                              property={vnode.attrs.userFilters().normalUsers}/>
             </Form>
           </div>
           <div class={classnames(styles.filterItems)}>
             <h4 class={classnames(styles.filterItemsHead)} data-test-id="filter-by-users-state-heading">
-              User state
+              用户状态
             </h4>
             <Form compactForm={true} data-test-id="filter-by-states">
-              <CheckboxField label="Enabled"
+              <CheckboxField label="启用"
                              property={vnode.attrs.userFilters().enabledUsers}/>
-              <CheckboxField label="Disabled"
+              <CheckboxField label="禁用"
                              property={vnode.attrs.userFilters().disabledUsers}/>
             </Form>
           </div>
 
           <div class={classnames(styles.filterItems)}>
-            <h4 class={classnames(styles.filterItemsHead)} data-test-id="filter-by-role-heading">Roles</h4>
+            <h4 class={classnames(styles.filterItemsHead)} data-test-id="filter-by-role-heading">角色</h4>
             <div data-test-id="filter-by-roles" class={styles.filterByRoles}>
               <Form compactForm={true}>
                 {this.renderRoles(vnode)}
@@ -138,7 +138,7 @@ class FiltersView extends Dropdown<FiltersViewAttrs> {
                onclick={(e: MouseEvent) => {
                  this.toggleDropdown(vnode, e);
                }}
-               icon={ButtonIcon.FILTER}>Filters <span>{filtersCount}</span></Default>
+               icon={ButtonIcon.FILTER}>过滤 <span>{filtersCount}</span></Default>
     );
   }
 
@@ -180,16 +180,16 @@ class RolesDropdown extends Dropdown<RolesViewAttrs & AjaxOperationMonitor> {
           </Form>
         </div>
         <Form compactForm={true}>
-          <QuickAddField property={vnode.attrs.roleNameToAdd} placeholder="Add role"
+          <QuickAddField property={vnode.attrs.roleNameToAdd} placeholder="添加角色"
                          ajaxOperationMonitor={vnode.attrs.operationState}
                          onclick={vnode.attrs.onRolesAdd.bind(this, vnode.attrs.roleNameToAdd(), vnode.attrs.users())}
-                         buttonDisableReason={"Please type the role name to add."}
+                         buttonDisableReason={"请输入要添加的角色名称。"}
           />
         </Form>
         <Primary ajaxOperationMonitor={vnode.attrs.operationState}
                  onclick={vnode.attrs.onRolesUpdate.bind(this,
                                                          vnode.attrs.rolesSelection(),
-                                                         vnode.attrs.users())}>Apply</Primary>
+                                                         vnode.attrs.users())}>应用</Primary>
       </div>
     );
   }
@@ -198,7 +198,7 @@ class RolesDropdown extends Dropdown<RolesViewAttrs & AjaxOperationMonitor> {
     return <Secondary dropdown={true}
                       disabled={!vnode.attrs.users().anyUserSelected() || vnode.attrs.operationState() === OperationState.IN_PROGRESS}
                       onclick={(e: MouseEvent) => this.toggleDropdown(vnode, e)}>
-      Roles
+      角色
     </Secondary>;
   }
 }
@@ -208,16 +208,16 @@ export class UsersActionsWidget extends MithrilViewComponent<Attrs> {
     const counts = [
       {
         count: vnode.attrs.users().totalUsersCount(),
-        label: "Total"
+        label: "总数"
       },
       {
         count: vnode.attrs.users().enabledUsersCount(),
-        label: "Enabled",
+        label: "启用",
         color: "green"
       },
       {
         count: vnode.attrs.users().disabledUsersCount(),
-        label: "Disabled",
+        label: "禁用",
         color: "red"
       }
     ] as CountsAttr[];
@@ -228,13 +228,13 @@ export class UsersActionsWidget extends MithrilViewComponent<Attrs> {
           <ButtonGroup>
             <Secondary ajaxOperation={vnode.attrs.onEnable.bind(vnode.attrs, vnode.attrs.users())}
                        ajaxOperationMonitor={vnode.attrs.operationState}
-                       disabled={!vnode.attrs.users().anyUserSelected()}>Enable</Secondary>
+                       disabled={!vnode.attrs.users().anyUserSelected()}>启用</Secondary>
             <Secondary ajaxOperation={vnode.attrs.onDisable.bind(vnode.attrs, vnode.attrs.users())}
                        ajaxOperationMonitor={vnode.attrs.operationState}
-                       disabled={!vnode.attrs.users().anyUserSelected()}>Disable</Secondary>
+                       disabled={!vnode.attrs.users().anyUserSelected()}>禁用</Secondary>
             <Secondary onclick={vnode.attrs.onDelete.bind(vnode.attrs, vnode.attrs.users())}
                        ajaxOperationMonitor={vnode.attrs.operationState}
-                       disabled={!vnode.attrs.users().anyUserSelected()}>Delete</Secondary>
+                       disabled={!vnode.attrs.users().anyUserSelected()}>删除</Secondary>
             <RolesDropdown {...vnode.attrs} show={vnode.attrs.showRoles}/>
           </ButtonGroup>
         </div>

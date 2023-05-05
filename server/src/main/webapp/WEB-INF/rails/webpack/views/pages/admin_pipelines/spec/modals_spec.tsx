@@ -242,8 +242,8 @@ describe('DeletePipelineGroupModalSpec', () => {
 
     const modalTestHelper: TestHelper = new TestHelper().forModal();
 
-    expect(modal).toContainTitle("Are you sure?");
-    expect(modal).toContainButtons(["No", "Yes Delete"]);
+    expect(modal).toContainTitle("您确定吗?");
+    expect(modal).toContainButtons(["否", "是 删除"]);
 
     modalTestHelper.clickButtonOnActiveModal(`[data-test-id="button-delete"]`);
     expect(successCallBack).toHaveBeenCalled();

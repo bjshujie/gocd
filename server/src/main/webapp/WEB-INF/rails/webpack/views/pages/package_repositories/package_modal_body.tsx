@@ -66,7 +66,7 @@ export class PackageModalBody extends MithrilViewComponent<Attrs> {
                      errorText={vnode.attrs.package.errors().errorsForDisplay("name") || vnode.attrs.package.errors().errorsForDisplay("id")}
                      required={true}/>
 
-          <SelectField label="Package Repository"
+          <SelectField label="包存储库"
                        property={this.packageRepoIdProxy.bind(this, vnode)}
                        required={true}
                        readonly={vnode.attrs.disablePackageRepo}

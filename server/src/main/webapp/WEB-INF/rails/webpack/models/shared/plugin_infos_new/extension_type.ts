@@ -174,7 +174,7 @@ export class PackageRepoExtensionType extends AbstractExtensionType<PackageRepoE
   }
 
   humanReadableName(): string {
-    return "Package Repository";
+    return "包存储库";
   }
 
   linkForDocs(): string {

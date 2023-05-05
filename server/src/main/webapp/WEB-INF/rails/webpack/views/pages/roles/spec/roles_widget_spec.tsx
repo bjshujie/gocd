@@ -63,7 +63,7 @@ describe("RolesWidgetSpec", () => {
 
     expect(helper.textByTestId("key-value-key-name")).toContain("Name");
     expect(helper.textByTestId("key-value-value-name")).toContain("spacetiger");
-    expect(helper.textByTestId("no-users-message")).toBe("No users in this role.");
+    expect(helper.textByTestId("no-users-message")).toBe("此角色中没有用户。");
     expect(helper.byTestId("role-edit")).toBeInDOM();
     expect(helper.byTestId("role-clone")).toBeInDOM();
     expect(helper.byTestId("role-delete")).toBeInDOM();

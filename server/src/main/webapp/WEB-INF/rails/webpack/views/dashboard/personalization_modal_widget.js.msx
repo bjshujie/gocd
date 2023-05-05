@@ -44,10 +44,10 @@ const BlanketSelector = {
   view(vnode) {
     const vm = vnode.attrs.vm;
     return <div class="blanket-selection">
-      <span class="blanket-selection_label">Select pipelines</span>
+      <span class="blanket-selection_label">选择算法</span>
       <div class="select-pipelines_buttons">
-        <f.button class={vm && vm.hasAllSelected() ? "btn_all active" : "btn_all"} disabled={!vm} onclick={vm && vm.selectAll}>All</f.button>
-        <f.button class={vm && vm.hasNoneSelected() ? "btn_none active" : "btn_none"}  disabled={!vm} onclick={vm && vm.selectNone}>None</f.button>
+        <f.button class={vm && vm.hasAllSelected() ? "btn_all active" : "btn_all"} disabled={!vm} onclick={vm && vm.selectAll}>全部</f.button>
+        <f.button class={vm && vm.hasNoneSelected() ? "btn_none active" : "btn_none"}  disabled={!vm} onclick={vm && vm.selectNone}>全不选</f.button>
       </div>
     </div>;
   }
@@ -59,19 +59,19 @@ const StageStateCriteria = {
 
     return <div class="stage-state-selector">
       <div class="checkbox-help">
-        <f.checkbox name="state" model={vm} attrName="paused" label="Paused" labelClass="checkbox-help_label"/>
+        <f.checkbox name="state" model={vm} attrName="paused" label="已暂停" labelClass="checkbox-help_label"/>
         <Tooltip vm={vm} name="paused-pipelines">此视图显示暂停的算法，无考虑它的构建完成状态</Tooltip>
       </div>
       <div class="checkbox-help">
-        <f.checkbox name="state" model={vm} attrName="failing" label="Failed" labelClass="checkbox-help_label"/>
+        <f.checkbox name="state" model={vm} attrName="failing" label="已失败" labelClass="checkbox-help_label"/>
         <Tooltip vm={vm} name="failed-pipelines">些视图显示最后一个阶段运行失败的算法</Tooltip>
       </div>
       <div class="checkbox-help">
-        <f.checkbox name="state" model={vm} attrName="cancelled" label="Cancelled" labelClass="checkbox-help_label"/>
+        <f.checkbox name="state" model={vm} attrName="cancelled" label="已取消" labelClass="checkbox-help_label"/>
         <Tooltip vm={vm} name="cancelled-pipelines">些视图显示最后一个阶段运行取消的算法</Tooltip>
       </div>
       <div className="checkbox-help">
-        <f.checkbox name="state" model={vm} attrName="building" label="Building" labelClass="checkbox-help_label"/>
+        <f.checkbox name="state" model={vm} attrName="building" label="构建中" labelClass="checkbox-help_label"/>
         <Tooltip vm={vm} name="building-pipelines">些视图显示算法的作业被启动或者正在构建</Tooltip>
       </div>
     </div>;
@@ -181,7 +181,7 @@ export const PersonalizationModalWidget = {
               <f.checkbox name="include-new-pipelines" model={vm} attrName="includeNewPipelines" label="自动包含新创建的算法"
                           labelClass="checkbox-help_label"/>
               <Tooltip vm={vm} name="include-new-pipelines">
-                {"De-selected pipelines below will act as a denylist, so that pipelines created since this view was updated will automatically be included."}
+                {"下面被取消选择的算法将作为拒绝列表，因此自更新此视图以来创建的算法将自动包括在内."}
               </Tooltip>
             </div>
           </div>
@@ -190,7 +190,7 @@ export const PersonalizationModalWidget = {
 
       <div class="pipeline-search-container">
         <BlanketSelector vm={vm.selectionVM()} />
-        <SearchBox containerClass="search-box-personalize-editor" disabled={!vm} model={vm.selectionVM()} attrName="searchTerm" placeholder="Search for a Pipeline" />
+        <SearchBox containerClass="search-box-personalize-editor" disabled={!vm} model={vm.selectionVM()} attrName="searchTerm" placeholder="查询算法" />
       </div>
 
       <div class={vm.hasSearch() ? "pipeline-selections pipeline-search-in-progress" : "pipeline-selections"}>

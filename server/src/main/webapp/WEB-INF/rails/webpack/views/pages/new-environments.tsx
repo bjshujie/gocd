@@ -69,7 +69,7 @@ export class NewEnvironmentsPage extends Page<null, State> {
       e.stopPropagation();
       this.flashMessage.clear();
 
-      const message                   = <span>Are you sure you want to delete environment <em>{env.name()}</em>?</span>;
+      const message                   = <span>您是否要删除环境 <em>{env.name()}</em>?</span>;
       const modal: DeleteConfirmModal = new DeleteConfirmModal(message, () => {
         const self = this;
         return env.delete()
@@ -77,7 +77,7 @@ export class NewEnvironmentsPage extends Page<null, State> {
                     result.do(
                       () => {
                         self.flashMessage.setMessage(MessageType.success,
-                                                     `The environment '${env.name()}' was deleted successfully!`);
+                                                     `环境 '${env.name()}' 被成功删除!`);
                       }, (errorResponse: ErrorResponse) => {
                         self.flashMessage.setMessage(MessageType.alert, JSON.parse(errorResponse.body!).message);
                       }
@@ -141,16 +141,16 @@ export class NewEnvironmentsPage extends Page<null, State> {
 
   headerPanel(vnode: m.Vnode<null, State>): any {
     const headerButtons = [];
-    headerButtons.push(<Primary dataTestId="add-environment-button" onclick={vnode.state.onAdd}>Add
-      Environment</Primary>);
+    headerButtons.push(<Primary dataTestId="add-environment-button" onclick={vnode.state.onAdd}>新增
+      环境</Primary>);
     if (!_.isEmpty(this.environments())) {
       const searchBox = <div className={configRepoStyles.wrapperForSearchBox}>
         <SearchField property={vnode.state.searchText} dataTestId={"search-box"}
-                     placeholder="Search for a environment name"/>
+                     placeholder="搜索环境名称"/>
       </div>;
       headerButtons.splice(0, 0, searchBox);
     }
-    return <HeaderPanel title="Environments" buttons={headerButtons} help={this.helpText()}/>;
+    return <HeaderPanel title="环境" buttons={headerButtons} help={this.helpText()}/>;
   }
 
   helpText(): m.Children {

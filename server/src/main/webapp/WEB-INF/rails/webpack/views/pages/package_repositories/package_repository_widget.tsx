@@ -116,7 +116,7 @@ export class PackageRepositoryWidget extends MithrilViewComponent<Attrs> {
                         actions={[warningIcon, actionButtons]}
                         dataTestId={"package-repository-panel"}
                         vm={this}>
-        <ConfigurationDetailsWidget header={"Package Repository configuration"} data={pkgRepoDetails}/>
+        <ConfigurationDetailsWidget header={"包存储库配置"} data={pkgRepoDetails}/>
         <PackagesWidget packageRepoName={packageRepository.name()}
                         packages={vnode.attrs.packageRepository.packages}
                         disableActions={disabled}
@@ -137,6 +137,6 @@ export class PackageRepositoryWidget extends MithrilViewComponent<Attrs> {
     if (disabled && operation !== "delete") {
       return "Plugin not found!";
     }
-    return `${s.capitalize(operation)} package repository '${pkgRepoName}'`;
+    return `${s.capitalize(operation)} 包存储库 '${pkgRepoName}'`;
   }
 }

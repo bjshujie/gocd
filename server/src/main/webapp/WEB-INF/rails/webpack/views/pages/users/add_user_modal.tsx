@@ -82,7 +82,7 @@ export class UserSearchModal extends Modal {
   }
 
   title(): string {
-    return "Import User";
+    return "导入用户";
   }
 
   private addUser() {

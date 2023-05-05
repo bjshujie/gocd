@@ -148,7 +148,7 @@ export class PackageRepositoriesPage extends Page<null, State> {
   }
 
   pageName(): string {
-    return "Package Repositories";
+    return "包存储库";
   }
 
   fetchData(vnode: m.Vnode<null, State>): Promise<any> {
@@ -189,13 +189,13 @@ export class PackageRepositoriesPage extends Page<null, State> {
     const buttons = [
       <Primary icon={ButtonIcon.ADD} disabled={!this.isPluginInstalled(vnode)}
                onclick={vnode.state.packageRepoOperations.onAdd}>
-        Create Package Repository
+        创建包存储库
       </Primary>
     ];
     if (!_.isEmpty(vnode.state.packageRepositories())) {
       const searchBox = <div className={configRepoStyles.wrapperForSearchBox}>
         <SearchField property={vnode.state.searchText} dataTestId={"search-box"}
-                     placeholder="Search for a package repository or a package"/>
+                     placeholder="搜索程序包存储库或程序包"/>
       </div>;
       buttons.splice(0, 0, searchBox);
     }

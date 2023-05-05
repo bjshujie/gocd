@@ -68,7 +68,7 @@ export class AdminTemplatesPage extends Page<null, State> {
                        .then((apiResult) => {
                          apiResult.do(
                            () => {
-                             vnode.state.onSuccessfulSave(<span>A new template <em>{newTemplateName}</em> was created successfully!</span>);
+                             vnode.state.onSuccessfulSave(<span>一个新模板 <em>{newTemplateName}</em> 被成功创建!</span>);
                            },
                            onOperationError
                          );
@@ -88,7 +88,7 @@ export class AdminTemplatesPage extends Page<null, State> {
               () => {
                 const msg = (
                   <span>
-                  A new template <em>{newTemplateName}</em> was created successfully. The pipeline <em>{basedOnPipeline}</em> uses this template!
+                  一个新模板 <em>{newTemplateName}</em> 被成功创建. 算法 <em>{basedOnPipeline}</em> 使用此模板!
                 </span>
                 );
                 vnode.state.onSuccessfulSave(msg);
@@ -116,14 +116,14 @@ export class AdminTemplatesPage extends Page<null, State> {
 
     vnode.state.onDelete = (template, e) => {
       const message                   =
-              <span>Are you sure you want to delete the template <em>{template.name}</em>?</span>;
+              <span>您是否确实要删除模板 <em>{template.name}</em>?</span>;
       const modal: DeleteConfirmModal = new DeleteConfirmModal(message, () => {
         return ApiRequestBuilder.DELETE(SparkRoutes.templatesPath(template.name), ApiVersion.latest)
                                 .then((apiResponse) => {
                                         apiResponse.do(
                                           (successResponse) => {
                                             vnode.state.onSuccessfulSave(
-                                              <span>The template <em>{template.name}</em> was deleted successfully!</span>
+                                              <span>模板 <em>{template.name}</em> 被成功删除!</span>
                                             );
                                           },
                                           (errorResponse) => {
@@ -216,7 +216,7 @@ export class AdminTemplatesPage extends Page<null, State> {
   }
 
   pageName(): string {
-    return "Templates";
+    return "模板";
   }
 
   fetchData(vnode: m.Vnode<null, State>): Promise<any> {
@@ -275,15 +275,15 @@ export class AdminTemplatesPage extends Page<null, State> {
     const isEnabled     = headerMeta().isUserAdmin || headerMeta().isGroupAdmin;
     const headerButtons = [
       <Buttons.Primary icon={ButtonIcon.ADD}
-                       title={isEnabled ? "Create a new template" : "You are not authorized to create a new template. Only system administrators and pipeline group administrators can create templates."}
+                       title={isEnabled ? "创建新模板" : "您无权创建新模板。只有系统管理员和算法组管理员才能创建模板."}
                        disabled={!isEnabled}
                        onclick={vnode.state.onCreate.bind(vnode.state)}
-                       data-test-id="create-new-template">Create a new template</Buttons.Primary>
+                       data-test-id="create-new-template">创建新模板</Buttons.Primary>
     ];
     if (!_.isEmpty(vnode.state.templates)) {
       const searchBox = <div className={configRepoStyles.wrapperForSearchBox}>
         <SearchField property={vnode.state.searchText} dataTestId={"search-box"}
-                     placeholder="Search for a template or pipeline name"/>
+                     placeholder="搜索模板或算法名称"/>
       </div>;
       headerButtons.splice(0, 0, searchBox);
     }

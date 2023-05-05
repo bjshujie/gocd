@@ -172,13 +172,13 @@ export class DeletePackageModal extends DeleteConfirmModal {
 
   constructor(pkg: Package, onSuccessfulSave: (msg: m.Children) => any) {
     super(DeletePackageModal.deleteConfirmationMessage(pkg),
-          () => this.delete(pkg), "Are you sure?");
+          () => this.delete(pkg), "您确定吗?");
     this.onSuccessfulSave = onSuccessfulSave;
   }
 
   private static deleteConfirmationMessage(pkg: Package) {
     return <span>
-          Are you sure you want to delete the package <strong>{pkg.name()}</strong>?
+          您是否确实要删除程序包 <strong>{pkg.name()}</strong>?
         </span>;
   }
 

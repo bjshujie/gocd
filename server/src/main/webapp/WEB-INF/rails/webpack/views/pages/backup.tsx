@@ -69,7 +69,7 @@ export class BackupPage extends Page<null, State> {
     return <HeaderPanel title={this.pageName()} buttons={
       <Buttons.Primary data-test-id="configure-backup" icon={ButtonIcon.GEAR}
                        onclick={BackupPage.openBackupSettings.bind(this)}>
-        Configure Backup Settings
+        配置备份设置
       </Buttons.Primary>
     } help={this.helpText()}/>;
   }

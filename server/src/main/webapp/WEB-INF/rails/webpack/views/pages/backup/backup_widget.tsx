@@ -51,12 +51,12 @@ export class BackupWidget extends MithrilComponent<Attrs> {
             <div class={styles.performBackupButtonContainer}>
               <Buttons.Primary data-test-id="perform-backup" onclick={this.startBackup.bind(this, vnode)}
                                disabled={vnode.attrs.backupStatus === BackupStatus.IN_PROGRESS}>
-                Perform Backup
+                执行备份
               </Buttons.Primary>
             </div>
             <div class={styles.backupInfo}>
               <p class={styles.availableDiskSpace}>
-                <span>Available disk space in backup directory:</span> {vnode.attrs.availableDiskSpace}
+                <span>备份目录中的可用磁盘空间:</span> {vnode.attrs.availableDiskSpace}
               </p>
               {this.lastBackupDetails(vnode)}
             </div>
@@ -81,22 +81,19 @@ export class BackupWidget extends MithrilComponent<Attrs> {
       <h3 class={styles.helpHeading}>正在执行备份, 将会创建:</h3>
       <ul class={styles.helpItem}>
         <li>
-          <strong>Configuration</strong> - An archive named <code>config-dir.zip</code> containing XML configuration, Jetty server
-          configuration, keystores and other GoCD internal configurations.
+          <strong>配置</strong> - 名为<code>config-dir.zip</code>的归档文件，包含XML配置、Jetty服务器配置、密钥库和其他内部配置。
         </li>
         <li>
-          <strong>Wrapper Configuration</strong> - An archive named <code>wrapper-config-dir.zip</code> containing tanuki wrapper configuration.
+          <strong>包装器配置</strong> - 一个名为<code>wrapper-config-dir.zip</code>的归档文件，包含tanuki 包装器配置。
         </li>
         <li>
-          <strong>Database</strong> - The database is archived to a file named <code>db.zip</code> which is used to restore GoCD's database.
+          <strong>数据库</strong> - 数据库被归档到一个名为<code>db.zip</code>的文件中，该文件用于恢复的数据库。
         </li>
         <li>
-          <strong>Configuration History</strong> - An archive named <code>config-repo.zip</code> containing a Git repository of the
-          XML configuration file.
+          <strong>配置历史</strong> - 一个名为<code>config-repo.zip</code>的归档文件，包含XML配置文件。
         </li>
         <li>
-          <strong>GoCD Version</strong> - A flat file named <code>version.txt</code> containing the version of GoCD that the backup was
-          taken with.
+          <strong>版本</strong> - 一个名为<code>version.txt</code>的文本文件，包含备份所在的版本。
         </li>
       </ul>
     </div>;

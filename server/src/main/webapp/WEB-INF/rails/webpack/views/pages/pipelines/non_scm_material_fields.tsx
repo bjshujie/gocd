@@ -206,7 +206,7 @@ export class PackageFields extends MithrilComponent<PackageAttrs, PackageState> 
 
   view(vnode: m.Vnode<PackageAttrs, PackageState>): m.Children | void | null {
     const attrs                                = vnode.attrs.material.attributes() as PackageMaterialAttributes;
-    const packageRepos: Array<Option | string> = [{id: "", text: "Select a package repository"}];
+    const packageRepos: Array<Option | string> = [{id: "", text: "请选择包存储库插件"}];
     packageRepos.push(...vnode.attrs.packageRepositories.map((packageRepo) => {
       return {id: packageRepo.repoId(), text: packageRepo.name()};
     }));
@@ -226,7 +226,7 @@ export class PackageFields extends MithrilComponent<PackageAttrs, PackageState> 
 
       <div className={styles.selectionContainer}>
         <SelectField property={this.packageRepoProxy.bind(this, vnode)}
-                     label="Package Repository"
+                     label="包存储库"
                      errorText={attrs.errors().errorsForDisplay("pkgRepo")}
                      required={true} readonly={readonly || this.disablePkgRepoField}>
           <SelectFieldOptions selected={vnode.state.pkgRepoId()} items={packageRepos}/>
@@ -257,13 +257,13 @@ export class PackageFields extends MithrilComponent<PackageAttrs, PackageState> 
     this.errorMessage = undefined;
     if (packageRepos.length === 1) {
       this.errorMessage        = <FlashMessage type={MessageType.warning}>
-        No package repositories defined.
+        未定义包存储库.
       </FlashMessage>;
       this.disablePkgRepoField = true;
     }
     if (vnode.state.pkgRepoId().length > 0 && vnode.state.pkgs().length === 1) {
       this.errorMessage    = <FlashMessage type={MessageType.warning}>
-        No packages defined for the selected package repository.
+        没有为所选包存储库定义程序包.
       </FlashMessage>;
       this.disablePkgField = true;
     }
@@ -315,7 +315,7 @@ export class PackageFields extends MithrilComponent<PackageAttrs, PackageState> 
   private showSelectedPkgRepoConfig(vnode: m.Vnode<PackageAttrs, PackageState>) {
     const selectedPkgRepo = vnode.attrs.packageRepositories.find((pkgRepo) => pkgRepo.repoId() === vnode.state.pkgRepoId());
     if (selectedPkgRepo !== undefined) {
-      return <ConfigurationDetailsWidget header={"Package Repository Configuration"}
+      return <ConfigurationDetailsWidget header={"包存储库配置"}
                                          dataTestId={"selected-pkg-repo-details"}
                                          data={selectedPkgRepo.configuration().asMap()}/>;
     }

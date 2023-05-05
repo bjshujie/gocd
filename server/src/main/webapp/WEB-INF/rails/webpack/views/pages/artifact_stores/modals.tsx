@@ -78,7 +78,7 @@ export class CreateArtifactStoreModal extends ArtifactStoreModal {
   }
 
   title(): string {
-    return "Create a new artifact store";
+    return "创建新的文档存储";
   }
 
   operationPromise(): Promise<any> {
@@ -86,7 +86,7 @@ export class CreateArtifactStoreModal extends ArtifactStoreModal {
   }
 
   successMessage(): m.Children {
-    return <span>The artifact store <em>{this.entity().id()}</em> was created successfully!</span>;
+    return <span>文档存储 <em>{this.entity().id()}</em> 创建成功!</span>;
   }
 }
 
@@ -96,7 +96,7 @@ export class EditArtifactStoreModal extends ArtifactStoreModal {
   }
 
   title(): string {
-    return `Edit artifact store ${this.entity().id()}`;
+    return `编辑文档存储 ${this.entity().id()}`;
   }
 
   operationPromise(): Promise<any> {
@@ -104,7 +104,7 @@ export class EditArtifactStoreModal extends ArtifactStoreModal {
   }
 
   successMessage(): m.Children {
-    return <span>The artifact store <em>{this.entity().id()}</em> was updated successfully!</span>;
+    return <span>文档存储 <em>{this.entity().id()}</em> 更新成功!</span>;
   }
 }
 
@@ -114,7 +114,7 @@ export class CloneArtifactStoreModal extends ArtifactStoreModal {
   }
 
   title(): string {
-    return `Clone artifact store ${this.originalEntityId}`;
+    return `克隆文档存储 ${this.originalEntityId}`;
   }
 
   operationPromise(): Promise<any> {
@@ -122,7 +122,7 @@ export class CloneArtifactStoreModal extends ArtifactStoreModal {
   }
 
   successMessage(): m.Children {
-    return <span>The artifact store <em>{this.entity().id()}</em> was created successfully!</span>;
+    return <span>文档存储 <em>{this.entity().id()}</em> 创建成功!</span>;
   }
 
   fetchCompleted() {
@@ -142,14 +142,13 @@ export class DeleteArtifactStoreModal extends ArtifactStoreModal {
   }
 
   title(): string {
-    return "Are you sure?";
+    return "您确定吗?";
   }
 
   buttons(): any[] {
     return [
-      <Buttons.Danger data-test-id="button-delete" onclick={this.performOperation.bind(this)}>Yes
-        Delete</Buttons.Danger>,
-      <Buttons.Cancel data-test-id="button-no-delete" onclick={this.close.bind(this)}>No</Buttons.Cancel>
+      <Buttons.Danger data-test-id="button-delete" onclick={this.performOperation.bind(this)}>是 删除</Buttons.Danger>,
+      <Buttons.Cancel data-test-id="button-no-delete" onclick={this.close.bind(this)}>否</Buttons.Cancel>
     ];
   }
 
@@ -166,7 +165,7 @@ export class DeleteArtifactStoreModal extends ArtifactStoreModal {
   protected modalBody(): m.Children {
     return (
       <span>
-      Are you sure you want to delete the authorization configuration <strong>{this.entity().id()}</strong>?
+      您是否确实要删除授权配置 <strong>{this.entity().id()}</strong>?
       </span>
     );
   }
@@ -176,6 +175,6 @@ export class DeleteArtifactStoreModal extends ArtifactStoreModal {
   }
 
   protected successMessage(): m.Children {
-    return <span>The artifact store <em>{this.entity().id()}</em> was deleted successfully!</span>;
+    return <span>文档存储 <em>{this.entity().id()}</em> 删除成功!</span>;
   }
 }

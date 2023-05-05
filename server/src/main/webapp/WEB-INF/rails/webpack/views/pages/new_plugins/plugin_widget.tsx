@@ -96,12 +96,12 @@ export class PluginWidget extends MithrilViewComponent<Attrs> {
 
     let pluginData = new Map<string, string | m.Children>([
                                                             ["Id", pluginInfo.id],
-                                                            ["Description", pluginInfo.about.description],
-                                                            ["Author", this.getAuthorInfo(pluginInfo)],
-                                                            ["Supported operating systems", pluginInfo.about.targetOperatingSystemsDisplayValue()],
-                                                            ["Plugin file location", pluginInfo.pluginFileLocation],
-                                                            ["Bundled", pluginInfo.bundledPlugin ? "Yes" : "No"],
-                                                            ["Target GoCD Version", pluginInfo.about.targetGoVersion],
+                                                            ["描述", pluginInfo.about.description],
+                                                            ["作者", this.getAuthorInfo(pluginInfo)],
+                                                            ["支持的操作系统", pluginInfo.about.targetOperatingSystemsDisplayValue()],
+                                                            ["插件文件位置", pluginInfo.pluginFileLocation],
+                                                            ["捆绑模式", pluginInfo.bundledPlugin ? "是" : "否"],
+                                                            ["目标凌波版本", pluginInfo.about.targetGoVersion],
                                                           ]);
     if (pluginInfo.hasErrors()) {
       pluginData = pluginData.set("加载插入存在错误", pluginInfo.getErrors());

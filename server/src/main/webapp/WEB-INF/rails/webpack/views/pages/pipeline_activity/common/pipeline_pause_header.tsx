@@ -54,7 +54,7 @@ export class PipelinePauseHeader extends MithrilComponent<Attrs, State> {
   view(vnode: m.Vnode<Attrs, State>): m.Children {
     return <div class={styles.pageHeader}>
       <div class={styles.pipelineInfo}>
-        <span class={styles.label} data-test-id="page-header-pipeline-label">Pipeline</span>
+        <span class={styles.label} data-test-id="page-header-pipeline-label">算法</span>
         <span class={styles.value}
               title={vnode.attrs.pipelineName}
               data-test-id="page-header-pipeline-name">{vnode.attrs.pipelineName}</span>
@@ -105,7 +105,7 @@ export class PipelinePauseHeader extends MithrilComponent<Attrs, State> {
       <Reset small={true}
              data-test-id="page-header-pause-btn"
              onclick={this.renderPausePipelineConfirmation.bind(this, vnode)}>
-        PAUSE
+        暂停
       </Reset>
     </div>;
   }

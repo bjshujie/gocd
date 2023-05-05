@@ -105,7 +105,7 @@ export class CreatePackageRepositoryModal extends PackageRepositoryModal {
   }
 
   title(): string {
-    return "Create a package repository";
+    return "创建包存储库";
   }
 
   protected operationPromise(): Promise<any> {
@@ -113,7 +113,7 @@ export class CreatePackageRepositoryModal extends PackageRepositoryModal {
   }
 
   protected successMessage(): m.Children {
-    return <span>The package repository <em>{this.entity().name()}</em> was created successfully!</span>;
+    return <span>包存储库 <em>{this.entity().name()}</em> 被成功创建!</span>;
   }
 }
 
@@ -123,7 +123,7 @@ export class EditPackageRepositoryModal extends PackageRepositoryModal {
   }
 
   title(): string {
-    return `Edit package repository ${this.entity().name()}`;
+    return `编辑包存储库 ${this.entity().name()}`;
   }
 
   operationPromise(): Promise<any> {
@@ -131,7 +131,7 @@ export class EditPackageRepositoryModal extends PackageRepositoryModal {
   }
 
   successMessage(): m.Children {
-    return <span>The package repository <em>{this.entity().name()}</em> was updated successfully!</span>;
+    return <span>包存储库 <em>{this.entity().name()}</em> 更新成功!</span>;
   }
 }
 
@@ -141,7 +141,7 @@ export class ClonePackageRepositoryModal extends PackageRepositoryModal {
   }
 
   title(): string {
-    return `Clone package repository ${this.originalEntityName}`;
+    return `克隆包存储库 ${this.originalEntityName}`;
   }
 
   operationPromise(): Promise<any> {
@@ -149,7 +149,7 @@ export class ClonePackageRepositoryModal extends PackageRepositoryModal {
   }
 
   successMessage(): m.Children {
-    return <span>The package repository <em>{this.entity().name()}</em> was created successfully!</span>;
+    return <span>包存储库 <em>{this.entity().name()}</em> 被成功创建!</span>;
   }
 
   fetchCompleted() {
@@ -163,13 +163,13 @@ export class DeletePackageRepositoryModal extends DeleteConfirmModal {
 
   constructor(pkgRepo: PackageRepository, onSuccessfulSave: (msg: m.Children) => any) {
     super(DeletePackageRepositoryModal.deleteConfirmationMessage(pkgRepo),
-          () => this.delete(pkgRepo), "Are you sure?");
+          () => this.delete(pkgRepo), "您确定吗?");
     this.onSuccessfulSave = onSuccessfulSave;
   }
 
   private static deleteConfirmationMessage(pkgRepo: PackageRepository) {
     return <span>
-          Are you sure you want to delete the package repository <strong>{pkgRepo.name()}</strong>?
+          您是否确实要删除程序包存储库 <strong>{pkgRepo.name()}</strong>?
         </span>;
   }
 
@@ -180,7 +180,7 @@ export class DeletePackageRepositoryModal extends DeleteConfirmModal {
         result.do(
           () => {
             this.onSuccessfulSave(
-              <span>The package repository <em>{obj.name()}</em> was deleted successfully!</span>
+              <span>包存储库 <em>{obj.name()}</em> 删除成功!</span>
             );
             this.close();
           },

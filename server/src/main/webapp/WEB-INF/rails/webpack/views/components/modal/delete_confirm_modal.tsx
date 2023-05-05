@@ -27,7 +27,7 @@ export class DeleteConfirmModal extends Modal {
   protected errorMessage?: string;
   private operationState: Stream<OperationState> = Stream<OperationState>(OperationState.UNKNOWN);
 
-  constructor(message: m.Children, ondelete: () => Promise<any>, title = "Are you sure?") {
+  constructor(message: m.Children, ondelete: () => Promise<any>, title = "您确定吗?") {
     super(Size.small);
     this.message    = message;
     this.modalTitle = title;
@@ -49,13 +49,13 @@ export class DeleteConfirmModal extends Modal {
     if (this.errorMessage !== undefined) {
       return [
         <Buttons.Primary ajaxOperationMonitor={this.operationState} data-test-id='button-no-delete'
-                         onclick={this.close.bind(this)}>OK</Buttons.Primary>
+                         onclick={this.close.bind(this)}>确定</Buttons.Primary>
       ];
     }
     return [
       <Buttons.Danger data-test-id='button-delete'
                       ajaxOperationMonitor={this.operationState}
-                      ajaxOperation={this.ondelete}>Yes Delete</Buttons.Danger>,
+                      ajaxOperation={this.ondelete}>是 删除</Buttons.Danger>,
       <Buttons.Cancel ajaxOperationMonitor={this.operationState}
                       data-test-id='button-no-delete' onclick={this.close.bind(this)}
       >No</Buttons.Cancel>

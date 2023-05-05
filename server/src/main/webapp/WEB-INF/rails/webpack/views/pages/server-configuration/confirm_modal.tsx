@@ -26,7 +26,7 @@ export class ConfirmModal extends Modal {
   private readonly oncancel: () => void;
   private readonly operationState: Stream<OperationState>;
 
-  constructor(message: m.Children, oncancel: () => void, title = "Are you sure?") {
+  constructor(message: m.Children, oncancel: () => void, title = "您确定吗?") {
     super(Size.small);
     this.message        = message;
     this.modalTitle     = title;

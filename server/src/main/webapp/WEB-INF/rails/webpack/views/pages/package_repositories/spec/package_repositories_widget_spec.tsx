@@ -63,8 +63,8 @@ describe('PackageRepositoriesWidgetSpec', () => {
     expect(helper.byTestId('package-repositories-widget')).not.toBeInDOM();
     const helpInfo = helper.byTestId('package-repo-info');
     expect(helpInfo).toBeInDOM();
-    expect(helper.qa('li', helpInfo)[0].textContent).toBe('Click on "Create Package Repository" to add new package repository.');
-    expect(helper.qa('li', helpInfo)[1].textContent).toBe('A package repository can be set up to use packages as a material in the pipelines. You can read more from here.');
+    expect(helper.qa('li', helpInfo)[0].textContent).toBe('单击“创建包存储库”以添加新的包存储库。');
+    expect(helper.qa('li', helpInfo)[1].textContent).toBe('可以设置包存储库，将包用作算法中的材料。你可以在这里阅读更多内容。.');
 
     expect(helper.q('a', helpInfo)).toHaveAttr('href', docsUrl("extension_points/package_repository_extension.html"));
 
@@ -81,6 +81,6 @@ describe('PackageRepositoriesWidgetSpec', () => {
     mount();
 
     expect(helper.byTestId("anchor-package-repo-not-present")).toBeInDOM();
-    expect(helper.textByTestId("anchor-package-repo-not-present")).toBe("'some-repo' package repository has not been set up.");
+    expect(helper.textByTestId("anchor-package-repo-not-present")).toBe("'some-repo' 尚未设置程序包存储库.");
   });
 });

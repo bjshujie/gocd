@@ -87,22 +87,22 @@ export class ServerConfigurationWidget extends MithrilViewComponent<Attrs> {
           <li data-test-id="server-management-link"
               class={classnames({[styles.active]: vnode.attrs.activeConfiguration === Sections.SERVER_MANAGEMENT})}
               onclick={() => vnode.attrs.route(Sections.SERVER_MANAGEMENT, activeConfigurationVM)}>
-            Server Management
+            服务器管理
           </li>
           <li data-test-id="artifacts-management-link"
               class={classnames({[styles.active]: vnode.attrs.activeConfiguration === Sections.ARTIFACT_MANAGEMENT})}
               onclick={() => vnode.attrs.route(Sections.ARTIFACT_MANAGEMENT, activeConfigurationVM)}>
-            Artifacts Management
+            文档管理
           </li>
           <li data-test-id="email-server-link"
               class={classnames({[styles.active]: vnode.attrs.activeConfiguration === Sections.EMAIL_SERVER})}
               onclick={() => vnode.attrs.route(Sections.EMAIL_SERVER, activeConfigurationVM)}>
-            Email server
+            Email 服务器
           </li>
           <li data-test-id="job-timeout-link"
               class={classnames({[styles.active]: vnode.attrs.activeConfiguration === Sections.DEFAULT_JOB_TIMEOUT})}
               onclick={() => vnode.attrs.route(Sections.DEFAULT_JOB_TIMEOUT, activeConfigurationVM)}>
-            Job Timeout Configuration
+            作业超时配置
           </li>
         </ul>
       </div>

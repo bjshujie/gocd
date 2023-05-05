@@ -45,8 +45,8 @@ describe("DashboardGroups", () => {
       expect(pipelineGroups.groups[0].titleForEdit()).toBe("Edit Pipeline Group 'first'");
       expect(pipelineGroups.groups[0].ariaLabelForEdit()).toBe("Edit Pipeline Group 'first'");
       expect(pipelineGroups.groups[0].tooltipForNewPipeline()).toBe("");
-      expect(pipelineGroups.groups[0].titleForNewPipeline()).toBe("Create a new pipeline within this group");
-      expect(pipelineGroups.groups[0].ariaLabelForNewPipeline()).toBe("Create a new pipeline within this group");
+      expect(pipelineGroups.groups[0].titleForNewPipeline()).toBe("在此组中创建新算法");
+      expect(pipelineGroups.groups[0].ariaLabelForNewPipeline()).toBe("在此组中创建新算法");
     });
 
     it('should set values for an environment when a user can administer it', () => {

@@ -125,7 +125,7 @@ export class ConfigRepoVM {
       e.stopPropagation();
       page.flash.clear();
 
-      const message                   = ["Are you sure you want to delete the config repository ", m("strong", this.repo.id()), "?"];
+      const message                   = ["您是否确实要删除配置存储库", m("strong", this.repo.id()), "?"];
       const modal: DeleteConfirmModal = new DeleteConfirmModal(message, () => {
         return ConfigReposCRUD.delete(this.repo).then((resp) => {
           resp.do(

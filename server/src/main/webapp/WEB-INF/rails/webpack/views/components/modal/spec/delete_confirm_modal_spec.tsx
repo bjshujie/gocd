@@ -42,7 +42,7 @@ describe("DeleteConfirmModal", () => {
 
   it("should render", () => {
     expect(modal).toContainTitle("Delete flux capacitor?");
-    expect(modal).toContainButtons(["No", "Yes Delete"]);
+    expect(modal).toContainButtons(["否", "是 删除"]);
     expect(modal).toContainBody("You will no longer be able to time travel!");
   });
 

@@ -35,10 +35,10 @@ interface PolicyAttrs {
 export class PolicyWidget extends MithrilViewComponent<PolicyAttrs> {
   static headers() {
     return [
-      "Permission",
-      "Action",
-      "Type",
-      "Resource"
+      "权限",
+      "动作",
+      "类型",
+      "资源"
     ];
   }
 
@@ -132,15 +132,15 @@ class PolicyWidgetBody {
 export class CreatePolicyWidget extends MithrilViewComponent<AutoCompleteAttrs> {
   static headers() {
     return [
-      "Permission",
-      "Action",
-      "Type",
+      "权限",
+      "动作",
+      "类型",
       <div>
-        Resources
+        资源
         <span class={styles.warningWrapper}>
           <i class={styles.infoIcon}/>
           <div class={styles.warningContent}>
-            Resource can be the name of the entity or a wildcard which matches one or more entities.
+            资源可以是实体的名称，也可以是与一个或多个实体匹配的通配符。
           </div>
         </span>
       </div>,
@@ -151,13 +151,13 @@ export class CreatePolicyWidget extends MithrilViewComponent<AutoCompleteAttrs> 
   static permissions() {
     return [
       {
-        id: "", text: "Select"
+        id: "", text: "选择"
       },
       {
-        id: "allow", text: "Allow"
+        id: "allow", text: "允许"
       },
       {
-        id: "deny", text: "Deny"
+        id: "deny", text: "拒绝"
       }
     ];
   }
@@ -165,13 +165,13 @@ export class CreatePolicyWidget extends MithrilViewComponent<AutoCompleteAttrs> 
   static actions() {
     return [
       {
-        id: "", text: "Select"
+        id: "", text: "选择"
       },
       {
-        id: "view", text: "View"
+        id: "view", text: "查看"
       },
       {
-        id: "administer", text: "Administer"
+        id: "administer", text: "管理"
       }
     ];
   }
@@ -179,21 +179,21 @@ export class CreatePolicyWidget extends MithrilViewComponent<AutoCompleteAttrs> 
   static types() {
     return [
       {
-        id: "", text: "Select"
+        id: "", text: "选择"
       },
       {
-        id: "*", text: "All"
+        id: "*", text: "全部"
       },
       {
-        id: "environment", text: "Environment"
+        id: "environment", text: "环境"
       }, {
-        id: "config_repo", text: "Config Repository"
+        id: "config_repo", text: "配置库"
       },
       {
-        id: "cluster_profile", text: "Cluster Profile"
+        id: "cluster_profile", text: "集群配置文件"
       },
       {
-        id: "elastic_agent_profile", text: "Elastic Agent Profile"
+        id: "elastic_agent_profile", text: "弹性节点配置文件"
       }
     ];
   }
@@ -205,7 +205,7 @@ export class CreatePolicyWidget extends MithrilViewComponent<AutoCompleteAttrs> 
         vnode.attrs.policy().splice(index, 1);
       }
     };
-    const message                  = <span>Configure the policy below to manage access to GoCD entities for users in this role. <Link
+    const message                  = <span>配置以下策略以管理此角色的用户对实体的访问。<Link
       externalLinkIcon={true} target="_blank"
       href={docsUrl("configuration/dev_authorization.html#role-based-access-control")}>学习更多</Link></span>;
     const policyBody               = vnode.attrs.policy && _.isEmpty(vnode.attrs.policy())
@@ -220,7 +220,7 @@ export class CreatePolicyWidget extends MithrilViewComponent<AutoCompleteAttrs> 
                                               dragHandler={this.reArrange.bind(this, vnode.attrs.policy)}/>
                                      </div>;
     return <div data-test-id="policy-widget">
-      <h2>Policy </h2>
+      <h2>策略 </h2>
       {policyBody}
     </div>;
   }

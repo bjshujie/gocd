@@ -40,7 +40,7 @@ export class AntTaskModal extends AbstractTaskModal {
 
     return <div data-test-id="ant-task-modal">
       {this.renderFlashMessage()}
-      <h3>Basic Settings</h3>
+      <h3>基础设置</h3>
       <TextField helpText="Path to Ant build file. If not specified, the path defaults to 'build.xml'."
                  readonly={this.readonly}
                  label="Build File"

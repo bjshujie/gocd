@@ -100,7 +100,7 @@ export class RolesPage extends Page<null, State> {
     let mayBeNoPluginMessage;
     if (!vnode.state.pluginInfos || vnode.state.pluginInfos.length === 0) {
       mayBeNoPluginMessage = (<FlashMessage type={MessageType.info}
-                                            message="None of the installed plugin supports role based authorization."/>);
+                                            message="安装的插件都不支持基于角色的授权。"/>);
     }
 
     return <div>
@@ -120,7 +120,7 @@ export class RolesPage extends Page<null, State> {
 
   headerPanel(vnode: m.Vnode<null, State>) {
     const headerButtons = [(<Buttons.Primary data-test-id="role-add-button"
-                                             onclick={vnode.state.onAdd.bind(vnode.state)}>Add</Buttons.Primary>)];
+                                             onclick={vnode.state.onAdd.bind(vnode.state)}>新增</Buttons.Primary>)];
 
     return <HeaderPanel title={this.pageName()} buttons={headerButtons} help={this.helpText()}/>;
   }

@@ -96,36 +96,36 @@ export class EditTemplatePermissionsModal extends Modal {
       {flashMessageHtml}
       <div class={styles.switchWrapper}>
         <SwitchBtn field={this.authorization().allGroupAdminsAreViewUsers}
-                   label={"Allow all pipeline group administrators view access to template"}
+                   label={"允许所有算法组管理员查看对模板的访问权限"}
                    small={true}/>
       </div>
-      <CollapsiblePanel header={"User permissions"}
+      <CollapsiblePanel header={"用户权限"}
                         expanded={true}
                         onexpand={() => this.userPermissionCollapseState(true)}
                         oncollapse={() => this.userPermissionCollapseState(false)}
                         dataTestId={"users-permissions-collapse"}
                         actions={<Secondary dataTestId={"add-user-permission"}
-                                            onclick={this.addUserAuthorization.bind(this)}>Add</Secondary>}>
+                                            onclick={this.addUserAuthorization.bind(this)}>新增</Secondary>}>
         <RenderErrors dataTestId="errors-on-users" errors={this.authorization().errorsOnUsers()}/>
-        <Table data={this.userPermissionData()} headers={["Name", "View", "Admin", ""]}
+        <Table data={this.userPermissionData()} headers={["名称", "查看", "管理", ""]}
                data-test-id="users-permissions"/>
       </CollapsiblePanel>
-      <CollapsiblePanel header={"Role permissions"}
+      <CollapsiblePanel header={"角色权限"}
                         expanded={true}
                         onexpand={() => this.rolePermissionCollapseState(true)}
                         oncollapse={() => this.rolePermissionCollapseState(false)}
                         dataTestId={"roles-permissions-collapse"}
                         actions={<Secondary dataTestId={"add-role-permission"}
-                                            onclick={this.addRoleAuthorization.bind(this)}>Add</Secondary>}>
+                                            onclick={this.addRoleAuthorization.bind(this)}>新增</Secondary>}>
         <RenderErrors dataTestId="errors-on-roles" errors={this.authorization().errorsOnRoles()}/>
-        <Table data={this.rolePermissionData()} headers={["Name", "View", "Admin", ""]}
+        <Table data={this.rolePermissionData()} headers={["名称", "查看", "管理", ""]}
                data-test-id="roles-permissions"/>
       </CollapsiblePanel>
     </div>;
   }
 
   title(): string {
-    return `Edit Template Authorization for '${this.templateName}'`;
+    return `编辑模板'${this.templateName}' 授权`;
   }
 
   buttons(): m.ChildArray {

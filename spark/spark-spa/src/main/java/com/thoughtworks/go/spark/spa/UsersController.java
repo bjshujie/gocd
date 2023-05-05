@@ -51,7 +51,7 @@ public class UsersController implements SparkController {
 
     public ModelAndView index(Request request, Response response) {
         Map<String, Object> object = Map.of(
-            "viewTitle", "Users Management"
+            "viewTitle", "用户管理"
         );
         return new ModelAndView(object, null);
     }

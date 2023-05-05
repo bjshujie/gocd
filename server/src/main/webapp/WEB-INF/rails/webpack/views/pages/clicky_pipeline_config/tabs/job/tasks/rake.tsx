@@ -42,7 +42,7 @@ export class RakeTaskModal extends AbstractTaskModal {
 
     return <div data-test-id="rake-task-modal">
       {this.renderFlashMessage()}
-      <h3>Basic Settings</h3>
+      <h3>基础设置</h3>
       <TextField helpText="Path to Rake file. If not specified, the path defaults to 'rakefile'."
                  label="Build File"
                  readonly={this.readonly}

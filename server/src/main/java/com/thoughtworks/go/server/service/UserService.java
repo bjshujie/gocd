@@ -82,7 +82,7 @@ public class UserService {
     public void disable(final List<String> usersToBeDisabled, LocalizedOperationResult result) {
         synchronized (disableUserMutex) {
             if (willDisableAllAdmins(usersToBeDisabled)) {
-                result.badRequest("There must be atleast one admin user enabled!");
+                result.badRequest("必须至少启用一个管理员用户！");
                 return;
             }
             transactionTemplate.execute(new TransactionCallbackWithoutResult() {

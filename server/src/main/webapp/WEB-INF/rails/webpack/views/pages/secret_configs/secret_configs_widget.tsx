@@ -39,10 +39,10 @@ interface Attrs extends RequiresPluginInfos, EditOperation<SecretConfig>, CloneO
 export class SecretConfigsWidget extends MithrilViewComponent<Attrs> {
   public static helpText() {
     return <ul data-test-id="secret-config-info">
-      <li>Click on "Add" to add new secret configuration.</li>
-      <li>A secret configuration can be used to access secrets from an external secret management store.</li>
-      <li>You can read more about secret configurations from
-        <Link target="_blank" href={docsUrl('configuration/secrets_management.html')}> here</Link>.
+      <li>单击“新增”以添加新的机密配置。</li>
+      <li>机密配置可用于访问来自外部机密管理存储的机密。</li>
+      <li>您可以从
+        <Link target="_blank" href={docsUrl('configuration/secrets_management.html')}> 这里</Link>阅读更多关于秘密配置的信息。
       </li>
     </ul>;
   }

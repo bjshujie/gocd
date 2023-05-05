@@ -242,13 +242,13 @@ export class DeletePluggableScmModal extends DeleteConfirmModal {
   constructor(pkgRepo: Scm,
               onSuccessfulSave: (msg: m.Children) => any) {
     super(DeletePluggableScmModal.deleteConfirmationMessage(pkgRepo),
-          () => this.delete(pkgRepo), "Are you sure?");
+          () => this.delete(pkgRepo), "您确定吗?");
     this.onSuccessfulSave = onSuccessfulSave;
   }
 
   private static deleteConfirmationMessage(scm: Scm) {
     return <span>
-          Are you sure you want to delete the scm <strong>{scm.name()}</strong>?
+          您确定要删除scm吗 <strong>{scm.name()}</strong>?
         </span>;
   }
 

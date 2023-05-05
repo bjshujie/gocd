@@ -48,7 +48,7 @@ export class GoCDRoleModalBodyWidget extends MithrilViewComponent<ModalAttrs> {
   view(vnode: m.Vnode<ModalAttrs>): m.Children | void | null {
     const role = vnode.attrs.role as GoCDRole;
     return (<Form>
-      <TextField label="Role name"
+      <TextField label="角色名称"
         readonly={vnode.attrs.isNameDisabled}
         property={role.name}
         errorText={role.errors().errorsForDisplay("name")}
@@ -60,12 +60,12 @@ export class GoCDRoleModalBodyWidget extends MithrilViewComponent<ModalAttrs> {
           readOnly={false} />
       </li>
 
-      <TextField label="Role users" required={false} property={this.newUser} />
+      <TextField label="角色用户" required={false} property={this.newUser} />
 
       <li class={styles.addUserToRole}>
         <Buttons.Primary
           data-test-id="role-add-user-button"
-          onclick={this.addNewUserToRole.bind(this, vnode)}>Add</Buttons.Primary>
+          onclick={this.addNewUserToRole.bind(this, vnode)}>新增</Buttons.Primary>
       </li>
     </Form>);
   }
@@ -130,13 +130,13 @@ export class PluginRoleModalBodyWidget extends MithrilViewComponent<PluginModalA
       <div>
         <div>
           <Form>
-            <TextField label="Role name"
+            <TextField label="角色名称"
               readonly={vnode.attrs.isNameDisabled}
               property={vnode.attrs.role.name}
               errorText={vnode.attrs.role.errors().errorsForDisplay("name")}
               required={true} />
 
-            <SelectField label="Auth Config Id"
+            <SelectField label="授权配置 Id"
               property={this.authConfigIdProxy.bind(this, vnode)}
               required={true}
               errorText={vnode.attrs.role.errors().errorsForDisplay("auth_config_id")}>

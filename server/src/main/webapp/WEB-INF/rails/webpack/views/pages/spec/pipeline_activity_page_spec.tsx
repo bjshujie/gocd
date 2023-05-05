@@ -60,7 +60,7 @@ describe("PipelineActivityPage", () => {
     expect(helper.q("a", helper.byTestId("vsm"))).toHaveAttr("href", "/go/pipelines/value_stream_map/up43/1");
     expect(helper.byClass(styles.revision)).toContainText(`Revision: ${history.revision()}`);
     expect(helper.byTestId("trigger-with-changes-button")).toBeInDOM();
-    expect(helper.byTestId("trigger-with-changes-button")).toHaveText("Triggered by changes");
+    expect(helper.byTestId("trigger-with-changes-button")).toHaveText("由更改 启动");
   });
 
   it("should render search field", () => {

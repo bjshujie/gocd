@@ -60,7 +60,7 @@ export class AdminAccessTokensPage extends Page<null, State> {
   }
 
   pageName(): string {
-    return "Manage access tokens";
+    return "管理访问令牌";
   }
 
   fetchData(vnode: m.Vnode<null, State>): Promise<any> {

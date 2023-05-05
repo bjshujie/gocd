@@ -29,21 +29,21 @@ export class HelpText extends MithrilViewComponent {
     return (
       <div>
         <div class={styles.panelHeader}>
-          <h3 class={styles.panelTitle}>Configure Elastic Agents</h3>
+          <h3 class={styles.panelTitle}>配置弹性节点</h3>
         </div>
         <div class={styles.concepts}>
           <ConceptDiagram image={clusterProfileImg} css={conceptDiagramCss}>
-            <h3>Step 1: Create a Cluster Profile</h3>
-            <div>A cluster profile is the connection configuration of the environment where elastic agents run.</div>
+            <h3>第 1 步: 创建群集配置文件</h3>
+            <div>集群配置文件是运行弹性节点的环境的连接配置。</div>
           </ConceptDiagram>
 
           <ConceptDiagram image={elasticAgentProfileImg} css={conceptDiagramCss}>
-            <h3>Step 2: Create an Elastic Agent Profile</h3>
-            <div>An elastic profile usually contains the configuration for your elastic agent</div>
+            <h3>第 2 步：创建弹性节点配置文件</h3>
+            <div>弹性配置文件通常包含弹性节点的配置信息</div>
           </ConceptDiagram>
 
           <ConceptDiagram image={finishImg} css={conceptDiagramCss}>
-            <h3>&nbsp;&nbsp;Step 3: Finish!</h3>
+            <h3>&nbsp;&nbsp;第 3 步：完成！</h3>
           </ConceptDiagram>
         </div>
       </div>

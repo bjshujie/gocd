@@ -31,22 +31,21 @@ export interface Attrs {
 
 const backupScheduleHelpText = (
   <span>
-    A quartz cron-like specification to perform a backup. See the <a
+    用于执行备份的类似Quartz cron的规范。请参阅 <a
     href="https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html"
     target="_blank"
-    rel="noopener noreferrer">quartz documentation</a> for the syntax and <a
+    rel="noopener noreferrer">quartz 文档</a> 以查阅语法和 <a
     href="https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html#examples"
     target="_blank"
-    rel="noopener noreferrer">some examples</a>.
+    rel="noopener noreferrer">一些例子</a>。
   </span>
 );
 
 const backupScriptHelpText = (
   <span>
     备份完成后，将调用该脚本，允许您将备份文件复制到其它的机器或服务。
-    After a backup is completed, GoCD will invoke this script, allowing you to copy the backup to another machine or service.
     查看 <a href={docsUrl("/advanced_usage/cron_backup.html")} target="_blank"
-               rel="noopener noreferrer">help documentation</a> for more information.
+               rel="noopener noreferrer">help documentation</a> 以获得更多信息。
   </span>
 );
 
@@ -55,7 +54,7 @@ class BackupConfigWidget extends MithrilViewComponent<Attrs> {
     return (
       <div>
         <h1>
-          Backup Configurations
+          备份配置
         </h1>
 
         <FormBody>
@@ -108,7 +107,7 @@ export class BackupConfigModal extends Modal {
   }
 
   title(): string {
-    return "Configure backup settings";
+    return "配置备份设置";
   }
 
   body() {

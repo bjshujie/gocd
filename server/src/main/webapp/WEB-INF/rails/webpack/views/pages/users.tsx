@@ -185,10 +185,10 @@ export class UsersPage extends Page<null, State> {
 
   headerPanel(vnode: m.Vnode<null, State>) {
     const headerButtons = [];
-    headerButtons.push(<Buttons.Primary onclick={vnode.state.onAdd.bind(vnode.state)}>Import User</Buttons.Primary>);
+    headerButtons.push(<Buttons.Primary onclick={vnode.state.onAdd.bind(vnode.state)}>导入用户</Buttons.Primary>);
 
     return <div>
-      <HeaderPanel title="Users Management" buttons={headerButtons} help={this.helpText()}/>
+      <HeaderPanel title="用户管理" buttons={headerButtons} help={this.helpText()}/>
       <UsersActionsWidget {...vnode.state} />
     </div>;
 

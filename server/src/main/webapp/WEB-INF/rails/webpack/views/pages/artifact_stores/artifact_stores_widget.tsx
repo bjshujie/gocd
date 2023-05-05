@@ -36,11 +36,10 @@ interface Attrs extends RequiresPluginInfos, EditOperation<ArtifactStore>, Clone
 export class ArtifactStoresWidget extends MithrilViewComponent<Attrs> {
   public static helpText() {
     return <ul>
-      <li>Use this page to add a global artifact store to publish/fetch external artifacts.</li>
-      <li>By default, GoCD internally manages and stores artifacts. The Artifact extension allows GoCD to make use of an external artifact store for
-        storing artifacts while retaining traceability between pipelines.
+      <li>使用此页面可以添加全局文档存储以发布/获取外部文档。</li>
+      <li>默认情况下，在内部管理和存储文档。文档扩展允许利用外部文档存储来存储文档，同时保留算法之间的可追溯性.
       </li>
-      <li>To build your own custom plugin, please refer to <Link href={"https://plugin-api.gocd.org/current/artifacts/#artifact-plugins"}>this</Link>.
+      <li>要构建您自己的自定义插件，请参阅<Link href={"https://plugin-api.gocd.org/current/artifacts/#artifact-plugins"}>这里</Link>.
       </li>
     </ul>;
   }
@@ -114,7 +113,7 @@ export class ArtifactStoresWidget extends MithrilViewComponent<Attrs> {
       return (<div data-test-id="plugin-name" class={styles.pluginName}>{pluginInfo!.about.name}</div>);
     }
 
-    return (<div data-test-id="plugin-name" class={styles.pluginNotInstalled}>Plugin is not installed</div>);
+    return (<div data-test-id="plugin-name" class={styles.pluginNotInstalled}>插件未安装</div>);
   }
 
   private static headerIcon(pluginInfo?: PluginInfo) {

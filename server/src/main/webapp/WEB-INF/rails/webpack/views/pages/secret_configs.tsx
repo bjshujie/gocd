@@ -75,7 +75,7 @@ export class SecretConfigsPage extends Page<null, State> {
 
     vnode.state.onDelete = (obj, e) => {
       e.stopPropagation();
-      const deleteModal: DeleteConfirmModal = new DeleteConfirmModal(`Are you sure you want to delete '${obj.id()}' secret configuration?`,
+      const deleteModal: DeleteConfirmModal = new DeleteConfirmModal(`您确定要删除 '${obj.id()}' 保密配置?`,
                                                                      () => {
                                                                        return SecretConfigsCRUD
                                                                          .delete(obj)
@@ -149,7 +149,7 @@ export class SecretConfigsPage extends Page<null, State> {
     return <HeaderPanel title={this.pageName()}
                         buttons={<Buttons.Primary data-test-id="add-secret-config"
                                                   disabled={disabled}
-                                                  onclick={vnode.state.onAdd.bind(this)}>Add</Buttons.Primary>}
+                                                  onclick={vnode.state.onAdd.bind(this)}>新增</Buttons.Primary>}
                         help={this.helpText()}/>;
   }
 }

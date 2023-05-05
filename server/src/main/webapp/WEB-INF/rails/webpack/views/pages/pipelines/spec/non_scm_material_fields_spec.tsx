@@ -92,15 +92,15 @@ describe('PackageFieldsSpec', () => {
                                       pluginInfos={pluginInfos}/>);
 
     assertLabelledInputsPresent(helper, {
-      "package-repository": "Package Repository*",
-      "package":            "Package*"
+      "package-repository": "包存储库*",
+      "package":            "程序包*"
     });
     assertLabelledInputsDisabledOrNot(helper, {
       "package-repository": false,
       "package":            true
     });
-    expect(helper.textAll("option", helper.byTestId('form-field-input-package-repository'))).toEqual(['Select a package repository', 'pkg-repo-name']);
-    expect(helper.textAll("option", helper.byTestId('form-field-input-package'))).toEqual(['Select a package']);
+    expect(helper.textAll("option", helper.byTestId('form-field-input-package-repository'))).toEqual(['选择包存储库', 'pkg-repo-name']);
+    expect(helper.textAll("option", helper.byTestId('form-field-input-package'))).toEqual(['选择程序包']);
 
     expect(helper.byTestId('package-msg')).not.toBeInDOM();
     const msgElement = helper.byTestId('package-repo-msg');
@@ -114,8 +114,8 @@ describe('PackageFieldsSpec', () => {
                                       pluginInfos={pluginInfos}/>);
 
     const pkgRepoElement = helper.byTestId('form-field-input-package-repository');
-    expect(helper.textAll("option", pkgRepoElement)).toEqual(['Select a package repository', 'pkg-repo-name']);
-    expect(helper.textAll("option", helper.byTestId('form-field-input-package'))).toEqual(['Select a package']);
+    expect(helper.textAll("option", pkgRepoElement)).toEqual(['选择包存储库', 'pkg-repo-name']);
+    expect(helper.textAll("option", helper.byTestId('form-field-input-package'))).toEqual(['选择程序包']);
 
     helper.onchange(pkgRepoElement, 'pkg-repo-id');
 
@@ -157,7 +157,7 @@ describe('PackageFieldsSpec', () => {
 
     const errorElement = helper.byTestId('flash-message-warning');
     expect(errorElement).toBeInDOM();
-    expect(errorElement.textContent).toBe('No package repositories defined.');
+    expect(errorElement.textContent).toBe('未定义包存储库.');
     expect(helper.byTestId('selected-pkg-repo-details')).not.toBeInDOM();
     expect(helper.byTestId('selected-pkg-details')).not.toBeInDOM();
   });

@@ -47,4 +47,22 @@
       </stage>
     </pipeline>
   </pipelines>
+  <templates>
+    <pipeline name="rr">
+      <stage name="defaultStage">
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <exec command="echo">
+                <runif status="passed" />
+              </exec>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+  </templates>
+  <environments>
+    <environment name="test" />
+  </environments>
 </cruise>

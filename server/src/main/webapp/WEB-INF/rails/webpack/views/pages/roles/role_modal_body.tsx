@@ -64,12 +64,12 @@ export class RoleModalBody extends MithrilViewComponent<RoleModalAttrs> {
       const canAddPluginRole = RoleModalBody.hasAuthConfigs(vnode);
       let icon;
       if (!canAddPluginRole) {
-        const title = "Cannot add Plugin Role. Either no plugin has authorization capability or there are no authorization configs defined for the same.";
+        const title = "无法添加插件角色。要么没有插件具有授权功能，要么没有为其定义授权配置。";
         icon        = <Tooltip.Help size={TooltipSize.small} content={title}/>;
       }
       mayBeTypeSelector = (
         <div data-test-id="role-type-selector">
-          <label class="inline">Select type of role:&nbsp;&nbsp;&nbsp;</label>
+          <label class="inline">选择角色类型:&nbsp;&nbsp;&nbsp;</label>
           <input
             class="core-role"
             id="core-role"
@@ -77,7 +77,7 @@ export class RoleModalBody extends MithrilViewComponent<RoleModalAttrs> {
             type="radio"
             checked={!vnode.attrs.role().isPluginRole()}
             onclick={vnode.attrs.changeRoleType && vnode.attrs.changeRoleType.bind(this, RoleType.gocd)}/>
-          <label class="inline" for="core-role">GoCD Role</label>
+          <label class="inline" for="core-role">内部角色</label>
 
           <input
             class="plugin-role"
@@ -89,7 +89,7 @@ export class RoleModalBody extends MithrilViewComponent<RoleModalAttrs> {
             onclick={vnode.attrs.changeRoleType && vnode.attrs.changeRoleType.bind(this, RoleType.plugin)}/>
           <label class={!canAddPluginRole ? `${styles.disabled} inline` : "inline"}
                  disabled={!canAddPluginRole} for="plugin-role">
-            Plugin Role
+            插件角色
             {icon}
           </label>
         </div>
@@ -120,7 +120,7 @@ export class RoleModalBody extends MithrilViewComponent<RoleModalAttrs> {
                             resourceAutocompleteHelper={vnode.attrs.resourceAutocompleteHelper}/>
         <div class={styles.addPermission}>
           <Buttons.Secondary data-test-id="add-permission-button" onclick={addNewPermission}>
-            + New Permission
+            + 新建权限
           </Buttons.Secondary>
         </div>
       </div>

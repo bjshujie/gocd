@@ -74,9 +74,11 @@ class PipelineWidget extends MithrilViewComponent<PipelineWidgetAttrs> {
   private static messageForOperation(pipeline: PipelineWithOrigin,
                                      operation: "move" | "clone" | "edit" | "delete" | "extract template from") {
     if (operation === "extract template from" && pipeline.usesTemplate()) {
-      return `无法 ${operation} 算法 '${pipeline.name()}' 因为它在使用模板.`;
+      return `无法从算法 '${pipeline.name()}' 中提取模板因为它在使用模板.`;
     }
+    let strOpera:string=""
     if (operation === "delete") {
+      strOpera = "删除"
       if (pipeline.isDefinedRemotely()) {
         return `无法删除算法 '${pipeline.name()}' 因为它在配置仓库中有定义 '${pipeline.origin().id()}'.`;
       }
@@ -87,9 +89,17 @@ class PipelineWidget extends MithrilViewComponent<PipelineWidgetAttrs> {
         const dependentPipelineNames = pipeline.dependantPipelines().map(d => d.dependent_pipeline_name);
         return `无法删除算法 '${pipeline.name()}' 因为算法 '${dependentPipelineNames}' 依赖于它.`;
       }
+    } else if (operation === "move") {
+      strOpera = "移动"
+    } else if (operation === "clone") {
+      strOpera = "克隆"
+    } else if (operation === "edit") {
+      strOpera = "编辑"
+    } else if (operation === "extract template from") {
+      strOpera = "提取模板从"
     }
 
-    return `${s.capitalize(operation)} 算法 '${pipeline.name()}'`;
+    return `${strOpera} 算法 '${pipeline.name()}'`;
   }
 
   private static messageForMove(pipeline: PipelineWithOrigin, canMovePipeline: boolean) {
@@ -117,7 +127,7 @@ class PipelineWidget extends MithrilViewComponent<PipelineWidgetAttrs> {
           onclick={vnode.attrs.doMovePipeline.bind(vnode.attrs, vnode.attrs.group, eachPipeline)}/>
         <Download
           data-test-id={`download-pipeline-${s.slugify(eachPipeline.name())}`}
-          title={`Download pipeline configuration for '${eachPipeline.name()}'`}
+          title={`下载算法'${eachPipeline.name()} 配置'`}
           onclick={vnode.attrs.doDownloadPipeline.bind(vnode.attrs, eachPipeline)}/>
         <Clone
           disabled={eachPipeline.origin().isDefinedInConfigRepo()}

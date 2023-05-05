@@ -41,18 +41,18 @@ export class UsersTableWidget extends MithrilViewComponent<Attrs> {
              class={styles.formCheck}
              checked={users.areAllUsersSelected()}
              onclick={users.toggleSelection.bind(users)}/>,
-      "Username",
-      "Display name",
+      "用户名",
+      "显示名称",
       <span>
-        Roles
+        角色
         <div class={classnames(styles.roleLegends)}>
-          <div class={classnames(styles.roleGocd)}>GoCD</div>
-          <div class={classnames(styles.rolePlugin)}>Plugin</div>
+          <div class={classnames(styles.roleGocd)}>内置</div>
+          <div class={classnames(styles.rolePlugin)}>插件</div>
         </div>
       </span>,
-      "System Admin",
+      "系统管理员",
       "Email",
-      "Enabled"
+      "启用"
     ];
   }
 
@@ -101,7 +101,7 @@ export class UsersTableWidget extends MithrilViewComponent<Attrs> {
                     <span>{user.email()}</span>
                   </div>
                   <div class={styles.tableCell} data-test-id="user-enabled">
-                    <span>{user.enabled() ? "Yes" : "No"}</span>
+                    <span>{user.enabled() ? "是" : "否"}</span>
                   </div>
                 </div>,
                 this.maybeShowOperationErrorMessage(vnode, user)

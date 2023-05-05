@@ -81,13 +81,13 @@ export abstract class SecretConfigModal extends EntityModal<SecretConfig> {
       <FormHeader>
         <Form>
           <TextField label="Id"
-                     placeholder="Enter any unique identifier"
+                     placeholder="输入唯一标识符"
                      property={this.entity().id}
                      errorText={this.entity().errors().errorsForDisplay("id")}
                      readonly={this.disableId}
                      required={true}/>
 
-          <SelectField label="Plugin"
+          <SelectField label="插件"
                        property={this.pluginIdProxy.bind(this)}
                        required={true}
                        errorText={this.entity().errors().errorsForDisplay("pluginId")}>
@@ -98,13 +98,13 @@ export abstract class SecretConfigModal extends EntityModal<SecretConfig> {
       </FormHeader>
 
       <div class={styles.widthSmall}>
-        <TextAreaField label={"Description"}
+        <TextAreaField label={"说明"}
                        property={this.entity().description}
                        resizable={true}
                        rows={2}
                        size={TextAreaSize.MATCH_PARENT}
-                       errorText={this.entity().errors().errorsForDisplay("description")}
-                       placeholder="What's this secret config used for?"/>
+                       errorText={this.entity().errors().errorsForDisplay("说明")}
+                       placeholder="这个机密配置用于什么?"/>
       </div>
 
       <div>
@@ -116,7 +116,7 @@ export abstract class SecretConfigModal extends EntityModal<SecretConfig> {
         </div>
       </div>
       <ConfigureRulesWidget
-        infoMsg={"The default rule is to deny access to this secret configuration for all GoCD entities. Configure rules below to override that behavior."}
+        infoMsg={"默认规则是拒绝所有实体访问此机密配置。在下面配置规则以覆盖该行为。"}
         rules={this.entity().rules}
         types={[RulesType.PIPELINE_GROUP, RulesType.ENVIRONMENT, RulesType.PLUGGABLE_SCM, RulesType.PACKAGE_REPOSITORY, RulesType.CLUSTER_PROFILE]}
         resourceAutocompleteHelper={this.resourceAutocompleteHelper}/>
@@ -160,7 +160,7 @@ export class CreateSecretConfigModal extends SecretConfigModal {
   }
 
   title(): string {
-    return "Add secret configuration";
+    return "添加机密配置";
   }
 
   protected operationPromise(): Promise<any> {
@@ -168,7 +168,7 @@ export class CreateSecretConfigModal extends SecretConfigModal {
   }
 
   protected successMessage(): m.Children {
-    return <span>The secret configuration <em>{this.entity().id()}</em> was created successfully!</span>;
+    return <span>机密配置 <em>{this.entity().id()}</em> 创建成功!</span>;
   }
 }
 
@@ -182,7 +182,7 @@ export class EditSecretConfigModal extends SecretConfigModal {
   }
 
   title(): string {
-    return `Edit secret configuration ${this.originalEntityId}`;
+    return `编辑机密配置 ${this.originalEntityId}`;
   }
 
   protected operationPromise(): Promise<any> {
@@ -190,7 +190,7 @@ export class EditSecretConfigModal extends SecretConfigModal {
   }
 
   protected successMessage(): m.Children {
-    return <span>The secret configuration <em>{this.entity().id()}</em> was updated successfully!</span>;
+    return <span>机密配置 <em>{this.entity().id()}</em> 更新成功!</span>;
   }
 
   protected afterSuccess(): void {
@@ -213,7 +213,7 @@ export class CloneSecretConfigModal extends SecretConfigModal {
   }
 
   title(): string {
-    return `Clone secret configuration ${this.originalEntityId}`;
+    return `克隆机密配置 ${this.originalEntityId}`;
   }
 
   fetchCompleted() {
@@ -225,6 +225,6 @@ export class CloneSecretConfigModal extends SecretConfigModal {
   }
 
   protected successMessage(): m.Children {
-    return <span>The secret configuration <em>{this.entity().id()}</em> was created successfully!</span>;
+    return <span>机密配置 <em>{this.entity().id()}</em> 创建成功!</span>;
   }
 }

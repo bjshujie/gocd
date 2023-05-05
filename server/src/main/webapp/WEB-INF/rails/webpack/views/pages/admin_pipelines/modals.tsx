@@ -395,7 +395,7 @@ export class DeletePipelineGroupModal extends Modal {
     return [
       <Buttons.Danger data-test-id='button-delete'
                       ajaxOperationMonitor={this.operationState}
-                      ajaxOperation={this.delete.bind(this)}>是的，删除</Buttons.Danger>,
+                      ajaxOperation={this.delete.bind(this)}>是 删除</Buttons.Danger>,
       <Buttons.Cancel ajaxOperationMonitor={this.operationState}
                       data-test-id='button-no-delete' onclick={this.close.bind(this)}
       >No</Buttons.Cancel>

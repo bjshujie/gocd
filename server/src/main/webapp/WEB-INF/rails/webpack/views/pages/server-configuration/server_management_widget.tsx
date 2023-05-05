@@ -28,24 +28,23 @@ export class ServerManagementWidget extends MithrilViewComponent<ServerManagemen
 
   view(vnode: m.Vnode<ServerManagementAttrs>) {
     const siteUrlsDocsLink      = "installation/configuring_server_details.html#configure-site-urls";
-    const siteUrlHelpText       = "This entry will be used by Go Server to generate links for emails, feeds etc. Format: [protocol]://[host]:[port].";
-    const serverSiteUrlHelpText = "If you wish that your primary site URL be HTTP, but still want to have HTTPS endpoints " +
-      "for the features that require SSL, you can specify this attribute with a value of the base HTTPS URL. Format: https://[host]:[port].";
+    const siteUrlHelpText       = "服务器将使用此条目生成电子邮件、提要等的链接。格式：[协议]://[主机]:[端口]。";
+    const serverSiteUrlHelpText = "如果您希望主站点URL为HTTP，但仍希望为需要SSL的功能提供HTTPS端点，则可以使用基本HTTPS URL的值指定此属性。格式：https://[host]:[port]。";
 
     const siteUrls = vnode.attrs.siteUrlsVM().entity();
     return <div data-test-id={"server-management-widget"} class={styles.formContainer}>
       <FormBody>
         <div class={styles.formHeader}>
-          <h2>Configure your server site urls</h2>
+          <h2>配置服务器站点URL</h2>
         </div>
         <div class={styles.formFields}>
           <Form compactForm={true}>
-            <TextField label="Site URL"
+            <TextField label="站点 URL"
                        property={siteUrls.siteUrl}
                        helpText={siteUrlHelpText}
                        docLink={siteUrlsDocsLink}
                        errorText={siteUrls.errors().errorsForDisplay("siteUrl")}/>
-            <TextField label="Secure Site URL"
+            <TextField label="安全站点 URL"
                        property={siteUrls.secureSiteUrl}
                        errorText={siteUrls.errors().errorsForDisplay("secureSiteUrl")}
                        helpText={serverSiteUrlHelpText}

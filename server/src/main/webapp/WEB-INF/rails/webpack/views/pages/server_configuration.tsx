@@ -150,7 +150,7 @@ export class ServerConfigurationPage extends Page<null, State> {
     };
 
     vnode.state.onMailServerManagementDelete = () => {
-      const message = <span>Are you sure you want to delete the mail server configuration?</span>;
+      const message = <span>您确定要删除邮件服务器配置吗?</span>;
 
       const modal: DeleteConfirmModal = new DeleteConfirmModal(message, () => {
         return MailServerCrud.delete()

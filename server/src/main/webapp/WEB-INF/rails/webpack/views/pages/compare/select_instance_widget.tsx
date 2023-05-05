@@ -91,7 +91,7 @@ export class SelectInstanceWidget extends Dropdown<DropdownAttrs & Attrs> {
                 <div>
                   <StagesWidget stages={instance.stages()}/>
                   <span data-test-id="triggered-by" class={styles.label}>
-                    触发自 {instance.buildCause().getApprover()} on {PipelineInstanceWidget.getTimeToDisplay(instance.scheduledDate())}
+                     启动自 {instance.buildCause().getApprover()} on {PipelineInstanceWidget.getTimeToDisplay(instance.scheduledDate())}
                   </span>
                   {this.materialRevisions(instance.buildCause().materialRevisions().filterRevision(this.pattern()))}
                 </div>

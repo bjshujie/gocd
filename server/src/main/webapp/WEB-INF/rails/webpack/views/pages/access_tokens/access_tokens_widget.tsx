@@ -160,7 +160,7 @@ export class AccessTokensWidgetForAdmin extends MithrilViewComponent<AdminAttrs>
 
   public static helpTextWhenNoTokensCreated() {
     return <ul data-test-id="access_token_info">
-      <li>Navigate to <a href="/go/access_tokens">个人访问令牌</a>.</li>
+      <li>导航到 <a href="/go/access_tokens">个人访问令牌</a>.</li>
       <li>点击 "生成Token" 来创建新的个人访问令牌.</li>
       <li>新创生成的令牌可用于访问系统API.
         <Link href={docsUrl('configuration/access_tokens.html')} externalLinkIcon={true}> 学习更多</Link>

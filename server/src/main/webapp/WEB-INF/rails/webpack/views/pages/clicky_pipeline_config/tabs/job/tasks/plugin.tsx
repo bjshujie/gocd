@@ -90,7 +90,7 @@ export class PluggableTaskModal extends AbstractTaskModal {
                             items={this.allTaskPluginConfiguration().map((p) => p.id)}/>
       </SelectField>
 
-      <h3>Basic Settings</h3>
+      <h3>基础设置</h3>
       <div className={foundationClassNames(foundationStyles.foundationGridHax, foundationStyles.foundationFormHax)}>
         <AngularPluginNew pluginInfoSettings={Stream(this.findPluginSettings())}
                           disabled={this.readonly}

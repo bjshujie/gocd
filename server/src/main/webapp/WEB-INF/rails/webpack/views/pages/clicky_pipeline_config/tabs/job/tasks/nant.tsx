@@ -40,7 +40,7 @@ export class NantTaskModal extends AbstractTaskModal {
 
     return <div data-test-id="nant-task-modal">
       {this.renderFlashMessage()}
-      <h3>Basic Settings</h3>
+      <h3>基础设置s</h3>
       <TextField helpText="Relative path to a NAnt build file. If not specified, the path defaults to 'default.build'."
                  label="Build File"
                  readonly={this.readonly}

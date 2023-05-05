@@ -63,7 +63,7 @@ describe('PackagesWidgetSpec', () => {
 
     expect(helper.byTestId('packages-widget')).not.toBeInDOM();
     expect(helper.byTestId('flash-message-info')).toBeInDOM();
-    expect(helper.textByTestId('flash-message-info')).toBe('There are no packages defined in this package repository.');
+    expect(helper.textByTestId('flash-message-info')).toBe('此包存储库中未定义任何程序包。');
   });
 
   it('should render packages', () => {

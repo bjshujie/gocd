@@ -66,11 +66,11 @@ export class CreateTemplateModal extends Modal {
                    errorText={this.template.errors().errorsForDisplay("name")}
                    onchange={() => this.template.validate("name")}
                    required={true}
-                   label={"Template name"}/>
+                   label={"模板名称"}/>
 
         <CheckboxField property={this.basedOnPipelineCheckbox}
-                       label={"Extract from pipeline"}
-                       helpText={"If a pipeline is not selected, a template with a default stage and default job will be created. If a pipeline is selected, the template will use the stages from the pipeline and the pipeline itself will be modified to use this template."}/>
+                       label={"从算法中提取模板"}
+                       helpText={"如果未选择算法，将创建一个具有默认阶段和默认作业的模板。如果选择了算法，则模板将使用算法中的阶段，并且算法本身将被修改为使用此模板。"}/>
         {this.maybeShowPipelines()}
       </div>
     );
@@ -87,7 +87,7 @@ export class CreateTemplateModal extends Modal {
   }
 
   title(): string {
-    return "Create a new template";
+    return "创建新模板";
   }
 
   private create() {
@@ -99,8 +99,8 @@ export class CreateTemplateModal extends Modal {
     if (this.basedOnPipelineCheckbox()) {
       return (
         <SelectField property={this.selectedPipeline}
-                     label={"Pipeline"}
-                     helpText={"This pipeline will be modified to use the newly created template."}>
+                     label={"算法"}
+                     helpText={"此算法将被修改为使用新创建的模板."}>
           <SelectFieldOptions items={this.pipelines} selected={this.selectedPipeline()}/>
         </SelectField>
       );
@@ -162,7 +162,7 @@ export class ShowTemplateModal extends Modal {
   }
 
   title(): string {
-    return `Showing template ${this.template}`;
+    return `显示模板 ${this.template}`;
   }
 
   private selectStage(eachStage: StageJSON) {
@@ -188,14 +188,14 @@ export class ShowTemplateModal extends Modal {
 
   private showStage(stage: StageJSON) {
     const stageProperties = new Map([
-      ["Stage Type", stage.approval.type === "success" ? "On success" : "Manual"],
+      ["阶段类型", stage.approval.type === "success" ? "成功自动运行" : "手工"],
       ["Fetch Materials", this.yesOrNo(stage.fetch_materials)],
-      ["Never Cleanup Artifacts", this.yesOrNo(stage.never_cleanup_artifacts)],
-      ["Clean Working Directory", this.yesOrNo(stage.clean_working_directory)],
+      ["从不清理文档", this.yesOrNo(stage.never_cleanup_artifacts)],
+      ["清理工作目录", this.yesOrNo(stage.clean_working_directory)],
     ]);
     return (
       <div data-test-id={`selected-stage-${stage.name}`} class={styles.stageOrJob}>
-        Showing stage <em>{stage.name}</em>
+        显示阶段 <em>{stage.name}</em>
         <hr/>
         <div class={styles.propertiesWrapper}>
           <KeyValuePair data={stageProperties}/>
@@ -284,7 +284,7 @@ export class ShowTemplateModal extends Modal {
     if (data.size === 0) {
       return (
         <FlashMessage
-          message="There is no authorization configured for this stage nor its pipeline group. Only GoCD administrators can operate this stage."
+          message="没有为此阶段及其算法组配置授权。只有管理员才能操作此阶段。"
           type={MessageType.info}/>
       );
     } else {

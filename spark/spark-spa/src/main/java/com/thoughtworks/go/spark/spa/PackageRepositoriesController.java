@@ -52,7 +52,7 @@ public class PackageRepositoriesController implements SparkController {
 
     public ModelAndView index(Request request, Response response) {
         Map<String, Object> object = Map.of(
-            "viewTitle", "Package Repositories"
+            "viewTitle", "包存储库"
         );
         return new ModelAndView(object, null);
     }

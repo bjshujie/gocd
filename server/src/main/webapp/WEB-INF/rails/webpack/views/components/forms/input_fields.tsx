@@ -534,7 +534,7 @@ export class PasswordField extends FormField<EncryptedValue, RequiredFieldAttr &
       return <FormResetButton css={vnode.attrs.css}
                               readonly={vnode.attrs.readonly}
                               data-test-id="reset-input"
-                              onclick={vnode.attrs.property()!.resetToOriginal.bind(vnode.attrs.property())}>Reset</FormResetButton>;
+                              onclick={vnode.attrs.property()!.resetToOriginal.bind(vnode.attrs.property())}>重置</FormResetButton>;
     } else {
       return <FormResetButton css={vnode.attrs.css}
                               readonly={vnode.attrs.readonly}

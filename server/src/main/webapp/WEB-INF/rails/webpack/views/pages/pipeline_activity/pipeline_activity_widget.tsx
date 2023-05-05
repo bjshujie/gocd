@@ -120,7 +120,7 @@ interface HeaderAttrs {
 class HeaderWidget extends MithrilViewComponent<HeaderAttrs> {
   view(vnode: m.Vnode<HeaderAttrs, this>): m.Children | void | null {
     return <tr class={styles.groupHeader}>
-      <td class={classnames(styles.left, styles.header)} data-test-id="instance-header">Instance</td>
+      <td class={classnames(styles.left, styles.header)} data-test-id="instance-header">实例</td>
       <td class={styles.right}>
         {vnode.attrs.config().stages().map((stage, index) => {
           const marginClass = index === 0 ? styles.noMargin : styles.margin23;

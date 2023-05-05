@@ -45,12 +45,12 @@ export class PackageRepositoryModalBody extends MithrilViewComponent<Attrs> {
     return <div>
       <FormHeader>
         <Form>
-          <TextField label="Name" property={vnode.attrs.packageRepo.name}
+          <TextField label="名称" property={vnode.attrs.packageRepo.name}
                      required={true} readonly={vnode.attrs.disableId}
-                     placeholder={"Enter the package repository name"}
+                     placeholder={"输入程序包存储库名称"}
                      errorText={vnode.attrs.packageRepo.errors().errorsForDisplay("name") || vnode.attrs.packageRepo.errors().errorsForDisplay("repoId")}/>
 
-          <SelectField label="Plugin"
+          <SelectField label="插件"
                        property={vnode.attrs.pluginIdProxy.bind(this)}
                        required={true} readonly={vnode.attrs.disablePluginField}
                        errorText={vnode.attrs.packageRepo.errors().errorsForDisplay("pluginId")}>

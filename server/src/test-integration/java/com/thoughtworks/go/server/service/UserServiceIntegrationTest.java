@@ -368,7 +368,7 @@ public class UserServiceIntegrationTest {
 
         assertThat(result.isSuccessful(), is(false));
         assertThat(result.httpCode(), is(HttpServletResponse.SC_BAD_REQUEST));
-        assertThat(result.message(), is("There must be atleast one admin user enabled!"));
+        assertThat(result.message(), is("必须至少启用一个管理员用户！"));
     }
 
     @Test

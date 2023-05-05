@@ -197,7 +197,7 @@ public class EnvironmentConfigService implements ConfigChangedListener, AgentCha
     }
 
     public void createEnvironment(final BasicEnvironmentConfig envConfig, final Username user, final HttpLocalizedOperationResult result) {
-        String actionFailed = "Failed to add environment '" + envConfig.name() + "'.";
+        String actionFailed = "新增环境 '" + envConfig.name() + "'失败.";
         AddEnvironmentCommand addEnvCmd = new AddEnvironmentCommand(goConfigService, envConfig, user, actionFailed, result);
         update(addEnvCmd, envConfig, user, result, actionFailed);
     }

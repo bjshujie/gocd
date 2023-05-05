@@ -61,7 +61,7 @@ class CommentModal extends Modal {
     if (this.showEditView()) {
       return <TextAreaField
         focus={true}
-        label="Enter comment"
+        label="输入注释"
         required={false}
         rows={5}
         size={Size.MATCH_PARENT}
@@ -73,14 +73,14 @@ class CommentModal extends Modal {
   }
 
   title(): string {
-    const action = _.isEmpty(this.originalComment()) ? "Add" : this.mode === Mode.EDIT ? "Edit" : "View";
-    return `${action} comment`;
+    const action = _.isEmpty(this.originalComment()) ? "添加" : this.mode === Mode.EDIT ? "编辑" : "查看";
+    return `${action}注释`;
   }
 
   buttons(): m.ChildArray {
     return [
       this.getActionButton(),
-      <Default onclick={this.close.bind(this)} dataTestId="close-comment-dropdown-button">Close</Default>
+      <Default onclick={this.close.bind(this)} dataTestId="close-comment-dropdown-button">关闭</Default>
     ];
   }
 
@@ -91,9 +91,9 @@ class CommentModal extends Modal {
   private getActionButton() {
     if (this.showEditView()) {
       return [
-        <Primary dataTestId="save-comment-button" onclick={this.updateComment.bind(this)}>Save</Primary>,
-        <Primary dataTestId="save-comment-and-close-button" onclick={this.updateAndClose.bind(this)}>Save &
-          Close</Primary>
+        <Primary dataTestId="save-comment-button" onclick={this.updateComment.bind(this)}>保存</Primary>,
+        <Primary dataTestId="save-comment-and-close-button" onclick={this.updateAndClose.bind(this)}>保存 &
+          关闭</Primary>
       ];
     }
 
@@ -103,7 +103,7 @@ class CommentModal extends Modal {
                       onclick={() => {
                         this.mode = Mode.EDIT;
                         m.redraw.sync();
-                      }}>Edit</Secondary>;
+                      }}>编辑</Secondary>;
   }
 
   private updateAndClose() {
@@ -134,13 +134,13 @@ export class CommentWidget extends MithrilViewComponent<Attrs> {
       return;
     }
 
-    const buttonText = noComment ? "Add" : "View";
+    const buttonText = noComment ? "添加" : "查看";
     return <a disabled={!vnode.attrs.canOperatePipeline}
               class={styles.buildCauseButton}
-              title={noComment ? "Add comment on this pipeline run." : "View comment on this pipeline run."}
+              title={noComment ? "为该算法运行添加注释." : "查看该算法运行添加注释."}
               data-test-id={`${buttonText.toLowerCase()}-comment-button`}
               onclick={CommentWidget.showModal.bind(this, vnode)}>
-      {buttonText} Comment
+      {buttonText}注释
     </a>;
   }
 

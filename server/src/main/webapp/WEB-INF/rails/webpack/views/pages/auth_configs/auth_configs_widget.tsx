@@ -37,13 +37,12 @@ export class AuthConfigsWidget extends MithrilViewComponent<Attrs> {
 
   public static helpText() {
     return <ul data-test-id="auth-config-info">
-      <li>Click on "Add" to add new authorization configuration.</li>
-      <li>"Authorization configuration" is the term used in GoCD for the configuration which allows a GoCD administrator to configure the kind of
-        authentication and authorization used by it.
+      <li>单击“新增”以添加新的授权配置。</li>
+      <li>“授权配置”是用于配置的术语，允许管理员配置
+          它使用的身份验证和授权。
       </li>
-      <li>GoCD can be setup to use multiple authorization configurations at the same time.</li>
-      <li>An auth configuration can be used to setup user authorization. You can read more about authorization in
-        GoCD from <Link target="_blank" href={docsUrl("configuration/dev_authentication.html")}>here</Link>.
+      <li>可以设置为同时使用多个授权配置。</li>
+      <li>身份验证配置可用于设置用户授权。您可以从 <Link target="_blank" href={docsUrl("configuration/dev_authentication.html")}>这里</Link>阅读更多关于GoCD授权的信息。
       </li>
     </ul>;
   }

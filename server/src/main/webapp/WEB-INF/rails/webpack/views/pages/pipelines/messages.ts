@@ -16,4 +16,4 @@
 
 export const IDENTIFIER_FORMAT_HELP_MESSAGE = "不要有空格，仅允许字母、数字、连字符、下划线和句点。最多255个字符";
 export const DESTINATION_DIR_HELP_MESSAGE = "Specify a different path to clone/checkout this repository. Must be a relative path within the pipeline’s working directory. Defaults to the root of the pipeline's working directory.";
-export const DENYLIST_HELP_MESSAGE = "在决定是否根据更改触发算法时，输入要排除的路径。用逗号分隔多个条目。";
+export const DENYLIST_HELP_MESSAGE = "在决定是否根据更改 启动算法时，输入要排除的路径。用逗号分隔多个条目。";

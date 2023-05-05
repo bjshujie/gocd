@@ -176,8 +176,10 @@ export class MaterialEditor extends MithrilViewComponent<Attrs> {
           : pluginInfos!.filterForExtension(ExtensionTypeString.PACKAGE_REPO);
         if (_.isEmpty(pluginInfos)) {
           return <FlashMessage type={MessageType.warning}>
-            There are no Package Repository plugins installed. Please see <Link href={new PackageRepoExtensionType().linkForDocs()} target="_blank"
-                                                                                externalLinkIcon={true}>this page</Link> for a list of supported
+            没有安装软件包存储库插件。请参阅<Link href={new PackageRepoExtensionType().linkForDocs()} target="_blank"
+                                                                                externalLinkIcon={true}>此页</Link> 以获取支持的插件列表
+
+
             plugins.
           </FlashMessage>;
         }

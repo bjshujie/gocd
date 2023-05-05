@@ -671,7 +671,7 @@ public class UserServiceTest {
 
         verify(userDao, never()).disableUsers(usernames);
         assertThat(result.isSuccessful()).isFalse();
-        assertThat(result.message()).contains("There must be atleast one admin user enabled!");
+        assertThat(result.message()).contains("必须至少启用一个管理员用户！");
     }
 
     @Test

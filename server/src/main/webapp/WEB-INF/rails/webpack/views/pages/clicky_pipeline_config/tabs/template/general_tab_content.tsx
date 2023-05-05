@@ -37,10 +37,10 @@ export class GeneralOptionsTabContent extends TabContent<TemplateConfig> {
                      pipelineConfigSave: () => any,
                      pipelineConfigReset: () => any): m.Children {
     return <div data-test-id="template-general-tab">
-      <h3>Basic settings</h3>
+      <h3>基础设置</h3>
       <Form compactForm={true}>
         <TextField property={entity.name}
-                   label={"Template Name"}
+                   label={"模板名称"}
                    readonly={true}
                    errorText={entity.errors().errorsForDisplay("name")}
                    dataTestId={"template-name"}/>

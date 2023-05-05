@@ -40,8 +40,8 @@ public class AboutToBeTriggeredChecker implements SchedulingChecker{
         String pipelineNameString = CaseInsensitiveString.str(pipelineName);
         HealthStateType type = HealthStateType.general(HealthStateScope.forPipeline(pipelineNameString));
         if (triggerMonitor.isAlreadyTriggered(pipelineName) || pipelineScheduleQueue.hasForcedBuildCause(pipelineName)) {
-            result.conflict("Failed to trigger pipeline: " + pipelineName,
-                            "Pipeline already triggered",
+            result.conflict("启动算法失败: " + pipelineName,
+                            "算法已经启动",
                             HealthStateType.general(HealthStateScope.forPipeline(pipelineNameString)));
         } else {
             result.success(type);

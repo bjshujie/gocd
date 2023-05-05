@@ -75,7 +75,7 @@ export class EnvironmentWidget extends MithrilViewComponent<EnvAttrs> {
       warningButton = <div data-test-id="warning-tooltip-wrapper" className={styles.warningTooltipWrapper}>
         <i data-test-id={"warning-icon"} className={styles.warningIcon}/>
         <div data-test-id="warning-tooltip-content" className={styles.warningTooltipContent}>
-          <p>Neither pipelines nor agents are associated with this environment.</p>
+          <p>算法和节点都与此环境无关联.</p>
         </div>
       </div>;
     }
@@ -83,7 +83,7 @@ export class EnvironmentWidget extends MithrilViewComponent<EnvAttrs> {
     if (!environment.canAdminister()) {
       deleteTitle = `You are not authorized to delete the '${environment.name()}' environment.`;
     } else if (!environment.isLocal()) {
-      deleteTitle = `Cannot delete '${environment.name()}' environment as it is partially defined in config repository.`;
+      deleteTitle = `无法删除环境 '${environment.name()}' ，因为它部分定义在配置存储库中.`;
     }
     return [
       warningButton,
@@ -105,10 +105,10 @@ export class EnvironmentWidget extends MithrilViewComponent<EnvAttrs> {
 export class EnvironmentsWidget extends MithrilViewComponent<Attrs> {
   public static helpText(){
     return <ul>
-      <li>Click on "Add Environment" to add a new environment.</li>
-      <li>An Environment is a grouping of pipelines and agents.</li>
-      <li>By assigning an agent to an environment, it will be used to run only those jobs that belong to the pipelines of that environment.</li>
-      <li>An agent can belong to more than one environment. A pipeline can, however, only be assigned to a single environment.
+      <li>单击“添加环境”以添加新环境.</li>
+      <li>环境是一组算法和节点.</li>
+      <li>通过将节点分配给环境，它将仅用于运行属于该环境算法的作业.</li>
+      <li>一个节点可以属于多个环境。但是，算法只能分配给单个环境.
         <Link href={docsUrl('configuration/managing_environments.html')} externalLinkIcon={true}> 学习更多</Link>
       </li>
     </ul> ;
@@ -119,7 +119,7 @@ export class EnvironmentsWidget extends MithrilViewComponent<Attrs> {
       const target           = manager.getTarget();
       const hasAnchorElement = vnode.attrs.environments().some((env) => env.name() === target);
       if (!hasAnchorElement) {
-        const msg = `Either '${target}' environment has not been set up or you are not authorized to view the same.`;
+        const msg = `环境 '${target}'环境尚未设置，或者您无权查看该环境.`;
         return <FlashMessage dataTestId="anchor-env-not-present" type={MessageType.alert} message={msg}/>;
       }
     }
@@ -145,7 +145,7 @@ export class EnvironmentsWidget extends MithrilViewComponent<Attrs> {
     </span>;
 
     const noEnvironmentPresentMsg = <span>
-      Either no environments have been set up or you are not authorized to view the environments. {docLink}
+      要么没有设置任何环境，要么您无权查看这些环境. {docLink}
     </span>;
 
     return [

@@ -34,12 +34,12 @@ interface RuleInfo {
 }
 
 export let RulesType = {
-  ENVIRONMENT:        {text: 'Environment', id: 'environment'} as RuleInfo,
-  PIPELINE:           {text: 'Pipeline', id: 'pipeline'} as RuleInfo,
-  PIPELINE_GROUP:     {text: 'Pipeline Group', id: 'pipeline_group'} as RuleInfo,
+  ENVIRONMENT:        {text: '环境', id: 'environment'} as RuleInfo,
+  PIPELINE:           {text: '算法', id: 'pipeline'} as RuleInfo,
+  PIPELINE_GROUP:     {text: '算法组', id: 'pipeline_group'} as RuleInfo,
   PLUGGABLE_SCM:      {text: 'Pluggable SCM', id: 'pluggable_scm'} as RuleInfo,
-  PACKAGE_REPOSITORY: {text: 'Package Repository', id: 'package_repository'} as RuleInfo,
-  CLUSTER_PROFILE:    {text: 'Cluster Profile', id: 'cluster_profile'} as RuleInfo,
+  PACKAGE_REPOSITORY: {text: '包存储库', id: 'package_repository'} as RuleInfo,
+  CLUSTER_PROFILE:    {text: '集群配置文件', id: 'cluster_profile'} as RuleInfo,
 };
 
 export let RuleActions = {
@@ -64,13 +64,13 @@ export class ConfigureRulesWidget extends RestyleViewComponent<Styles, Attrs> {
   static directives() {
     return [
       {
-        id: "", text: "Select"
+        id: "", text: "选择"
       }
       , {
-        id: "deny", text: "Deny"
+        id: "deny", text: "拒绝"
       }
       , {
-        id: "allow", text: "Allow"
+        id: "allow", text: "允许"
       }
     ];
   }
@@ -78,10 +78,10 @@ export class ConfigureRulesWidget extends RestyleViewComponent<Styles, Attrs> {
   static defaultTypes(): RuleInfos {
     return [
       {
-        id: "", text: "Select"
+        id: "", text: "选择"
       } as RuleInfo
       , {
-        id: "*", text: "All"
+        id: "*", text: "全部"
       } as RuleInfo
     ];
   }
@@ -89,10 +89,10 @@ export class ConfigureRulesWidget extends RestyleViewComponent<Styles, Attrs> {
   static defaultActions(): RuleInfos {
     return [
       {
-        id: "", text: "Select"
+        id: "", text: "选择"
       } as RuleInfo
       , {
-        id: "*", text: "All"
+        id: "*", text: "全部"
       } as RuleInfo,
       RuleActions.REFER
     ];
@@ -101,7 +101,7 @@ export class ConfigureRulesWidget extends RestyleViewComponent<Styles, Attrs> {
   view(vnode: m.Vnode<Attrs>): m.Children | void | null {
     const infoMsg          = vnode.attrs.infoMsg
       ? vnode.attrs.infoMsg
-      : "The default rule is to deny access for all GoCD entities. Configure rules below to override that behavior.";
+      : "默认规则是拒绝所有实体的访问。在下面配置规则以覆盖该行为。";
     const showActionColumn = vnode.attrs.actions !== undefined;
     const ruleBody         = _.isEmpty(vnode.attrs.rules())
       ? undefined
@@ -113,12 +113,12 @@ export class ConfigureRulesWidget extends RestyleViewComponent<Styles, Attrs> {
       </div>;
 
     return <div data-test-id="rules-widget">
-      <h2>Rules</h2>
+      <h2>规则</h2>
       <FlashMessage type={MessageType.info} message={infoMsg}/>
       {ruleBody}
       <div className={this.css.addRule}>
         <Buttons.Secondary data-test-id="add-rule-button" onclick={this.addNewRule.bind(this, vnode)}>
-          + New Permission
+          + 新建权限
         </Buttons.Secondary>
       </div>
     </div>;
@@ -130,14 +130,14 @@ export class ConfigureRulesWidget extends RestyleViewComponent<Styles, Attrs> {
 
   private headers(showActionColumn: boolean) {
     const defaultHeaders = [
-      "Directive",
-      "Type",
+      "指令",
+      "类型",
       <div>
-        Resources
+        资源
         <span className={this.css.warningWrapper}>
           <i class={this.css.infoIcon}/>
           <div class={this.css.warningContent}>
-            Resource can be the name of the entity or a wildcard which matches one or more entities.
+            资源可以是实体的名称，也可以是与一个或多个实体匹配的通配符。
           </div>
         </span>
       </div>,

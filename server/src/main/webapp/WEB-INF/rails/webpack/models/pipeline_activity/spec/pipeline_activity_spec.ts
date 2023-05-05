@@ -49,8 +49,8 @@ describe("PipelineActivity", () => {
     expect(history.counterOrLabel()).toEqual("1");
     expect(history.scheduledDate()).toEqual("22 Nov, 2019 at 1:5:59 [+0530]");
     expect(history.scheduledTimestamp()).toEqual(new Date(1574404139615));
-    expect(history.buildCauseBy()).toEqual("Triggered by changes");
-    expect(history.modificationDate()).toEqual("about 22 hours ago");
+    expect(history.buildCauseBy()).toEqual("由更改 启动");
+    expect(history.modificationDate()).toEqual("约 22 小时前");
     expect(history.revision()).toEqual("b0982fa2ff92d126ad003c9e007959b4b8dd96a9");
     expect(history.comment()).toEqual("Initial commit");
 

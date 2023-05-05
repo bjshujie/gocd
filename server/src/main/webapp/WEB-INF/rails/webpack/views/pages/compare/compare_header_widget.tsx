@@ -28,7 +28,7 @@ export class CompareHeaderWidget extends MithrilViewComponent<Attrs> {
   view(vnode: m.Vnode<Attrs>) {
     return <div className={styles.pageHeader}>
       <div className={styles.pipelineInfo}>
-        <span className={styles.label} data-test-id="page-header-pipeline-label">Pipeline</span>
+        <span className={styles.label} data-test-id="page-header-pipeline-label">算法</span>
         <span className={styles.value} data-test-id="page-header-pipeline-name">
           <Link href={SparkRoutes.pipelineHistoryPath(vnode.attrs.pipelineName)}
                 title="Pipeline Activities"> {vnode.attrs.pipelineName}</Link>

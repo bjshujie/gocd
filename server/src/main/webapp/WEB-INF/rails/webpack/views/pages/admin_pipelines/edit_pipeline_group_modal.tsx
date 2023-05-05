@@ -114,7 +114,7 @@ export class EditPipelineGroupModal extends Modal {
                         oncollapse={() => this.userPermissionCollapseState(false)}
                         dataTestId={"users-permissions-collapse"}
                         actions={<Secondary dataTestId={"add-user-permission"}
-                                            onclick={this.addUserAuthorization.bind(this)}>Add</Secondary>}>
+                                            onclick={this.addUserAuthorization.bind(this)}>新增</Secondary>}>
         <RenderErrors dataTestId="errors-on-users" errors={this.pipelineGroupViewModel().errorsOnUsers()}/>
         <Table data={this.userPermissionData()} headers={["名称", "视图", "操作", "管理", ""]}
                data-test-id="users-permissions"/>
@@ -125,7 +125,7 @@ export class EditPipelineGroupModal extends Modal {
                         oncollapse={() => this.rolePermissionCollapseState(false)}
                         dataTestId={"roles-permissions-collapse"}
                         actions={<Secondary dataTestId={"add-role-permission"}
-                                            onclick={this.addRoleAuthorization.bind(this)}>Add</Secondary>}>
+                                            onclick={this.addRoleAuthorization.bind(this)}>新增</Secondary>}>
         <RenderErrors dataTestId="errors-on-roles" errors={this.pipelineGroupViewModel().errorsOnRoles()}/>
         <Table data={this.rolePermissionData()} headers={["名称", "视图", "操作", "管理", ""]}
                data-test-id="roles-permissions"/>

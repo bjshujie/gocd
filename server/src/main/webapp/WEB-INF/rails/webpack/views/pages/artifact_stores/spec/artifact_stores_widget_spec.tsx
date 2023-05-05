@@ -36,7 +36,7 @@ describe("ArtifactStoresModal", () => {
     mount(new ArtifactStores(), new PluginInfos());
 
     expect(helper.byTestId("flash-message-warning")).toBeInDOM();
-    expect(helper.textByTestId("flash-message-warning")).toBe("To use this page, you must ensure that there are one or more artifact plugins installed. Please see this page for a list of supported plugins.");
+    expect(helper.textByTestId("flash-message-warning")).toBe("若要使用此页面，您必须确保有一个或若要使用该页面，必须确保安装了一个或多个文档插件。请查看此页面以获取支持的插件列表。");
   });
 
   it("should render action buttons", () => {

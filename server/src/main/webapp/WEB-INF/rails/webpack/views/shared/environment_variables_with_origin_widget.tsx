@@ -45,11 +45,11 @@ export class EnvironmentVariablesWithOriginWidget extends EnvironmentVariablesWi
   view(vnode: m.Vnode<EnvironmentVariablesWidgetAttrs, {}>): m.Children {
     return <div>
       <GroupedEnvironmentVariablesWithOrigin environmentVariables={vnode.attrs.environmentVariables.plainTextVariables()}
-                                             title="Plain Text Variables"
+                                             title="普通变量"
                                              onAdd={EnvironmentVariablesWidget.onAdd.bind(this, false, vnode)}
                                              onRemove={(envVar: EnvironmentVariable) => EnvironmentVariablesWidget.onRemove(envVar, vnode)}/>
       <GroupedEnvironmentVariablesWithOrigin environmentVariables={vnode.attrs.environmentVariables.secureVariables()}
-                                             title="Secure Variables"
+                                             title="保密变量"
                                              onAdd={EnvironmentVariablesWidget.onAdd.bind(this, true, vnode)}
                                              onRemove={(envVar: EnvironmentVariable) => EnvironmentVariablesWidget.onRemove(envVar, vnode)}/>
     </div>;

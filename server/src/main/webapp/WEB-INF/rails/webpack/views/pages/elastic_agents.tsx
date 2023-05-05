@@ -138,7 +138,7 @@ export class ElasticAgentsPage extends Page<null, State> {
 
         const deleteConfirmMsg = (
           <span>
-          Are you sure you want to delete the elastic agent profile <strong>{id}</strong>?
+          您是否确实要删除弹性节点配置文件 <strong>{id}</strong>?
         </span>
         );
 
@@ -208,7 +208,7 @@ export class ElasticAgentsPage extends Page<null, State> {
 
         const deleteConfirmMsg = (
           <span>
-          Are you sure you want to delete the cluster profile <strong>{clusterProfileId}</strong>?
+          是否确实要删除群集配置文件 <strong>{clusterProfileId}</strong>?
         </span>
         );
 
@@ -378,7 +378,7 @@ export class ElasticAgentsPage extends Page<null, State> {
     const hasPluginInstalled = vnode.state.pluginInfos().length !== 0;
     const isWizardClose      = vnode.state.isWizardOpen !== undefined && !vnode.state.isWizardOpen();
     if (hasPluginInstalled && isWizardClose) {
-      return <Primary onclick={vnode.state.clusterProfileOperations.onAdd}>Add</Primary>;
+      return <Primary onclick={vnode.state.clusterProfileOperations.onAdd}>新增</Primary>;
     }
   }
 

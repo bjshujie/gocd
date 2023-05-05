@@ -43,8 +43,9 @@ export class PluginsPage extends Page {
 
   helpText(): m.Children {
     return <div>
-      Plugins allow users to extend the functionality of GoCD. You can read more about them from
-      <Link href={docsUrl("extension_points/plugin_user_guide.html")} externalLinkIcon={true}> here.</Link>
+      插件允许用户扩展凌波的功能。你可以在
+      <Link href={docsUrl("extension_points/plugin_user_guide.html")} externalLinkIcon={true}> 这里</Link>
+      阅读更多关于他们的信息。
     </div>;
   }
 

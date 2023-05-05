@@ -126,7 +126,7 @@ describe("Permissions Tab Content", () => {
     expect(helper.byTestId("radio-inherit")).toBeChecked();
     expect(helper.byTestId("radio-local")).not.toBeChecked();
 
-    const msg = "There is no authorization configured for this stage nor its pipeline group. Only GoCD administrators can operate this stage.";
+    const msg = "没有为此阶段及其算法组配置授权。只有管理员才能操作此阶段。";
     expect(helper.qa(`[data-test-id="flash-message-info"]`)).toContainText(msg);
   });
 

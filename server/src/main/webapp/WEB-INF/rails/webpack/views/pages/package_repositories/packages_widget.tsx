@@ -49,7 +49,7 @@ export class PackagesWidget extends MithrilViewComponent<Attrs> {
     }
     if (_.isEmpty(vnode.attrs.packages())) {
       return <FlashMessage type={MessageType.info}
-                           message={"There are no packages defined in this package repository."}/>;
+                           message={"此包存储库中未定义任何程序包."}/>;
     }
     return <div data-test-id="packages-widget">
       <h4>Packages</h4>

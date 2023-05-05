@@ -97,7 +97,7 @@ export class AuthConfigsPage extends Page<null, State> {
     const headerButtons = [
       <Buttons.Primary onclick={vnode.state.onAdd.bind(vnode.state)}
                        data-test-id="add-auth-config-button"
-                       disabled={disabled}>Add</Buttons.Primary>
+                       disabled={disabled}>新增</Buttons.Primary>
     ];
     return <HeaderPanel title={this.pageName()} buttons={headerButtons} help={this.helpText()}/>;
   }

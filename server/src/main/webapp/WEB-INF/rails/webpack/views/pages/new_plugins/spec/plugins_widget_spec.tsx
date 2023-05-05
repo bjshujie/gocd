@@ -116,36 +116,36 @@ describe("New Plugins Widget", () => {
     expect(EAPluginInfoBody).toContainText("Id");
     expect(EAPluginInfoBody).toContainText(getEAPluginInfo().id);
 
-    expect(EAPluginInfoBody).toContainText("Description");
+    expect(EAPluginInfoBody).toContainText("描述");
     expect(EAPluginInfoBody).toContainText(getEAPluginInfo().about!.description);
 
-    expect(EAPluginInfoBody).toContainText("Author");
+    expect(EAPluginInfoBody).toContainText("作者");
     expect(EAPluginInfoBody).toContainText(getEAPluginInfo().about!.vendor.name);
 
-    expect(EAPluginInfoBody).toContainText("Supported operating systems");
+    expect(EAPluginInfoBody).toContainText("支持的操作系统");
     expect(EAPluginInfoBody).toContainText("No restrictions");
 
-    expect(EAPluginInfoBody).toContainText("Bundled");
+    expect(EAPluginInfoBody).toContainText("捆绑模式");
     expect(EAPluginInfoBody).toContainText("No");
 
-    expect(EAPluginInfoBody).toContainText("Target GoCD Version");
+    expect(EAPluginInfoBody).toContainText("目标凌波版本");
     expect(EAPluginInfoBody).toContainText("16.12.0");
 
     const NotificationPluginInfoBody = helper.allByTestId("collapse-body").item(2);
 
-    expect(NotificationPluginInfoBody).toContainText("Description");
+    expect(NotificationPluginInfoBody).toContainText("描述");
     expect(NotificationPluginInfoBody).toContainText(getNotificationPluginInfo().about!.description);
 
-    expect(NotificationPluginInfoBody).toContainText("Author");
+    expect(NotificationPluginInfoBody).toContainText("作者");
     expect(NotificationPluginInfoBody).toContainText(getNotificationPluginInfo().about!.vendor.name);
 
-    expect(NotificationPluginInfoBody).toContainText("Supported operating systems");
-    expect(NotificationPluginInfoBody).toContainText("No restrictions");
+    expect(NotificationPluginInfoBody).toContainText("支持的操作系统");
+    expect(NotificationPluginInfoBody).toContainText("无限制");
 
-    expect(NotificationPluginInfoBody).toContainText("Bundled");
-    expect(NotificationPluginInfoBody).toContainText("No");
+    expect(NotificationPluginInfoBody).toContainText("捆绑模式");
+    expect(NotificationPluginInfoBody).toContainText("否");
 
-    expect(NotificationPluginInfoBody).toContainText("Target GoCD Version");
+    expect(NotificationPluginInfoBody).toContainText("目标凌波版本");
     expect(NotificationPluginInfoBody).toContainText("15.1.0");
   });
 

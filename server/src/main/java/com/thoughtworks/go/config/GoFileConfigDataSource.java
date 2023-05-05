@@ -505,10 +505,10 @@ public class GoFileConfigDataSource {
                 }
                 return new EntityConfigSaveResult(updatingCommand.getPreprocessedEntityConfig(), new GoConfigHolder(preprocessedConfig, modifiedConfig, mergedCruiseConfigForEdit));
             } catch (Exception e) {
-                throw new RuntimeException("failed to save : " + e.getMessage());
+                throw new RuntimeException("保存失败 : " + e.getMessage());
             }
         } else {
-            throw new GoConfigInvalidException(preprocessedConfig, "Validation failed.");
+            throw new GoConfigInvalidException(preprocessedConfig, "验证失败.");
         }
     }
 

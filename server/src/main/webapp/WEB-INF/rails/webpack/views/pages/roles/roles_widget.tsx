@@ -52,11 +52,11 @@ interface PluginRoleAttrs extends RoleAttrs {
 export class RolesWidget extends MithrilViewComponent<Attrs> {
   public static helpText() {
     return <ul data-test-id="role-config-info">
-      <li>Click on "Add" to add new role configuration.</li>
-      <li>A role configuration is used to define a group of users, along with the access permissions, who perform
-        similar tasks. You can read more about roles based access control in GoCD
-        from <Link target="_blank"
-                   href={docsUrl("configuration/dev_authorization.html#role-based-security")}>here</Link>.
+      <li>单击“新增”以添加新的角色配置。</li>
+      <li>角色配置用于定义一组用户以及访问权限，这些用户执行
+
+        类似的任务。您可以从 <Link target="_blank"
+                   href={docsUrl("configuration/dev_authorization.html#role-based-security")}>这里</Link>阅读更多关于GoCD中基于角色的访问控制的信息。
       </li>
     </ul>;
   }
@@ -170,7 +170,7 @@ export class GoCDRoleWidget extends RoleWidget {
     const gocdRole = vnode.attrs.role as GoCDRole;
     let body;
     if (gocdRole.attributes().users.length === 0) {
-      body = (<span data-test-id="no-users-message" class={styles.noUsersMessage}>No users in this role.</span>);
+      body = (<span data-test-id="no-users-message" class={styles.noUsersMessage}>此角色中没有用户。</span>);
     } else {
       body = (<UsersWidget roleAttributes={gocdRole.attributes}/>);
     }

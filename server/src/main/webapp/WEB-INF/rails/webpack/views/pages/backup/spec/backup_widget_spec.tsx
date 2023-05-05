@@ -29,7 +29,7 @@ describe("Backup Widget", () => {
   it("should render available disk space and last backup details", () => {
     mount("2000 GB", BackupStatus.NOT_STARTED, "", undefined, new Date("2019-02-27T00:15:00"), "admin-person");
     expect(helper.byClass(styles.availableDiskSpace))
-      .toContainText("Available disk space in backup directory: 2000 GB");
+      .toContainText("备份目录中的可用磁盘空间: 2000 GB");
     expect(helper.byClass(styles.backupInfo))
       .toContainText(`Last backup was taken by 'admin-person' at ${new Date("2019-02-27T00:15:00").toLocaleString()}`);
   });

@@ -35,16 +35,16 @@ export class ArtifactsManagementWidget extends MithrilViewComponent<ArtifactMana
     return <div data-test-id="artifacts-management-widget" class={styles.formContainer}>
       <FormBody>
         <div class={styles.formHeader}>
-          <h2>Configure your artifact settings</h2>
+          <h2>配置您的文档设置</h2>
         </div>
         <div class={styles.formFields}>
           <Form compactForm={true}>
-            <TextField label="Artifacts Directory Location"
+            <TextField label="文档目录位置"
                        property={artifactConfig.artifactsDir}
                        required={true}
                        errorText={artifactConfig.errors().errorsForDisplay("artifactsDir")}/>
             <CheckboxField property={artifactConfig.purgeSettings().cleanupArtifact}
-                           label={"Allow auto cleanup artifacts"}
+                           label={"允许自动清理文档"}
                            onchange={() => {
                              artifactConfig.purgeSettings().purgeStartDiskSpace(undefined);
                              artifactConfig.purgeSettings().purgeUptoDiskSpace(undefined);
@@ -53,16 +53,16 @@ export class ArtifactsManagementWidget extends MithrilViewComponent<ArtifactMana
             />
             <div class={styles.purgeSettingsFields}>
               <NumberField property={purgeStartDiskSpace}
-                           label={"Start cleanup when disk space is less than (in GB)"}
-                           helpText={"Auto cleanup of artifacts will start when available disk space is less than or equal to the specified limit (in GB)"}
+                           label={"当磁盘空间小于（GB）时开始清理"}
+                           helpText={"当可用磁盘空间小于或等于指定的限制（以GB为单位）时，将启动项目的自动清理"}
                            readonly={!artifactConfig.cleanupArtifact()}
                            errorText={artifactConfig.purgeSettings()
                                                     .errors()
                                                     .errorsForDisplay("purgeStartDiskSpace")}
                            dataTestId={"purge-start-disk-space"}/>
               <NumberField property={purgeUptoDiskSpace}
-                           helpText={"Auto cleanup artifacts until the specified disk space (in GB) is available"}
-                           label={"Target disk space (in GB)"}
+                           helpText={"自动清理工件，直到指定的磁盘空间（以GB为单位）可用"}
+                           label={"目标磁盘空间（GB）"}
                            readonly={!artifactConfig.cleanupArtifact()}
                            errorText={artifactConfig.purgeSettings()
                                                     .errors()

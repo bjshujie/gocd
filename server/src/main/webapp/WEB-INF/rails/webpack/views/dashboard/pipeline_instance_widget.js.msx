@@ -48,7 +48,7 @@ export const PipelineInstanceWidget = {
     const dropdown        = vnode.attrs.dropdown;
     const pipelineName    = vnode.attrs.pipelineName;
 
-    const scheduledAtLocalTime  = `on ${timeFormatter.format(instance.scheduledAt)}`;
+    const scheduledAtLocalTime  = `于 ${timeFormatter.format(instance.scheduledAt)}`;
     const scheduledAtServerTime = timeFormatter.formatInServerTime(instance.scheduledAt);
 
     let dropdownWidget;
@@ -77,7 +77,7 @@ export const PipelineInstanceWidget = {
         <div class="more_info">
           <ul class="info">
             <li><a href={instance.comparePath}>对比</a></li>
-            <li><a href={instance.vsmPath} title="Value Stream Map">图形显示</a></li>
+            <li><a href={instance.vsmPath} title="流程图">图形显示</a></li>
           </ul>
           {dropdownWidget}
         </div>

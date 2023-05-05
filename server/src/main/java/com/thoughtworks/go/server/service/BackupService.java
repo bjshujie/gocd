@@ -162,7 +162,7 @@ public class BackupService implements BackupStatusProvider {
                 runningBackup = backup;
                 notifyUpdateToListeners(backupUpdateListeners, BackupProgressStatus.CREATING_DIR);
                 if (!destDir.mkdirs()) {
-                    notifyErrorToListeners(backupUpdateListeners, "Failed to perform backup. Reason: Could not create the backup directory.");
+                    notifyErrorToListeners(backupUpdateListeners, "无法执行备份。原因：无法创建备份目录。");
                     return backup;
                 }
                 backupVersion(destDir, backupUpdateListeners);
@@ -179,7 +179,7 @@ public class BackupService implements BackupStatusProvider {
             } catch (Exception e) {
                 FileUtils.deleteQuietly(destDir);
                 sendBackupFailedEmail(mailSender, e);
-                notifyErrorToListeners(backupUpdateListeners, String.format("Failed to perform backup. Reason: %s", e.getMessage()));
+                notifyErrorToListeners(backupUpdateListeners, String.format("无法执行备份。原因： %s", e.getMessage()));
                 LOGGER.error("[Backup] Failed to backup Go.", e);
             } finally {
                 runningBackup = null;

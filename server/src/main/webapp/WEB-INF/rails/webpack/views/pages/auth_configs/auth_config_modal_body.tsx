@@ -60,7 +60,7 @@ export class AuthConfigModalBody extends MithrilViewComponent<Attrs> {
               errorText={vnode.attrs.authConfig.errors().errorsForDisplay("id")}
               required={true} />
 
-            <SelectField label="Plugin"
+            <SelectField label="插件"
               property={vnode.attrs.pluginIdProxy.bind(this)}
               required={true}
               errorText={vnode.attrs.authConfig.errors().errorsForDisplay("pluginId")}>
@@ -68,8 +68,8 @@ export class AuthConfigModalBody extends MithrilViewComponent<Attrs> {
                 items={pluginList} />
             </SelectField>
             <CheckboxField required={false}
-                           helpText="Allow only those users to login who have explicitly been added by an administrator."
-                           label="Allow only known users to login"
+                           helpText="只允许管理员明确添加的用户登录。"
+                           label="只允许已知用户登录"
                            property={vnode.attrs.authConfig.allowOnlyKnownUsersToLogin}/>
           </Form>
         </FormHeader>

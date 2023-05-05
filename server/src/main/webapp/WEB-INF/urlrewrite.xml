@@ -79,7 +79,7 @@
   </rule>
 
   <rule>
-    <name>Package Repositories Internal Verify Connection API</name>
+    <name>包存储库内部验证连接API</name>
     <from>^/api/admin/internal/repositories/verify_connection(/?)$</from>
     <to last="true">/spark/api/admin/internal/repositories/verify_connection</to>
   </rule>

@@ -99,8 +99,7 @@ export class PipelineTemplateWidget extends MithrilComponent<Attrs> {
   }
 
   private renderConfirmation(vnode: m.Vnode<Attrs>) {
-    const body = <p>Switching to a template will cause all of the currently defined stages in this pipeline to be lost.
-      Are you sure you want to continue?
+    const body = <p>切换到模板将导致该算法中当前定义的所有阶段丢失，你确定要继续吗？
     </p>;
     new ConfirmationDialog("Confirm Save", body, () => {
       vnode.attrs.isPipelineDefinedOriginallyFromTemplate(true);

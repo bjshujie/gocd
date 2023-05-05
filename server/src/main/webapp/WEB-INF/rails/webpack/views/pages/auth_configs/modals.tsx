@@ -130,7 +130,7 @@ export class CreateAuthConfigModal extends AuthConfigModal {
   }
 
   title(): string {
-    return "Create a new authorization configuration";
+    return "创建新的授权配置";
   }
 
   operationPromise(): Promise<any> {
@@ -138,7 +138,7 @@ export class CreateAuthConfigModal extends AuthConfigModal {
   }
 
   successMessage(): m.Children {
-    return <span>The authorization configuration <em>{this.entity().id()}</em> was created successfully!</span>;
+    return <span>授权配置 <em>{this.entity().id()}</em> 创建成功!</span>;
   }
 }
 
@@ -148,7 +148,7 @@ export class EditAuthConfigModal extends AuthConfigModal {
   }
 
   title(): string {
-    return `Edit authorization configuration ${this.entity().id()}`;
+    return `编辑授权配置 ${this.entity().id()}`;
   }
 
   operationPromise(): Promise<any> {
@@ -156,7 +156,7 @@ export class EditAuthConfigModal extends AuthConfigModal {
   }
 
   successMessage(): m.Children {
-    return <span>The authorization configuration <em>{this.entity().id()}</em> was updated successfully!</span>;
+    return <span>授权配置 <em>{this.entity().id()}</em> 修改成功!</span>;
   }
 }
 
@@ -166,7 +166,7 @@ export class CloneAuthConfigModal extends AuthConfigModal {
   }
 
   title(): string {
-    return `Clone authorization configuration ${this.originalEntityId}`;
+    return `克隆授权配置 ${this.originalEntityId}`;
   }
 
   operationPromise(): Promise<any> {
@@ -174,7 +174,7 @@ export class CloneAuthConfigModal extends AuthConfigModal {
   }
 
   successMessage(): m.Children {
-    return <span>The authorization configuration <em>{this.entity().id()}</em> was created successfully!</span>;
+    return <span>授权配置 <em>{this.entity().id()}</em> 创建成功!</span>;
   }
 
   fetchCompleted() {
@@ -194,18 +194,17 @@ export class DeleteAuthConfigModal extends AuthConfigModal {
   }
 
   title(): string {
-    return "Are you sure?";
+    return "您确定吗?";
   }
 
   buttons(): any[] {
     return [
       <Buttons.Danger data-test-id="button-delete"
                       ajaxOperationMonitor={this.ajaxOperationMonitor}
-                      ajaxOperation={this.performOperation.bind(this)}>Yes
-        Delete</Buttons.Danger>,
+                      ajaxOperation={this.performOperation.bind(this)}>是 删除</Buttons.Danger>,
       <Buttons.Cancel data-test-id="button-no-delete"
                       ajaxOperationMonitor={this.ajaxOperationMonitor}
-                      onclick={this.close.bind(this)}>No</Buttons.Cancel>
+                      onclick={this.close.bind(this)}>否</Buttons.Cancel>
     ];
   }
 
@@ -218,7 +217,7 @@ export class DeleteAuthConfigModal extends AuthConfigModal {
   protected modalBody(): m.Children {
     return (
       <span>
-      Are you sure you want to delete the authorization configuration <strong>{this.originalEntityId}</strong>?
+      您是否确实要删除授权配置 <strong>{this.originalEntityId}</strong>?
         </span>
     );
   }
@@ -228,6 +227,6 @@ export class DeleteAuthConfigModal extends AuthConfigModal {
   }
 
   protected successMessage(): m.Children {
-    return <span>The authorization configuration <em>{this.originalEntityId}</em> was deleted successfully!</span>;
+    return <span>授权配置 <em>{this.originalEntityId}</em> 删除成功!</span>;
   }
 }

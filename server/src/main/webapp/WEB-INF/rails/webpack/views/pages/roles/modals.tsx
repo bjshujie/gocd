@@ -218,7 +218,7 @@ export class EditRoleModal extends ModalWithFetch {
   }
 
   modalTitle(role: GoCDRole | PluginRole): string {
-    return `Edit role ${role.name()}`;
+    return `编辑角色 ${role.name()}`;
   }
 
   performSave(): Promise<any> {
@@ -296,14 +296,14 @@ export class DeleteRoleConfirmModal extends DeleteConfirmModal {
               onSuccessfulSave: (msg: m.Children) => any,
               onOperationError: (errorResponse: ErrorResponse) => any) {
     super(DeleteRoleConfirmModal.deleteConfirmationMessage(role),
-          () => this.delete(role), "Are you sure?");
+          () => this.delete(role), "您确定吗?");
     this.onSuccessfulSave = onSuccessfulSave;
     this.onOperationError = onOperationError;
   }
 
   private static deleteConfirmationMessage(role: GoCDRole | PluginRole) {
     return <span>
-          Are you sure you want to delete the role <strong>{role.name()}</strong>?
+          您是否确实要删除该角色 <strong>{role.name()}</strong>?
         </span>;
   }
 

@@ -100,8 +100,8 @@ describe("Pipeline Template Widget", () => {
 
     helper.clickByTestId("save");
 
-    const title = "Confirm Save";
-    const body  = "Switching to a template will cause all of the currently defined stages in this pipeline to be lost. Are you sure you want to continue?";
+    const title = "确定保存";
+    const body  = "切换到模板将导致该算法中当前定义的所有阶段丢失。你确定要继续吗？";
     expect(helper.byTestId("modal-title", document.body)).toContainText(title);
     expect(helper.byTestId("modal-body", document.body)).toContainText(body);
 

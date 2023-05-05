@@ -42,7 +42,7 @@ describe("Pipeline Pause Header", () => {
     mount(status);
 
     expect(helper.byTestId("page-header-pipeline-label")).toBeInDOM();
-    expect(helper.byTestId("page-header-pipeline-label")).toHaveText("Pipeline");
+    expect(helper.byTestId("page-header-pipeline-label")).toHaveText("算法");
 
     expect(helper.byTestId("page-header-pipeline-name")).toBeInDOM();
     expect(helper.byTestId("page-header-pipeline-name")).toHaveText(PIPELINE_NAME);

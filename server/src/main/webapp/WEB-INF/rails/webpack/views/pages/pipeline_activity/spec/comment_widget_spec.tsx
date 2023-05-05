@@ -69,8 +69,8 @@ describe("CommentWidget", () => {
       mount(comment, 1);
 
       expect(helper.byTestId("add-comment-button")).toBeInDOM();
-      expect(helper.byTestId("add-comment-button")).toHaveText("Add Comment");
-      expect(helper.byTestId("add-comment-button")).toHaveAttr("title", "Add comment on this pipeline run.");
+      expect(helper.byTestId("add-comment-button")).toHaveText("添加注释");
+      expect(helper.byTestId("add-comment-button")).toHaveAttr("title", "为算法运行添加注释.");
     });
 
     it("should not render add comment button when user does not have operate permission on pipeline", () => {

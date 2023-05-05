@@ -109,7 +109,7 @@ class TemplateWidget extends MithrilViewComponent<TemplateAttrs> {
              class={styles.pipelineGroupRow}>
           <div data-test-id={`template-name-${s.slugify(vnode.attrs.template.name)}`}
                class={styles.pipelineGroupName}>
-            <span>Template:</span>
+            <span>模板:</span>
             <span class={styles.value}>{vnode.attrs.template.name}</span>
           </div>
           <div class={styles.pipelineGroupActionButtons}>{this.actions(vnode)}</div>
@@ -128,7 +128,7 @@ class TemplateWidget extends MithrilViewComponent<TemplateAttrs> {
     } else {
       return (
         <div class={styles.noPipelinesDefinedMessage}>
-          <FlashMessage message="There are no pipelines associated with this template." type={MessageType.info}/>
+          <FlashMessage message="没有与此模板关联的算法." type={MessageType.info}/>
         </div>
       );
     }
@@ -142,17 +142,17 @@ class TemplateWidget extends MithrilViewComponent<TemplateAttrs> {
         <span class={styles.iconGroupWrapper}>
           <IconGroup>
             <View
-              title={`View template`}
+              title={`查看模板`}
               data-test-id={`edit-template-permissions-${s.slugify(templateName)}`}
               onclick={vnode.attrs.doShowTemplate.bind(vnode.attrs, templateName)}/>
             <Edit
               disabled={!template.can_edit}
-              title={template.can_edit ? `Edit template ${templateName}` : `You do not have permissions to edit this template.`}
+              title={template.can_edit ? `编辑模板 ${templateName}` : `您没有编辑此模板的权限.`}
               data-test-id={`edit-template-${s.slugify(templateName)}`}
               onclick={vnode.attrs.onEdit.bind(vnode.attrs, template)}/>
             <Lock
               disabled={!headerMeta().isUserAdmin}
-              title={headerMeta().isUserAdmin ? `Edit permissions for template ${templateName}` : `You do not have permissions to edit the permissions for this template. Only system administrators can edit templates.`}
+              title={headerMeta().isUserAdmin ? `编辑模板 ${templateName} 的权限` : `您没有权限编辑此模板的权限。只有系统管理员才能编辑模板。`}
               data-test-id={`edit-template-permissions-${s.slugify(templateName)}`}
               onclick={vnode.attrs.editPermissions.bind(vnode.attrs, template)}/>
             <Delete
@@ -168,12 +168,12 @@ class TemplateWidget extends MithrilViewComponent<TemplateAttrs> {
 
   private getDeleteButtonTitle(vnode: m.Vnode<TemplateAttrs, this>) {
     if (!vnode.attrs.template.can_administer) {
-      return `You do not have permissions to delete this template.`;
+      return `您没有删除此模板的权限`;
     }
     if (_.isEmpty(vnode.attrs.template._embedded.pipelines)) {
-      return `Delete template '${vnode.attrs.template.name}'.`;
+      return `删除模板 '${vnode.attrs.template.name}'.`;
     }
-    return `Cannot delete the template '${vnode.attrs.template.name}' because it is in use by pipelines.`;
+    return `无法删除模板 '${vnode.attrs.template.name}' 因为它正在被算法使用。`;
   }
 
   private isDeleteEnabled(vnode: m.Vnode<TemplateAttrs, this>) {
@@ -185,8 +185,8 @@ export class AdminTemplatesWidget extends MithrilViewComponent<Attrs> {
 
   public static helpText() {
     return <ul>
-      <li>Templating helps to create reusable workflows and makes managing large number of pipelines easier.</li>
-      <li>GoCD Administrators can enable any GoCD user to edit a template by making them a template administrator.
+      <li>模板化有助于创建可重复使用的工作流，并使管理大量算法变得更容易。</li>
+      <li>管理员可以让任何用户通过成为模板管理员来编辑模板。
         <Link href={docsUrl("configuration/pipeline_templates.html")} externalLinkIcon={true}> 学习更多</Link>
       </li>
     </ul>;
@@ -212,7 +212,7 @@ export class AdminTemplatesWidget extends MithrilViewComponent<Attrs> {
     }
     if (_.isEmpty(vnode.attrs.templates)) {
       const noTemplatesFoundMsg = <span>
-      Either no templates have been set up or you are not authorized to view the same. {docLink}
+      要么没有设置模板，要么您无权查看模板. {docLink}
     </span>;
 
       return [
