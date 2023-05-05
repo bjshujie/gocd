@@ -68,12 +68,12 @@ abstract class PluggableScmModal extends EntityModal<Scm> {
   buttons(): any[] {
     return [
       <ButtonGroup>
-        <Buttons.Primary data-test-id="button-check-connection"
+        {/*<Buttons.Primary data-test-id="button-check-connection"
                          ajaxOperationMonitor={this.ajaxOperationMonitor}
                          ajaxOperation={this.performCheckConnection.bind(this)}>
           <span className={this.testConnectionButtonIcon} data-test-id="test-connection-icon"/>
           {this.testConnectionButtonText}
-        </Buttons.Primary>
+        </Buttons.Primary>*/}
         <Buttons.Primary data-test-id="button-save"
                          disabled={this.isLoading()}
                          ajaxOperationMonitor={this.ajaxOperationMonitor}
@@ -178,7 +178,7 @@ export class CreatePluggableScmModal extends PluggableScmModal {
   }
 
   title(): string {
-    return "Create a scm";
+    return "创建算法启动器";
   }
 
   protected operationPromise(): Promise<any> {
@@ -186,13 +186,13 @@ export class CreatePluggableScmModal extends PluggableScmModal {
   }
 
   protected successMessage(): m.Children {
-    return <span>The scm <em>{this.entity().name()}</em> was created successfully!</span>;
+    return <span>算法启动器 <em>{this.entity().name()}</em> 创建成功!</span>;
   }
 }
 
 export class EditPluggableScmModal extends PluggableScmModal {
   private readonly warningMsg = <span>
-    <Warning iconOnly={true}/>This is a global copy. All pipelines using this SCM will be affected.
+    <Warning iconOnly={true}/>这是一个全局副本。使用此算法启动器的所有算法都将受到影响.
   </span>;
 
   constructor(entity: Scm, pluginInfos: PluginInfos, onSuccessfulSave: (msg: m.Children) => any) {
@@ -209,7 +209,7 @@ export class EditPluggableScmModal extends PluggableScmModal {
   }
 
   successMessage(): m.Children {
-    return <span>The scm <em>{this.entity().name()}</em> was updated successfully!</span>;
+    return <span>算法启动器 <em>{this.entity().name()}</em> 更新成功!</span>;
   }
 }
 
@@ -227,7 +227,7 @@ export class ClonePluggableScmModal extends PluggableScmModal {
   }
 
   successMessage(): m.Children {
-    return <span>The scm <em>{this.entity().name()}</em> was created successfully!</span>;
+    return <span>算法启动器 <em>{this.entity().name()}</em> 创建成功!</span>;
   }
 
   fetchCompleted() {
@@ -248,7 +248,7 @@ export class DeletePluggableScmModal extends DeleteConfirmModal {
 
   private static deleteConfirmationMessage(scm: Scm) {
     return <span>
-          您确定要删除scm吗 <strong>{scm.name()}</strong>?
+          您确定要删除算法启动器吗 <strong>{scm.name()}</strong>?
         </span>;
   }
 
@@ -259,7 +259,7 @@ export class DeletePluggableScmModal extends DeleteConfirmModal {
         result.do(
           () => {
             this.onSuccessfulSave(
-              <span>The scm <em>{obj.name()}</em> was deleted successfully!</span>
+              <span>算法启动器 <em>{obj.name()}</em> 删除成功!</span>
             );
             this.close();
           },

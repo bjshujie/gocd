@@ -355,7 +355,7 @@ interface PluginState {
 }
 
 export class PluginFields extends MithrilComponent<PluginAttrs, PluginState> {
-  readonly defaultScms                = [{id: "", text: "Select a scm"}];
+  readonly defaultScms                = [{id: "", text: "选择一个启动器"}];
   private disableScmField: boolean    = true;
   private errorMessage?: m.Children   = undefined;
   private filterValue: Stream<string> = Stream("");
@@ -382,7 +382,7 @@ export class PluginFields extends MithrilComponent<PluginAttrs, PluginState> {
 
   view(vnode: m.Vnode<PluginAttrs, PluginState>): m.Children | void | null {
     const attrs                           = vnode.attrs.material.attributes() as PluggableScmMaterialAttributes;
-    const plugins: Array<Option | string> = [{id: "", text: "Select a plugin"}];
+    const plugins: Array<Option | string> = [{id: "", text: "选择算法启动插件"}];
     plugins.push(..._.map(vnode.attrs.pluginInfos, (pluginInfo: PluginInfo) => {
       return {id: pluginInfo.id, text: pluginInfo.about.name};
     }));
@@ -391,20 +391,20 @@ export class PluginFields extends MithrilComponent<PluginAttrs, PluginState> {
 
     let message;
     if (!_.isEmpty(vnode.attrs.pluginInfos)) {
-      message = <span data-test-id="plugin-msg"><Link href={SparkRoutes.pluggableScmSPA()}>Create New</Link> or select existing scms below.</span>;
+      message = <span data-test-id="plugin-msg"><Link href={SparkRoutes.pluggableScmSPA()}>创建新的</Link> 或使用已存在的.</span>;
     }
 
     return [
       this.errorMessage,
       <SelectField property={this.pluginIdProxy.bind(this, vnode)}
-                   label="SCM Plugin"
+                   label="算法启动插件"
                    errorText={attrs.errors().errorsForDisplay("pluginId")}
                    required={true} readonly={readonly}>
         <SelectFieldOptions selected={vnode.state.pluginId()} items={plugins}/>
       </SelectField>,
 
       <div className={styles.selectionContainer}>
-        <SelectField property={attrs.ref} label="SCM" required={true}
+        <SelectField property={attrs.ref} label="算法启动器" required={true}
                      errorText={attrs.errors().errorsForDisplay("ref")}
                      readonly={readonly || this.disableScmField}>
           <SelectFieldOptions selected={attrs.ref()} items={vnode.state.scmsForSelectedPlugin()}/>
@@ -416,7 +416,7 @@ export class PluginFields extends MithrilComponent<PluginAttrs, PluginState> {
 
       this.showSelectedScmConfig(vnode),
 
-      this.advanced(attrs, vnode.attrs)
+      // this.advanced(attrs, vnode.attrs)
     ];
   }
 
@@ -487,7 +487,7 @@ export class PluginFields extends MithrilComponent<PluginAttrs, PluginState> {
     const selectedScm = vnode.attrs.scms.find((scm) => scm.id() === attrs.ref());
     if (selectedScm !== undefined) {
       const scmRepoDetails = selectedScm.configuration().asMap();
-      return <ConfigurationDetailsWidget header={"SCM Configuration"} dataTestId={"selected-scm-details"}
+      return <ConfigurationDetailsWidget header={"算法启动器配置"} dataTestId={"selected-scm-details"}
                                          data={scmRepoDetails}/>;
     }
   }

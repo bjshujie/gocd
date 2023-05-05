@@ -60,14 +60,14 @@ export class PluggableScmModalBody extends MithrilViewComponent<Attrs> {
       <FormHeader>
         {mayBeMsg}
         <Form>
-          <TextField label="Name"
+          <TextField label="名称"
                      readonly={vnode.attrs.disableId}
                      property={scm.name}
-                     placeholder={"Enter the pluggable scm name"}
+                     placeholder={"输入算法启动器名称"}
                      errorText={scm.errors().errorsForDisplay("name") || scm.errors().errorsForDisplay("scmId")}
                      required={true}/>
 
-          <SelectField label="Plugin"
+          <SelectField label="算法启动器插件"
                        property={vnode.attrs.pluginIdProxy.bind(this)}
                        required={true} readonly={vnode.attrs.disablePluginId}
                        errorText={scm.errors().errorsForDisplay("pluginId")}>

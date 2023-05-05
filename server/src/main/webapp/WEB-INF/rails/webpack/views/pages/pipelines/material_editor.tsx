@@ -78,9 +78,9 @@ export class MaterialEditor extends MithrilViewComponent<Attrs> {
     const showGitMaterialShallowClone = attrs.showGitMaterialShallowClone === undefined ? true : attrs.showGitMaterialShallowClone;
 
     return <FormBody>
-      <SelectField label="Material Type" property={vnode.attrs.material.type} required={true}
+      <SelectField label="算法启动器类型" property={vnode.attrs.material.type} required={true}
                    readonly={readonly || vnode.attrs.disabled || vnode.attrs.disabledMaterialTypeSelection}>
-        <SelectFieldOptions selected={vnode.attrs.material.type()} items={this.supportedMaterials(scmOnly, !!attrs.showExtraMaterials)}/>
+        <SelectFieldOptions selected={""} items={this.supportedMaterials(scmOnly, !!attrs.showExtraMaterials)}/>
       </SelectField>
 
       <Form last={true} compactForm={true}>
@@ -91,20 +91,20 @@ export class MaterialEditor extends MithrilViewComponent<Attrs> {
 
   supportedMaterials(scmOnly: boolean, showExtraMaterials: boolean): Option[] {
     const options = [
-      {id: "git", text: "Git"},
+      /*{id: "git", text: "Git"},
       {id: "hg", text: "Mercurial"},
       {id: "svn", text: "Subversion"},
       {id: "p4", text: "Perforce"},
-      {id: "tfs", text: "Team Foundation Server"},
+      {id: "tfs", text: "Team Foundation Server"},*/
     ];
 
     if (!scmOnly) {
-      options.push({id: "dependency", text: "Another Pipeline"});
+      //options.push({id: "dependency", text: "Another Pipeline"});
     }
 
     if (showExtraMaterials) {
-      options.push({id: "package", text: "Package Materials"});
-      options.push({id: "plugin", text: "Plugin Materials"});
+      // options.push({id: "package", text: "Package Materials"});
+      options.push({id: "plugin", text: "算法启动插件"});
     }
 
     return options;
@@ -123,9 +123,7 @@ export class MaterialEditor extends MithrilViewComponent<Attrs> {
         if (!(material.attributes() instanceof GitMaterialAttributes)) {
           material.attributes(new GitMaterialAttributes(undefined, true));
         }
-        return <GitFields material={material} hideTestConnection={hideTestConnection} readonly={readonly} parentPipelineName={parentPipelineName}
-                          pipelineGroupName={pipelineGroupName} showGitMaterialShallowClone={showGitMaterialShallowClone}
-                          showLocalWorkingCopyOptions={showLocalWorkingCopyOptions} disabled={disabled}/>;
+        break;
       case "hg":
         if (disableScmMaterials) {
           return warningMsg;
@@ -191,8 +189,7 @@ export class MaterialEditor extends MithrilViewComponent<Attrs> {
           : pluginInfos!.filterForExtension(ExtensionTypeString.SCM);
         if (_.isEmpty(pluginInfos)) {
           return <FlashMessage type={MessageType.warning}>
-            There are no SCM plugins installed. Please see <Link href={new SCMExtensionType().linkForDocs()} target="_blank"
-                                                                 externalLinkIcon={true}>this page</Link> for a list of supported plugins.
+            未安装算法启动插件
           </FlashMessage>;
         }
         if (disableScmMaterials) {

@@ -64,7 +64,7 @@ describe("Site Menu", () => {
     expect(findMenuItem("/go/admin/security/auth_configs")).toHaveText("授权配置");
     expect(findMenuItem("/go/admin/security/roles")).toHaveText("角色配置");
     expect(findMenuItem("/go/admin/admin_access_tokens")).toHaveText("访问令牌管理");
-    expect(findMenuItem("/go/admin/scms")).toHaveText("SCM 插件");
+    expect(findMenuItem("/go/admin/scms")).toHaveText("算法启动插件");
     expect(helper.qa(`a${sel.siteNavLink}`)).toHaveLength(5);
     expect(helper.qa(`a${sel.siteSubNavLink}`)).toHaveLength(18);
   });
@@ -144,7 +144,7 @@ describe("Site Menu", () => {
     expect(findMenuItem("/go/admin/package_repositories/new")).toHaveText("包仓库");
     expect(findMenuItem("/go/admin/security/auth_configs")).toBeFalsy();
     expect(findMenuItem("/go/admin/security/roles")).toBeFalsy();
-    expect(findMenuItem("/go/admin/scms")).toHaveText("SCM 插件");
+    expect(findMenuItem("/go/admin/scms")).toHaveText("算法启动插件");
     expect(helper.qa(`a${sel.siteNavLink}`)).toHaveLength(5);
     expect(helper.qa(`a${sel.siteSubNavLink}`)).toHaveLength(9);
   });

@@ -167,7 +167,7 @@ export class SiteMenu extends MithrilViewComponent<Attrs> {
                 <SiteSubNavItem href="/go/admin/config_repos" text="配置仓库"/>
                 <SiteSubNavItem href="/go/admin/artifact_stores" text="文档存储"/>
                 <SiteSubNavItem href="/go/admin/secret_configs" text="保密管理"/>
-                <SiteSubNavItem href="/go/admin/scms" text="SCM 插件"/>
+                <SiteSubNavItem href="/go/admin/scms" text="算法启动插件"/>
               </SiteSubNav>
               <SiteSubNav>
                 <SiteSubNavHeading text="服务器配置"/>
@@ -198,7 +198,7 @@ export class SiteMenu extends MithrilViewComponent<Attrs> {
               <SiteSubNavItem href="/go/admin/package_repositories/new" text="包仓库"/>
               <SiteSubNavItem href="/go/admin/config_repos" text="配置仓库"/>
               <SiteSubNavItem href="/go/admin/elastic_agent_configurations" text="弹性节点配置"/>
-              <SiteSubNavItem href="/go/admin/scms" text="SCM 插件"/>
+              <SiteSubNavItem href="/go/admin/scms" text="算法启动插件"/>
             </SiteSubNav>
           </div>
         </SiteNavItem>;

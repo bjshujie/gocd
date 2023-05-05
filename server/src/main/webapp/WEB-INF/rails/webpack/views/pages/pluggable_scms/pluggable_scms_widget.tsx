@@ -46,9 +46,8 @@ export class PluggableScmsWidget extends MithrilViewComponent<Attrs> {
 
   public static helpText() {
     return <ul>
-      <li>Click on "Create Pluggable Scm" to add new SCM.</li>
-      <li>An SCM can be set up and used as a material in the pipelines. You can read more
-        from <Link target="_blank" href={docsUrl("extension_points/scm_extension.html")}>here</Link>.
+      <li>点击”创建算法启动插件“来创建一个新的算法启动插件。</li>
+      <li>算法启动插件可用于启动一个算法.
       </li>
     </ul>;
   }

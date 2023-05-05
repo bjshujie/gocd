@@ -103,7 +103,7 @@ abstract class ScmFields extends MithrilViewComponent<Attrs> {
       fields.push(<TestConnection material={vnode.attrs.material} pipeline={vnode.attrs.parentPipelineName} group={vnode.attrs.pipelineGroupName}/>);
     }
 
-    fields.push(this.advancedOptions(mattrs, vnode));
+    // fields.push(this.advancedOptions(mattrs, vnode));
 
     if (vnode.attrs.readonly) {
       return markAllDisabled(fields);

@@ -140,7 +140,7 @@ export class PluggableScmsPage extends Page<null, State> {
   }
 
   pageName(): string {
-    return "Pluggable SCMs";
+    return "算法启动插件";
   }
 
   fetchData(vnode: m.Vnode<null, State>): Promise<any> {
@@ -172,7 +172,7 @@ export class PluggableScmsPage extends Page<null, State> {
     const buttons = [
       <Primary icon={ButtonIcon.ADD} disabled={!this.isPluginInstalled(vnode)}
                onclick={vnode.state.onAdd}>
-        Create Pluggable Scm
+        创建启动插件
       </Primary>
     ];
     if (!_.isEmpty(vnode.state.scms())) {

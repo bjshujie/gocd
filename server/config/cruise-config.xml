@@ -23,6 +23,17 @@
       <artifactsDir>artifacts</artifactsDir>
     </artifacts>
   </server>
+  <scms>
+    <scm id="412022b6-9f2f-49d7-85e8-99f5b1e43bca" name="test">
+      <pluginConfiguration id="com.bjshujie.algorithm.starter" version="1" />
+      <configuration>
+        <property>
+          <key>algorithmName</key>
+          <value>A</value>
+        </property>
+      </configuration>
+    </scm>
+  </scms>
   <pipelines group="first">
     <authorization>
       <view>
@@ -39,6 +50,20 @@
       <stage name="up42_stage">
         <jobs>
           <job name="up42_job">
+            <tasks>
+              <exec command="ls" />
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+    <pipeline name="t1">
+      <materials>
+        <scm ref="412022b6-9f2f-49d7-85e8-99f5b1e43bca" />
+      </materials>
+      <stage name="t1s1">
+        <jobs>
+          <job name="t1s1j1">
             <tasks>
               <exec command="ls" />
             </tasks>
