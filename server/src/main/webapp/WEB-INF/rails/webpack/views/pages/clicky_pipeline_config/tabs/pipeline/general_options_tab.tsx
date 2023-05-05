@@ -69,11 +69,7 @@ export class GeneralOptionsTabContent extends TabContent<PipelineConfig> {
                    dataTestId={"cron-timer"}
                    helpText={"类Cron规范的定时器调度算法，例如要设置每周一致周五22：00运行算法一次，可设置Cron规范为 '0 0 22 ? * MON-FRI'."}
                    docLink={"configuration/admin_timer.html"}/>
-        <CheckboxField label="Run only on new material"
-                       readonly={!entity.timer().spec() || entity.isDefinedInConfigRepo()}
-                       dataTestId={"run-only-on-new-material"}
-                       helpText="Run only if the pipeline hasn't previously run with the latest material(s). This option is typically useful when automatic pipeline scheduling is turned off. For this pipeline to schedule conditionally, please ensure at least one of its materials has polling enabled."
-                       property={entity.timer().onlyOnChanges}/>
+
       </Form>
 
       <h3>计算锁定行为设置</h3>

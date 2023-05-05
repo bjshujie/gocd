@@ -101,12 +101,12 @@ export class TemplateEditor extends MithrilComponent<Attrs, State> {
       if (!this.templates() || !this.templates().length) {
         return <FlashMessage type={errors.hasErrors("template") ? MessageType.alert : MessageType.warning}>
           <code>
-            There are no templates configured or you are unauthorized to view the existing templates.
-            Add one via the <a href="/go/admin/templates" title="Pipeline Templates">templates page</a>.
+            没有配置任何模板，或者您未经授权查看现有模板。
+            通过 <a href="/go/admin/templates" title="Pipeline Templates">模板页面添加一个模板</a>.
           </code>
         </FlashMessage>;
       } else {
-        return <SelectField label="Template" property={config.template} errorText={errors.errorsForDisplay("template")}
+        return <SelectField label="模板" property={config.template} errorText={errors.errorsForDisplay("template")}
                             required={true} onchange={(e: any) => {
           this.setTemplateParams(e.target.value, attrs.paramList, config, state.notifyChange);
         }}>

@@ -82,7 +82,7 @@ export interface TaskAttributesJSON {
 
 export class Timer extends ValidatableMixin {
   spec          = Stream<string>();
-  onlyOnChanges = Stream<boolean>();
+  onlyOnChanges = Stream<boolean>(false);
 
   constructor(spec?: string, onlyOnChanges?: boolean) {
     super();

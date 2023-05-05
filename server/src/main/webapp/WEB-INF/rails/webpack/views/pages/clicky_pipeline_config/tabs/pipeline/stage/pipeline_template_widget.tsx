@@ -47,8 +47,8 @@ export class PipelineTemplateWidget extends MithrilComponent<Attrs> {
 
     if (!doesTemplatesExist) {
       return (<FlashMessage type={MessageType.warning}>
-        <code>There are no templates configured or you are unauthorized to view the existing templates.
-          Add one via the <a href="/go/admin/templates" title="Pipeline Templates">templates page</a>.</code>
+        <code>没有配置任何模板，或者您未经授权查看现有模板。
+          通过 <a href="/go/admin/templates" title="Pipeline Templates">模板页面</a>添加.</code>
       </FlashMessage>);
     }
 
@@ -58,12 +58,12 @@ export class PipelineTemplateWidget extends MithrilComponent<Attrs> {
         <div class={classnames(styles.templateLink, {[styles.disabled]: disableLinks})}
              onclick={this.openViewTemplatePage.bind(this, vnode)}
              data-test-id="view-template">
-          <Icons.View disabled={disableLinks} iconOnly={true}/> View
+          <Icons.View disabled={disableLinks} iconOnly={true}/> 查看
         </div>
         <div class={classnames(styles.templateLink, {[styles.disabled]: disableLinks})}
              onclick={this.openEditTemplatePage.bind(this, vnode)}
              data-test-id="edit-template">
-          <Icons.Edit disabled={disableLinks} iconOnly={true}/> Edit
+          <Icons.Edit disabled={disableLinks} iconOnly={true}/> 编辑
         </div>
       </div>
       {this.buttons(vnode)}
@@ -77,7 +77,7 @@ export class PipelineTemplateWidget extends MithrilComponent<Attrs> {
       return {id: template.name, text: template.name} as Option;
     });
 
-    return <SelectField label="Template"
+    return <SelectField label="模板"
                         property={config.template}
                         readonly={attrs.readonly}
                         errorText={config.errors().errorsForDisplay("template")}
@@ -115,12 +115,12 @@ export class PipelineTemplateWidget extends MithrilComponent<Attrs> {
     return <div className={pipelineConfigStyles.buttonContainer}>
       <Reset data-test-id={"cancel"}
              onclick={vnode.attrs.pipelineConfigReset}>
-        RESET
+        重置
       </Reset>
       <Primary data-test-id={"save"}
                disabled={!vnode.attrs.pipelineConfig.isUsingTemplate()}
                onclick={this.renderConfirmation.bind(this, vnode)}>
-        SAVE
+        保存
       </Primary>
     </div>;
   }
