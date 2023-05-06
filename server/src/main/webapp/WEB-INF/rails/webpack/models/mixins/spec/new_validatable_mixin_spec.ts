@@ -579,10 +579,10 @@ describe("Validatable", () => {
   describe("Error Message", () => {
     it("duplicate", () => {
       expect(ErrorMessages.duplicate("id")).toEqual("Id is a duplicate");
-      expect(ErrorMessages.duplicate("PluginId")).toEqual("Plugin id is a duplicate");
-      expect(ErrorMessages.duplicate("pluginId")).toEqual("Plugin id is a duplicate");
-      expect(ErrorMessages.duplicate("plugin_id")).toEqual("Plugin id is a duplicate");
-      expect(ErrorMessages.duplicate("plugin id")).toEqual("Plugin id is a duplicate");
+      expect(ErrorMessages.duplicate("PluginId")).toEqual("插件ID重复");
+      expect(ErrorMessages.duplicate("pluginId")).toEqual("插件ID重复");
+      expect(ErrorMessages.duplicate("plugin_id")).toEqual("插件ID重复");
+      expect(ErrorMessages.duplicate("plugin id")).toEqual("插件ID重复");
     });
 
     it("mustBePresent", () => {

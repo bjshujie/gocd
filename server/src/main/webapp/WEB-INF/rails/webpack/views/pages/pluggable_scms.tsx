@@ -178,7 +178,7 @@ export class PluggableScmsPage extends Page<null, State> {
     if (!_.isEmpty(vnode.state.scms())) {
       const searchBox = <div className={configRepoStyles.wrapperForSearchBox}>
         <SearchField property={vnode.state.searchText} dataTestId={"search-box"}
-                     placeholder="Search for a pluggable scm name"/>
+                     placeholder="搜索算法启动插件"/>
       </div>;
       buttons.splice(0, 0, searchBox);
     }

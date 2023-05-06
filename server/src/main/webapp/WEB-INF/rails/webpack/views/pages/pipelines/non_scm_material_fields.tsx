@@ -34,15 +34,13 @@ import {PackageRepositories, PackageRepository} from "models/package_repositorie
 import {PluginInfo, PluginInfos} from "models/shared/plugin_infos_new/plugin_info";
 import {FlashMessage, MessageType} from "views/components/flash_message";
 import {AutocompleteField, SuggestionProvider} from "views/components/forms/autocomplete";
-import {CheckboxField, Option, SelectField, SelectFieldOptions, TextField} from "views/components/forms/input_fields";
+import {Option, SelectField, SelectFieldOptions, TextField} from "views/components/forms/input_fields";
 import {Link} from "views/components/link";
-import * as Tooltip from "views/components/tooltip";
-import {TooltipSize} from "views/components/tooltip";
 import {ConfigurationDetailsWidget} from "views/pages/package_repositories/configuration_details_widget";
 import {AdvancedSettings} from "views/pages/pipelines/advanced_settings";
 import {DependencyIgnoreSchedulingToggle} from "views/pages/pipelines/material_auto_update_toggle";
 import styles from "./advanced_settings.scss";
-import {DENYLIST_HELP_MESSAGE, DESTINATION_DIR_HELP_MESSAGE, IDENTIFIER_FORMAT_HELP_MESSAGE} from "./messages";
+import {IDENTIFIER_FORMAT_HELP_MESSAGE} from "./messages";
 
 interface Attrs {
   material: Material;
@@ -441,37 +439,6 @@ export class PluginFields extends MithrilComponent<PluginAttrs, PluginState> {
                                              return {id: scm.id(), text: scm.name()};
                                            }));
   }
-
-  private advanced(attrs: PluggableScmMaterialAttributes, vnodeAttrs: PluginAttrs): m.Children {
-    const showLocalWorkingCopyOptions = !!vnodeAttrs.showLocalWorkingCopyOptions;
-    if (showLocalWorkingCopyOptions) {
-      const labelForDestination = [
-        "Alternate Checkout Path",
-        " ",
-        <Tooltip.Help size={TooltipSize.medium} content={DESTINATION_DIR_HELP_MESSAGE}/>
-      ];
-      const forceOpen           = attrs.errors().hasErrors("name") || attrs.errors().hasErrors("destination");
-      return <AdvancedSettings forceOpen={forceOpen}>
-        <TextField label={labelForDestination} property={attrs.destination} readonly={vnodeAttrs.readonly}
-                   errorText={attrs.errors().errorsForDisplay("destination")}/>
-        <TextField label="Denylist" helpText={DENYLIST_HELP_MESSAGE} readonly={vnodeAttrs.readonly}
-                   property={this.filterValue} onchange={this.filterProxy.bind(this, attrs)}
-                   errorText={attrs.errors().errorsForDisplay("filter")}/>
-        <CheckboxField property={attrs.invertFilter} readonly={vnodeAttrs.readonly}
-                       label="Invert the file filter, e.g. a Denylist becomes an Allowlist instead."
-                       errorText={attrs.errors().errorsForDisplay("invertFilter")}/>
-      </AdvancedSettings>;
-    }
-  }
-
-  private filterProxy(attrs: PluggableScmMaterialAttributes) {
-    const filters = this.filterValue().split(',')
-                        .map((val) => val.trim())
-                        .filter((val) => val.length > 0);
-    attrs.filter().ignore(filters);
-
-  }
-
   private setErrorMessageIfApplicable(vnode: m.Vnode<PluginAttrs, PluginState>) {
     this.errorMessage = undefined;
     if (vnode.state.pluginId().length > 0 && vnode.state.scmsForSelectedPlugin().length === 1) {

@@ -25,8 +25,8 @@ import {PluginInfo, PluginInfos} from "models/shared/plugin_infos_new/plugin_inf
 import {FlashMessage, FlashMessageModel} from "views/components/flash_message";
 import {Form, FormHeader} from "views/components/forms/form";
 import {SelectField, SelectFieldOptions, TextField} from "views/components/forms/input_fields";
-import {MaterialAutoUpdateToggle} from "views/pages/pipelines/material_auto_update_toggle";
-import styles from "./index.scss";
+//import {MaterialAutoUpdateToggle} from "views/pages/pipelines/material_auto_update_toggle";
+//import styles from "./index.scss";
 
 const AngularPluginNew = require("views/shared/angular_plugin_new").AngularPluginNew;
 
@@ -76,10 +76,6 @@ export class PluggableScmModalBody extends MithrilViewComponent<Attrs> {
           </SelectField>
         </Form>
       </FormHeader>
-
-      <div className={styles.switchWrapper}>
-        <MaterialAutoUpdateToggle toggle={scm.autoUpdate} errors={scm.errors()}/>
-      </div>
 
       <div className="row collapse">
         <AngularPluginNew

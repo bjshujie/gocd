@@ -87,15 +87,15 @@ public abstract class PluginProfile extends Configuration implements Validatable
         validateUniqueness(getObjectDescription() + " " + (isBlank(id) ? "(noname)" : "'" + id + "'"));
 
         if (isBlank(id)) {
-            addError(ID, getObjectDescription() + " cannot have a blank id.");
+            addError(ID, getObjectDescription() + " 插件 id不能为空.");
         }
 
         if (isBlank(pluginId)) {
-            addError(PLUGIN_ID, getObjectDescription() + " cannot have a blank plugin id.");
+            addError(PLUGIN_ID, getObjectDescription() + " 插件 id不能为空.");
         }
 
         if (new NameTypeValidator().isNameInvalid(id)) {
-            addError(ID, String.format("Invalid id '%s'. %s", id, NameTypeValidator.ERROR_MESSAGE));
+            addError(ID, String.format("无效 id '%s'. %s", id, NameTypeValidator.ERROR_MESSAGE));
         }
     }
 

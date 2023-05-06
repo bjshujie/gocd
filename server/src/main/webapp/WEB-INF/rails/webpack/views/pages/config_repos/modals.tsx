@@ -76,7 +76,7 @@ class MaterialEditWidget extends MithrilViewComponent<EditableMaterial> {
                      errorText={repo.errors().errorsForDisplay("id")}
                      css={styles}
                      required={true}/>
-          <SelectField label="Plugin ID"
+          <SelectField label="插件 ID"
                        property={repo.pluginId}
                        required={true}
                        css={styles}

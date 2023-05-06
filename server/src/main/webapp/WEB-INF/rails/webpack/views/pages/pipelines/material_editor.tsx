@@ -31,14 +31,14 @@ import {
   TfsMaterialAttributes
 } from "models/materials/types";
 import {PackageRepositories} from "models/package_repositories/package_repositories";
-import {ExtensionTypeString, PackageRepoExtensionType, SCMExtensionType} from "models/shared/plugin_infos_new/extension_type";
+import {ExtensionTypeString, PackageRepoExtensionType} from "models/shared/plugin_infos_new/extension_type";
 import {PluginInfos} from "models/shared/plugin_infos_new/plugin_info";
 import {FlashMessage, MessageType} from "views/components/flash_message";
 import {Form, FormBody} from "views/components/forms/form";
 import {Option, SelectField, SelectFieldOptions} from "views/components/forms/input_fields";
 import {Link} from "views/components/link";
 import {DefaultCache, DependencyFields, PackageFields, PluginFields, SuggestionCache} from "./non_scm_material_fields";
-import {GitFields, HgFields, P4Fields, SvnFields, TfsFields} from "./scm_material_fields";
+import { HgFields, P4Fields, SvnFields, TfsFields} from "./scm_material_fields";
 
 interface Attrs {
   material: Material;

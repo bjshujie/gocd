@@ -46,7 +46,7 @@ export class MaterialsTabContent extends TabContent<PipelineConfig> {
   }
 
   static tabName(): string {
-    return "Materials";
+    return "算法启动";
   }
 
   public shouldShowSaveAndResetButtons(): boolean {
@@ -54,7 +54,7 @@ export class MaterialsTabContent extends TabContent<PipelineConfig> {
   }
 
   name(): string {
-    return "Materials";
+    return "算法启动";
   }
 
   protected selectedEntity(pipelineConfig: PipelineConfig, routeParams: PipelineConfigRouteParams): PipelineConfig {

@@ -40,7 +40,6 @@ import {TestConnection} from "views/components/materials/test_connection";
 import * as Tooltip from "views/components/tooltip";
 import {TooltipSize} from "views/components/tooltip";
 import {AdvancedSettings} from "views/pages/pipelines/advanced_settings";
-import {MaterialAutoUpdateToggle} from "views/pages/pipelines/material_auto_update_toggle";
 import {DENYLIST_HELP_MESSAGE, DESTINATION_DIR_HELP_MESSAGE, IDENTIFIER_FORMAT_HELP_MESSAGE} from "./messages";
 
 interface Attrs {
@@ -129,8 +128,6 @@ abstract class ScmFields extends MithrilViewComponent<Attrs> {
         <TextField label="Material Name" helpText={IDENTIFIER_FORMAT_HELP_MESSAGE}
                    placeholder="A human-friendly label for this material" property={mattrs.name}
                    errorText={this.errs(mattrs, "name")}/>,
-
-        <MaterialAutoUpdateToggle toggle={mattrs.autoUpdate} errors={mattrs.errors()} disabled={vnode.attrs.disabled}/>,
 
         <TextField label="Denylist" helpText={DENYLIST_HELP_MESSAGE}
                    property={this.filterValue}

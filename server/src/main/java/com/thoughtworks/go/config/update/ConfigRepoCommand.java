@@ -84,7 +84,7 @@ abstract class ConfigRepoCommand implements EntityConfigUpdateCommand<ConfigRepo
 
     private void validateConfigRepoPluginId(ConfigRepoConfig configRepo) {
         if (isNotBlank(configRepo.getPluginId()) && !configRepoExtension.canHandlePlugin(configRepo.getPluginId())) {
-            this.configRepo.addError("plugin_id", format("Invalid plugin id: %s", configRepo.getPluginId()));
+            this.configRepo.addError("plugin_id", format("无效的插件 id: %s", configRepo.getPluginId()));
         }
     }
 

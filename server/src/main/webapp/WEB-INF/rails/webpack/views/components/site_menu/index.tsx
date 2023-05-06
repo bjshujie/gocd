@@ -233,7 +233,6 @@ export class SiteMenu extends MithrilViewComponent<Attrs> {
       <ul class={styles.siteNav}>
         <SiteNavItem href="/go/pipelines" text="Dashboard"/>
         <SiteNavItem href="/go/agents" text="节点"/>
-        <SiteNavItem href="/go/materials" text="Materials"/>
         {analyticsMenu}
         {adminMenu}
       </ul>

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import {docsUrl} from "gen/gocd_version";
+// import {docsUrl} from "gen/gocd_version";
 import {MithrilViewComponent} from "jsx/mithril-component";
 import _ from "lodash";
 import m from "mithril";
@@ -22,7 +22,7 @@ import Stream from "mithril/stream";
 import {Scm, Scms} from "models/materials/pluggable_scm";
 import {ScrollManager} from "views/components/anchor/anchor";
 import {FlashMessage, MessageType} from "views/components/flash_message";
-import {Link} from "views/components/link";
+// import {Link} from "views/components/link";
 import styles from "views/pages/package_repositories/index.scss";
 import {CloneOperation, DeleteOperation, EditOperation, RequiresPluginInfos} from "views/pages/page_operations";
 import {PluggableScmWidget} from "./pluggable_scm_widget";

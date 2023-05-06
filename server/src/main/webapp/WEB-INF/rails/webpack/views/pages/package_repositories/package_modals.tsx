@@ -215,7 +215,7 @@ export class UsagePackageModal extends Modal {
   }
 
   title(): string {
-    return "Usages for " + this.profileId;
+    return  this.profileId + " 使用者";
   }
 
   body(): m.Children {
@@ -228,12 +228,12 @@ export class UsagePackageModal extends Modal {
       return [
         <span>{usage.group}</span>,
         <span>{usage.pipeline}</span>,
-        <Link href={href}>Pipeline Material Settings</Link>
+        <Link href={href}>算法设置</Link>
       ];
     });
     return (
       <div>
-        <Table headers={["Group", "Pipeline", ""]} data={data}/>
+        <Table headers={["算法组", "算法", ""]} data={data}/>
       </div>
     );
   }

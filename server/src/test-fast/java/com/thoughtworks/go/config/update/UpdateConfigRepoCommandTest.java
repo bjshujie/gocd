@@ -126,6 +126,6 @@ public class UpdateConfigRepoCommandTest {
         CreateConfigRepoCommand command = new CreateConfigRepoCommand(securityService, configRepo, currentUser, result, configRepoExtension);
 
         assertFalse(command.isValid(cruiseConfig));
-        assertThat(configRepo.errors().on("plugin_id"), is("Invalid plugin id: invalid_id"));
+        assertThat(configRepo.errors().on("plugin_id"), is("无效的插件 id: invalid_id"));
     }
 }

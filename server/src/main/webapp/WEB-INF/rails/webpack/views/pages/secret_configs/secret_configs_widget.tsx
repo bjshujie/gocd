@@ -109,7 +109,7 @@ export class SecretConfigsWidget extends MithrilViewComponent<Attrs> {
   private headerMap(secretConfig: SecretConfig) {
     const map = new Map();
     map.set("Id", secretConfig.id());
-    map.set("Plugin Id", secretConfig.pluginId());
+    map.set("插件 Id", secretConfig.pluginId());
     return map;
   }
 

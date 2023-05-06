@@ -51,14 +51,14 @@ export class PluggableScmWidget extends MithrilViewComponent<Attrs> {
     const scm            = vnode.attrs.scm;
     const scmRepoDetails = new Map([
                                      ["Id", scm.id()],
-                                     ["Name", scm.name()],
-                                     ["Plugin Id", scm.pluginMetadata().id()],
+                                     ["名称", scm.name()],
+                                     ["插件 Id", scm.pluginMetadata().id()],
                                      ...Array.from(scm.configuration().asMap())
                                    ]);
 
     const disabled            = vnode.attrs.disableActions;
     const warningIcon         = disabled
-      ? <span className={styles.warning}><InfoCircle title={`Plugin '${scm.pluginMetadata().id()}' was not found!`} iconOnly={true}/></span>
+      ? <span className={styles.warning}><InfoCircle title={`插件 '${scm.pluginMetadata().id()}' 未找到!`} iconOnly={true}/></span>
       : undefined;
     const definedInConfigRepo = scm.origin().isDefinedInConfigRepo();
     const actionButtons       = <IconGroup>
@@ -104,17 +104,27 @@ export class PluggableScmWidget extends MithrilViewComponent<Attrs> {
 
   private static headerMap(scm: Scm) {
     const map = new Map();
-    map.set("Name", scm.name());
-    map.set("Plugin Id", scm.pluginMetadata().id());
+    map.set("名称", scm.name());
+    map.set("插件 Id", scm.pluginMetadata().id());
     return map;
   }
 
   private static getMsgForOperation(disabled: boolean, scm: Scm, operation: "edit" | "clone" | "delete" | "show usages for"): string {
     if (disabled && (operation === "edit" || operation === "clone")) {
-      return `Plugin '${scm.pluginMetadata().id()}' not found!`;
+      return `插件 '${scm.pluginMetadata().id()}' 未找到!`;
     } else if (scm.origin().isDefinedInConfigRepo()) {
       return `Cannot ${operation} as '${scm.name()}' is defined in config repo '${scm.origin().id()}'`;
     }
-    return `${s.capitalize(operation)} scm '${scm.name()}'`;
+    let strOpera:string=""
+    if (operation === "delete") {
+      strOpera = "删除"
+    } else if (operation === "clone") {
+      strOpera = "克隆"
+    } else if (operation === "edit") {
+      strOpera = "编辑"
+    } else if (operation === "show usages for") {
+      strOpera = "使用"
+    }
+    return `${strOpera} 算法启动插件 '${scm.name()}'`;
   }
 }

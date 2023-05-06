@@ -147,7 +147,7 @@ public abstract class RuleAwarePluginProfile implements Validatable, RulesAware 
         }
 
         if (isBlank(pluginId)) {
-            addError(PLUGIN_ID, getObjectDescription() + " cannot have a blank plugin id.");
+            addError(PLUGIN_ID, getObjectDescription() + " 插件 id不能为空.");
         }
 
         if (new NameTypeValidator().isNameInvalid(id)) {

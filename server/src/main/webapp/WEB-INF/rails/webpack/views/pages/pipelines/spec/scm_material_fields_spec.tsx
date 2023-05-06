@@ -45,7 +45,7 @@ describe("AddPipeline: SCM Material Fields", () => {
       "material-name": "Material Name",
       "denylist": "Denylist"
     });
-    assertAutoUpdateControlPresent();
+    // assertAutoUpdateControlPresent();
 
     expect(helper.byTestId("test-connection-button")).toBeInDOM();
   });
@@ -65,7 +65,7 @@ describe("AddPipeline: SCM Material Fields", () => {
                                 });
 
     assertLabelledInputsAbsent("shallow-clone-recommended-for-large-repositories");
-    assertAutoUpdateControlPresent();
+    //assertAutoUpdateControlPresent();
 
     expect(helper.byTestId("test-connection-button")).toBeInDOM();
   });
@@ -83,7 +83,7 @@ describe("AddPipeline: SCM Material Fields", () => {
       "material-name":           "Material Name",
       "denylist":               "Denylist"
     });
-    assertAutoUpdateControlPresent();
+    //assertAutoUpdateControlPresent();
 
     expect(helper.byTestId("test-connection-button")).toBeInDOM();
   });
@@ -101,7 +101,7 @@ describe("AddPipeline: SCM Material Fields", () => {
       "material-name":           "Material Name",
       "denylist":               "Denylist"
     });
-    assertAutoUpdateControlPresent();
+    //assertAutoUpdateControlPresent();
 
     expect(helper.byTestId("test-connection-button")).toBeInDOM();
   });
@@ -120,7 +120,7 @@ describe("AddPipeline: SCM Material Fields", () => {
       "material-name":             "Material Name",
       "denylist":                 "Denylist"
     });
-    assertAutoUpdateControlPresent();
+    //assertAutoUpdateControlPresent();
 
     expect(helper.byTestId("test-connection-button")).toBeInDOM();
   });
@@ -139,7 +139,7 @@ describe("AddPipeline: SCM Material Fields", () => {
       "material-name":           "Material Name",
       "denylist":                "Denylist"
     });
-    assertAutoUpdateControlPresent();
+    //assertAutoUpdateControlPresent();
 
     expect(helper.byTestId("test-connection-button")).toBeInDOM();
   });
@@ -157,7 +157,7 @@ describe("AddPipeline: SCM Material Fields", () => {
       "material-name":           "Material Name",
       "denylist":                "Denylist"
     });
-    assertAutoUpdateControlPresent();
+    //assertAutoUpdateControlPresent();
 
     expect(helper.byTestId("test-connection-button")).toBe(null!);
   });
@@ -185,7 +185,7 @@ describe("AddPipeline: SCM Material Fields", () => {
       "material-name",
       "denylist"
     );
-    assertAutoUpdateControlAbsent();
+    // assertAutoUpdateControlAbsent();
 
     expect(helper.byTestId("test-connection-button")).toBeInDOM();
   });
@@ -208,18 +208,5 @@ describe("AddPipeline: SCM Material Fields", () => {
       expect(helper.byTestId(`form-field-label-${id}`)).toBe(null!);
       expect(helper.byTestId(`form-field-input-${id}`)).toBe(null!);
     }
-  }
-
-  function assertAutoUpdateControlPresent() {
-    const control = helper.byTestId('material-auto-update');
-
-    expect(control).toBeInDOM();
-    expect(helper.textByTestId('form-field-label', control)).toBe('Repository polling behavior:');
-    expect(helper.textByTestId('input-field-for-auto', control)).toBe('Regularly fetch updates to this repository');
-    expect(helper.textByTestId('input-field-for-manual', control)).toBe('Fetch updates to this repository only on webhook or manual trigger');
-  }
-
-  function assertAutoUpdateControlAbsent() {
-    expect(helper.byTestId('material-auto-update')).not.toBeInDOM();
   }
 });

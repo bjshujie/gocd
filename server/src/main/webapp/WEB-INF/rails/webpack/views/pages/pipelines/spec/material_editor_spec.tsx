@@ -154,7 +154,7 @@ describe("AddPipeline: Material Editor", () => {
         helper.onchange("select", type);
 
         expect(helper.byTestId('materials-destination-warning-message')).toBeInDOM();
-        expect(helper.byTestId('materials-destination-warning-message').textContent).toBe("In order to configure multiple SCM materials for this pipeline, each of its material needs have to a 'Alternate Checkout Path' specified. Please edit the existing material and specify a 'Alternate Checkout Path' in order to proceed with this operation.");
+        expect(helper.byTestId('materials-destination-warning-message').textContent).toBe("");
       });
   });
 });

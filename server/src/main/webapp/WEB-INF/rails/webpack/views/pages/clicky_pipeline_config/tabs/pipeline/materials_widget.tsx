@@ -53,10 +53,10 @@ export class MaterialsWidget extends MithrilViewComponent<MaterialsAttrs> {
     let addMaterialBtn: m.Children;
     if (!vnode.attrs.readonly) {
       addMaterialBtn = (<Secondary dataTestId={"add-material-button"} onclick={this.addMaterial.bind(this, vnode)}>
-        Add Material
+        新增算法启动插件实例
       </Secondary>);
     }
-    const headers = ["Material Name", "Type", "Url/Description"];
+    const headers = ["算法启动插件实例名称", "类型", "描述"];
     if (!vnode.attrs.readonly) {
       headers.push("");
     }

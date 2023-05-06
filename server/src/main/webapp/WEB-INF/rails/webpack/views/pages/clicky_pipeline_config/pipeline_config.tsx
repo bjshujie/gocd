@@ -27,7 +27,7 @@ import {JobEnvironmentVariablesTabContent} from "views/pages/clicky_pipeline_con
 import {JobSettingsTabContent} from "views/pages/clicky_pipeline_config/tabs/job/job_settings_tab_content";
 import {TasksTabContent} from "views/pages/clicky_pipeline_config/tabs/job/tasks_tab_content";
 import {GeneralOptionsTabContent} from "views/pages/clicky_pipeline_config/tabs/pipeline/general_options_tab";
-import {MaterialsTabContent} from "views/pages/clicky_pipeline_config/tabs/pipeline/materials_tab_content";
+// import {MaterialsTabContent} from "views/pages/clicky_pipeline_config/tabs/pipeline/materials_tab_content";
 import {ParametersTabContent} from "views/pages/clicky_pipeline_config/tabs/pipeline/parameters_tab_content";
 import {PipelineEnvironmentVariablesTabContent} from "views/pages/clicky_pipeline_config/tabs/pipeline/pipeline_environment_variable_tab_content";
 import {ProjectManagementTabContent} from "views/pages/clicky_pipeline_config/tabs/pipeline/project_management_tab_content";
@@ -137,7 +137,7 @@ export class PipelineConfigPage<T> extends TabHandler<T> {
     [
       GeneralOptionsTabContent,
       ProjectManagementTabContent,
-      MaterialsTabContent,
+      // MaterialsTabContent,
       StagesTabContent,
       PipelineEnvironmentVariablesTabContent,
       ParametersTabContent

@@ -102,7 +102,7 @@ export class ExternalFetchArtifactView extends MithrilComponent<Attrs, State> {
 
     if (attributes.artifactId()) {
       optionalPluginIdDropdown = (<SelectField property={vnode.state.pluginId}
-                                               label="Plugin Id"
+                                               label="插件 Id"
                                                errorText={couldNotAutoSelectPluginError}
                                                readonly={vnode.attrs.readonly || !!pluginIdDeterminedFrom}>
         <SelectFieldOptions selected={vnode.state.pluginId()}
