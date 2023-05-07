@@ -32,8 +32,8 @@ public class ManualPipelineChecker implements SchedulingChecker {
     public void check(OperationResult result) {
         HealthStateType type = HealthStateType.general(HealthStateScope.forPipeline(CaseInsensitiveString.str(pipelineConfig.name())));
         if (pipelineConfig.isFirstStageManualApproval()) {
-            String message = String.format("Failed to trigger pipeline [%s]", pipelineConfig.name());
-            result.error(message, String.format("The first stage of pipeline \"%s\" has manual approval",
+            String message = String.format("启动算法 [%s]失败", pipelineConfig.name());
+            result.error(message, String.format("算法的第一个阶段 \"%s\" 已手工启动",
                                 pipelineConfig.name()), type);
         } else {
             result.success(type);

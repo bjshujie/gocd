@@ -73,7 +73,7 @@ export class Job extends ValidatableMixin {
     this.validatePositiveNumber("runInstanceCount", {condition: () => this.runType() === "number"});
     this.validateChildAttrIsUnique("environmentVariables",
                                    "name",
-                                   {message: "Environment Variable names must be unique"});
+                                   {message: "环境变量名称必须是唯一的"});
   }
 
   static fromJSONArray(jobs: JobJSON[]) {

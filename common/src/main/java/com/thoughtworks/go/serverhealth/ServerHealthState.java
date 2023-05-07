@@ -112,7 +112,7 @@ public class ServerHealthState {
     }
 
     public static ServerHealthState failToScheduling(HealthStateType healthStateType, String pipelineName, String description) {
-        String message = String.format("Failed to trigger pipeline [%s]", pipelineName);
+        String message = String.format("启动算法 [%s]失败", pipelineName);
         return new ServerHealthState(HealthStateLevel.ERROR, healthStateType, message, description);
     }
 

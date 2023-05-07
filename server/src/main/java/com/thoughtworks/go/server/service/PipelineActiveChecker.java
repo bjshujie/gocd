@@ -35,7 +35,7 @@ public class PipelineActiveChecker implements SchedulingChecker {
         if (stageService.isAnyStageActiveForPipeline(pipelineIdentifier)) {
             String description = String.format("Pipeline[name='%s', counter='%s', label='%s'] is still in progress",
                     pipelineIdentifier.getName(), pipelineIdentifier.getCounter(), pipelineIdentifier.getLabel());
-            String message = String.format("Failed to trigger pipeline [%s]", pipelineIdentifier.getName());
+            String message = String.format("启动算法 [%s] 失败", pipelineIdentifier.getName());
             result.error(message, description, id);
         } else {
             result.success(id);

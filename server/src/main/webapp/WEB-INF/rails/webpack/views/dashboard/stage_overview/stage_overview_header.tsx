@@ -248,17 +248,17 @@ class StageTriggerOrCancelButtonWidget extends MithrilComponent<StageTriggerOrCa
     let disabledClass = (vnode.state.isTriggerHover() && disabled) ? '' : styles.hidden;
 
     if (vnode.attrs.stageInstance().isCompleted()) {
-      let disabledMessage = `You dont have permissions to rerun the stage.`;
+      let disabledMessage = `您没有重新运行阶段的权限。`;
 
       if (vnode.attrs.inProgressStageFromPipeline()) {
         disabled = true;
         disabledClass = (vnode.state.isTriggerHover() && disabled) ? '' : styles.hidden;
-        disabledMessage = `Can not rerun current stage. Stage '${vnode.attrs.inProgressStageFromPipeline().name}' from the pipeline is still in progress.`;
+        disabledMessage = `无法重新运行当前阶段。该算法的阶段 '${vnode.attrs.inProgressStageFromPipeline().name}' 仍在处理中.`;
       }
 
       return <div class={styles.cancelOrRerunStageIcon} data-test-id="rerun-stage">
         <Icons.Repeat iconOnly={true} disabled={disabled}
-                      title="Rerun stage"
+                      title="重新运行阶段"
                       onmouseover={() => vnode.state.isTriggerHover(true)}
                       onmouseout={() => vnode.state.isTriggerHover(false)}
                       onclick={() => {
@@ -268,10 +268,10 @@ class StageTriggerOrCancelButtonWidget extends MithrilComponent<StageTriggerOrCa
       </div>;
     }
 
-    const disabledMessage = `You dont have permissions to cancel the stage.`;
+    const disabledMessage = `您没有取消该阶段的权限`;
     return <div class={styles.cancelOrRerunStageIcon} data-test-id="cancel-stage">
       <Icons.CancelStage iconOnly={true} disabled={disabled}
-                         title="Cancel stage"
+                         title="取消阶段"
                          onmouseover={() => vnode.state.isTriggerHover(true)}
                          onmouseout={() => vnode.state.isTriggerHover(false)}
                          onclick={() => {

@@ -32,8 +32,8 @@ public class PipelinePauseChecker implements SchedulingChecker {
     public void check(OperationResult result) {
         HealthStateType id = HealthStateType.general(HealthStateScope.forPipeline(pipelineName));
         if (pipelinePauseService.isPaused(pipelineName)) {
-            String message = String.format("Failed to trigger pipeline [%s]", pipelineName);
-            result.conflict(message, String.format("Pipeline %s is paused", pipelineName), id);
+            String message = String.format("启动算法 [%s] 失败", pipelineName);
+            result.conflict(message, String.format("算法 %s 已暂停", pipelineName), id);
         } else {
             result.success(id);
         }

@@ -159,9 +159,31 @@
             <tasks>
               <exec command="ls" />
             </tasks>
-            <resources>
-              <resource>windows</resource>
-            </resources>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+    <pipeline name="t4">
+      <params>
+        <param name="a">a</param>
+      </params>
+      <materials>
+        <scm ref="412022b6-9f2f-49d7-85e8-99f5b1e43bca" />
+      </materials>
+      <stage name="s1">
+        <jobs>
+          <job name="j1">
+            <environmentvariables>
+              <variable name="a">
+                <value>a</value>
+              </variable>
+              <variable name="b" secure="true">
+                <encryptedValue>AES:NduOiaFEGpTHvCx8Ug9j7A==:pxyRzDzi4lzG082AWYNLkw==</encryptedValue>
+              </variable>
+            </environmentvariables>
+            <tasks>
+              <exec command="ls" />
+            </tasks>
           </job>
         </jobs>
       </stage>

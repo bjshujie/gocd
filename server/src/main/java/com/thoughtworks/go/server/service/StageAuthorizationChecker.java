@@ -37,9 +37,9 @@ public class StageAuthorizationChecker implements SchedulingChecker {
     public void check(OperationResult result) {
         HealthStateType id = HealthStateType.general(HealthStateScope.forPipeline(pipelineName));
         if (!securityService.hasOperatePermissionForStage(pipelineName, stageName, username)) {
-            String message = String.format("Failed to trigger pipeline [%s]", pipelineName);
+            String message = String.format("启动算法 [%s] 失败", pipelineName);
             result.forbidden(message,
-                    "User " + username + " does not have permission to schedule " + pipelineName + "/" + stageName,
+                    "用户 " + username + " 无权限调度 " + pipelineName + "/" + stageName,
                     id);
         } else {
             result.success(id);

@@ -475,12 +475,12 @@ public class ScheduleService {
             stageForId = stageService.stageById(stageId);
         } catch (Exception e) {
             LOGGER.error("[Stage Cancellation] Failed to retrieve stage identifier", e);
-            opResult.notFound("Stage '" + stageId + "' not found.", HealthStateType.general(HealthStateScope.GLOBAL));
+            opResult.notFound("阶段 '" + stageId + "' 未找到.", HealthStateType.general(HealthStateScope.GLOBAL));
             return null;
         }
 
         if (!stageForId.isActive()) {
-            opResult.setMessage("Stage is not active. Cancellation Ignored.");
+            opResult.setMessage("阶段未激活。已忽略取消。");
             return stageForId;
         }
 
@@ -494,7 +494,7 @@ public class ScheduleService {
             String user = username == null ? null : username.getUsername().toString();
 
             if (!securityService.hasOperatePermissionForStage(pipelineName, stageName, user)) {
-                opResult.forbidden("Unauthorized to operate stage named " + stageName, HealthStateType.forbidden());
+                opResult.forbidden("未经授权操作阶段 " + stageName, HealthStateType.forbidden());
                 return null;
             }
 
@@ -513,7 +513,7 @@ public class ScheduleService {
                 }
             });
 
-            opResult.setMessage("Stage cancelled successfully.");
+            opResult.setMessage("阶段已成功取消。");
 
             return stage;
         }
@@ -698,7 +698,7 @@ public class ScheduleService {
                 jobInstance.setIdentifier(jobIdentifier);
                 if (!StringUtils.equals(jobInstance.getAgentUuid(), agentUuid)) {
                     LOGGER.error("Build Instance is using agent [{}] but status updating from agent [{}]", jobInstance.getAgentUuid(), agentUuid);
-                    throw new InvalidAgentException("AgentUUID has changed in the middle of a job. AgentUUID:"
+                    throw new InvalidAgentException("节点UUID 在作业进行中被修改. AgentUUID:"
                             + agentUuid + ", Build: " + jobInstance.toString());
                 }
                 jobInstance.completing(result);
@@ -771,7 +771,7 @@ public class ScheduleService {
     public static class ExceptioningErrorHandler implements ErrorConditionHandler {
         @Override
         public void nullStage(String stageName) {
-            throw new RuntimeException(String.format("Stage [%s] not found", stageName));
+            throw new RuntimeException(String.format("阶段 [%s] 未找到", stageName));
         }
 
         @Override
@@ -786,7 +786,7 @@ public class ScheduleService {
 
         @Override
         public void nullPipeline(String pipelineName, Integer pipelineCounter, String stageName) {
-            throw new RecordNotFoundException(String.format("Pipeline instance [%s/%s] not found", pipelineName, pipelineCounter));
+            throw new RecordNotFoundException(String.format("算法实例 [%s/%s] 未找到", pipelineName, pipelineCounter));
         }
 
         @Override
@@ -795,7 +795,7 @@ public class ScheduleService {
         }
 
         protected String previousStageNotRunMessage(String pipelineName, String stageName) {
-            return String.format("Can not run stage [%s] in pipeline [%s] because its previous stage has not been run.", stageName, pipelineName);
+            return String.format("无法运行算法 [%s] 中的阶段 [%s] 因为它的前一个阶段尚未运行.", pipelineName, stageName);
         }
 
         @Override

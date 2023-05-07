@@ -81,40 +81,40 @@ public class FileModelAndView {
     }
 
     public static ModelAndView forbiddenUrl(String filePath) {
-        return ResponseCodeView.create(SC_FORBIDDEN, "Url " + filePath + " contains forbidden characters.");
+        return ResponseCodeView.create(SC_FORBIDDEN, "Url " + filePath + " 包含被禁止的字符.");
     }
 
     public static ModelAndView fileCreated(String filePath) {
-        return ResponseCodeView.create(SC_CREATED, "File " + filePath + " was created successfully");
+        return ResponseCodeView.create(SC_CREATED, "文件 " + filePath + " 创建成功");
     }
 
     public static ModelAndView fileAppended(String filePath) {
-        return ResponseCodeView.create(SC_OK, "File " + filePath + " was appended successfully");
+        return ResponseCodeView.create(SC_OK, "文件 " + filePath + " 成功追加");
     }
 
     public static ModelAndView errorSavingFile(String filePath) {
-        return ResponseCodeView.create(SC_INTERNAL_SERVER_ERROR, "Error saving file " + filePath);
+        return ResponseCodeView.create(SC_INTERNAL_SERVER_ERROR, "保存文件 " + filePath+"错误");
     }
 
     public static ModelAndView errorSavingChecksumFile(String filePath) {
-        return ResponseCodeView.create(SC_INTERNAL_SERVER_ERROR, String.format("Error saving checksum file for the artifact at path '%s'", filePath));
+        return ResponseCodeView.create(SC_INTERNAL_SERVER_ERROR, String.format("保存路径'%s'处的文档校验和文件时出错'", filePath));
     }
 
     public static ModelAndView invalidUploadRequest() {
-        String content = "Invalid request. MultipartFile must have name '" + GoConstants.REGULAR_MULTIPART_FILENAME + "'"
-                + " or '" + GoConstants.ZIP_MULTIPART_FILENAME + "' (to automatically unzip stream)";
+        String content = "无效的请求. MultipartFile 必须拥有名称 '" + GoConstants.REGULAR_MULTIPART_FILENAME + "'"
+                + " 或者 '" + GoConstants.ZIP_MULTIPART_FILENAME + "' (自动解压缩)";
         return ResponseCodeView.create(SC_BAD_REQUEST, content);
     }
 
     public static ModelAndView fileNotFound(String filePath) {
         if ((ArtifactLogUtil.getConsoleOutputFolderAndFileName()).equals(filePath)) {
-            return ResponseCodeView.create(SC_NOT_FOUND, "Console log for this job is unavailable as it may have been purged by Go or deleted externally.");
+            return ResponseCodeView.create(SC_NOT_FOUND, "此作业的控制台日志不可用，因为它可能已被清除或从外部删除。");
         }
-        return ResponseCodeView.create(SC_NOT_FOUND, "Artifact '" + filePath + "' is unavailable as it may have been purged by Go or deleted externally.");
+        return ResponseCodeView.create(SC_NOT_FOUND, "文档 '" + filePath + "' 不可用，因为它可能已被清除或从外部删除。");
     }
 
     public static ModelAndView fileAlreadyExists(String filePath) {
-        return ResponseCodeView.create(SC_FORBIDDEN, "File " + filePath + " already directoryExists.");
+        return ResponseCodeView.create(SC_FORBIDDEN, "文件 " + filePath + " 已存在目录.");
     }
 
     private static class HtmlArtifactFolderViewFactory implements ArtifactFolderViewFactory {

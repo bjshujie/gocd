@@ -111,8 +111,7 @@ export class JobsWidget extends MithrilViewComponent<Attrs> {
                                                             vnode.attrs.ajaxOperationMonitor,
                                                             vnode.attrs.flashMessage,
                                                             vnode.attrs.pipelineConfigSave,
-                                                            vnode.attrs.pipelineConfigReset).render()}>Add new
-        job</Secondary>;
+                                                            vnode.attrs.pipelineConfigReset).render()}>新增作业</Secondary>;
     }
 
     return <div data-test-id={"stages-container"}>

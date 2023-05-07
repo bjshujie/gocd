@@ -53,7 +53,7 @@ export class JobsListWidget extends MithrilComponent<Attrs, State> {
 
       let title: string | undefined;
       if (isStageInProgress) {
-        title = `Can not select jobs for rerun as the current stage is still in progress.`;
+        title = `无法选择要重新运行的作业，因为当前阶段仍在进行中。`;
       }
 
       const rerunIcon: m.Children = job.rerun ? <div class={styles.rerunWrapper}><Icons.Repeat iconOnly={true}/></div> : undefined;
@@ -68,7 +68,7 @@ export class JobsListWidget extends MithrilComponent<Attrs, State> {
           <span title={job.name} className={styles.jobName}>{job.name}</span>
         </div>
         <div class={styles.consoleLogIconCell}  data-test-id={`console-log-icon-for-${job.name}`}>
-          <Icons.ConsoleLog title="Go to Job Console Log" onclick={() => window.open(jobDetailsPageLink)} target={"_blank"} iconOnly={true}/>
+          <Icons.ConsoleLog title="转到作业控制台日志" onclick={() => window.open(jobDetailsPageLink)} target={"_blank"} iconOnly={true}/>
         </div>
         <div class={styles.stateCell} data-test-id={`state-for-${job.name}`}>
           <JobStateWidget job={job}/>
