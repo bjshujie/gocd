@@ -164,11 +164,10 @@ export const PipelineOperationsWidget = {
     const operationMessages = vnode.attrs.operationMessages;
 
     let pausedMessage, pauseUnpauseClass, onPauseUnpauseClick;
-    let pausedTitlenLabel, playTitlenLabel, playWithOptionsTitlenLabel;
+    let pausedTitlenLabel, playTitlenLabel;
     if (pipeline.isPaused) {
       pausedTitlenLabel          = "算法已暂停";
       playTitlenLabel            = "启动算法已禁用";
-      playWithOptionsTitlenLabel = "选项启动算法已禁用";
       pauseUnpauseClass          = `pipeline_btn unpause ${(pipeline.canPause) ? '' : 'disabled'}`;
       pausedMessage              = `由 ${pipeline.pausedBy} 暂停 (${pipeline.pausedCause || ''})`;
       onPauseUnpauseClick        = (pipeline.canPause) && vnode.state.unpause.bind(vnode.state, pipeline);
@@ -177,7 +176,6 @@ export const PipelineOperationsWidget = {
       onPauseUnpauseClick        = (pipeline.canPause) && vnode.state.showPausePopup.bind(vnode.state, pipeline);
       pausedTitlenLabel          = "暂停算法";
       playTitlenLabel            = "启动算法";
-      playWithOptionsTitlenLabel = "选项启动算法";
     }
 
 
@@ -212,13 +210,6 @@ export const PipelineOperationsWidget = {
             <f.button onclick={!pipeline.triggerDisabled() && vnode.state.trigger.bind(vnode.state, pipeline)}
                       class={`pipeline_btn play ${(pipeline.triggerDisabled() ? 'disabled' : '')}`}
                       tooltipText={triggerButtonsTooltipText} aria-label={playTitlenLabel} title={playTitlenLabel}/>
-          </li>
-          <li>
-            <f.button
-              onclick={!pipeline.triggerDisabled() && vnode.state.showTriggerWithOptionsPopup.bind(vnode.state, pipeline)}
-              class={`pipeline_btn play_with_options ${(pipeline.triggerDisabled() ? 'disabled' : '')}`}
-              tooltipText={triggerButtonsTooltipText} aria-label={playWithOptionsTitlenLabel}
-              title={playWithOptionsTitlenLabel}/>
           </li>
           <li>
             <f.button onclick={onPauseUnpauseClick} class={pauseUnpauseClass} tooltipText={pauseTooltipText}

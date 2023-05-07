@@ -44,7 +44,7 @@ export class AgentJobStateTransitionModal extends Modal {
       <div class={styles.jobStateTransitionInformationContainer} data-test-id="additional-information-container">
 
         <div data-test-id="key-value-pair" class={styles.keyValuePair}>
-          <div class={styles.key} data-test-id="key-job">Job</div>
+          <div class={styles.key} data-test-id="key-job">作业</div>
           <span class={styles.value} data-test-id="value-job">
             : {this.jobRepresentation()}
           </span>

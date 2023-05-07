@@ -35,6 +35,7 @@ import {StepsWidget} from "views/pages/clicky_pipeline_config/widgets/steps_widg
 import {Page, PageState} from "views/pages/page";
 import {OperationState} from "views/pages/page_operations";
 import {ConfirmationDialog} from "views/pages/pipeline_activity/confirmation_modal";
+import {Message} from "../maintenance_mode";
 
 export type SupportedTypes = TemplateConfig | PipelineConfig | Stage | Job;
 
@@ -165,7 +166,19 @@ export abstract class TabHandler<T> extends Page<null, T> {
           </div>
           <div className={styles.entityConfigContainer}>
             <StepsWidget routeInfo={PipelineConfigSPARouteHelper.routeInfo()}/>
-            <Tabs tabs={Array.from(this.currentSelectionTabs().keys()).map((name) => name.replace("_", " "))}
+            <Tabs tabs={Array.from(this.currentSelectionTabs().keys()).map((name) => {
+              // this.flashMessage.alert(name);
+              if(name ==="general") {
+                return '通用设置';
+              } else if (name==='stage_settings'){
+                return "阶段设置"
+              } else if (name==='job_settings'){
+                return "作业设置"
+              } else if (name==='tasks'){
+                return "任务"
+              } else {
+                return name.replace("_", " ");
+              }})}
                   initialSelection={this.getIndexOfCurrentSelection()}
                   contents={
                     Array.from(this.currentSelectionTabs().keys()).map((k) => {
