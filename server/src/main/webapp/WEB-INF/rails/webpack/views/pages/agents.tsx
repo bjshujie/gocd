@@ -138,7 +138,7 @@ export class AgentsPage extends Page<null, State> {
   }
 
   private static pluralizeAgent(count: number) {
-    return count > 1 ? "计算节点" : "计算节点";
+    return count > 1 ? "节点" : "节点";
   }
 
   private onResult(result: ApiResult<string>, action: string, count: number) {
@@ -146,7 +146,20 @@ export class AgentsPage extends Page<null, State> {
   }
 
   private onSuccess(action: string, count: number) {
-    this.flashMessage.setMessage(MessageType.success, `${action} ${count} ${AgentsPage.pluralizeAgent(count)}`);
+    let strAction:string =""
+    if (action === "Enabled") {
+      strAction = "启用"
+    } else if (action === "Disabled") {
+      strAction = "禁用"
+    } else if (action === "Deleted") {
+      strAction = "删除"
+    } else if (action === "Environments updated for") {
+      strAction = "更新环境"
+    } else if (action === "Resources updated for") {
+      strAction = "更新资源"
+    }
+
+    this.flashMessage.setMessage(MessageType.success, `${strAction} ${count} ${AgentsPage.pluralizeAgent(count)}`);
   }
 
   private onFailure(errorResponse: ErrorResponse) {

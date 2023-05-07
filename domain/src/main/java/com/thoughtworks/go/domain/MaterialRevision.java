@@ -200,9 +200,9 @@ public class MaterialRevision implements Serializable {
         StringBuilder builder = new StringBuilder();
         //TODO: #2363 May move this logic to material object later
         if (material instanceof DependencyMaterial) {
-            return builder.append("triggered by ").append(getRevision().getRevision()).toString();
+            return builder.append("触发自 ").append(getRevision().getRevision()).toString();
         } else {
-            return builder.append("modified by ").append(buildCausedBy()).toString();
+            return builder.append("修改自 ").append(buildCausedBy()).toString();
         }
     }
 

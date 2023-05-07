@@ -136,7 +136,7 @@ describe("StageSettingsTab", () => {
 
     const labelElement    = helper.allByTestId("switch-label")[4];
     const helpTextElement = helper.qa("#switch-btn-help-text")[4];
-    const label           = "Clean Working Directory";
+    const label           = "清除工作目录";
     const helpText        = "Remove all files/directories in the working directory on the agent.";
 
     expect(labelElement).toContainText(label);

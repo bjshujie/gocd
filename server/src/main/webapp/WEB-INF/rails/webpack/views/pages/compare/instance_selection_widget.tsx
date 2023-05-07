@@ -63,7 +63,7 @@ export class InstanceSelectionWidget extends MithrilViewComponent<InstanceAttrs>
     return <div>
       <StagesWidget stages={vnode.attrs.instance.stages()} onClick={this.onStageClick.bind(this, vnode)}/>
       <span data-test-id="triggered-by" className={styles.label}>
-        Triggered by {vnode.attrs.instance.buildCause().getApprover()} on {PipelineInstanceWidget.getTimeToDisplay(vnode.attrs.instance.scheduledDate())}
+        触发自 {vnode.attrs.instance.buildCause().getApprover()} on {PipelineInstanceWidget.getTimeToDisplay(vnode.attrs.instance.scheduledDate())}
       </span>
       {bisectWarningMsg}
     </div>;

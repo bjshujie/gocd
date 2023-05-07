@@ -23,13 +23,75 @@
       <artifactsDir>artifacts</artifactsDir>
     </artifacts>
   </server>
+  <elastic>
+    <clusterProfiles>
+      <clusterProfile id="dev" pluginId="cd.go.contrib.elastic-agent.docker">
+        <property>
+          <key>go_server_url</key>
+          <value>http://192.168.1.8:8153/go</value>
+        </property>
+        <property>
+          <key>environment_variables</key>
+          <value />
+        </property>
+        <property>
+          <key>max_docker_containers</key>
+          <value>3</value>
+        </property>
+        <property>
+          <key>docker_uri</key>
+          <value>unix:///var/run/docker.sock</value>
+        </property>
+        <property>
+          <key>auto_register_timeout</key>
+          <value>3</value>
+        </property>
+        <property>
+          <key>docker_ca_cert</key>
+          <value />
+        </property>
+        <property>
+          <key>docker_client_cert</key>
+          <value />
+        </property>
+        <property>
+          <key>docker_client_key</key>
+          <value />
+        </property>
+        <property>
+          <key>private_registry_server</key>
+          <value />
+        </property>
+        <property>
+          <key>private_registry_username</key>
+          <value />
+        </property>
+        <property>
+          <key>private_registry_password</key>
+          <value>badger</value>
+        </property>
+        <property>
+          <key>enable_private_registry_authentication</key>
+          <value>false</value>
+        </property>
+        <property>
+          <key>private_registry_custom_credentials</key>
+          <value>true</value>
+        </property>
+        <property>
+          <key>pull_on_container_create</key>
+          <value>false</value>
+        </property>
+      </clusterProfile>
+    </clusterProfiles>
+  </elastic>
   <scms>
     <scm id="412022b6-9f2f-49d7-85e8-99f5b1e43bca" name="test">
       <pluginConfiguration id="com.bjshujie.algorithm.starter" version="1" />
       <configuration>
         <property>
           <key>algorithmName</key>
-          <value>A</value>
+          <value>B</value>
         </property>
       </configuration>
     </scm>
@@ -67,6 +129,39 @@
             <tasks>
               <exec command="ls" />
             </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+    <pipeline name="t2">
+      <materials>
+        <scm ref="412022b6-9f2f-49d7-85e8-99f5b1e43bca" />
+      </materials>
+      <stage name="t2s2">
+        <jobs>
+          <job name="t2s2j1">
+            <tasks>
+              <exec command="ls">
+                <runif status="passed" />
+              </exec>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+    <pipeline name="t3">
+      <materials>
+        <scm ref="412022b6-9f2f-49d7-85e8-99f5b1e43bca" />
+      </materials>
+      <stage name="s1">
+        <jobs>
+          <job name="j1">
+            <tasks>
+              <exec command="ls" />
+            </tasks>
+            <resources>
+              <resource>windows</resource>
+            </resources>
           </job>
         </jobs>
       </stage>

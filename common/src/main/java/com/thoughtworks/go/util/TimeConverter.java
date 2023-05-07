@@ -54,28 +54,28 @@ public class TimeConverter {
             "$time months ago");
 
     public static final ConvertedTime ABOUT_1_MONTH_AGO =
-            new ConvertedTime("label.1.month", "about 1 month ago");
+            new ConvertedTime("label.1.month", "大约一个月前");
 
     public static final ConvertedTime ABOUT_X_DAYS_AGO = new ConvertedTime("label.x.days",
-            "$time days ago");
+            "$time 天前");
 
-    public static final ConvertedTime ABOUT_1_DAY_AGO = new ConvertedTime("label.1.day", "1 day ago");
+    public static final ConvertedTime ABOUT_1_DAY_AGO = new ConvertedTime("label.1.day", "1 天前");
 
     public static final ConvertedTime ABOUT_X_HOURS_AGO = new ConvertedTime("label.x.hours",
-            "about $time hours ago");
+            "大约 $time 小时前");
 
-    public static final ConvertedTime ABOUT_1_HOUR_AGO = new ConvertedTime("label.1.hour", "about 1 hour ago");
+    public static final ConvertedTime ABOUT_1_HOUR_AGO = new ConvertedTime("label.1.hour", "大约 1 小时前");
 
     public static final ConvertedTime ABOUT_X_MINUTES_AGO = new ConvertedTime("label.x.minutes",
-            "$time minutes ago");
+            "$time 分钟前");
 
-    public static final ConvertedTime ABOUT_1_MINUTE_AGO = new ConvertedTime("label.1.minute", "1 minute ago");
+    public static final ConvertedTime ABOUT_1_MINUTE_AGO = new ConvertedTime("label.1.minute", "1 分钟前");
 
     public static final ConvertedTime LESS_THAN_A_MINUTE_AGO = new ConvertedTime("label.less.1.minute",
-            "less than a minute ago");
+            "少于一分钟前");
 
-    public final DateTimeFormatter dateFormatterWithTimeZone = DateTimeFormat.forPattern("dd MMM, yyyy 'at' HH:mm:ss [Z]");
-    public final DateTimeFormatter dateFormatter = DateTimeFormat.forPattern("dd MMM, yyyy 'at' HH:mm:ss");
+    public final DateTimeFormatter dateFormatterWithTimeZone = DateTimeFormat.forPattern("yyyy-MM-dd ' ' HH:mm:ss [Z]");
+    public final DateTimeFormatter dateFormatter = DateTimeFormat.forPattern("yyyy-MM-dd ' ' HH:mm:ss");
 
     private static final LinkedHashMap<Seconds, ConvertableTime> RULES =
             new LinkedHashMap<>();
@@ -129,7 +129,7 @@ public class TimeConverter {
     }
 
     private static SimpleDateFormat getDateFormatterWithTimeZone() {
-        return new SimpleDateFormat("d MMM yyyy HH:mm 'GMT' Z", Locale.ENGLISH);
+        return new SimpleDateFormat("yyyy-MM-dd HH:mm 'GMT' Z", Locale.ENGLISH);
     }
 
     public String getHumanReadableString(Date date) {

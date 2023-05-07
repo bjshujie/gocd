@@ -48,7 +48,6 @@ describe("Site Menu", () => {
     expect(analytics).toHaveAttr("href", "/go/analytics");
     expect(admin).toHaveText("系统管理");
     expect(findMenuItem("/go/admin/pipelines")).toHaveText("算法");
-    expect(findMenuItem("/go/admin/config_repos")).toHaveText("配置仓库");
     expect(findMenuItem("/go/admin/environments")).toHaveText("环境");
     expect(findMenuItem("/go/admin/templates")).toHaveText("模板");
     expect(findMenuItem("/go/admin/elastic_agent_configurations")).toHaveText("弹性节点配置");
@@ -92,7 +91,6 @@ describe("Site Menu", () => {
     expect(analytics).toHaveAttr("href", "/go/analytics");
     expect(admin).toHaveText("系统管理");
     expect(findMenuItem("/go/admin/pipelines")).toBeFalsy();
-    expect(findMenuItem("/go/admin/config_repos")).toHaveText("配置仓库");
     expect(findMenuItem("/go/admin/templates")).toHaveText("模板");
     expect(findMenuItem("/go/admin/environments")).toHaveText("环境");
     expect(findMenuItem("/go/admin/elastic_agent_configurations")).toHaveText("弹性节点配置");
@@ -133,7 +131,6 @@ describe("Site Menu", () => {
     expect(admin).toHaveText("系统管理");
     expect(findMenuItem("/go/admin/pipelines")).toHaveText("算法");
     expect(findMenuItem("/go/admin/environments")).toHaveText("环境");
-    expect(findMenuItem("/go/admin/config_repos")).toHaveText("配置仓库");
     expect(findMenuItem("/go/admin/templates")).toHaveText("模板");
     expect(findMenuItem("/go/admin/elastic_agent_configurations")).toHaveText("弹性节点配置");
     expect(findMenuItem("/go/admin/pipelines/snippet")).toHaveText("配置 XML");
@@ -191,7 +188,6 @@ describe("Site Menu", () => {
     //expect(materials).toHaveAttr("href", "/go/materials");
     expect(admin).toHaveText("系统管理");
     expect(findMenuItem("/go/admin/environments")).toHaveText("环境");
-    expect(findMenuItem("/go/admin/config_repos")).toHaveText("配置仓库");
     expect(findMenuItem("/go/admin/elastic_agent_configurations")).toHaveText("弹性节点配置");
     expect(findMenuItem("/go/admin/scms")).toBeFalsy();
 

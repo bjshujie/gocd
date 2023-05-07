@@ -38,10 +38,10 @@
                 <#assign jobConfigName = "${presenter.buildName}">
               <div id="build_detail_summary_container" class="build_detail_summary">
                 <ul id="build-detail-summary" class="summary">
-                  <li><span class="header">Scheduled on: </span><span id="build_scheduled_date">Loading...</span></li>
-                  <li><span class="header">Agent: </span><span id="agent_name">Loading...</span></li>
-                  <li><span class="header">Completed on: </span><span id="build_completed_date">Loading...</span></li>
-                  <li><span class="header">Build cause: </span><span
+                  <li><span class="header">启动时间: </span><span id="build_scheduled_date">Loading...</span></li>
+                  <li><span class="header">节点: </span><span id="agent_name">Loading...</span></li>
+                  <li><span class="header">完成时间: </span><span id="build_completed_date">Loading...</span></li>
+                  <li><span class="header">构建原因: </span><span
                     id="stage-${presenter.id?c}-buildCause">${presenter.buildCauseMessage}</span></li>
                   <li class="timer_area">
                     <div class="progress-info">
@@ -63,19 +63,19 @@
                   <ul>
                     <li class="current_tab" id="build_console">
                       <a class="tab_button_body_match_text">console</a>
-                      <a>Console</a>
+                      <a>控制台</a>
                     </li>
                     <li>
                       <a class="tab_button_body_match_text">tests</a>
-                      <a>Tests</a>
+                      <a>测试</a>
                     </li>
                     <li>
                       <a class="tab_button_body_match_text">artifacts</a>
-                      <a>Artifacts</a>
+                      <a>文档</a>
                     </li>
                     <li>
                       <a class="tab_button_body_match_text">materials</a>
-                      <a>Materials</a>
+                      <a>算法启动插件</a>
                     </li>
                     <#list presenter.customizedTabs as tab>
                         <li>
@@ -85,9 +85,7 @@
                     </#list>
                   </ul>
                   <a href="#" id="link-to-this-page"
-                     title="The permanent link of this tab, you can share this url with other team members.">Link to
-                    this
-                    tab</a>
+                     title="此选项卡的永久链接，您可以与其他团队成员共享此url。">本选项卡连接</a>
 
                   <div class="clear"></div>
                 </div>

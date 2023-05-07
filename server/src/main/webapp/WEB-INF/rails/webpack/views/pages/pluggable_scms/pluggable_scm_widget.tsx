@@ -18,7 +18,7 @@ import {MithrilViewComponent} from "jsx/mithril-component";
 import m from "mithril";
 import Stream from "mithril/stream";
 import {Scm} from "models/materials/pluggable_scm";
-import s from "underscore.string";
+// import s from "underscore.string";
 import {Anchor} from "views/components/anchor/anchor";
 import {CollapsiblePanel} from "views/components/collapsible_panel";
 import {Clone, Delete, Edit, IconGroup, InfoCircle, Usage} from "views/components/icons";

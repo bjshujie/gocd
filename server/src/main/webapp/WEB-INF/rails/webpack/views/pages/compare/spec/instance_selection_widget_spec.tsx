@@ -57,7 +57,7 @@ describe('InstanceSelectionWidgetSpec', () => {
     mount();
 
     expect(helper.byTestId("triggered-by")).toBeInDOM();
-    expect(helper.textByTestId("triggered-by")).toBe(`Triggered by ${instance.buildCause().getApprover()} on ${timeFormatter.format(instance.scheduledDate())}`);
+    expect(helper.textByTestId("triggered-by")).toBe(`触发自 ${instance.buildCause().getApprover()} on ${timeFormatter.format(instance.scheduledDate())}`);
   });
 
   it('should render warning msg if the instance is a bisect', () => {

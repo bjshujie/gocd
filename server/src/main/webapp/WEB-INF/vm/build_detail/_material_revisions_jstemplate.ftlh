@@ -40,7 +40,6 @@
             <tr>
                 <th colspan="2" class="highlight-${%revision.changed%}">
 
-                    <span class="normal revision_information">Revision: ${%modification.revision%}, modified by ${%modification.user.escapeHTML()%} on ${%modification.date%} </span>
                     <br/>
 
                     <span title="Comment" class="comment">
@@ -75,7 +74,7 @@
         {/if}
     </div>
     {forelse}
-    No materials found.
+    未找到算法启动插件.
     {/for}
 </textarea>
 </#noparse>

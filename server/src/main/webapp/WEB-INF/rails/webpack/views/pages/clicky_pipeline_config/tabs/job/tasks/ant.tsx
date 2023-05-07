@@ -55,7 +55,7 @@ export class AntTaskModal extends AbstractTaskModal {
                  property={attributes.target}/>
       <TextField helpText="The directory from where ant is invoked."
                  readonly={this.readonly}
-                 label="Working Directory"
+                 label="工作目录"
                  errorText={attributes.errors().errorsForDisplay("workingDirectory")}
                  property={attributes.workingDirectory}/>
       <OnCancelView showOnCancel={this.showOnCancel}

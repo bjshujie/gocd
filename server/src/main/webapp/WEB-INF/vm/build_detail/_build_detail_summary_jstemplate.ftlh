@@ -14,8 +14,8 @@
  * limitations under the License.
  -->
 <textarea id="build-summary-template" style="display:none;">
-<li><span class="header">Scheduled on: </span><span id="build_scheduled_date">${r'${% build.build_scheduled_date %}'}</span></li>
-<li><span class="header">Agent: </span>
+<li><span class="header">启动时间: </span><span id="build_scheduled_date">${r'${% build.build_scheduled_date %}'}</span></li>
+<li><span class="header">节点: </span>
   {if build.agent_uuid != null }
     <span>
       {if ${isAgentAlive?c} }
@@ -25,17 +25,17 @@
       {/if}
     </span>
   {else}
-    <span>Not yet assigned</span>
+    <span>未指定</span>
   {/if}
   <#if doesUserHaveViewAccessToStatusReportPage?? && doesUserHaveViewAccessToStatusReportPage>
     <a href="${req.getContextPath()}/admin/status_reports/${elasticAgentPluginId}/agent/${elasticAgentId!'unassigned'}?job_id=${r'${% build.id %}'}"
        class="btn-primary btn-small status-report-btn-small">Check Agent Status</a>
   </#if>
 </li>
-  <li><span class="header">Completed on: </span><span id="build_completed_date">${r'${% build.build_completed_date %}'}</span></li>
-<li><span class="header">Build cause: </span><span id="stage-${r'${% build.id %}'}-buildCause"><#noautoesc>${presenter.buildCauseMessage?html?html}</#noautoesc></span></li>
+  <li><span class="header">完成时间: </span><span id="build_completed_date">${r'${% build.build_completed_date %}'}</span></li>
+<li><span class="header">构建原因: </span><span id="stage-${r'${% build.id %}'}-buildCause"><#noautoesc>${presenter.buildCauseMessage?html?html}</#noautoesc></span></li>
   {if build.current_status.toLowerCase() == 'passed' ||  build.current_status.toLowerCase() == 'failed'}
-<li><span class="header">Duration: </span><span>${r"${% moment.duration(parseInt(build.current_build_duration), 's').humanizeForGoCD() %}"}</span></li>
+<li><span class="header">持续时间: </span><span>${r"${% moment.duration(parseInt(build.current_build_duration), 's').humanizeForGoCD() %}"}</span></li>
 {/if}
 {if isEstimatable(build.current_status) }
 <li class="progress-info">

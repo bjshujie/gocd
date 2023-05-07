@@ -335,7 +335,7 @@ public class BuildCauseProducerService {
                     }
                 }
 
-                result.accepted(format("Request to schedule pipeline %s accepted", pipelineConfig.name()), "", HealthStateType.general(HealthStateScope.forPipeline(
+                result.accepted(format("对算法 %s 的调度请求已被接受", pipelineConfig.name()), "", HealthStateType.general(HealthStateScope.forPipeline(
                         CaseInsensitiveString.str(pipelineConfig.name()))));
             } catch (RuntimeException e) {
                 markPipelineAsCanBeTriggered(pipelineConfig);

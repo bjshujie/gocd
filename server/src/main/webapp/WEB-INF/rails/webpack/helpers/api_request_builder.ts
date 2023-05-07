@@ -149,7 +149,7 @@ export class ApiResult<T> {
     }
 
     return ApiResult.error(xhr.responseText,
-                           `There was an unknown error performing the operation. Possible reason (${xhr.statusText})`,
+                           `执行操作时出现未知错误。可能的原因: (${xhr.statusText})`,
                            xhr.status, headers);
   }
 }
@@ -170,7 +170,7 @@ function parseMessage(xhr: XMLHttpRequest) {
   if (xhr.response.data && xhr.response.data.message) {
     return xhr.response.data.message;
   }
-  return `There was an unknown error performing the operation. Possible reason (${xhr.statusText})`;
+  return `执行操作时出现未知错误。可能的原因： (${xhr.statusText})`;
 }
 
 interface Headers {
@@ -239,7 +239,7 @@ export class ApiRequestBuilder {
                                      }).then((xhr: XMLHttpRequest) => {
       return ApiResult.from(xhr);
     }).catch((reason) => {
-      const unknownError = "There was an unknown error performing the operation.";
+      const unknownError = "执行操作时出现未知错误。";
       try {
         return ApiResult.error(reason.responseText,
                                JSON.parse(reason.message).message || unknownError,

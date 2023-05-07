@@ -14,8 +14,8 @@
  * limitations under the License.
  -->
 <#assign tab='&nbsp;&nbsp;&nbsp;'>
-<p>No test output found. Make sure your job configuration includes a test artifact.</p><br/>
-<p>For example:</p><br/>
+<p>未找到测试输出。确保您的作业配置包括一个测试文档。</p><br/>
+<p>例如:</p><br/>
 <pre>
 <#noautoesc>
 &lt;job name="example"&gt;

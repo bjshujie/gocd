@@ -49,7 +49,7 @@ describe('ComparisonSelectionWidgetSpec', () => {
     expect(tableCols[0]).toHaveClass(styles.pipelineInstanceSelection);
     expect(helper.byTestId("pipeline-from-instance", tableCols[0])).toBeInDOM();
     expect(tableCols[1]).toHaveClass(styles.pipelineComparisonText);
-    expect(tableCols[1].innerText).toBe("compared to");
+    expect(tableCols[1].innerText).toBe("比较于");
     expect(tableCols[2]).toHaveClass(styles.pipelineInstanceSelection);
     expect(helper.byTestId("pipeline-to-instance", tableCols[2])).toBeInDOM();
   });

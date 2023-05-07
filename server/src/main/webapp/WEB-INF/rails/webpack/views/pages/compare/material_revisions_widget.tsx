@@ -47,10 +47,10 @@ export class MaterialRevisionsWidget extends MithrilViewComponent<MaterialRevisi
 
   private static headers() {
     return [
-      "Revision"
-      , "Modified By"
-      , "Modified At"
-      , "Comment"
+      "修订版本"
+      , "修改人"
+      , "修改时间"
+      , "注释"
     ];
   }
 

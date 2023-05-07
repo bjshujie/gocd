@@ -28,42 +28,42 @@ describe("Job State Widget", () => {
 
   it("should render scheduled job state", () => {
     mount("Scheduled");
-    expect(helper.root).toContainText('Waiting for an agent');
+    expect(helper.root).toContainText('等待分配节点');
   });
 
   it("should render assigned job state", () => {
     mount("Assigned");
-    expect(helper.root).toContainText('Agent assigned');
+    expect(helper.root).toContainText('节点已分配');
   });
 
   it("should render preparing job state", () => {
     mount("Preparing");
-    expect(helper.root).toContainText('Checking out materials');
+    expect(helper.root).toContainText('准备');
   });
 
   it("should render building job state", () => {
     mount("Building");
-    expect(helper.root).toContainText('Building');
+    expect(helper.root).toContainText('构建');
   });
 
   it("should render completing job state", () => {
     mount("Completing");
-    expect(helper.root).toContainText('Uploading artifacts');
+    expect(helper.root).toContainText('上传文档');
   });
 
   it("should render completed passed job state", () => {
     mount("Completed", Result[Result.Passed]);
-    expect(helper.root).toContainText('Passed');
+    expect(helper.root).toContainText('通过');
   });
 
   it("should render completed failed job state", () => {
     mount("Completed", Result[Result.Failed]);
-    expect(helper.root).toContainText('Failed');
+    expect(helper.root).toContainText('失败');
   });
 
   it("should render completed cancelled job state", () => {
     mount("Completed", Result[Result.Cancelled]);
-    expect(helper.root).toContainText('Cancelled');
+    expect(helper.root).toContainText('取消');
   });
 
   function mount(state: JobState, result: Result | string = Result[Result.Passed]) {

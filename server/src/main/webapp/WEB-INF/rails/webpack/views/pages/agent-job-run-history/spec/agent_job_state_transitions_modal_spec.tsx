@@ -76,7 +76,7 @@ describe("Agent Job State Transitions Modal", () => {
   });
 
   it("should render help text for wait time", () => {
-    const expected = "Wait Time is the time spent by the job waiting for an agent to be assigned. This is the total time spent by the job from the time it is Scheduled to it is Assigned.";
+    const expected = "等待时间是作业等待分配节点所花费的时间。这是作业从“计划”到“分配”所花费的总时间。";
     expect(helper.byTestId("key-wait-time")).toContainText(expected);
   });
 

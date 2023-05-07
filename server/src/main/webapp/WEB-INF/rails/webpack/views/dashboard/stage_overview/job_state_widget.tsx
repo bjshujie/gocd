@@ -31,19 +31,19 @@ export class JobStateWidget extends MithrilComponent<Attrs, State> {
     vnode.state.getState = (job: JobJSON) => {
       switch (job.state) {
         case "Scheduled":
-          return "Waiting for an agent";
+          return "等待分配节点";
         case "Assigned":
-          return "Agent assigned";
+          return "节点已分配";
         case "Preparing":
-          return "Checking out materials";
+          return "准备";
         case "Building":
-          return "Building";
+          return "构建";
         case "Completing":
-          return "Uploading artifacts";
+          return "上传文档";
         case"Completed":
           return `${job.result}`;
       }
-      return "Waiting for agent";
+      return "等待分配节点";
     };
   }
 

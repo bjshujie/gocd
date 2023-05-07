@@ -97,7 +97,7 @@ export class PipelinePauseHeader extends MithrilComponent<Attrs, State> {
               }
             }, this.onUpdateFailure.bind(this, vnode));
           });
-        }}>UNPAUSE</Reset>
+        }}>恢复</Reset>
       </div>;
     }
 

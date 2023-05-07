@@ -242,7 +242,7 @@ describe("PipelineConfig model", () => {
         expect(response.getStatusCode()).toBe(202);
         expect(() => response.getOrThrow()).not.toThrow();
         expect(JSON.parse(response.getOrThrow()))
-          .toEqual({message: `Request to schedule pipeline '${config.name()}' accepted successfully.`});
+          .toEqual({message: `对算法 '${config.name()}'  的调度请求已被成功接受.`});
         done();
       });
     });

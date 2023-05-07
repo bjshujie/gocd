@@ -45,10 +45,10 @@ import static com.thoughtworks.go.server.newsecurity.utils.SessionUtils.isAnonym
 
 @Controller
 public class AuthenticationController {
-    public static final String BAD_CREDENTIALS_MSG = "Invalid credentials. Either your username and password are incorrect, or there is a problem with your browser cookies. Please check with your administrator.";
+    public static final String BAD_CREDENTIALS_MSG = "无效凭据。您的用户名和密码不正确，或者您的浏览器cookie有问题。请与管理员联系。";
     private static final Logger LOGGER = LoggerFactory.getLogger(AuthenticationController.class);
     private static final RedirectView REDIRECT_TO_LOGIN_PAGE = new RedirectView("/auth/login", true);
-    private static final String UNKNOWN_ERROR_WHILE_AUTHENTICATION = "There was an unknown error authenticating you. Please try again after some time, and contact the administrator if the problem persists.";
+    private static final String UNKNOWN_ERROR_WHILE_AUTHENTICATION = "对您进行身份验证时出现未知错误。请过一段时间后重试，如果问题仍然存在，请与管理员联系。";
     private final SecurityService securityService;
     private final SystemEnvironment systemEnvironment;
     private final Clock clock;

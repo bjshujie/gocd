@@ -1,15 +1,15 @@
 <ul class="entity_title">
     <!--<li><%= link_to "Pipelines", url_for_path('pipelines') %></li>-->
     <li class="name">
-      <span class="label">Pipeline</span>
+      <span class="label">算法</span>
       <%= link_to scope[:pipeline].getName(), url_for_pipeline(scope[:pipeline].getName()) %>
     </li>
 
     <% if scope[:third][:link] %>
         <li>
-          <span class="label">Instance</span>
+          <span class="label">实例</span>
           <span class="run_no"><%= scope[:third][:text] %></span>
-          <%= link_to "VSM ", scope[:third][:link] %>
+          <%= link_to "图形显示 ", scope[:third][:link] %>
 
         </li>
      <% else %>
@@ -19,7 +19,7 @@
 
     <% if scope[:fourth] %>
         <li class="last">
-          <span class="label">Stage</span>
+          <span class="label">阶段</span>
           <h1><%= scope[:fourth] %></h1></li>
     <% end %>
 </ul>

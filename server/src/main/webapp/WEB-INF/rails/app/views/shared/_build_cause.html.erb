@@ -19,19 +19,19 @@
                     <% scope[:dmr] = material_revision_in_build_cause.getRevision() %>
                     <div class="revision">
                         <dl>
-                            <dt>Revision:</dt>
+                            <dt>修订版本:</dt>
                             <dd><%= link_to(scope[:dmr].getRevision(), path_for_stage(scope[:dmr]))-%></dd>
                         </dl>
                     </div>
                     <div class="label">
                         <dl>
-                            <dt>VSM:</dt>
+                            <dt>版本显示:</dt>
                             <dd><%= link_to(scope[:dmr].getPipelineLabel(), url_for_dmr(scope[:dmr])) -%></dd>
                         </dl>
                     </div>
                     <div class="completed_at">
                         <dl>
-                            <dt>Completed at:</dt>
+                            <dt>完成时间:</dt>
                             <dd><%= material_revision_in_build_cause.getLatestModification().getModifiedTime().iso8601 -%></dd>
                         </dl>
                     </div>

@@ -177,7 +177,7 @@ $(() => {
 
       const message = {
         type:    'warning',
-        content: 'There was an unknown error ',
+        content: '出现未知错误 ',
       };
       onResponse({}, message);
     };

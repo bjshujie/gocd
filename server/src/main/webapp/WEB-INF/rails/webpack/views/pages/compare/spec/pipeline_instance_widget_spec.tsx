@@ -50,7 +50,7 @@ describe('PipelineInstanceWidgetSpec', () => {
 
   it('should render stages and triggered by info', () => {
     const instance   = PipelineInstance.fromJSON(PipelineInstanceData.pipeline());
-    const triggerMsg = `Triggered by ${instance.buildCause().approver()} on ${timeFormatter.format(instance.scheduledDate())}`;
+    const triggerMsg = `触发自 ${instance.buildCause().approver()} on ${timeFormatter.format(instance.scheduledDate())}`;
 
     mount(instance);
 

@@ -49,7 +49,7 @@ export class ServerHealthSummary extends MithrilComponent<{}, State> {
                                        (successResponse) => vnode.state.serverHealthMessages(successResponse.body),
                                        (errorResponse) => {
                                          // tslint:disable-next-line:no-console
-                                         console.log(`There was an unknown error fetching server health messages: ${errorResponse.body}`);
+                                         console.log(`获取服务器运行状况消息时出现未知错误: ${errorResponse.body}`);
                                        }
                                      );
                                    });

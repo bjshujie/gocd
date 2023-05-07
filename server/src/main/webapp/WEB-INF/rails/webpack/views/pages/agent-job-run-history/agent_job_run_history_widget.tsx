@@ -74,7 +74,7 @@ export class AgentJobRunHistoryWidget extends MithrilComponent<Attrs, State> {
       <div>
         {paginationWidget}
         <Table data={tableData}
-               headers={["Pipeline", "Stage", "Job", "Result", "Job State Transitions"]}
+               headers={["算法", "阶段", "作业", "结果", "作业状态转换"]}
                sortHandler={vnode.state.sortHandler}/>
         {paginationWidget}
       </div>

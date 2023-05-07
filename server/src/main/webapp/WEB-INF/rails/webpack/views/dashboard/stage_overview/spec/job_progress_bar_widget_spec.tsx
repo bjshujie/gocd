@@ -151,7 +151,7 @@ describe("Job Progress Bar Widget", () => {
       const tooltip = helper.byTestId('progress-bar-tooltip');
       progressBar.dispatchEvent(new MouseEvent('mouseover'));
 
-      expect(tooltip).toContainText("Scheduled At");
+      expect(tooltip).toContainText("调度时间");
       expect(tooltip).toContainText(TestData.unixTime(json.job_state_transitions[0].state_change_time as number / 1000));
     });
 
@@ -160,7 +160,7 @@ describe("Job Progress Bar Widget", () => {
       const tooltip = helper.byTestId('progress-bar-tooltip');
       progressBar.dispatchEvent(new MouseEvent('mouseover'));
 
-      expect(tooltip).toContainText("Completed At");
+      expect(tooltip).toContainText("完成时间");
       expect(tooltip).toContainText(TestData.unixTime((json.job_state_transitions[5].state_change_time as number) / 1000));
     });
 

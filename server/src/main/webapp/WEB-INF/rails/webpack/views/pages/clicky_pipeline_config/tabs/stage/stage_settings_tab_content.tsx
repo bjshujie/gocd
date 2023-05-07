@@ -59,14 +59,6 @@ export class StageSettingsWidget extends MithrilViewComponent<Attrs> {
     if (!vnode.attrs.isForAddStagePopup) {
       additionalStageSettings = <div data-test-id="additional-stage-settings">
         <div className={styles.switchWrapper}>
-          <SwitchBtn label="获取 materials"
-                     helpText="Perform material updates or checkouts."
-                     dataTestId="fetch-materials-checkbox"
-                     disabled={vnode.attrs.readonly}
-                     small={true}
-                     field={stage.fetchMaterials}/>
-        </div>
-        <div className={styles.switchWrapper}>
           <SwitchBtn label="从不清理文档"
                      helpText="如果在服务器级别配置了清除工件，则永远不要清除此阶段的文档."
                      dataTestId="never-cleanup-artifacts-checkbox"

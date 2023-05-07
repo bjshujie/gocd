@@ -50,7 +50,7 @@ export class SelectInstanceWidget extends Dropdown<DropdownAttrs & Attrs> {
   protected doRenderButton(vnode: m.Vnode<DropdownAttrs & Attrs>): m.Children {
     //const placeholder = "Search for a pipeline instance by label, committer, date, etc.";
     const placeholder = "根据标签，日期等查询算法";
-    const helpText    = <Link onclick={this.browse.bind(this, vnode)}>Browse the timeline</Link>;
+    const helpText    = <Link onclick={this.browse.bind(this, vnode)}>浏览时间线</Link>;
     return <div>
       <label class={styles.label}>{placeholder}</label>
       <SearchField
@@ -91,7 +91,7 @@ export class SelectInstanceWidget extends Dropdown<DropdownAttrs & Attrs> {
                 <div>
                   <StagesWidget stages={instance.stages()}/>
                   <span data-test-id="triggered-by" class={styles.label}>
-                     启动自 {instance.buildCause().getApprover()} on {PipelineInstanceWidget.getTimeToDisplay(instance.scheduledDate())}
+                     启动自 {instance.buildCause().getApprover()} 于 {PipelineInstanceWidget.getTimeToDisplay(instance.scheduledDate())}
                   </span>
                   {this.materialRevisions(instance.buildCause().materialRevisions().filterRevision(this.pattern()))}
                 </div>

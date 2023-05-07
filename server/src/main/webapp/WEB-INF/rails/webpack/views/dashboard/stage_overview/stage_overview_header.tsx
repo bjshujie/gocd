@@ -157,22 +157,22 @@ export class StageHeaderWidget extends MithrilComponent<StageHeaderAttrs, StageH
       <div data-test-id="stage-name-and-operations-container" class={styles.flexBox}>
         <div class={styles.stageNameContainer}>
           <div data-test-id="pipeline-name-container">
-            <div className={styles.stageNameTitle}>Pipeline</div>
+            <div className={styles.stageNameTitle}>算法</div>
             <div className={styles.stageName}>{vnode.attrs.pipelineName}</div>
           </div>
           <Icons.AngleDoubleRight iconOnly={true}/>
           <div data-test-id="pipeline-instance-container">
-            <div className={styles.stageNameTitle}>Instance</div>
+            <div className={styles.stageNameTitle}>实例</div>
             <div className={styles.stageName}>{vnode.attrs.pipelineCounter}</div>
           </div>
           <Icons.AngleDoubleRight iconOnly={true}/>
           <div data-test-id="stage-name-container">
-            <div className={styles.stageNameTitle}>Stage</div>
+            <div className={styles.stageNameTitle}>阶段</div>
             <div className={styles.stageName}>{vnode.attrs.stageName}</div>
           </div>
           <Icons.AngleDoubleRight iconOnly={true}/>
           <div data-test-id="stage-instance-container">
-            <div className={styles.stageNameTitle}>Instance</div>
+            <div className={styles.stageNameTitle}>实例</div>
             {stageCounterView}
           </div>
         </div>
@@ -193,13 +193,13 @@ export class StageHeaderWidget extends MithrilComponent<StageHeaderAttrs, StageH
         <div data-test-id="stage-trigger-by-container">
           {canceledBy}
           <div data-test-id="triggered-by-container" class={styles.triggeredByContainer}>
-            Triggered by <span class={styles.triggeredByAndOn}>{vnode.attrs.stageInstance().triggeredBy()}</span>
+            启动自 <span class={styles.triggeredByAndOn}>{vnode.attrs.stageInstance().triggeredBy()}</span>
           </div>
           <div data-test-id="triggered-on-container" className={styles.triggeredByContainer}>
-            on <span title={vnode.attrs.stageInstance().triggeredOnServerTime()}
+            于 <span title={vnode.attrs.stageInstance().triggeredOnServerTime()}
                      className={styles.triggeredByAndOn}>{vnode.attrs.stageInstance().triggeredOn()}</span> 本地时间
             <span className={styles.durationSeparator}>|</span>
-            Duration: <span className={styles.triggeredByAndOn}>{vnode.attrs.stageInstance().stageDuration()}</span>
+            持续时间: <span className={styles.triggeredByAndOn}>{vnode.attrs.stageInstance().stageDuration()}</span>
           </div>
         </div>
         <div data-test-id="stage-details-page-link" class={styles.stageDetailsPageLink}>

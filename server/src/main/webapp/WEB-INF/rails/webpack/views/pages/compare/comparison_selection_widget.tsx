@@ -42,7 +42,7 @@ export class ComparisonSelectionWidget extends MithrilViewComponent<Attrs> {
                                      onInstanceChange={onFromInstanceChange}
                                      dataTestId="pipeline-from-instance"/>
           </td>
-          <td class={styles.pipelineComparisonText}>compared to</td>
+          <td class={styles.pipelineComparisonText}>比较于</td>
           <td class={styles.pipelineInstanceSelection}>
             <InstanceSelectionWidget instance={vnode.attrs.toInstance}
                                      onInstanceChange={onToInstanceChange}

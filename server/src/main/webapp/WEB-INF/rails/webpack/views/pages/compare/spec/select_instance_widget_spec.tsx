@@ -50,7 +50,7 @@ describe('SelectInstanceWidgetSpec', () => {
     expect(helper.q("label")).toBeInDOM();
     expect(helper.q("label").innerText).toBe(placeHolder);
     expect(helper.q("span[id='help-text']")).toBeInDOM();
-    expect(helper.q("span[id='help-text']").innerText).toBe("Browse the timeline");
+    expect(helper.q("span[id='help-text']").innerText).toBe("浏览时间线");
   });
 
   it('should render no results found if no results found on input change', () => {
@@ -74,7 +74,7 @@ describe('SelectInstanceWidgetSpec', () => {
     expect(helper.qa("li", element).length).toBe(1);
 
     const instanceElement = helper.byTestId(`instance-4`);
-    const triggeredByMsg  = `Triggered by ${instance.buildCause().getApprover()} on ${timeFormatter.format(instance.scheduledDate())}`;
+    const triggeredByMsg  = `触发自 ${instance.buildCause().getApprover()} on ${timeFormatter.format(instance.scheduledDate())}`;
     expect(instanceElement).toBeInDOM();
     expect(helper.q("h5", instanceElement)).toBeInDOM();
     expect(helper.q("h5", instanceElement).innerText).toBe("4");
@@ -115,7 +115,7 @@ describe('SelectInstanceWidgetSpec', () => {
     expect(helper.qa("li", element).length).toBe(1);
 
     const instanceElement = helper.byTestId(`instance-4`);
-    const triggeredByMsg  = `Triggered by ${instance.buildCause().getApprover()} on ${timeFormatter.format(instance.scheduledDate())}`;
+    const triggeredByMsg  = `触发自 ${instance.buildCause().getApprover()} on ${timeFormatter.format(instance.scheduledDate())}`;
     expect(instanceElement).toBeInDOM();
     expect(helper.q("h5", instanceElement)).toBeInDOM();
     expect(helper.q("h5", instanceElement).innerText).toBe(`4`);

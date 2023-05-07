@@ -66,11 +66,11 @@ class GoServerLoadingIndicationHandler extends ContextHandler {
 
         private void handleQueriesWhenWebAppIsStarting(String target, Request baseRequest, HttpServletRequest request, HttpServletResponse response) throws IOException {
             if (acceptHeaderValue(baseRequest).contains("json")) {
-                respondWith503(baseRequest, response, APPLICATION_JSON.asString(), "{ \"message\": \"GoCD server is starting\" }");
+                respondWith503(baseRequest, response, APPLICATION_JSON.asString(), "{ \"message\": \"服务器正在启动\" }");
             } else if (acceptHeaderValue(baseRequest).contains("html")) {
                 respondWith503(baseRequest, response, TEXT_HTML.asString(), loadingPage());
             } else {
-                respondWith503(baseRequest, response, TEXT_PLAIN.asString(), "GoCD server is starting");
+                respondWith503(baseRequest, response, TEXT_PLAIN.asString(), "服务器正在启动");
             }
         }
 

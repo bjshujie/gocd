@@ -14,10 +14,10 @@
  * limitations under the License.
  -->
 <div id="build_history_holder" class="sidebar-container">
-    <h4 class="entity_title dropdown-arrow-icon" data-toggle='dropdown'>Job History</h4>
+    <h4 class="entity_title dropdown-arrow-icon" data-toggle='dropdown'>作业历史</h4>
     <div id="buildlist-container" class="round-content">
         <#if presenter.recent25?size == 0 >
-            <p class="text-only">No jobs found.</p>
+            <p class="text-only">未找到作业.</p>
         </#if>
         <ul class="buildlist dropdown-menu">
             <#list presenter.recent25 as listPresenter>

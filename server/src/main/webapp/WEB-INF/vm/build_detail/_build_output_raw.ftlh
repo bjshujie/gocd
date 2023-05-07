@@ -16,25 +16,25 @@
 <div class="console-area" data-console-url="${presenter.consoleoutLocator}" >
 <div class="console-action-bar">
     <div>
-        <a class="auto-scroll" title="Scroll to bottom">Scroll to end of logs</a>
-        <a href="${req.getContextPath()}/files/${presenter.consoleoutLocator}">Raw output</a>
-        <a class='toggle-timestamps' href="#"><i class="fa fa-clock-o"></i> Timestamps</a>
+        <a class="auto-scroll" title="Scroll to bottom">滚动到日志末尾</a>
+        <a href="${req.getContextPath()}/files/${presenter.consoleoutLocator}">原始输出</a>
+        <a class='toggle-timestamps' href="#"><i class="fa fa-clock-o"></i> 时间标记</a>
         <a class='toggle-folding' href="#" data-collapsed="true"></a>
         <a id="full-screen">
-          <span class="expand">Fullscreen</span>
-          <span class="compress">Exit</span>
+          <span class="expand">全屏</span>
+          <span class="compress">退出</span>
         </a>
-        <a class='change-theme' href="javascript:void(0);">Change theme</a>
+        <a class='change-theme' href="javascript:void(0);">更改主题</a>
     </div>
 </div>
-<div class="console-log-loading">Waiting for console logs&hellip;</div>
+<div class="console-log-loading">正在等待控制台日志&hellip;</div>
 <pre class="buildoutput_pre"></pre>
 <div class="console-footer-action-bar">
     <div>
-        <a href="javascript:void(0)" class="back-to-top-in-console"><span class="back-to-top-icon"></span>Back to top</a>
+        <a href="javascript:void(0)" class="back-to-top-in-console"><span class="back-to-top-icon"></span>回到顶端</a>
     </div>
 </div>
 <#if presenter.isCompleted()>
-<div class="widget" id="build-output-console-warnning" style="display: none;">No console output.</div>
+<div class="widget" id="build-output-console-warnning" style="display: none;">无控制台输出.</div>
 </#if>
 </div>

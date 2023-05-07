@@ -675,7 +675,7 @@ public class AgentService implements DatabaseEntityChangeListener<Agent> {
                 || isNotEmpty(envsToRemove)
                 || isTriStateSet(state);
         if (!anyOperationPerformed) {
-            throw new BadRequestException("Bad Request. No operation is specified in the request to be performed on agents.");
+            throw new BadRequestException("错误的请求。请求中未指定要对节点执行的操作。");
         }
         return true;
     }

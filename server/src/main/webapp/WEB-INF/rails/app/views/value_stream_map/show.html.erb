@@ -1,18 +1,18 @@
-<% @view_title = "Value Stream Map of #{params[:pipeline_name]}" -%>
+<% @view_title = "图形显示 #{params[:pipeline_name]}" -%>
 
 <div class="page_header">
-  <span class="page_name">Value Stream Map</span>
+  <span class="page_name">图形显示</span>
     <ul class="entity_title">
         <li class="name">
-          <span class="label">Pipeline</span>
+          <span class="label">算法</span>
           <%=link_to params[:pipeline_name], url_for_pipeline(params[:pipeline_name]) %></li>
         <li class="last">
-          <span class="label">Instance</span>
+          <span class="label">实例</span>
           <h1><%= @pipeline!=nil ? @pipeline.getLabel() : params[:pipeline_counter] %> </h1>
         </li>
     </ul>
     <% if supports_vsm_analytics? %>
-    <button class="btn-primary enable-analytics"><i class="icon_vsm_analytics"></i>Analytics</button>
+    <button class="btn-primary enable-analytics"><i class="icon_vsm_analytics"></i>分析</button>
     <% end %>
 </div>
 

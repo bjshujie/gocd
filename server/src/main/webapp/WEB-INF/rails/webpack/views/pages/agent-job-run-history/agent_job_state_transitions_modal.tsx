@@ -36,12 +36,9 @@ export class AgentJobStateTransitionModal extends Modal {
       return [<i>{transition.state}</i>, TimeFormatter.format(transition.state_change_time)];
     });
 
-    const waitTimeContent     = <div>Wait Time is the time spent by the job waiting for an agent to be assigned. This is
-      the total time spent by the job from the time it is <b><i>Scheduled</i></b> to it is <b><i>Assigned</i></b>.</div>;
-    const buildingTimeContent = <div>Building time is the time spent building the job on an agent. This is the total
-      time spent by the job from the time it is <b><i>Assigned</i></b> to it is <b><i>Completed</i></b>.</div>;
-    const totalTimeContent    = <div>Total time is the time taken by the job from scheduling to completion. This is the
-      total time spent by the job from the time it is <b><i>Scheduled</i></b> to it is <b><i>Completed</i></b>.</div>;
+    const waitTimeContent     = <div>等待时间是作业等待分配节点所花费的时间。这是作业从<b><i>计划</i></b>到<b><i>分配</i></b>所花费的总时间。</div>;
+    const buildingTimeContent = <div>构建时间是在节点上构建作业所花费的时间。这是总数作业从<b><i>分配</i></b>给它的时间到<b><i>完成</i></b>所花费的时间。</div>;
+    const totalTimeContent    = <div>总时间是指作业从计划到完成所花费的时间。这是作业从<b><i>计划</i></b>到<b><i>完成</i></b>所花费的总时间。</div>;
 
     return <div data-test-id={`job-state-transitions-for-${this.jobRepresentation()}`}>
       <div class={styles.jobStateTransitionInformationContainer} data-test-id="additional-information-container">
@@ -55,7 +52,7 @@ export class AgentJobStateTransitionModal extends Modal {
 
         <div data-test-id="key-value-pair" class={styles.keyValuePair}>
           <div class={styles.key} data-test-id="key-wait-time">
-            Wait Time
+            等待时间
             <Tooltip.Info content={waitTimeContent}/>
           </div>
           <span class={styles.value} data-test-id="value-wait-time">
@@ -65,7 +62,7 @@ export class AgentJobStateTransitionModal extends Modal {
 
         <div data-test-id="key-value-pair" class={styles.keyValuePair}>
           <div class={styles.key} data-test-id="key-building-time">
-            Building Time
+            构建时间
             <Tooltip.Info content={buildingTimeContent}/>
           </div>
           <span class={styles.value} data-test-id="value-building-time">
@@ -75,7 +72,7 @@ export class AgentJobStateTransitionModal extends Modal {
 
         <div data-test-id="key-value-pair" class={styles.keyValuePair}>
           <div class={styles.key} data-test-id="key-total-time">
-            Total Time
+            总用时
             <Tooltip.Info content={totalTimeContent}/>
           </div>
           <span class={styles.value} data-test-id="value-total-time">
@@ -83,12 +80,12 @@ export class AgentJobStateTransitionModal extends Modal {
           </span>
         </div>
       </div>
-      <Table data={tableData} headers={["Agent State", "Time"]}/>
+      <Table data={tableData} headers={["节点状态", "时间"]}/>
     </div>;
   }
 
   title(): string {
-    return "Job State Transitions";
+    return "工作状态转换";
   }
 
   private jobRepresentation() {

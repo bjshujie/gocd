@@ -58,9 +58,9 @@ public class VerifyAuthorityFilter extends OncePerRequestFilter {
         } else {
             LOGGER.debug("User {} not authorized to access {}: has authorities {}", authentication.getUser().getUsername(), request.getRequestURI(), authentication.getUser().getAuthorities());
             if (SessionUtils.getCurrentUser().asUsernameObject().isAnonymous()) {
-                requestHandler.handle(request, response, SC_UNAUTHORIZED, "You are not authenticated!");
+                requestHandler.handle(request, response, SC_UNAUTHORIZED, "您未通过身份验证！");
             } else {
-                requestHandler.handle(request, response, SC_FORBIDDEN, "You are not authorized to access this resource!");
+                requestHandler.handle(request, response, SC_FORBIDDEN, "您无权访问此资源！");
             }
         }
     }

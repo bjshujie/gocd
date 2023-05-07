@@ -164,7 +164,6 @@ export class SiteMenu extends MithrilViewComponent<Attrs> {
               </SiteSubNav>
               <SiteSubNav>
                 <SiteSubNavItem href="/go/admin/elastic_agent_configurations" text="弹性节点配置"/>
-                <SiteSubNavItem href="/go/admin/config_repos" text="配置仓库"/>
                 <SiteSubNavItem href="/go/admin/artifact_stores" text="文档存储"/>
                 <SiteSubNavItem href="/go/admin/secret_configs" text="保密管理"/>
                 <SiteSubNavItem href="/go/admin/scms" text="算法启动插件"/>
@@ -196,7 +195,6 @@ export class SiteMenu extends MithrilViewComponent<Attrs> {
               <SiteSubNavItem href="/go/admin/pipelines/snippet" text="配置 XML"/>
               <SiteSubNavItem href="/go/admin/plugins" text="插件"/>
               <SiteSubNavItem href="/go/admin/package_repositories/new" text="包仓库"/>
-              <SiteSubNavItem href="/go/admin/config_repos" text="配置仓库"/>
               <SiteSubNavItem href="/go/admin/elastic_agent_configurations" text="弹性节点配置"/>
               <SiteSubNavItem href="/go/admin/scms" text="算法启动插件"/>
             </SiteSubNav>
@@ -208,7 +206,6 @@ export class SiteMenu extends MithrilViewComponent<Attrs> {
             <SiteSubNav>
               <SiteSubNavItem href="/go/admin/environments" text="环境"/>
               <SiteSubNavItem href="/go/admin/templates" text="模板"/>
-              <SiteSubNavItem href="/go/admin/config_repos" text="配置仓库"/>
               <SiteSubNavItem href="/go/admin/elastic_agent_configurations" text="弹性节点配置"/>
             </SiteSubNav>
           </div>
@@ -221,7 +218,6 @@ export class SiteMenu extends MithrilViewComponent<Attrs> {
           <div class={classnames(styles.subNavigation, styles.hasOnlyOneOption)}>
             <SiteSubNav>
               <SiteSubNavItem href="/go/admin/environments" text="环境"/>
-              <SiteSubNavItem href="/go/admin/config_repos" text="配置仓库"/>
               <SiteSubNavItem href="/go/admin/elastic_agent_configurations" text="弹性节点配置"/>
             </SiteSubNav>
           </div>

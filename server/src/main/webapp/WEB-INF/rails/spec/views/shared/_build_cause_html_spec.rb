@@ -74,29 +74,29 @@ describe "shared/_build_cause.html.erb" do
         change1 = changes[0]
         change2 = changes[1]
         change1.find(".revision").tap do |revision|
-          expect(revision).to have_selector("dt", :text => "Revision:")
+          expect(revision).to have_selector("dt", :text => "修订版本:")
           expect(revision).to have_selector("dd", :text => "9fdcf27f16eadc362733328dd481d8a2c29915e1")
         end
         change1.find(".modified_by").tap do |revision|
-          expect(revision).to have_selector("dt", :text => "Modified by:")
+          expect(revision).to have_selector("dt", :text => "修改人:")
           expect(revision).to have_selector("dd", :text => "user2 on #{ModificationsMother::TODAY_CHECKIN.iso8601}")
         end
         change1.find(".comment").tap do |revision|
-          expect(revision).to have_selector("dt", :text => "Comment:")
+          expect(revision).to have_selector("dt", :text => "注释:")
           expect(revision).to have_selector("dd", :text => "comment2")
         end
         expect(change1).to_not have_selector(".modified_files")
 
         change2.find(".revision").tap do |revision|
-          expect(revision).to have_selector("dt", :text => "Revision:")
+          expect(revision).to have_selector("dt", :text => "修订版本:")
           expect(revision).to have_selector("dd", :text => "eef77acd79809fc14ed82b79a312648d4a2801c6")
         end
         change2.find(".modified_by").tap do |revision|
-          expect(revision).to have_selector("dt", :text => "Modified by:")
+          expect(revision).to have_selector("dt", :text => "修改人:")
           expect(revision).to have_selector("dd", :text => "user1 on #{ModificationsMother::TWO_DAYS_AGO_CHECKIN.iso8601}")
         end
         change2.find(".comment").tap do |revision|
-          expect(revision).to have_selector("dt", :text => "Comment:")
+          expect(revision).to have_selector("dt", :text => "注释:")
           expect(revision).to have_selector("dd", :text => "comment1")
         end
         expect(change2).to_not have_selector(".modified_files")
@@ -110,15 +110,15 @@ describe "shared/_build_cause.html.erb" do
       expect(material).to have_selector(".material_name", :text => "Pipeline - #{dependency_material.getDisplayName()}")
       material.find(".change").tap do |change|
         change.find(".revision").tap do |revision|
-          expect(revision).to have_selector("dt", :text => "Revision:")
+          expect(revision).to have_selector("dt", :text => "修订版本:")
           expect(revision).to have_selector("dd a[href='/pipelines/up_pipeline/10/up_stage/5']", :text => "up_pipeline/10/up_stage/5")
         end
         change.find(".label").tap do |label|
-          expect(label).to have_selector("dt", :text => "VSM:")
+          expect(label).to have_selector("dt", :text => "图形显示:")
           expect(label).to have_selector("dd a[href='/go/pipelines/value_stream_map/up_pipeline/10']", :text => "label-10")
         end
         change.find(".completed_at").tap do |completed_at|
-          expect(completed_at).to have_selector("dt", :text => "Completed at:")
+          expect(completed_at).to have_selector("dt", :text => "完成时间:")
           expect(completed_at).to have_selector("dd", :text => "#{@dependency_revisions.getModification(0).getModifiedTime().iso8601}")
         end
       end

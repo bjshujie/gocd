@@ -16,26 +16,26 @@
 <#if _page_title??>
 <div id="job_details_header" class="job_details entity_title page_header">
   <div class="row">
-    <span class="page_name">Job Details</span>
+    <span class="page_name">作业详情</span>
     <ul class="entity_title">
       <li class="name">
-        <span class="label">Pipeline</span>
+        <span class="label">算法</span>
         <a href="${req.getContextPath()}/pipeline/activity/${presenter.pipelineName}"
            title="View this pipeline's activity">${presenter.pipelineName}</a>
       </li>
       <li class="pipeline_label">
-        <span class="label">Instance</span>
+        <span class="label">实例</span>
         <span class="run_no">${presenter.pipelineLabel}</span>
         <a href="${req.getContextPath()}/pipelines/value_stream_map/${presenter.pipelineName}/${presenter.pipelineCounter?c}"
-           title="View this stage's jobs summary">VSM</a>
+           title="View this stage's jobs summary">形图显示</a>
       </li>
       <li class="stage_name">
-        <span class="label">Stage</span>
+        <span class="label">阶段</span>
         <a href="${req.getContextPath()}/pipelines/${presenter.stageLocator}"
            title="View this stage's details">${presenter.stageName} / ${presenter.stageCounter}</a>
       </li>
       <li class='last'>
-        <span class="label">Job</span>
+        <span class="label">作业</span>
         <h1>${presenter.buildName}</h1></li>
     </ul>
       <#if userHasAdministratorRights || userHasGroupAdministratorRights >

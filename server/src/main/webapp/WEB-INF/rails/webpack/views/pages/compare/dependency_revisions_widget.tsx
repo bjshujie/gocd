@@ -47,9 +47,9 @@ export class DependencyRevisionsWidget extends MithrilViewComponent<DependencyRe
 
   private static headers() {
     return [
-      "Revision",
-      "Instance",
-      "Completed At"
+      "修订版本",
+      "实例",
+      "完成时间"
     ];
   }
 }

@@ -61,7 +61,7 @@ public class EmailMessageDrafter {
                                                                 String targetFolder) {
         String ipAddress = SystemUtil.getFirstLocalNonLoopbackIpAddress();
         return new SendEmailMessage(
-                "Low artifacts disk space warning message from Go Server at " + ipAddress, String.format(
+                "低磁盘空间警告在 " + ipAddress, String.format(
                         LOW_ARTIFACTS_DISK_SPACE_EMAIL, ipAddress, systemEnvironment.getArtifactRepositoryWarningLimit(),
                         targetFolder,
                         systemEnvironment.getArtifactRepositoryFullLimit()), adminMail);
@@ -72,7 +72,7 @@ public class EmailMessageDrafter {
         String ipAddress = SystemUtil.getFirstLocalNonLoopbackIpAddress();
         long size = systemEnvironment.getArtifactRepositoryFullLimit();
         return new SendEmailMessage(
-                "No artifacts disk space error message from Go Server at " + ipAddress, String.format(
+                "磁盘空间错误消息在 " + ipAddress, String.format(
                         NO_ARTIFACTS_DISK_SPACE_EMAIL, ipAddress, size, targetFolder), adminMail);
     }
 
@@ -80,7 +80,7 @@ public class EmailMessageDrafter {
                                                                String targetFolder) {
         String ipAddress = SystemUtil.getFirstLocalNonLoopbackIpAddress();
         return new SendEmailMessage(
-                "Low database disk space warning message from Go Server at " + ipAddress, String.format(
+                "低磁盘空间警告在 " + ipAddress, String.format(
                         LOW_DATABASE_DISK_SPACE_EMAIL, ipAddress, systemEnvironment.getDatabaseDiskSpaceWarningLimit(),
                         targetFolder,
                         systemEnvironment.getDatabaseDiskSpaceFullLimit()), adminMail);
@@ -90,38 +90,38 @@ public class EmailMessageDrafter {
                                                               String targetFolder) {
         String ipAddress = SystemUtil.getFirstLocalNonLoopbackIpAddress();
         return new SendEmailMessage(
-                "No database disk space error message from Go Server at " + ipAddress, String.format(
+                "无磁盘空间错误在 " + ipAddress, String.format(
                         NO_DATABASE_DISK_SPACE_EMAIL, ipAddress, systemEnvironment.getDatabaseDiskSpaceFullLimit(),
                         targetFolder), adminMail);
     }
 
     public static SendEmailMessage backupSuccessfullyCompletedMessage(String backupDir, String adminEmail, String username) {
         String ipAddress = SystemUtil.getFirstLocalNonLoopbackIpAddress();
-        String body = String.format("Backup of the Go server at '%s' was successfully completed. The backup is stored at location: %s. This backup was triggered by '%s'.", ipAddress, backupDir, username);
-        return new SendEmailMessage("Server Backup Completed Successfully", body, adminEmail);
+        String body = String.format("在 '%s' 的服务器的备份已成功完成. 备份存储在位置： %s. 此备份触发自 '%s'.", ipAddress, backupDir, username);
+        return new SendEmailMessage("服务器备份已成功完成", body, adminEmail);
     }
 
     public static SendEmailMessage backupFailedMessage(String exceptionMessage, String adminEmail) {
         String ipAddress = SystemUtil.getFirstLocalNonLoopbackIpAddress();
-        return new SendEmailMessage("Server Backup Failed",String.format("Backup of the Go server at '%s' has failed. The reason is: %s", ipAddress, exceptionMessage),adminEmail);
+        return new SendEmailMessage("服务器备份失败",String.format("在 '%s' 上的服务备份失败. 原因：%s", ipAddress, exceptionMessage),adminEmail);
     }
 
     public static SendEmailMessage agentLostContact(AgentInstance agentInstance, Set<String> environments, final String adminEmail) {
         String ipAddress = SystemUtil.getFirstLocalNonLoopbackIpAddress();
-        return new SendEmailMessage(String.format("[Lost Contact] Go agent host: %s", agentInstance.getHostname()),
-                String.format("The email has been sent out automatically by the Go server at (%s) to Go administrators.\n"
+        return new SendEmailMessage(String.format("[失去联系] 节点主机: %s", agentInstance.getHostname()),
+                String.format("该电子邮件已由位于（%s）的服务器自动发送给管理员。\n"
                         + "\n"
-                        + "The Go server has lost contact with agent:\n"
+                        + "服务器已与节点失去联系:\n"
                         + "\n"
-                        + "Agent name: %s\n"
-                        + "Free Space: %s\n"
-                        + "Sandbox: %s\n"
-                        + "IP Address: %s\n"
-                        + "OS: %s\n"
-                        + "Resources: %s\n"
-                        + "Environments: %s\n"
+                        + "节点名称: %s\n"
+                        + "剩余空间: %s\n"
+                        + "沙盒: %s\n"
+                        + "IP 地址: %s\n"
+                        + "操作系统: %s\n"
+                        + "资源: %s\n"
+                        + "环境: %s\n"
                         + "\n"
-                        + "Lost contact at: %s",
+                        + "失去联系时间: %s",
                         ipAddress,
                         agentInstance.getHostname(),
                         agentInstance.freeDiskSpace(),

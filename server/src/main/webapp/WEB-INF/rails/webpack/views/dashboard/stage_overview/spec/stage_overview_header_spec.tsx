@@ -107,7 +107,7 @@ describe('Stage Overview Header', () => {
 
   it('should render triggered by information', () => {
     expect(helper.byTestId('stage-trigger-and-timing-container')).toBeInDOM();
-    expect(helper.byTestId('stage-trigger-and-timing-container')).toContainText('Triggered by admin');
+    expect(helper.byTestId('stage-trigger-and-timing-container')).toContainText('触发自 admin');
   });
 
   it('should render triggered on information', () => {

@@ -988,7 +988,7 @@ describe("Dashboard Pipeline Widget", () => {
   }
 
   function stubTriggerOptionsWithInvalidData(pipelineName) {
-    const invalidJsonResponse = "{ : { : There was an unknown error. Please check the server logs for more information.}}";
+    const invalidJsonResponse = "{ : { : 出现未知错误。有关详细信息，请查看服务器日志。}}";
     jasmine.Ajax.stubRequest(`/go/api/pipelines/${pipelineName}/trigger_options`, undefined, 'GET').andReturn({
       responseText:    invalidJsonResponse,
       responseHeaders: {

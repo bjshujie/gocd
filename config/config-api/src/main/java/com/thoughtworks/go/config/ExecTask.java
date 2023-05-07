@@ -191,16 +191,16 @@ public class ExecTask extends AbstractTask implements CommandTask {
     @Override
     public List<TaskProperty> getPropertiesForDisplay() {
         ArrayList<TaskProperty> taskProperties = new ArrayList<>();
-        taskProperties.add(new TaskProperty("Command", command));
+        taskProperties.add(new TaskProperty("命令", command));
         String arguments = arguments();
         if (!arguments.isEmpty()) {
-            taskProperties.add(new TaskProperty("Arguments", arguments));
+            taskProperties.add(new TaskProperty("参数", arguments));
         }
         if (workingDirectory != null) {
-            taskProperties.add(new TaskProperty("Working Directory", workingDirectory));
+            taskProperties.add(new TaskProperty("工作目录", workingDirectory));
         }
         if (!(timeout == null || timeout.equals(NO_TIMEOUT_FOR_COMMANDLINE))) {
-            taskProperties.add(new TaskProperty("Timeout", timeout.toString()));
+            taskProperties.add(new TaskProperty("超时", timeout.toString()));
         }
         return taskProperties;
     }

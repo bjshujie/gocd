@@ -67,26 +67,26 @@ export class JobProgressBarWidget extends MithrilComponent<Attrs> {
     const totalWidth = Math.floor((jobDuration.totalTime.valueOf() / vnode.attrs.longestTotalTime) * 100);
 
     const tooltipItems = {
-      'Total Time':   jobDuration.totalTimeForDisplay,
-      'Scheduled At': jobDuration.startTimeForDisplay,
-      'Completed At': jobDuration.endTimeForDisplay,
+      '总时长':   jobDuration.totalTimeForDisplay,
+      '调度时间': jobDuration.startTimeForDisplay,
+      '完成时间': jobDuration.endTimeForDisplay,
     };
 
     const stateTransitionItems = {
-      'Waiting for an Agent':   jobDuration.waitTimeForDisplay,
-      'Checking out Materials': jobDuration.preparingTimeForDisplay,
-      'Building Job':           jobDuration.buildTimeForDisplay,
-      'Uploading Artifacts': jobDuration.uploadingArtifactTimeForDisplay
+      '等待分配节点':   jobDuration.waitTimeForDisplay,
+      '准备': jobDuration.preparingTimeForDisplay,
+      '构建作业':           jobDuration.buildTimeForDisplay,
+      '上传文档': jobDuration.uploadingArtifactTimeForDisplay
     };
 
     const originalKeyMapping = {
-      'Waiting for an Agent':   'Scheduled',
-      'Checking out Materials': 'Preparing',
-      'Building Job':           'Building',
-      'Uploading Artifacts':    'Completing',
-      'Total Time':             'Completed',
-      'Scheduled At':           'Scheduled',
-      'Completed At':           'Completed',
+      '等待分配节点':   'Scheduled',
+      '准备': 'Preparing',
+      '构建作业':           'Building',
+      '上传文档':    'Completing',
+      '总时长':             'Completed',
+      '调度时间':           'Scheduled',
+      '完成时间':           'Completed',
     } as any;
 
     const innerBars = [

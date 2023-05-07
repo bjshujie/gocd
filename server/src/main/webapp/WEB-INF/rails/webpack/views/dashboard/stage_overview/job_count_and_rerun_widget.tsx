@@ -66,54 +66,54 @@ export class JobCountAndRerunWidget extends MithrilComponent<Attrs, State> {
 
   view(vnode: m.Vnode<Attrs, State>): m.Children | void | null {
     const failedJobNames = vnode.attrs.jobsVM().failedJobNames().map(j => j.name);
-    let rerunFailedTitle = `Rerun all the failed jobs from the stage. Reruning failed jobs will reschedule '${failedJobNames.join(', ')}' job(s).`;
-    let rerunSelectedTitle = `Rerun selected jobs from the stage.`;
+    let rerunFailedTitle = `重新运行阶段中所有失败的作业。重新调整失败的作业将重新调度作业 '${failedJobNames.join(', ')}'.`;
+    let rerunSelectedTitle = `重新运行阶段的作业.`;
 
     let disableRerunFailed = false, disableRerunSelected = false;
 
     if (vnode.attrs.inProgressStageFromPipeline() !== undefined) {
-      rerunFailedTitle = `Can not rerun failed jobs. Stage '${vnode.attrs.inProgressStageFromPipeline().name}' from the current pipeline is still in progress.`;
-      rerunSelectedTitle = `Can not rerun selected jobs. Stage '${vnode.attrs.inProgressStageFromPipeline().name}' from the current pipeline is still in progress.`;
+      rerunFailedTitle = `无法重新运行失败的作业。当前算法的阶段 '${vnode.attrs.inProgressStageFromPipeline().name}' 仍在进行中.`;
+      rerunSelectedTitle = `无法重新运行所选作业。当前算法的阶段 '${vnode.attrs.inProgressStageFromPipeline().name}' 仍在进行中.`;
       disableRerunFailed = disableRerunSelected = true;
     }
 
     const isStageCompleted = vnode.attrs.jobsVM().buildingJobNames().length === 0;
     if (!isStageCompleted) {
-      rerunFailedTitle = `Can not rerun failed jobs. Some jobs from the stage are still in progress.`;
-      rerunSelectedTitle = `Can not rerun selected jobs. Some jobs from the stage are still in progress.`;
+      rerunFailedTitle = `无法重新运行失败的作业。阶段上的一些工作仍在进行中.`;
+      rerunSelectedTitle = `无法重新运行所选作业。阶段上的一些工作仍在进行中.`;
       disableRerunFailed = disableRerunSelected = true;
     }
 
     if (failedJobNames.length === 0) {
       disableRerunFailed = true;
-      rerunFailedTitle = `Can not rerun failed jobs. No jobs from the current stage are in failed state.`;
+      rerunFailedTitle = `无法重新运行失败的作业。当前阶段中没有作业处于失败状态.`;
     }
 
     if (vnode.attrs.jobsVM().getCheckedJobNames().length === 0) {
       disableRerunSelected = true;
-      rerunSelectedTitle = `Can not rerun selected jobs. No jobs have been selected for rerun.`;
+      rerunSelectedTitle = `无法重新运行所选作业。没有选择要重新运行的作业.`;
     }
 
     return <div class={styles.jobCountAndRerunContainer} data-test-id="job-count-and-rerun-container">
       <div class={styles.jobRerunContainer} data-test-id="job-rerun-container">
         <ButtonGroup>
           <Secondary title={rerunFailedTitle} disabled={disableRerunFailed} small={true}
-                     onclick={vnode.state.rerunFailed.bind(vnode.state, vnode)}>Rerun Failed</Secondary>
+                     onclick={vnode.state.rerunFailed.bind(vnode.state, vnode)}>重新运行失败的</Secondary>
           <Secondary title={rerunSelectedTitle} disabled={disableRerunSelected} small={true}
-                     onclick={vnode.state.rerunSelected.bind(vnode.state, vnode)}>Rerun Selected</Secondary>
+                     onclick={vnode.state.rerunSelected.bind(vnode.state, vnode)}>重新运行选择的</Secondary>
         </ButtonGroup>
       </div>
       <div class={styles.jobCountContainer} data-test-id="job-cont-container">
         <div class={styles.countContainer} data-test-id="in-progress-jobs-container">
-          <div class={styles.countLabel}>Building :</div>
+          <div class={styles.countLabel}>构建中 :</div>
           <div className={styles.countText}> {vnode.attrs.jobsVM().buildingJobNames().length}</div>
         </div>
         <div class={styles.countContainer} data-test-id="passed-jobs-container">
-          <div className={styles.countLabel}>Passed :</div>
+          <div className={styles.countLabel}>通过 :</div>
           <div class={styles.countText}> {vnode.attrs.jobsVM().passedJobNames().length}</div>
         </div>
         <div class={styles.countContainer} data-test-id="failed-jobs-container">
-          <div className={styles.countLabel}>Failed :</div>
+          <div className={styles.countLabel}>失败 :</div>
           <div class={styles.countText}> {vnode.attrs.jobsVM().failedJobNames().length}</div>
         </div>
       </div>

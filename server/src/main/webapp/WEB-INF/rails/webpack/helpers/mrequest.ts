@@ -87,12 +87,12 @@ export const mrequest = {
       return data.message;
     }
   },
-  unwrapErrorExtractMessage: (data: any, xhr: JQuery.jqXHR, defaultMessage = "There was an unknown error performing the operation") => {
+  unwrapErrorExtractMessage: (data: any, xhr: JQuery.jqXHR, defaultMessage = "执行操作时出现未知错误") => {
     if (mrequest.unwrapMessage(data)) {
       return mrequest.unwrapMessage(data);
     } else {
       if (xhr && xhr.status === 0) {
-        return `There was an unknown error performing the operation. Possible reason (${xhr.statusText})`;
+        return `执行操作时出现未知错误。可能的原因： (${xhr.statusText})`;
       } else {
         return defaultMessage;
       }

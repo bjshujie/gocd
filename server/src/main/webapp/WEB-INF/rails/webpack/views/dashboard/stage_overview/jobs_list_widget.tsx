@@ -103,23 +103,23 @@ export class JobsListWidget extends MithrilComponent<Attrs, State> {
       <div class={styles.tableHeader} data-test-id="table-header">
         <div class={styles.checkboxCell} data-test-id="checkbox-header"/>
         <div class={styles.nameCell} data-test-id="job-name-header">
-          Job Name
+          作业名称
           <span onclick={() => jobsVM.updateSort(SortableColumn.NAME)} class={(styles as any)[jobsVM.getSortType(SortableColumn.NAME)]}/>
         </div>
         <div className={styles.consoleLogIconCell} data-test-id="console-log-icon-header"/>
         <div class={styles.stateCell} data-test-id="state-header">
-          State
+          状态
           <span onclick={() => jobsVM.updateSort(SortableColumn.STATE)} class={(styles as any)[jobsVM.getSortType(SortableColumn.STATE)]}/>
         </div>
         <div class={styles.statusCell} data-test-id="status-header">
-          Timeline
+          时间线
         </div>
         <div class={styles.durationCell} data-test-id="duration-header">
-          Duration
+          持续时间
           <span onclick={() => jobsVM.updateSort(SortableColumn.DURATION)} class={(styles as any)[jobsVM.getSortType(SortableColumn.DURATION)]}/>
         </div>
         <div class={styles.agentCell} data-test-id="agent-header">
-          Agent
+          节点
           <span onclick={() => jobsVM.updateSort(SortableColumn.AGENT)} class={(styles as any)[jobsVM.getSortType(SortableColumn.AGENT)]}/>
         </div>
       </div>

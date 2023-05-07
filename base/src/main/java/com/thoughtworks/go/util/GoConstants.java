@@ -36,7 +36,7 @@ public class GoConstants {
      * logic to an interceptor.
      */
     public static final String CACHE_CONTROL = "max-age=1, no-cache";
-    public static final String DEFAULT_APPROVED_BY = "changes";
+    public static final String DEFAULT_APPROVED_BY = "管理员";
     public static final String BASE_URL_PATTERN = "^(.+://.+?)/";
     public static final String ERROR_FOR_PAGE = "errorMessage";
     public static final String ERROR_FOR_JSON = "error";

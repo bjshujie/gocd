@@ -264,7 +264,7 @@ describe("Dashboard", () => {
     describe("Trigger", () => {
       it('should Trigger a pipeline with appropriate headers', async () => {
         jasmine.Ajax.stubRequest(`/go/api/pipelines/${pipelineJson.name}/schedule`, undefined, 'POST').andReturn({
-          responseText: JSON.stringify({"message": `Request to schedule pipeline '${pipelineJson.name}' accepted successfully.`}),
+          responseText: JSON.stringify({"message": `对算法 '${pipelineJson.name}' 的调度请求已被成功接受.`}),
           responseHeaders: {
             'Content-Type': 'application/vnd.go.cd.v1+json'
           },
