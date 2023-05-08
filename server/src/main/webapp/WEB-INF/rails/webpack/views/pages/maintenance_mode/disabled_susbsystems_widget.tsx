@@ -84,30 +84,30 @@ class InformationWhenInMaintenanceMode extends MithrilViewComponent<Attrs> {
     const runningSystem    = vnode.attrs.maintenanceModeInfo.runningSystem as RunningSystem;
     const mduRunningSystem = runningSystem.materialUpdateInProgress.count() === 0
       ? <SubsystemInfoWithIconWidget inProgress={false} dataTestId={"mdu-stopped"}
-                                     text={"Stopped material subsystem."}/>
+                                     text={"停止算法启动子系统."}/>
       : <SubsystemInfoWithIconWidget inProgress={true} dataTestId={"mdu-in-progress"}
-                                     text={"Waiting for material subsystem to stop.."}/>;
+                                     text={"等待算法启动子系统停止.."}/>;
 
     const buildingJobsSystem = runningSystem.buildingJobsGroupedByStages.length === 0
       ? <SubsystemInfoWithIconWidget inProgress={false} dataTestId={"scheduling-system-stopped"}
-                                     text={"Stopped scheduling subsystem."}/>
+                                     text={"停止算法调度子系统."}/>
       : <SubsystemInfoWithIconWidget inProgress={true} dataTestId={"scheduling-system-in-progress"}
-                                     text={"Waiting for building jobs to finish.."}/>;
+                                     text={"等待已构建的作业完成.."}/>;
 
     return <div data-test-id="info-when-not-in-maintenance-mode">
       <ul class={styles.runningSubSystem} data-test-id="running-sub-systems">
         {mduRunningSystem}
         <SubsystemInfoWithIconWidget inProgress={false} dataTestId={"config-repo-polling-stopped"}
-                                     text={"Stopped polling on config repositories."}/>
+                                     text={"已停止对算法配置进行轮询"}/>
         {buildingJobsSystem}
         <SubsystemInfoWithIconWidget inProgress={false} dataTestId={"agent-subsystem-stopped"}
-                                     text={"Stopped assigning jobs to agents."}/>
+                                     text={"已停止将作业分配到节点"}/>
         <SubsystemInfoWithIconWidget inProgress={false} dataTestId={"manual-trigger-stopped"}
-                                     text={"Stopped pipeline triggers."}/>
+                                     text={"已停止算法启动"}/>
         <SubsystemInfoWithIconWidget inProgress={false} dataTestId={"config-changes-stopped"}
-                                     text={"Stopped config modifications."}/>
+                                     text={"已停止修改配置信息"}/>
         <SubsystemInfoWithIconWidget inProgress={false} dataTestId={"db-changes-stopped"}
-                                     text={"Stopped database and filesystem modifications."}/>
+                                     text={"已停止数据库和文件系统修改。"}/>
       </ul>
     </div>;
   }

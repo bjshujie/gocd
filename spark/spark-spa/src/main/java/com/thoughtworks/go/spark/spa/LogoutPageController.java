@@ -53,7 +53,7 @@ public class LogoutPageController implements SparkController {
         Map<String, Object> meta = loginLogoutHelper.buildMeta(request);
 
         Map<String, Object> object = ImmutableMap.<String, Object>builder()
-                .put("viewTitle", "Logout")
+                .put("viewTitle", "退出")
                 .put("meta", meta)
                 .build();
 

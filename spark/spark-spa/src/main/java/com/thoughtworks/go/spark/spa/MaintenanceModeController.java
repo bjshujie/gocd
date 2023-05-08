@@ -51,7 +51,7 @@ public class MaintenanceModeController implements SparkController {
 
     public ModelAndView index(Request request, Response response) {
         Map<String, Object> object = Map.of(
-            "viewTitle", "Server Maintenance Mode"
+            "viewTitle", "服务器维护模式"
         );
 
         return new ModelAndView(object, null);

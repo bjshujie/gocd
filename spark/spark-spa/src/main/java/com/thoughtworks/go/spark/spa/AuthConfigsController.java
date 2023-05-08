@@ -51,7 +51,7 @@ public class AuthConfigsController implements SparkController {
 
     public ModelAndView index(Request request, Response response) {
         Map<String, Object> object = Map.of(
-            "viewTitle", "Authorization Configurations"
+            "viewTitle", "授权配置"
         );
         return new ModelAndView(object, null);
     }

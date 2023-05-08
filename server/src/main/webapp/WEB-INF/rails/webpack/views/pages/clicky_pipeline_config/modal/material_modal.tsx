@@ -68,7 +68,7 @@ export class MaterialModal extends Modal {
   static forAdd(pipelineGroupName: string, parentPipelineName: string, materials: Stream<Materials>, scms: Stream<Scms>, packageRepositories: Stream<PackageRepositories>,
                 pluginInfos: Stream<PluginInfos>, onSuccessfulAdd: () => Promise<any>, parentFlashMessage: FlashMessageModelWithTimeout) {
     const materialType = materials().scmMaterialsHaveDestination() ? "git" : "dependency";
-    return new MaterialModal("Add material", Stream(new Material(materialType)), pipelineGroupName, parentPipelineName, materials, scms, packageRepositories, pluginInfos, onSuccessfulAdd, parentFlashMessage, true, false);
+    return new MaterialModal("新增算法启动实例", Stream(new Material(materialType)), pipelineGroupName, parentPipelineName, materials, scms, packageRepositories, pluginInfos, onSuccessfulAdd, parentFlashMessage, true, false);
   }
 
   static forEdit(material: Material, pipelineGroupName: string, parentPipelineName: string, materials: Stream<Materials>, scms: Stream<Scms>,

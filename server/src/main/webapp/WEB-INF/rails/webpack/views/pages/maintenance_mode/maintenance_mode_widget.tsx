@@ -48,8 +48,8 @@ export class MaintenanceModeWidget extends MithrilViewComponent<Attrs> {
     let maintenanceModeStateMessage = "";
     if (maintenanceModeInfo.maintenanceModeState()) {
       maintenanceModeStateMessage = maintenanceModeInfo.hasRunningSystems
-        ? "Some subsystems of GoCD are still in progress."
-        : "GoCD Server has no running subsystems.";
+        ? "一些子系统仍在进行中。"
+        : "服务器没有正在运行的子系统。";
     }
 
     let updatedByMessage = "服务器维护模式默认关闭.";
@@ -57,7 +57,7 @@ export class MaintenanceModeWidget extends MithrilViewComponent<Attrs> {
       if (maintenanceModeInfo.metdata.updatedBy === "GoCD") {
         updatedByMessage = `服务器在 ${maintenanceModeInfo.metdata.updatedOn} 开始了维护模式.`;
       } else {
-        updatedByMessage = `${maintenanceModeInfo.metdata.updatedBy} changed the maintenance mode state on ${maintenanceModeInfo.metdata.updatedOn}.`;
+        updatedByMessage = `${maintenanceModeInfo.metdata.updatedBy} 在 ${maintenanceModeInfo.metdata.updatedOn} 更改了维护模式状态。`;
       }
     }
 
@@ -97,14 +97,14 @@ export class MaintenanceModeInfoWidget extends MithrilViewComponent<InfoAttrs> {
   view(vnode: m.Vnode<InfoAttrs>): m.Children {
     return [
       <JobInfoWidget stages={(vnode.attrs.maintenanceModeInfo.runningSystem as RunningSystem).buildingJobsGroupedByStages}
-                     title={"Running Stages"}
+                     title={"正在运行的阶段"}
                      onCancelStage={vnode.attrs.onCancelStage}/>,
       <MDUInfoWidget materials={(vnode.attrs.maintenanceModeInfo.runningSystem as RunningSystem).materialUpdateInProgress}/>,
       <JobInfoWidget stages={(vnode.attrs.maintenanceModeInfo.runningSystem as RunningSystem).scheduledJobsGroupedByStages}
                      title={<span class={styles.scheduledStagesTitleWrapper}>
-                       <div class={styles.scheduledStagesTitle}> Scheduled Stages </div>
+                       <div class={styles.scheduledStagesTitle}> 已调度的阶段 </div>
                        <Tooltip.Info size={TooltipSize.large}
-                                     content={"Scheduled stages contains the jobs which are scheduled but not yet assigned to any agent. As the job assignment to agents is stopped during maintenance mode, scheduled jobs will not have a side effect on the server state. Hence, Scheduled stages are ignored while considering server maintenance mode."}/>
+                                     content={"已调度的阶段包含已调度但尚未分配给任何节点的作业。由于在维护模式期间停止了对节点的作业分配，因此调度的作业不会对服务器状态产生副作用。因此，在考虑服务器维护模式时，会忽略计划阶段。"}/>
                      </span>}
                      onCancelStage={vnode.attrs.onCancelStage}/>,
     ] as m.ChildArray;

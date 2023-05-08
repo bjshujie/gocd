@@ -250,9 +250,9 @@ function assertIgnoreForSchedulingControlPresent(helper: TestHelper) {
   const control = helper.byTestId('material-ignore-for-scheduling');
 
   expect(control).toBeInDOM();
-  expect(helper.textByTestId('form-field-label', control)).toBe('Whenever the upstream pipeline stage passes:');
-  expect(helper.textByTestId('input-field-for-auto', control)).toBe('Run this pipeline');
-  expect(helper.textByTestId('input-field-for-manual', control)).toBe('Do not run this pipeline');
+  expect(helper.textByTestId('form-field-label', control)).toBe('每当上游算法阶段通过时:');
+  expect(helper.textByTestId('input-field-for-auto', control)).toBe('运行该算法');
+  expect(helper.textByTestId('input-field-for-manual', control)).toBe('不运行该算法');
 }
 
 function assertIgnoreForSchedulingControlAbsent(helper: TestHelper) {

@@ -72,6 +72,6 @@ describe("Create Env Modal", () => {
     const inputField = helper.byTestId("form-field-input-environment-name");
     helper.oninput(inputField, envJSON.name);
     helper.clickByTestId("button-save");
-    expect(helper.q(`#${inputField.id}-error-text`)).toHaveText("Name is a duplicate.");
+    expect(helper.q(`#${inputField.id}-error-text`)).toHaveText("名称重复.");
   });
 });

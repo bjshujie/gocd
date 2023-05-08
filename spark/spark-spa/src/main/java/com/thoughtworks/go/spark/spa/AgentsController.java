@@ -57,7 +57,7 @@ public class AgentsController implements SparkController {
 
     public ModelAndView index(Request request, Response response) {
         Map<String, Object> object = Map.of(
-            "viewTitle", "Agents Page",
+            "viewTitle", "节点页面",
             "meta", Map.of("data-should-show-analytics-icon", showAnalyticsIcon())
         );
 

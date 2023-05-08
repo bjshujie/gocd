@@ -51,7 +51,7 @@ public class RolesController implements SparkController {
 
     public ModelAndView index(Request request, Response response) {
         Map<String, Object> object = Map.of(
-            "viewTitle", "Server Roles"
+            "viewTitle", "服务器角色"
         );
         return new ModelAndView(object, null);
     }

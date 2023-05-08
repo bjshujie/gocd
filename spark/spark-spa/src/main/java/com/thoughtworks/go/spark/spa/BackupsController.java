@@ -58,7 +58,7 @@ public class BackupsController implements SparkController {
 
     public ModelAndView index(Request request, Response response) {
         Map<String, Object> object = Map.of(
-            "viewTitle", "Backup",
+            "viewTitle", "备份",
             "meta", meta()
         );
 

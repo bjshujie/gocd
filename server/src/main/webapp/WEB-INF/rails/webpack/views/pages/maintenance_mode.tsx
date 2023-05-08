@@ -61,7 +61,7 @@ export class MaintenanceModePage extends Page<null, State> {
     vnode.state.toggleMaintenanceMode = (e: Event) => {
       e.stopPropagation();
 
-      const enableOrDisableText = vnode.state.maintenanceModeInfo.maintenanceModeState() ? "Disable" : "Enable";
+      const enableOrDisableText = vnode.state.maintenanceModeInfo.maintenanceModeState() ? "禁用" : "启用";
       const message             = <span>您确定要 <strong>{enableOrDisableText}</strong> 服务器维护模式?</span>;
 
       const modal: ToggleConfirmModal = new ToggleConfirmModal(message, () => {

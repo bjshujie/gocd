@@ -254,7 +254,7 @@ export class ShowTemplateModal extends Modal {
   }
 
   private yesOrNo(b: boolean) {
-    return b ? "Yes" : "No";
+    return b ? "是" : "否";
   }
 
   private environmentVariables(variables: EnvironmentVariableJSON[]) {

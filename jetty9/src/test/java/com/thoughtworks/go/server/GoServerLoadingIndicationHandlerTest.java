@@ -170,7 +170,7 @@ class GoServerLoadingIndicationHandlerTest {
         assertTrue(response.
                 hasStatus(503).
                 withContentType("text/plain").
-                withBody("GoCD server is starting").
+                withBody("服务器正在启动").
                 withNoCaching().
                 done());
     }

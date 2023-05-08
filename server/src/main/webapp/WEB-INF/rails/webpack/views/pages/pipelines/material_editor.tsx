@@ -99,7 +99,7 @@ export class MaterialEditor extends MithrilViewComponent<Attrs> {
     ];
 
     if (!scmOnly) {
-      //options.push({id: "dependency", text: "Another Pipeline"});
+      options.push({id: "dependency", text: "其它算法"});
     }
 
     if (showExtraMaterials) {

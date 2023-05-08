@@ -45,7 +45,7 @@ export class SiteFooter extends MithrilViewComponent<Attrs> {
     if (vnode.attrs.isServerInMaintenanceMode) {
       const updatedOnLocalTime = TimeFormatter.format(vnode.attrs.maintenanceModeUpdatedOn);
 
-      let updatedByMessage   = `${vnode.attrs.maintenanceModeUpdatedBy} turned on maintenance mode at ${updatedOnLocalTime}.`;
+      let updatedByMessage   = `${vnode.attrs.maintenanceModeUpdatedBy} 在 ${updatedOnLocalTime} 开启维护模式`;
       if(vnode.attrs.maintenanceModeUpdatedBy === "GoCD") {
         updatedByMessage   = `GoCD Server is started in maintenance mode at ${updatedOnLocalTime}.`;
       }

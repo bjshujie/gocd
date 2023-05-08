@@ -96,7 +96,7 @@ interface AgentFilterWidgetAttrs {
 export class AgentFilterWidget extends MithrilViewComponent<AgentFilterWidgetAttrs> {
   view(vnode: m.Vnode<AgentFilterWidgetAttrs>) {
     return <div class={styles.pipelineFilterWrapper}>
-      <span>Agents</span>
+      <span>节点</span>
       <div class={styles.searchFieldWrapper}>
         <SearchField label="agent-search" placeholder="节点主机名"
                      property={vnode.attrs.agentsVM.searchText}/>
@@ -148,7 +148,7 @@ export class EditAgentsModal extends Modal {
   buttons(): m.ChildArray {
     return [
       <Primary data-test-id="save-button" onclick={this.performSave.bind(this)}
-               disabled={this.isLoading()}>Save</Primary>,
+               disabled={this.isLoading()}>保存</Primary>,
       <Cancel data-test-id="cancel-button" onclick={this.close.bind(this)} disabled={this.isLoading()}>取消</Cancel>
     ];
   }

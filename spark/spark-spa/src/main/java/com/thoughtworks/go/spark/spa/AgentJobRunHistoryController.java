@@ -52,7 +52,7 @@ public class AgentJobRunHistoryController implements SparkController {
 
     public ModelAndView index(Request request, Response response) {
         Map<String, Object> object = Map.of(
-            "viewTitle", "Agent Job History",
+            "viewTitle", "节点作业历史",
             "meta", meta(request)
         );
 

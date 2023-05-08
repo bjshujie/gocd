@@ -30,7 +30,7 @@ export class MDUInfoWidget extends MithrilViewComponent<MDUInfoAttrs> {
     let inProgressMaterials;
 
     if (!vnode.attrs.materials || vnode.attrs.materials.count() === 0) {
-      inProgressMaterials = <em data-test-id="no-running-mdus">No material update is in progress.</em>;
+      inProgressMaterials = <em data-test-id="no-running-mdus">无正在启动的算法</em>;
     } else {
       inProgressMaterials = vnode.attrs.materials.allScmMaterials().map((material) => {
         const attributes = material.attributes() as ScmMaterialAttributes;
@@ -51,7 +51,7 @@ export class MDUInfoWidget extends MithrilViewComponent<MDUInfoAttrs> {
     }
 
     return (
-      <CollapsiblePanel header={<h3 class={styles.runningSystemHeader}>Running MDUs</h3>} expanded={true}>
+      <CollapsiblePanel header={<h3 class={styles.runningSystemHeader}>正在启动的算法</h3>} expanded={true}>
         {inProgressMaterials}
       </CollapsiblePanel>
     );

@@ -69,7 +69,7 @@ public class ModeAwareFilter implements Filter {
 
         if (blockBecauseMaintenanceMode((HttpServletRequest) servletRequest)) {
             LOGGER.info("Got a non-GET request: {} while server is in maintenance state", servletRequest);
-            String jsonMessage = "Server is in maintenance mode, please try later.";
+            String jsonMessage = "服务器处于维护模式，请稍后再试。";
             String htmlResponse = generateHTMLResponse();
             new ServerUnavailabilityResponse((HttpServletRequest) servletRequest, (HttpServletResponse) servletResponse, jsonMessage, htmlResponse).render();
         } else {

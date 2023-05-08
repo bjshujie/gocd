@@ -71,16 +71,16 @@ export class AddStageModal extends Modal {
   body(): m.Children {
     return <div data-test-id="add-stage-modal">
       <StageSettingsWidget readonly={false} stage={this.stageToCreate} isForAddStagePopup={true}/>
-      <h3 data-test-id="initial-job-and-task-header">Initial Job and Task</h3>
+      <h3 data-test-id="initial-job-and-task-header">初始化作业和任务</h3>
       <div data-test-id="initial-job-and-task-header-help-text" className={styles.jobHelpText}>
-        You can add more jobs and tasks to this stage once the stage has been created.
+        创建阶段后，可以向该阶段添加更多作业和任务。
       </div>
       <TextField required={true}
                  errorText={this.jobToCreate.errors().errorsForDisplay("name")}
-                 label="Job Name"
+                 label="任务名称"
                  property={this.jobToCreate.name}/>
       <SelectField property={this.selectedTaskTypeToAdd}
-                   label={"Task Type"}
+                   label={"任务类型"}
                    onchange={this.updateTaskModal.bind(this)}>
         <SelectFieldOptions selected={this.selectedTaskTypeToAdd()}
                             items={this.allTaskTypes}/>
@@ -98,11 +98,11 @@ export class AddStageModal extends Modal {
       <Buttons.Primary data-test-id="save-job"
                        disabled={this.hasDuplicateNameError()}
                        onclick={this.onSave.bind(this)}>
-        Save
+        保存
       </Buttons.Primary>,
       <Buttons.Cancel data-test-id="button-cancel"
                       onclick={this.onClose.bind(this)}>
-        Cancel
+        取消
       </Buttons.Cancel>
     ];
   }

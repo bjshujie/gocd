@@ -34,7 +34,7 @@ export class JobInfoWidget extends MithrilViewComponent<JobInfoAttrs> {
     const runningStages: m.Children = [];
 
     if (vnode.attrs.stages.length === 0) {
-      runningStages.push(<em data-test-id="no-running-stages">No running stages.</em>);
+      runningStages.push(<em data-test-id="no-running-stages">无正在运行的阶段.</em>);
     } else {
       vnode.attrs.stages.forEach((stage: Stage) => {
         const stageLocator = stage.getStageLocator();

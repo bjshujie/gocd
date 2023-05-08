@@ -168,7 +168,7 @@ function getHelpText(stage, previousStage) {
   }
 
   if (stage.isBuildingOrCompleted()) {
-    helpText = `Approved by '${stage.approvedBy}'.`;
+    helpText = `启动自 '${stage.approvedBy}'.`;
   }
 
   if (previousStage && !previousStage.isCompleted()) {

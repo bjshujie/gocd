@@ -66,7 +66,7 @@ public class ServerInfoController implements SparkController {
         meta.put("pipeline_count", pipelineConfigService.totalPipelinesCount());
 
         Map<String, Object> object = Map.of(
-            "viewTitle", "Server Details",
+            "viewTitle", "服务器详情",
             "meta", meta
         );
 

@@ -125,9 +125,9 @@ public class StageInstanceModel implements StageConfigurationModel {
 
     public String getApprovalDescription() {
         if (approvedBy == null) {
-            return "Awaiting Approval";
+            return "等待启动";
         }
-        return "Approved by " + approvedBy;
+        return "启动自 " + approvedBy;
     }
 
     public String getApprovalType() {

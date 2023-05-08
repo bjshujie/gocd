@@ -51,7 +51,7 @@ describe("Maintenance Mode Widget", () => {
 
   it("should provide the maintenance mode updated information", () => {
     const updatedOn = timeFormatter.format(TestData.UPDATED_ON);
-    const expectedUpdatedByInfo = `${TestData.info().metdata.updatedBy} changed the maintenance mode state on ${updatedOn}.`;
+    const expectedUpdatedByInfo = `${TestData.info().metdata.updatedBy} 在 ${updatedOn} 更改了维护模式状态。`;
     expect(helper.textByTestId("maintenance-mode-updated-by-info")).toContain(expectedUpdatedByInfo);
   });
 

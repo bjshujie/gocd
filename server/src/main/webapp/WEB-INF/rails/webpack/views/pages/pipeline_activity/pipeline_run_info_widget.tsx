@@ -86,7 +86,7 @@ export class PipelineRunWidget extends MithrilViewComponent<PipelineRunAttrs> {
             {PipelineRunWidget.getVSMLink(vnode, pipelineRunInfo)}
           </span>
         </div>
-        <div class={styles.revision}>Revision: {pipelineRunInfo.revision()}</div>
+
         <div class={styles.scheduleInfo}
              data-test-id={"time"}
              title={PipelineRunWidget.getTimeServer(pipelineRunInfo.scheduledTimestamp())}>
@@ -182,7 +182,7 @@ export class PipelineRunWidget extends MithrilViewComponent<PipelineRunAttrs> {
     if (stage.approvedBy() === "changes") {
       return "Automatically approved";
     }
-    return `Approved by ${stage.approvedBy()}`;
+    return `启动自 ${stage.approvedBy()}`;
   }
 
   private static shouldDisableApprovalIcon(stage: Stage) {
@@ -195,10 +195,10 @@ export class PipelineRunWidget extends MithrilViewComponent<PipelineRunAttrs> {
 
   private static getVSMLink(vnode: m.Vnode<PipelineRunAttrs>, pipelineRunInfo: PipelineRunInfo) {
     if (pipelineRunInfo.label().toLowerCase() === "unknown") {
-      return <span class={styles.disabled}>VSM</span>;
+      return <span class={styles.disabled}>图形显示</span>;
     }
     const link = SparkRoutes.pipelineVsmLink(vnode.attrs.pipelineName, pipelineRunInfo.counterOrLabel());
-    return <a href={link}>VSM</a>;
+    return <a href={link}>图形显示</a>;
   }
 
   private static getTimeLocal(timestamp: Date) {

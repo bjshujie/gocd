@@ -26,10 +26,10 @@ interface Attrs {
 }
 
 export class StagePermissionWidget extends MithrilViewComponent<Attrs> {
-  readonly isInheritingFromPipelineGroup = Stream<"Yes" | "No">();
+  readonly isInheritingFromPipelineGroup = Stream<"是" | "否">();
 
   oninit(vnode: m.Vnode<Attrs>) {
-    this.isInheritingFromPipelineGroup(vnode.attrs.stage.approval().authorization().isEmpty() ? "Yes" : "No");
+    this.isInheritingFromPipelineGroup(vnode.attrs.stage.approval().authorization().isEmpty() ? "是" : "否");
   }
 
   view(vnode: m.Vnode<Attrs>) {

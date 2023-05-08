@@ -146,8 +146,8 @@ export class JobsWidget extends MithrilViewComponent<Attrs> {
     const isEditable = vnode.attrs.isEditable;
 
     return jobs.map((job: Job) => {
-      const runOnAllInstance    = job.runInstanceCount() === "all" ? "Yes" : "No";
-      const runMultipleInstance = (typeof job.runInstanceCount() === "number") ? "Yes" : "No";
+      const runOnAllInstance    = job.runInstanceCount() === "all" ? "是" : "否";
+      const runMultipleInstance = (typeof job.runInstanceCount() === "number") ? "是" : "否";
       const cells: m.Child[]    = [
         <a href={`#!${vnode.attrs.pipelineConfig.name()}/${vnode.attrs.stage.name()}/${job.name()}/tasks`}
            className={style.nameLink}>{job.name()}</a>,

@@ -88,7 +88,7 @@ public class AnalyticsController implements SparkController {
             ));
 
         Map<String, String> locals = Map.of(
-            "viewTitle", "Analytics",
+            "viewTitle", "分析",
             "pipelines", GSON.toJson(pipelines)
         );
         return new ModelAndView(locals, "analytics/index.ftlh");

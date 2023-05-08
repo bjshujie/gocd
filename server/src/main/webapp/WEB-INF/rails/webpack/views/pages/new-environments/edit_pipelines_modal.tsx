@@ -37,7 +37,7 @@ interface SelectAllNoneWidgetAttrs {
 export class PipelineFilterWidget extends MithrilViewComponent<SelectAllNoneWidgetAttrs> {
   view(vnode: m.Vnode<SelectAllNoneWidgetAttrs>) {
     return <div class={styles.pipelineFilterWrapper}>
-      <span>Pipelines</span>
+      <span>算法</span>
       <div class={styles.searchFieldWrapper}>
         <SearchField label="pipeline-search" placeholder="算法名称"
                      property={vnode.attrs.pipelinesVM.searchText}/>
@@ -101,7 +101,7 @@ export class UnavailablePipelinesBecauseOfOtherEnvironmentWidget extends Mithril
       return;
     }
 
-    const title = "Unavailable pipelines (Already associated with environments):";
+    const title = "不可用的算法 (已经关联了环境):";
     return <div class={styles.pipelinesContainer} data-test-id={s.slugify(title)}>
       <div class={styles.header}> {title} </div>
       <ul>
@@ -135,7 +135,7 @@ export class UnavailablePipelinesBecauseDefinedInConfigRepoWidget extends Mithri
       return;
     }
 
-    const title = "Unavailable pipelines (Defined in config repository):";
+    const title = "不可用的算法 (已在配置仓库中定义):";
     return <div class={styles.pipelinesContainer} data-test-id={s.slugify(title)}>
       <div class={styles.header}>{title}</div>
       <ul>
@@ -174,14 +174,14 @@ export class EditPipelinesModal extends Modal {
   }
 
   title(): string {
-    return "Edit Pipelines Association";
+    return "编辑算法关联";
   }
 
   body(): m.Children {
     let noPipelinesMsg;
 
     if (this.pipelinesVM.allPipelines().length === 0) {
-      noPipelinesMsg = <FlashMessage type={MessageType.info} message={'There are no pipelines available!'}/>;
+      noPipelinesMsg = <FlashMessage type={MessageType.info} message={'无可用的算法!'}/>;
     } else if (this.pipelinesVM.filteredPipelines().length === 0) {
       noPipelinesMsg = <FlashMessage type={MessageType.info}
                                      message={`No pipelines matching search text '${this.pipelinesVM.searchText()}' found!`}/>;
@@ -218,7 +218,7 @@ export class EditPipelinesModal extends Modal {
         this.modalState = ModalState.OK;
         result.do(
           () => {
-            this.onSuccessfulSave("Pipelines updated successfully for env " + this.originalEnv.name());
+            this.onSuccessfulSave("算法成功更新为属于环境 " + this.originalEnv.name());
             this.close();
           },
           (errorResponse: any) => {
@@ -250,11 +250,11 @@ export class EditPipelinesModal extends Modal {
   private pipelinesHtml() {
     return <div className={styles.allPipelinesWrapper}>
       <PipelineCheckboxListWidget pipelines={this.pipelinesVM.availablePipelines()}
-                                  title={"Available Pipelines:"}
+                                  title={"可用的算法:"}
                                   readonly={false}
                                   pipelineSelectedFn={this.pipelinesVM.pipelineSelectedFn.bind(this.pipelinesVM)}/>
       <PipelineAssociatedInConfigRepoCheckboxList pipelines={this.pipelinesVM.configRepoEnvironmentPipelines()}
-                                                  title={"Pipelines associated with this environment in configuration repository:"}
+                                                  title={"配置存储库中与此环境关联的算法:"}
                                                   readonly={true}
                                                   pipelineSelectedFn={this.pipelinesVM.pipelineSelectedFn.bind(this.pipelinesVM)}/>
       <UnavailablePipelinesBecauseOfOtherEnvironmentWidget pipelinesVM={this.pipelinesVM}/>

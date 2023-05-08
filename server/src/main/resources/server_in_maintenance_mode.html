@@ -90,9 +90,9 @@
 </div>
 <script type="application/javascript">
   (function () {
-    var message = "%updatedBy% turned on maintenance mode at " + new Date("%updatedOn%").toString();
+    var message = "%updatedBy% 在 " + new Date("%updatedOn%").toString() + "开启维护模式";
     if("%updatedBy%" === 'GoCD') {
-      message = "GoCD Server is started in maintenance mode at " + new Date("%updatedOn%").toString();
+      message = "服务器在 " + new Date("%updatedOn%").toString() + " 开始进入维护模式";
     }
     document.getElementById("message_text").innerText = message;
   })();

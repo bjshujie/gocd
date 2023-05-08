@@ -39,7 +39,7 @@ export interface SuperAdminPrivilegeSwitchAttrs extends ToggleAdminOperation<Use
 export class  SuperAdminPrivilegeSwitch extends MithrilComponent<SuperAdminPrivilegeSwitchAttrs> {
   view(vnode: m.Vnode<SuperAdminPrivilegeSwitchAttrs>): m.Children {
     let optionalTooltip;
-    let isAdminText          = vnode.attrs.user.isAdmin() ? "YES" : "NO";
+    let isAdminText          = vnode.attrs.user.isAdmin() ? "是" : "否";
     const loginName          = vnode.attrs.user.loginName();
     const userViewHelper     = vnode.attrs.userViewHelper();
     const isUserActualAdmin  = (!userViewHelper.noAdminsConfigured() && vnode.attrs.user.isAdmin());

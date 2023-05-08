@@ -124,9 +124,9 @@ export class DependencyFields extends MithrilComponent<Attrs, State> {
 
     if (vnode.attrs.disabled) {
       return [
-        <TextField label="Upstream Pipeline" property={mat.pipeline} errorText={this.errs(mat, "pipeline")}
+        <TextField label="上游算法" property={mat.pipeline} errorText={this.errs(mat, "pipeline")}
                    required={true} readonly={true}/>,
-        <SelectField label="Upstream Stage" property={mat.stage} errorText={this.errs(mat, "stage")} required={true}
+        <SelectField label="上游阶段" property={mat.stage} errorText={this.errs(mat, "stage")} required={true}
                      readonly={true}>
           <SelectFieldOptions selected={mat.stage()} items={vnode.state.stages()}/>
         </SelectField>,
@@ -134,10 +134,10 @@ export class DependencyFields extends MithrilComponent<Attrs, State> {
     }
 
     return [
-      <AutocompleteField label="Upstream Pipeline" property={mat.pipeline} errorText={this.errs(mat, "pipeline")}
+      <AutocompleteField label="上游算法" property={mat.pipeline} errorText={this.errs(mat, "pipeline")}
                          readonly={vnode.attrs.readonly} autoEvaluate={!vnode.attrs.readonly}
                          aut required={true} maxItems={25} provider={vnode.state.provider}/>,
-      <SelectField label="Upstream Stage" readonly={vnode.attrs.readonly}
+      <SelectField label="上游阶段" readonly={vnode.attrs.readonly}
                    property={mat.stage} errorText={this.errs(mat, "stage")} required={true}>
         <SelectFieldOptions selected={mat.stage()} items={vnode.state.stages()}/>
       </SelectField>,
@@ -149,9 +149,6 @@ export class DependencyFields extends MithrilComponent<Attrs, State> {
     const showLocalWorkingCopyOptions: boolean = attrs.showLocalWorkingCopyOptions;
     if (showLocalWorkingCopyOptions) {
       return <AdvancedSettings forceOpen={mat.errors().hasErrors("name")}>
-        <TextField label="Material Name" helpText={IDENTIFIER_FORMAT_HELP_MESSAGE} readonly={attrs.readonly}
-                   placeholder="A human-friendly label for this material" property={mat.name}/>
-
         <DependencyIgnoreSchedulingToggle toggle={mat.ignoreForScheduling} errors={mat.errors()} disabled={attrs.readonly}/>
       </AdvancedSettings>;
     }

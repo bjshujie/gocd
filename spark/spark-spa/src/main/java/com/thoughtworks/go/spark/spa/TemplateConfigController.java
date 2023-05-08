@@ -53,7 +53,7 @@ public class TemplateConfigController implements SparkController {
 
     public ModelAndView index(Request request, Response response) {
         Map<String, Object> object = Map.of(
-            "viewTitle", "Templates",
+            "viewTitle", "模板",
             "meta", meta(request.params("template_name"))
         );
 

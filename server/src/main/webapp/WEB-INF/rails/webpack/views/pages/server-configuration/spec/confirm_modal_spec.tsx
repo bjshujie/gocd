@@ -40,8 +40,8 @@ describe("ConfirmModal", () => {
 
   it("should render", () => {
     expect(modal).toContainTitle("Some modal title");
-    expect(modal).toContainButtons(["No", "Yes"]);
-    expect(modal).toContainBody("Do you want to cancel?");
+    expect(modal).toContainButtons(["否", "是"]);
+    expect(modal).toContainBody("您是要取消吗?");
   });
 
   it("should send callback on clicking cancel button", () => {

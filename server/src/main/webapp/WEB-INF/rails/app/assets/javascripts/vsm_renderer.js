@@ -80,7 +80,7 @@ Graph_Renderer = function (container) {
 
     var addPipelineOnHoverSelectStyles = function () {
       $j("<div class=\"onhover-pipeline-overlay hidden\">" +
-        "   <div class=\"plus-symbol\">+</div><div class=\"click-text\">select pipeline</div>" +
+        "   <div class=\"plus-symbol\">+</div><div class=\"click-text\">选择算法</div>" +
         "</div>").appendTo('.vsm-entity.pipeline');
 
       $j(".vsm-entity.pipeline.other-node").bind('mouseover', hoverOnPipeline).bind('mouseout', hoverOutPipeline);
@@ -88,7 +88,7 @@ Graph_Renderer = function (container) {
 
     var addMaterialOnHoverSelectStyles = function () {
       $j("<div class=\"onhover-material-overlay hidden\">" +
-        "    <div class=\"plus-symbol\">+</div><div class=\"click-text\">select material</div>" +
+        "    <div class=\"plus-symbol\">+</div><div class=\"click-text\">选择启动器</div>" +
         "</div>").appendTo('.vsm-entity.material');
 
       $j(".vsm-entity.material.other-node").bind('mouseover', hoverOnMaterial).bind('mouseout', hoverOutMaterial);
@@ -491,22 +491,22 @@ Graph_Renderer = function (container) {
         gui += '<li class="instance">';
         if (instance.label != '') {
             if (isCurrent) {
-                gui += '<h4 title="' + _.escape(instance.label) + '"><span class="pipeline_run_label">Instance: ' + _.escape(instance.label) + '</span></h4>';
+                gui += '<h4 title="' + _.escape(instance.label) + '"><span class="pipeline_run_label">实例: ' + _.escape(instance.label) + '</span></h4>';
             }
             else {
-                gui += '<h4 title="' + _.escape(instance.label) + '"><span class="pipeline_run_label">Instance: ' + _.escape(instance.label) + '</span><span class="vsm_link_wrapper"><a href="' + instance.locator + '">VSM</a></span></h4>';
+                gui += '<h4 title="' + _.escape(instance.label) + '"><span class="pipeline_run_label">实例: ' + _.escape(instance.label) + '</span><span class="vsm_link_wrapper"><a href="' + instance.locator + '">图形显示</a></span></h4>';
             }
         }
         if(instance.locator.trim() != "") {
-            var duration =  pipelineRunCompleted(instance) ? pipelineRunDuration(instance) : 'In Progress';
-            gui += '<span class="duration">Duration: ' + duration + '</span>';
+            var duration =  pipelineRunCompleted(instance) ? pipelineRunDuration(instance) : '进行中';
+            gui += '<span class="duration">持续时长: ' + duration + '</span>';
 
             gui += '<ul class="stages">';
             stagesCount = instance.stages.length;
             for (var i = 0; i < stagesCount; i++) {
                 var stagesWidth = (node_id == current) ? 238 : 196;
                 gui += '<li class="stage_bar ';
-                gui += ((instance.stages[i].status != undefined) ? instance.stages[i].status : 'Unknown');
+                gui += ((instance.stages[i].status != undefined) ? instance.stages[i].status : '未知');
                 if (instance.stages[i].status == 'Unknown') {
                     gui += '" style="width:' + ((stagesWidth - (stagesCount * 4)) / stagesCount) + 'px" title="' + instance.stages[i].name + '"></li>'
                 }

@@ -53,10 +53,10 @@ export class MaterialsWidget extends MithrilViewComponent<MaterialsAttrs> {
     let addMaterialBtn: m.Children;
     if (!vnode.attrs.readonly) {
       addMaterialBtn = (<Secondary dataTestId={"add-material-button"} onclick={this.addMaterial.bind(this, vnode)}>
-        新增算法启动插件实例
+        新增算法启动实例
       </Secondary>);
     }
-    const headers = ["算法启动插件实例名称", "类型", "描述"];
+    const headers = ["算法启动实例名称", "类型", "描述"];
     if (!vnode.attrs.readonly) {
       headers.push("");
     }
@@ -98,8 +98,8 @@ export class MaterialsWidget extends MithrilViewComponent<MaterialsAttrs> {
                   }).finally(m.redraw.sync);
     };
     new ConfirmationDialog(
-      "Delete Material",
-      <div>Do you want to delete the material '<em>{materialName}</em>'?</div>,
+      "删除启动器",
+      <div>您要删除启动器 '<em>{materialName}</em>'吗?</div>,
       onDelete
     ).render();
   }
@@ -107,8 +107,8 @@ export class MaterialsWidget extends MithrilViewComponent<MaterialsAttrs> {
   private tableData(vnode: m.Vnode<MaterialsAttrs, this>) {
     const deleteDisabled = vnode.attrs.materials().length === 1;
     const deleteTitle    = deleteDisabled
-      ? "Cannot delete the only material in a pipeline"
-      : "Remove this material";
+      ? "不能删除算法唯一的启动器"
+      : "删除这个启动器";
     return Array.from(vnode.attrs.materials().values()).map((material: Material) => {
       const {name, type, urlOrDescription} = this.getMaterialDisplayInfo(material, vnode);
       const elements                       = [
@@ -116,7 +116,7 @@ export class MaterialsWidget extends MithrilViewComponent<MaterialsAttrs> {
            class={style.nameLink}
            data-test-id={"edit-material-button"}
            onclick={this.updateMaterial.bind(this, vnode, material)}>{name}</a>,
-        type,
+        type=='Pipeline'?'算法':type,
         urlOrDescription
       ];
 

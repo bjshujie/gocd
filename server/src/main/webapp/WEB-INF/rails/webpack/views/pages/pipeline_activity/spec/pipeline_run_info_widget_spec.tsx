@@ -61,7 +61,7 @@ describe("PipelineRunInfoWidget", () => {
 
       const pipelineRunContainer = helper.byTestId(`pipeline-instance-${pipelineRunInfo.label()}`);
       expect(helper.byTestId("vsm", pipelineRunContainer)).toBeInDOM();
-      expect(helper.byTestId("vsm", pipelineRunContainer)).toHaveText("VSM");
+      expect(helper.byTestId("vsm", pipelineRunContainer)).toHaveText("图形显示");
       expect(helper.byTestId("vsm", pipelineRunContainer)).not.toHaveAttr("href");
     });
 

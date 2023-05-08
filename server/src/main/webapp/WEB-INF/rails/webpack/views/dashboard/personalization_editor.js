@@ -62,7 +62,7 @@ function personalizeEditor(opts, personalization, model) {
         "?"
       ]),
       buttons: [{
-        text:    "Yes",
+        text:    "是",
         onclick: () => {
           personalization().removeFilter(existing, model.etag()).done((data) => {
             model.names(personalization().names());

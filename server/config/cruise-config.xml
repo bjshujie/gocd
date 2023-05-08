@@ -189,6 +189,46 @@
       </stage>
     </pipeline>
   </pipelines>
+  <pipelines group="work">
+    <pipeline name="t5">
+      <materials>
+        <scm ref="412022b6-9f2f-49d7-85e8-99f5b1e43bca" />
+      </materials>
+      <stage name="s1">
+        <jobs>
+          <job name="j1">
+            <tasks>
+              <exec command="ls" />
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+      <stage name="s2">
+        <jobs>
+          <job name="j2">
+            <tasks>
+              <exec command="ls" />
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+    <pipeline name="t6">
+      <materials>
+        <pipeline pipelineName="t5" stageName="s1" />
+      </materials>
+      <stage name="s1">
+        <jobs>
+          <job name="j1">
+            <tasks>
+              <exec command="ls" />
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+  </pipelines>
+  <pipelines group="elect" />
   <templates>
     <pipeline name="rr">
       <stage name="defaultStage">
@@ -206,5 +246,12 @@
   </templates>
   <environments>
     <environment name="test" />
+    <environment name="qa">
+      <pipelines>
+        <pipeline name="t5" />
+        <pipeline name="t6" />
+        <pipeline name="t4" />
+      </pipelines>
+    </environment>
   </environments>
 </cruise>

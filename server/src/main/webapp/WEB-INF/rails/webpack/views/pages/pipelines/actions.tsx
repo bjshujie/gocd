@@ -53,8 +53,7 @@ export class PipelineActions extends MithrilViewComponent<Attrs> {
           <ServerErrors message={this.globalError} details={this.globalErrorDetail}/>
 
           <Buttons.Secondary css={css} ajaxOperation={this.onSave.bind(this, true, vnode.attrs.pipelineConfig)}
-                             ajaxOperationMonitor={this.ajaxOperationMonitor} small={false}>保存 + 编辑详情
-            Config</Buttons.Secondary>
+                             ajaxOperationMonitor={this.ajaxOperationMonitor} small={false}>保存 + 编辑详细配置</Buttons.Secondary>
           <Buttons.Primary css={css} ajaxOperation={this.onSave.bind(this, false, vnode.attrs.pipelineConfig)}
                            ajaxOperationMonitor={this.ajaxOperationMonitor} small={false}>保存 + 运行</Buttons.Primary>
         </div>

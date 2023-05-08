@@ -234,7 +234,7 @@ class ModeAwareFilterTest {
 
         verify(response, times(1)).setContentType("application/json");
         JsonObject json = new JsonObject();
-        json.addProperty("message", "Server is in maintenance mode, please try later.");
+        json.addProperty("message", "服务器处于维护模式，请稍后再试。");
         verify(writer).print(json);
 
         verify(response).setHeader("Cache-Control", "private, max-age=0, no-cache");

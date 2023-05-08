@@ -41,7 +41,7 @@ import static spark.Spark.*;
 
 public class StatusReportsController implements SparkController {
     private static final Logger LOGGER = LoggerFactory.getLogger(StatusReportsController.class);
-    private static final String UNKNOWN_ERROR_MESSAGE = "Something went wrong while trying to fetch the Status Report. Please check the server and plugin logs for more details.";
+    private static final String UNKNOWN_ERROR_MESSAGE = "尝试获取状态报告时出错。请查看服务器和插件日志以了解更多详细信息。";
     private final SPAAuthenticationHelper authenticationHelper;
     private final TemplateEngine engine;
     private final ElasticAgentPluginService elasticAgentPluginService;

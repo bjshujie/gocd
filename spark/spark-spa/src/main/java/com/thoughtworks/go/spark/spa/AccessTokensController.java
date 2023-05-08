@@ -64,7 +64,7 @@ public class AccessTokensController implements SparkController {
 
     public ModelAndView index(Request request, Response response) {
         Map<String, Object> object = Map.of(
-            "viewTitle", "访问令牌s",
+            "viewTitle", "访问令牌",
             "meta", getMeta(request)
         );
         return new ModelAndView(object, null);

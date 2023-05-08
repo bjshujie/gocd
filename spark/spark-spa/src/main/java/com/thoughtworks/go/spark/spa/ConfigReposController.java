@@ -51,7 +51,7 @@ public class ConfigReposController implements SparkController {
 
     public ModelAndView index(Request request, Response response) {
         Map<String, Object> object = Map.of(
-            "viewTitle", "Config Repos"
+            "viewTitle", "配置仓库"
         );
 
         return new ModelAndView(object, null);

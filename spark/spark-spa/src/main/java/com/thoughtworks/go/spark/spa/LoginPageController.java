@@ -67,7 +67,7 @@ public class LoginPageController implements SparkController {
         Map<String, Object> meta = loginLogoutHelper.buildMeta(request);
 
         Map<String, Object> object = ImmutableMap.<String, Object>builder()
-                .put("viewTitle", "Login")
+                .put("viewTitle", "登录")
                 .put("meta", meta)
                 .build();
 

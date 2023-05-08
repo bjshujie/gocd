@@ -35,7 +35,6 @@ import {StepsWidget} from "views/pages/clicky_pipeline_config/widgets/steps_widg
 import {Page, PageState} from "views/pages/page";
 import {OperationState} from "views/pages/page_operations";
 import {ConfirmationDialog} from "views/pages/pipeline_activity/confirmation_modal";
-import {Message} from "../maintenance_mode";
 
 export type SupportedTypes = TemplateConfig | PipelineConfig | Stage | Job;
 

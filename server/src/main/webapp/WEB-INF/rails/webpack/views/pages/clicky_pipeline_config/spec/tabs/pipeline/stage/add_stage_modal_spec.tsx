@@ -47,7 +47,7 @@ describe("Add Stage Modal", () => {
     const helpText = "You can add more jobs and tasks to this stage once the stage has been created.";
 
     expect(helper.byTestId("add-stage-modal")).toBeInDOM();
-    expect(helper.byTestId("initial-job-and-task-header")).toContainText("Initial Job and Task");
+    expect(helper.byTestId("initial-job-and-task-header")).toContainText("初始化作业和任务");
     expect(helper.byTestId("initial-job-and-task-header-help-text")).toContainText(helpText);
   });
 

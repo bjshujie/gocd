@@ -51,7 +51,7 @@ public class SecretConfigsController implements SparkController {
 
     public ModelAndView index(Request request, Response response) {
         Map<String, Object> object = Map.of(
-            "viewTitle", "Secret Management"
+            "viewTitle", "保密管理"
         );
         return new ModelAndView(object, null);
     }

@@ -1277,7 +1277,7 @@ class AgentsControllerV7Test implements SecurityServiceTrait, ControllerTrait<Ag
         assertThatResponse()
           .isUnprocessableEntity()
           .hasContentType(controller.mimeType)
-          .hasJsonMessage("Your request could not be processed. Failed to delete an agent, as it is not in a disabled state or is still building.")
+          .hasJsonMessage("无法处理您的请求。无法删除节点，因为它未处于禁用状态或仍在生成中。")
       }
 
       @Test
