@@ -56,9 +56,9 @@ export class AgentStatusWidget extends MithrilComponent<AgentStatusWidgetAttrs> 
          onclick={(event: MouseEvent) => AgentStatusWidget.toggleBuildDetails(event, vnode, agent.uuid)}>{agent.status()}</a>
       <ul data-test-id={`agent-build-details-of-${agent.uuid}`}
           class={classnames(style.buildDetails, {[style.show]: vnode.attrs.buildDetailsForAgent() === agent.uuid})}>
-        <li><a href={buildDetails.pipelineUrl}>Pipeline - {buildDetails.pipelineName}</a></li>
-        <li><a href={buildDetails.stageUrl}>Stage - {buildDetails.stageName}</a></li>
-        <li><a href={buildDetails.jobUrl}>Job - {buildDetails.jobName}</a></li>
+        <li><a href={buildDetails.pipelineUrl}>算法 - {buildDetails.pipelineName}</a></li>
+        <li><a href={buildDetails.stageUrl}>阶段 - {buildDetails.stageName}</a></li>
+        <li><a href={buildDetails.jobUrl}>作业 - {buildDetails.jobName}</a></li>
       </ul>
     </div>);
   }

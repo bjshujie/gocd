@@ -74,7 +74,7 @@ export class MaterialModal extends Modal {
   static forEdit(material: Material, pipelineGroupName: string, parentPipelineName: string, materials: Stream<Materials>, scms: Stream<Scms>,
                  packageRepositories: Stream<PackageRepositories>, pluginInfos: Stream<PluginInfos>,
                  pipelineConfigSave: () => Promise<any>, parentFlashMessage: FlashMessageModelWithTimeout, readonly: boolean) {
-    const title = `Edit material - ${s.capitalize(material.type()!)}`;
+    const title = `编辑算法启动器 - ${s.capitalize(material.type()!)}`;
     return new MaterialModal(title, Stream(material), pipelineGroupName, parentPipelineName, materials, scms, packageRepositories, pluginInfos, pipelineConfigSave, parentFlashMessage, false, readonly);
   }
 

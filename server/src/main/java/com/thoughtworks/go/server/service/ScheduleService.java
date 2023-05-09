@@ -271,7 +271,7 @@ public class ScheduleService {
             stage = rerunStage(pipelineName, pipelineCounter, stageName, new ResultUpdatingErrorHandler(result));
 
             if (result.isSuccess()) { // this check is for clarity, but is not needed as failures result in RunTimeExceptions
-                result.accepted(String.format("Request to schedule stage %s accepted", identifier), "", healthStateType);
+                result.accepted(String.format("对阶段 %s 的调度请求已被接受", identifier), "", healthStateType);
             }
         } catch (RuntimeException e) {
             // if the result is successful, but there's still an exception, treat it as a 500

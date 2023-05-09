@@ -39,7 +39,7 @@ public class ArtifactStore extends PluginProfile {
 
     @Override
     protected String getObjectDescription() {
-        return "Artifact store";
+        return "文档库";
     }
 
     @Override

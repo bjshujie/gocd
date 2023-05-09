@@ -53,7 +53,7 @@ export class StaticAgentsWidget extends MithrilViewComponent<AgentsWidgetAttrs> 
     if (array && array.length > 0) {
       return array.join(", ");
     } else {
-      return (<em>none specified</em>);
+      return (<em>未指定</em>);
     }
   }
 

@@ -58,7 +58,7 @@ export class DeleteConfirmModal extends Modal {
                       ajaxOperation={this.ondelete}>是 删除</Buttons.Danger>,
       <Buttons.Cancel ajaxOperationMonitor={this.operationState}
                       data-test-id='button-no-delete' onclick={this.close.bind(this)}
-      >No</Buttons.Cancel>
+      >否</Buttons.Cancel>
     ];
   }
 }
