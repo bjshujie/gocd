@@ -89,7 +89,7 @@ export class PipelineCreatePage extends Page<{}, State> {
                           readonly={false} packageRepositories={mergedPkgRepos} pluginInfos={vnode.state.pluginInfos()}/>
         </UserInputPane>
         <ConceptDiagram image={materialImg}>
-          一全<strong>算法启动器</strong> 启动您的算法. 典型为一个 <strong>启动器</strong> 或者是 <strong>上流算法</strong>.
+          一个算法定义总是从 <strong>算法启动器</strong>开始
         </ConceptDiagram>
       </FillableSection>,
 

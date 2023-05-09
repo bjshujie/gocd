@@ -25,7 +25,7 @@
         data-page-timeout="${spaTimeout}">
   <title>${viewTitle} - 凌波</title>
 
-  <link rel="shortcut icon" href="/go/${railsAssetsService.getAssetPath('cruise.ico')}"/>
+  <link rel="shortcut icon" href="/go/${railsAssetsService.getAssetPath('lingbo.ico')}"/>
   <#list webpackAssetsService.getCSSAssetPathsFor("single_page_apps/global", "single_page_apps/${controllerName}") as css>
       <link href="${css}" media="screen" rel="stylesheet"/>
   </#list>

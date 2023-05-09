@@ -65,7 +65,10 @@ export class SiteHeader extends MithrilViewComponent<Attrs> {
 
     return (
       <header class={styles.siteHeader}>
-        <a aria-label="GoCD Logo" href="/go/pipelines" class={styles.gocdLogo}/>
+        <div style="height:40px;line-height:40px;color:#fff;font-size:20px;">
+          <span>凌波算法调度平台</span>
+        </div>
+        {/*<a aria-label="Lingbo Logo" href="/go/pipelines" class={styles.gocdLogo}><b>凌波算法调度平台</b></a>*/}
         <div class={styles.navbtn}>
           <div class={styles.bar}/>
         </div>

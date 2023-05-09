@@ -139,7 +139,7 @@ export class LoginPageWidget extends MithrilViewComponent<AuthPluginInfo> {
         <div class={styles.loginForm}>
           <div class={styles.loginContainer}>
           <div class={styles.loginGraphics}>
-            <img src={gocdLogo}/> 凌波算法调度平台
+            <img src={gocdLogo}/> <b>凌波算法调度平台</b>
           </div>
           <div class={styles.loginMethods}>
             {this.maybeShowLoginFormWidget(vnode)}

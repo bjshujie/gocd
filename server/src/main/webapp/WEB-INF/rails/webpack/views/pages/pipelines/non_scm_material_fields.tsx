@@ -40,7 +40,7 @@ import {ConfigurationDetailsWidget} from "views/pages/package_repositories/confi
 import {AdvancedSettings} from "views/pages/pipelines/advanced_settings";
 import {DependencyIgnoreSchedulingToggle} from "views/pages/pipelines/material_auto_update_toggle";
 import styles from "./advanced_settings.scss";
-import {IDENTIFIER_FORMAT_HELP_MESSAGE} from "./messages";
+// import {IDENTIFIER_FORMAT_HELP_MESSAGE} from "./messages";
 
 interface Attrs {
   material: Material;

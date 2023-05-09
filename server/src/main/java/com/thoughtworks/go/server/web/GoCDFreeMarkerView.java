@@ -104,7 +104,7 @@ public class GoCDFreeMarkerView extends FreeMarkerView {
         model.put(CURRENT_GOCD_VERSION, CurrentGoCDVersion.getInstance());
         model.put(CONCATENATED_STAGE_BAR_CANCELLED_ICON_FILE_PATH, railsAssetsService.getAssetPath("g9/stage_bar_cancelled_icon.png"));
         model.put(CONCATENATED_SPINNER_ICON_FILE_PATH, railsAssetsService.getAssetPath("spinner.gif"));
-        model.put(CONCATENATED_CRUISE_ICON_FILE_PATH, railsAssetsService.getAssetPath("cruise.ico"));
+        model.put(CONCATENATED_CRUISE_ICON_FILE_PATH, railsAssetsService.getAssetPath("lingbo.ico"));
 
         model.put(PATH_RESOLVER, railsAssetsService);
         model.put(GO_UPDATE, versionInfoService.getGoUpdate());

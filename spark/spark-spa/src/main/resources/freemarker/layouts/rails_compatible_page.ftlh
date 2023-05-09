@@ -25,7 +25,7 @@
         data-page-timeout="${spaTimeout}">
   <title>${viewTitle} - 凌波</title>
 
-  <link rel="shortcut icon" href="/go/${railsAssetsService.getAssetPath('cruise.ico')}"/>
+  <link rel="shortcut icon" href="/go/${railsAssetsService.getAssetPath('lingbo.ico')}"/>
   <link href="/go/${railsAssetsService.getAssetPath('application.css')}" media="screen" rel="stylesheet"/>
   <link href="/go/${railsAssetsService.getAssetPath('patterns/application.css')}" media="screen" rel="stylesheet"/>
   <link href="/go/${railsAssetsService.getAssetPath('css/application.css')}" media="screen" rel="stylesheet"/>

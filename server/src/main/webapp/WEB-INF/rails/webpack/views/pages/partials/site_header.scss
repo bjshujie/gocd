@@ -58,20 +58,21 @@
 }
 
 .gocd_logo {
+
   height: 20px;
-  width: 40px;
-  display: inline-block;
-  margin: 10px 0 10px 20px;
+  width: 180px;
+  //display: inline-block;
+  //margin: 10px 0 0px 20px;
+  font-size: 20px;
+  color: #fff;
 
   @media (min-width: $screen-md) {
     margin: 10px 0 10px 0;
   }
 
   @media (min-width: $screen-lg) {
-    margin-right: 10px;
+    margin-right: 0px;
   }
-
-  background: url("../../../../app/assets/images/lingbo_logo.svg") no-repeat 0 0; // fixme
 }
 
 .site-navigation_left {

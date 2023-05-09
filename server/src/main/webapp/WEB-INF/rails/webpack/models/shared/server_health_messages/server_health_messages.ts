@@ -55,10 +55,10 @@ export class ServerHealthMessages {
   summaryMessage(): string {
     const messages = [];
     if (this.countErrors() > 0) {
-      messages.push(inflection.pluralize("错误", this.countErrors(), true));
+      messages.push("错误");
     }
     if (this.countWarnings() > 0) {
-      messages.push(inflection.pluralize("警告", this.countWarnings(), true));
+      messages.push("警告");
     }
     return _.join(messages, " 和 ");
   }
