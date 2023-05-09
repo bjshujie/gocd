@@ -64,6 +64,6 @@ public class GoConstants {
     public static final String AGENT_BOOTSTRAPPER_VERSION = "agent.bootstrapper.version";
     public static final String TFS_IMPL_MD5 = "agent.tfs.md5";
     public static final String GIVEN_AGENT_LAUNCHER_JAR_MD5 = "agent.launcher.md5";
-    public static final String ANY_PIPELINE = "[Any Pipeline]";
-    public static final String ANY_STAGE = "[Any Stage]";
+    public static final String ANY_PIPELINE = "[任何算法]";
+    public static final String ANY_STAGE = "[任何阶段]";
 }

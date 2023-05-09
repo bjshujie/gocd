@@ -69,7 +69,7 @@ export class ServerConfigurationPage extends Page<null, State> {
 
     vnode.state.route = (activeConfiguration: Sections, serverConfigurationVM: ServerConfigVM) => {
       if (serverConfigurationVM.isModified()) {
-        const modal: ConfirmModal = new ConfirmModal("There are unsaved changes. Do you wish to continue?", () => {
+        const modal: ConfirmModal = new ConfirmModal("有未保存的更改。你想继续吗？", () => {
           vnode.state.activeConfiguration = activeConfiguration;
           m.route.set(activeConfiguration);
           serverConfigurationVM.reset();
@@ -92,7 +92,7 @@ export class ServerConfigurationPage extends Page<null, State> {
       if (siteUrls.isValid()) {
         return ServerManagementCRUD.put(siteUrls, etag).then((result) => {
           result.do((successResponse) => {
-            this.flashMessage.setMessage(MessageType.success, "Site urls updated successfully");
+            this.flashMessage.setMessage(MessageType.success, "网站URL更新成功");
             this.fetchData(vnode);
           }, (errorResponse) => {
             if (result.getStatusCode() === 422 && errorResponse.body) {
@@ -110,7 +110,7 @@ export class ServerConfigurationPage extends Page<null, State> {
       if (artifactConfig.isValid()) {
         return ArtifactConfigCRUD.put(artifactConfig, etag).then((result) => {
           result.do((successResponse) => {
-            this.flashMessage.setMessage(MessageType.success, "Artifact config updated successfully");
+            this.flashMessage.setMessage(MessageType.success, "文档配置更新成功");
             this.fetchData(vnode);
           }, (errorResponse) => {
             if (result.getStatusCode() === 422 && errorResponse.body) {
@@ -125,7 +125,7 @@ export class ServerConfigurationPage extends Page<null, State> {
     };
 
     vnode.state.onCancel = (entity: ServerConfigVM) => {
-      const modal: ConfirmModal = new ConfirmModal("Do you want to discard the changes?", () => {
+      const modal: ConfirmModal = new ConfirmModal("是否要放弃更改？", () => {
         entity.reset();
         modal.close();
       });
@@ -136,7 +136,7 @@ export class ServerConfigurationPage extends Page<null, State> {
       return MailServerCrud.createOrUpdate(mailServer).then((result) => {
         result.do(
           (successResponse) => {
-            this.flashMessage.setMessage(MessageType.success, "Mail server configuration updated successfully!");
+            this.flashMessage.setMessage(MessageType.success, "邮件服务器配置更新成功！");
             this.fetchData(vnode);
           },
           (errorResponse) => {
@@ -157,7 +157,7 @@ export class ServerConfigurationPage extends Page<null, State> {
                              .then((result) => {
                                result.do(
                                  (successResponse) => {
-                                   const msg = "Configuration was deleted successfully!";
+                                   const msg = "已成功删除配置！";
                                    this.flashMessage.setMessage(MessageType.success, msg);
                                    this.fetchData(vnode);
                                  },
@@ -197,7 +197,7 @@ export class ServerConfigurationPage extends Page<null, State> {
         return JobTimeoutManagementCRUD.createOrUpdate(jobTimeout).then((result) => {
           result.do(((successResponse) => {
             this.fetchData(vnode);
-            this.flashMessage.setMessage(MessageType.success, "Default job timeout updated successfully!");
+            this.flashMessage.setMessage(MessageType.success, "默认作业超时更新成功！");
           }), (errorResponse) => {
             this.flashMessage.setMessage(MessageType.alert, JSON.parse(errorResponse.body!).message);
           });

@@ -23,37 +23,37 @@ public enum StageEvent {
     Fails {
         @Override
         public String describe() {
-            return " failed";
+            return " 失败";
         }
     },
     Passes {
         @Override
         public String describe() {
-            return " passed";
+            return " 通过";
         }
     },
     Breaks {
         @Override
         public String describe() {
-            return " is broken";
+            return " 损坏";
         }
     },
     Fixed {
         @Override
         public String describe() {
-            return " is fixed";
+            return " 固定";
         }
     },
     Cancelled {
         @Override
         public String describe() {
-            return " is cancelled";
+            return " 已取消";
         }
     },
     All {
         @Override
         public String describe() {
-            return " [ALL]";
+            return " [全部]";
         }
     };
 

@@ -182,7 +182,7 @@ public class PluggableSCMMaterial extends AbstractMaterial implements SecretPara
     @Override
     public void emailContent(StringBuilder content, Modification modification) {
         String scmDetails = getTypeForDisplay() + " : " + getDisplayName();
-        String revisionDetails = format("revision: %s, completed on %s\n%s", modification.getRevision(), modification.getModifiedTime(), Optional.ofNullable(modification.getComment()).orElse(""));
+        String revisionDetails = format("完成时间 %s\n%s", modification.getModifiedTime(), Optional.ofNullable(modification.getComment()).orElse(""));
         content.append(scmDetails).append('\n').append(revisionDetails);
     }
 

@@ -542,7 +542,7 @@ export class PasswordField extends FormField<EncryptedValue, RequiredFieldAttr &
                               onclick={() => {
                                 vnode.attrs.property()!.edit.call(vnode.attrs.property());
                                 callbackOnReset();
-                              }}>Change</FormResetButton>;
+                              }}>变更</FormResetButton>;
     }
   }
 

@@ -58,11 +58,8 @@
 }
 
 .gocd_logo {
-
   height: 20px;
   width: 180px;
-  //display: inline-block;
-  //margin: 10px 0 0px 20px;
   font-size: 20px;
   color: #fff;
 
@@ -71,7 +68,7 @@
   }
 
   @media (min-width: $screen-lg) {
-    margin-right: 0px;
+    margin-right: 10px;
   }
 }
 

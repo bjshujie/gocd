@@ -22,7 +22,7 @@ import {NotificationFiltersCRUD} from "models/new_preferences/notification_filte
 import {ButtonGroup, Cancel, Primary} from "views/components/buttons";
 import {FlashMessage, FlashMessageModel} from "views/components/flash_message";
 import {FormBody} from "views/components/forms/form";
-import {CheckboxField, Option, SelectField, SelectFieldOptions} from "views/components/forms/input_fields";
+import { Option, SelectField, SelectFieldOptions} from "views/components/forms/input_fields";
 import {InfoCircle} from "views/components/icons";
 import {Modal, ModalState, Size} from "views/components/modal";
 import styles from "views/components/modal/index.scss";
@@ -87,22 +87,20 @@ abstract class BaseModal extends Modal {
     return <div>
       {errorMsg}
       <FormBody>
-        <SelectField property={this.pipelineProxy.bind(this)} label={"Pipeline"}
+        <SelectField property={this.pipelineProxy.bind(this)} label={"算法"}
                      errorText={this.filter().errors().errorsForDisplay('pipeline_name')}>
           <SelectFieldOptions selected={this.filter().pipeline()} items={this.pipelinesAndStages.pipelines}/>
         </SelectField>
 
-        <SelectField property={this.filter().stage} label={"Stage"}
+        <SelectField property={this.filter().stage} label={"阶段"}
                      errorText={this.filter().errors().errorsForDisplay('stage_name')}>
           <SelectFieldOptions selected={this.filter().stage()} items={this.stagesOptions()}/>
         </SelectField>
 
-        <SelectField property={this.filter().event} label={"Event"}
+        <SelectField property={this.filter().event} label={"事件"}
                      errorText={this.filter().errors().errorsForDisplay('event')}>
           <SelectFieldOptions selected={this.filter().event()} items={this.POSSIBLE_EVENTS}/>
         </SelectField>
-
-        <CheckboxField label="Only if it contains my check-ins" property={this.filter().matchCommits}/>
       </FormBody>
     </div>;
   }
@@ -180,7 +178,7 @@ export class CreateNotificationFilterModal extends BaseModal {
   }
 
   title(): string {
-    return "Add Notification Filter";
+    return "新增通行筛选器";
   }
 
   protected operationPromise(): Promise<any> {
@@ -188,7 +186,7 @@ export class CreateNotificationFilterModal extends BaseModal {
   }
 
   protected successMessage(): m.Children {
-    return <span>Notification filter created successfully!</span>;
+    return <span>通知筛选器创建成功！</span>;
   }
 }
 
@@ -198,7 +196,7 @@ export class EditNotificationFilterModal extends BaseModal {
   }
 
   title(): string {
-    return "Edit Notification Filter";
+    return "编辑通知筛选器";
   }
 
   protected operationPromise(): Promise<any> {
@@ -206,6 +204,6 @@ export class EditNotificationFilterModal extends BaseModal {
   }
 
   protected successMessage(): m.Children {
-    return <span>Notification filter updated successfully!</span>;
+    return <span>通知筛选器更新成功！</span>;
   }
 }

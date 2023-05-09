@@ -37,28 +37,28 @@ export class EmailSettingsWidget extends MithrilViewComponent<Attrs> {
     return <div data-test-id="email-settings-widget" class={styles.formContainer}>
       <FormBody>
         <div class={styles.formHeader}>
-          <h2>Email Settings</h2>
+          <h2>Email 设置</h2>
         </div>
         <div class={styles.formFields}>
           <Form compactForm={true}>
             <TextField label="Email" type={"email"}
                        property={currentUser.email}
-                       helpText={"The email to which the notification is sent."}
+                       helpText={"接收通知的Email地址。"}
                        docLink={"configuration/dev_notifications.html"}
-                       placeholder={"Email not set"}/>
+                       placeholder={"Email 未填写"}/>
             <CheckboxField dataTestId="enable-email-notification"
                            property={currentUser.emailMe}
                            readonly={!vnode.attrs.isSMTPConfigured}
-                           title={vnode.attrs.isSMTPConfigured ? "" : "SMTP settings are not configured!"}
-                           label={"Enable email notification"}/>
+                           title={vnode.attrs.isSMTPConfigured ? "" : "SMTP设置未配置！"}
+                           label={"启用电子邮件通知"}/>
           </Form>
         </div>
         <div class={styles.formFields}>
           <Form compactForm={true}>
-            <TextField label="My check-in aliases"
+            <TextField label="我的别名"
                        property={this.checkinAliasesProxy.bind(this, currentUser)}
-                       placeholder={"No matchers defined"}
-                       helpText={"Usually the commits will be either in 'user' or 'username'. Specify both the values here."}/>
+                       placeholder={"username"}
+                       helpText={"通常使用“user”或“username”。在此处指定这两个值。"}/>
           </Form>
         </div>
         <div class={styles.buttons}>

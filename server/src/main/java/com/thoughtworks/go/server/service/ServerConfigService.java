@@ -38,7 +38,7 @@ import static com.thoughtworks.go.server.newsecurity.utils.SessionUtils.currentU
 
 @Service
 public class ServerConfigService implements BaseUrlProvider {
-    private static final String TEST_EMAIL_SUBJECT = "Go Email Notification";
+    private static final String TEST_EMAIL_SUBJECT = "凌波邮件通知";
 
     private final GoConfigService goConfigService;
 

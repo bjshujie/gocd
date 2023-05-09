@@ -135,7 +135,7 @@ public class PackageMaterial extends AbstractMaterial implements SecretParamAwar
     @Override
     public void emailContent(StringBuilder content, Modification modification) {
         content.append(getTypeForDisplay() + " : " + getDisplayName()).append('\n').append(
-                format("revision: %s, completed on %s", modification.getRevision(),
+                format("完成时间 %s",
                         modification.getModifiedTime()));
     }
 

@@ -68,7 +68,7 @@ export class NewPreferencesPage extends Page<null, PreferencesState> {
     vnode.state.isSMTPConfigured = this.getMeta().smtp_configured;
     vnode.state.route            = (activeConfiguration: Sections, preferenceVM: PreferenceVM) => {
       if (preferenceVM.isModified()) {
-        const modal: ConfirmModal = new ConfirmModal("There are unsaved changes. Do you wish to continue?", () => {
+        const modal: ConfirmModal = new ConfirmModal("有未保存的更改。你想继续吗？", () => {
           vnode.state.activeConfiguration = activeConfiguration;
           m.route.set(activeConfiguration);
           preferenceVM.reset();
@@ -87,7 +87,7 @@ export class NewPreferencesPage extends Page<null, PreferencesState> {
 
     vnode.state.onCancel            = (entity: PreferenceVM, e: MouseEvent) => {
       e.stopPropagation();
-      const modal: ConfirmModal = new ConfirmModal("Do you want to discard the changes?", () => {
+      const modal: ConfirmModal = new ConfirmModal("是否要放弃更改？", () => {
         entity.reset();
         modal.close();
       });
@@ -98,7 +98,7 @@ export class NewPreferencesPage extends Page<null, PreferencesState> {
       return CurrentUserCRUD.update(entity.entity(), entity.etag()!).then((result) => {
         result.do(
           (successResponse) => {
-            this.flashMessage.setMessage(MessageType.success, "Email settings updated successfully!");
+            this.flashMessage.setMessage(MessageType.success, "电子邮件设置更新成功！");
             vnode.state.currentUserVM().sync(successResponse.body.object, successResponse.body.etag);
           },
           (errorResponse) => {
@@ -127,11 +127,11 @@ export class NewPreferencesPage extends Page<null, PreferencesState> {
     };
     vnode.state.onDeleteFilter = (filter: NotificationFilter, e: MouseEvent) => {
       e.stopPropagation();
-      const modal = new ConfirmModal("Do you want to delete the filter for " + JSON.stringify(filter.toPartialJSON()), () => {
+      const modal = new ConfirmModal("是否要删除筛选器" + JSON.stringify(filter.toPartialJSON()), () => {
         NotificationFiltersCRUD.delete(filter.id())
                                .then((result) => {
                                  result.do(
-                                   () => vnode.state.onFilterSave("Notification filter deleted successfully!"),
+                                   () => vnode.state.onFilterSave("通知筛选器删除成功！"),
                                    (errorResponse) => this.onError(errorResponse));
                                })
                                .finally(modal.close.bind(modal));

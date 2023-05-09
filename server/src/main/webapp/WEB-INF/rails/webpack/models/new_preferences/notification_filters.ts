@@ -38,8 +38,8 @@ export interface NotificationFilterJSON {
 export type NotificationEvent = 'All' | 'Passes' | 'Fails' | 'Breaks' | 'Fixed' | 'Cancelled';
 
 export class NotificationFilter extends ValidatableMixin {
-  static readonly DEFAULT_PIPELINE = "[Any Pipeline]";
-  static readonly DEFAULT_STAGE    = "[Any Stage]";
+  static readonly DEFAULT_PIPELINE = "[任何算法]";
+  static readonly DEFAULT_STAGE    = "[任何阶段]";
   id: Stream<number>;
   pipeline: Stream<string>;
   stage: Stream<string>;

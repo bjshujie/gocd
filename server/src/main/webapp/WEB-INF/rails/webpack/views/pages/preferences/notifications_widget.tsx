@@ -17,7 +17,7 @@
 import {docsUrl} from "gen/gocd_version";
 import {MithrilViewComponent} from "jsx/mithril-component";
 import m from "mithril";
-import s from "underscore.string";
+// import s from "underscore.string";
 import {ButtonIcon, Primary} from "views/components/buttons";
 import {Delete, Edit, IconGroup} from "views/components/icons";
 import {Link} from "views/components/link";
@@ -40,7 +40,7 @@ export class NotificationsWidget extends MithrilViewComponent<Attrs> {
         </ul>
       </div>;
     } else {
-      msgOrFilters = <Table headers={['Pipeline', 'Stage', 'Event', 'Check-ins Matcher', '']}
+      msgOrFilters = <Table headers={['算法', '阶段', '事件', '匹配', '']}
                             data={this.getTableData(vnode)}/>;
     }
     return <div data-test-id="notifications-widget" class={styles.notificationWrapper}>
@@ -72,7 +72,7 @@ export class NotificationsWidget extends MithrilViewComponent<Attrs> {
                   title={this.getTitle(vnode.attrs.isSMTPConfigured, 'edit')}
                   onclick={vnode.attrs.onEditFilter.bind(this, filter)}/>
             <Delete data-test-id="notification-filter-delete"
-                    title={'Delete notification filter'}
+                    title={'删除通知筛选器'}
                     onclick={vnode.attrs.onDeleteFilter.bind(this, filter)}/>
           </IconGroup>
         ];
@@ -81,9 +81,15 @@ export class NotificationsWidget extends MithrilViewComponent<Attrs> {
   }
 
   private getTitle(isSMTPConfigured: boolean, action: 'add' | 'edit') {
-    if (isSMTPConfigured) {
-      return `${s.capitalize(action)} 通知筛选器`;
+    let strAction:string = "";
+    if (action ==='add') {
+      strAction = '新增';
+    } else if (action ==='edit') {
+      strAction = '编辑';
     }
-    return `无法 ${action} 通知筛选器，因为尚未配置SMTP`;
+    if (isSMTPConfigured) {
+      return `${strAction} 通知筛选器`;
+    }
+    return `无法 ${strAction} 通知筛选器，因为尚未配置SMTP`;
   }
 }

@@ -100,8 +100,8 @@ public class NotificationFilter extends PersistentObject implements Validatable 
     }
 
     public String description() {
-        return format("pipeline: %s, stage: %s, describeChange: %s, check-in: %s", pipelineName, stageName, event,
-            myCheckin ? "Mine" : "All");
+        return format("算法: %s, 阶段: %s, 描述变更: %s, 启动: %s", pipelineName, stageName, event,
+            myCheckin ? "我的" : "所有");
     }
 
     @Override
@@ -171,23 +171,23 @@ public class NotificationFilter extends PersistentObject implements Validatable 
 
     @Override
     public void validate(ValidationContext validationContext) {
-        if (equalsIgnoreCase(this.pipelineName, "[Any Pipeline]")) {
+        if (equalsIgnoreCase(this.pipelineName, "[任何算法]")) {
             return;
         }
 
         PipelineConfig pipelineConfig = validationContext.getCruiseConfig()
             .getPipelineConfigByName(new CaseInsensitiveString(this.pipelineName));
         if (pipelineConfig == null) {
-            addError("pipelineName", format("Pipeline with name '%s' was not found!", this.pipelineName));
+            addError("pipelineName", format("名称为 '%s' 的算法未找到！", this.pipelineName));
             return;
         }
 
-        if (equalsIgnoreCase(this.stageName, "[Any Stage]")) {
+        if (equalsIgnoreCase(this.stageName, "[任何阶段]")) {
             return;
         }
 
         if (pipelineConfig.getStage(this.stageName) == null) {
-            addError("stageName", format("Stage '%s' not found in pipeline '%s'!", this.stageName, this.pipelineName));
+            addError("stageName", format("名称为 '%s' 的阶段在算法 '%s' 中未找到！", this.stageName, this.pipelineName));
         }
     }
 

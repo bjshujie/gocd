@@ -44,7 +44,7 @@ public class StageNotificationService {
     private final SystemEnvironment systemEnvironment;
     private final StageService stageService;
     private final ServerConfigService serverConfigService;
-    protected static final String MATERIAL_SECTION_HEADER = "-- CHECK-INS --";
+    protected static final String MATERIAL_SECTION_HEADER = "----------------";
 
     @Autowired
     public StageNotificationService(PipelineService pipelineService, UserService userService, EmailNotificationTopic emailNotificationTopic,
@@ -68,14 +68,15 @@ public class StageNotificationService {
 
         String emailBody = new EmailBodyGenerator(materialRevisions, cancelledBy, systemEnvironment, stageIdentifier).getContent();
 
-        String subject = "Stage [" + stageIdentifier.stageLocator() + "]" + event.describe();
+        String subject = "阶段 [" + stageIdentifier.stageLocator() + "]" + event.describe();
         LOGGER.debug("Processing notification titled [{}]", subject);
         for (User user : users) {
             if (user.matchNotification(stageIdentifier.stageConfigIdentifier(), event, materialRevisions)) {
                 StringBuilder emailWithSignature = new StringBuilder(emailBody)
                         .append("\n\n")
-                        .append("Sent by Go on behalf of ")
-                        .append(user.getName());
+                        .append("凌波-代表管理员 ")
+                        .append(user.getName())
+                        .append(" 发送");
                 SendEmailMessage sendEmailMessage
                         = new SendEmailMessage(subject, emailWithSignature.toString(), user.getEmail());
                 emailNotificationTopic.post(sendEmailMessage);
@@ -97,7 +98,7 @@ public class StageNotificationService {
             emailBody = new StringBuilder();
 
             if (!Username.BLANK.equals(cancelledBy)) {
-                emailBody.append("The stage was cancelled by ").append(CaseInsensitiveString.str(cancelledBy.getUsername())).append(".\n");
+                emailBody.append("阶段被 ").append(CaseInsensitiveString.str(cancelledBy.getUsername())).append("取消。\n");
             }
 
             addStageLink();
@@ -111,7 +112,7 @@ public class StageNotificationService {
         }
 
         private void addStageLink() {
-            emailBody.append(String.format("See details: %s", stageDetailLink()));
+            emailBody.append(String.format("查看详情: %s", stageDetailLink()));
         }
 
         private String stageDetailLink() {
@@ -125,7 +126,7 @@ public class StageNotificationService {
             try {
                 return StageNotificationService.this.serverConfigService.siteUrlFor(urlString, false);
             } catch (URISyntaxException e) {
-                throw bomb("Could not construct URL.", e);
+                throw bomb("无法构造URL。", e);
             }
         }
 

@@ -18,6 +18,7 @@
         <user>admin</user>
       </admins>
     </security>
+    <mailhost hostname="smtp.qq.com" port="465" username="3166652926@qq.com" encryptedPassword="AES:+Bz3sNzZyvlZQFyiCc5STw==:Iuj/7eGcOuqbiLJNzun+MceTkNk28Vzy1qB+QG8qerM=" tls="true" from="3166652926@qq.com" admin="3166652926@qq.com" />
     <backup emailOnSuccess="true" emailOnFailure="true" />
     <artifacts>
       <artifactsDir>artifacts</artifactsDir>
