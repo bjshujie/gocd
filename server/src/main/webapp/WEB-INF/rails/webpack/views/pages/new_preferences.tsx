@@ -127,7 +127,7 @@ export class NewPreferencesPage extends Page<null, PreferencesState> {
     };
     vnode.state.onDeleteFilter = (filter: NotificationFilter, e: MouseEvent) => {
       e.stopPropagation();
-      const modal = new ConfirmModal("是否要删除筛选器" + JSON.stringify(filter.toPartialJSON()), () => {
+      const modal = new ConfirmModal("是否要删除筛选器?", () => {
         NotificationFiltersCRUD.delete(filter.id())
                                .then((result) => {
                                  result.do(

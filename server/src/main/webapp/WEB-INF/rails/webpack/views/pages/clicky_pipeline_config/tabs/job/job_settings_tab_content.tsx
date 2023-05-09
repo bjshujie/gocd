@@ -86,7 +86,7 @@ export class JobSettingsTabContentWidget extends MithrilViewComponent<Attrs> {
                          helpText="当前作业运行所需的节点资源。将多个资源指定为逗号分隔的列表."
                          readonly={vnode.attrs.readonly || !!entity.elasticProfileId()}
                          property={entity.resources}/>
-      <AutocompleteField label="弹性节点 Profile Id"
+      <AutocompleteField label="弹性节点配置文件 Id"
                          dataTestId={"elastic-agent-id-input"}
                          autoEvaluate={this.isElasticAgentIdInputOnFocus()}
                          errorText={entity.errors().errorsForDisplay("elasticProfileId")}

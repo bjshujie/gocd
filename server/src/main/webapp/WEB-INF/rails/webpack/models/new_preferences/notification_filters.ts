@@ -52,7 +52,7 @@ export class NotificationFilter extends ValidatableMixin {
     this.pipeline     = Stream(pipeline);
     this.stage        = Stream(stage);
     this.event        = Stream(event);
-    this.matchCommits = Stream(matchCommits);
+    this.matchCommits = Stream(false);
     this.errors(errors);
 
     this.validatePresenceOf("pipeline");
