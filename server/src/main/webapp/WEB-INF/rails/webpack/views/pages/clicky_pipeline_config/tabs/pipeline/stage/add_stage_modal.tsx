@@ -77,7 +77,7 @@ export class AddStageModal extends Modal {
       </div>
       <TextField required={true}
                  errorText={this.jobToCreate.errors().errorsForDisplay("name")}
-                 label="任务名称"
+                 label="作业名称"
                  property={this.jobToCreate.name}/>
       <SelectField property={this.selectedTaskTypeToAdd}
                    label={"任务类型"}

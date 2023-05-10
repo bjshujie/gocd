@@ -65,7 +65,7 @@ public class ArtifactRepresenter {
                 artifactTypeConfig = ExternalArtifactConfigRepresenter.fromJSON(jsonReader, new PluggableArtifactConfig());
                 break;
             default:
-                throw new UnprocessableEntityException(String.format("Invalid Artifact type: '%s'. It has to be one of %s.", type, String.join(",", "build", "test", "external")));
+                throw new UnprocessableEntityException(String.format("无效的文档类型: '%s'. 只能是如下中的一个 %s.", type, String.join(",", "build", "test", "external")));
         }
         return artifactTypeConfig;
     }

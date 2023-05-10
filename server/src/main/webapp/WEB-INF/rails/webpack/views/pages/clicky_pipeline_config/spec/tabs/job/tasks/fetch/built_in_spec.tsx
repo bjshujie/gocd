@@ -48,9 +48,9 @@ describe("Built In Fetch Artifact Task", () => {
   it("should render pipeline input", () => {
     mount();
 
-    const pipelineHelpText = "The name of direct upstream pipeline or ancestor pipeline of one of the upstream pipelines on which the pipeline of the job depends on. The pipeline should be a dependency material or should be reachable as an ancestor(of the form fetch-from-pipeline/path/to/upstream-pipeline) of at-least one dependency material. Defaults to current pipeline if not specified.";
+    const pipelineHelpText = "作业的算法所依赖的直接上游算法或上游算法之一的祖先算法的名称。该算法（形式为从管道/路径/到上游管道的获取）可访问。如果未指定，则默认为当前管道。";
 
-    expect(helper.byTestId("form-field-label-pipeline")).toContainText("Pipeline");
+    expect(helper.byTestId("form-field-label-pipeline")).toContainText("算法");
     expect(helper.byTestId("form-field-input-pipeline")).toBeInDOM();
     expect(helper.qa("span")).toContainText(pipelineHelpText);
   });
@@ -69,9 +69,9 @@ describe("Built In Fetch Artifact Task", () => {
 
   it("should render stage input", () => {
     mount();
-    const stageHelpText = "The name of the stage to fetch artifacts from.";
+    const stageHelpText = "要从中提取文档的阶段的名称。";
 
-    expect(helper.byTestId("form-field-label-stage")).toContainText("Stage");
+    expect(helper.byTestId("form-field-label-stage")).toContainText("阶段");
     expect(helper.byTestId("form-field-input-stage")).toBeInDOM();
     expect(helper.qa("span")).toContainText(stageHelpText);
   });
@@ -90,9 +90,9 @@ describe("Built In Fetch Artifact Task", () => {
 
   it("should render job input", () => {
     mount();
-    const jobHelpText = "The name of the job to fetch artifacts from.";
+    const jobHelpText = "要从中获取文档的作业的名称。";
 
-    expect(helper.byTestId("form-field-label-job")).toContainText("Job");
+    expect(helper.byTestId("form-field-label-job")).toContainText("作业");
     expect(helper.byTestId("form-field-input-job")).toBeInDOM();
     expect(helper.qa("span")).toContainText(jobHelpText);
   });
@@ -111,9 +111,9 @@ describe("Built In Fetch Artifact Task", () => {
 
   it("should render source input", () => {
     mount();
-    const sourceHelpText = "The path of the artifact directory or file of a specific job, relative to the sandbox directory. If the directory or file does not exist, the job is failed.";
+    const sourceHelpText = "特定作业的文档目录或文件相对于沙箱目录的路径。如果目录或文件不存在，则作业失败。";
 
-    expect(helper.byTestId("form-field-label-source")).toContainText("Source");
+    expect(helper.byTestId("form-field-label-source")).toContainText("源");
     expect(helper.byTestId("form-field-input-source")).toBeInDOM();
     expect(helper.qa("span")).toContainText(sourceHelpText);
   });
@@ -152,9 +152,9 @@ describe("Built In Fetch Artifact Task", () => {
 
   it("should render destination input", () => {
     mount();
-    const destinationHelpText = "The path of the directory where the artifact is fetched to. The directory is overwritten if it already exists. The directory path is relative to the pipeline working directory.";
+    const destinationHelpText = "文档被提取到的目录的路径。如果目录已经存在，则会覆盖该目录。目录路径是相对于算法工作目录的。";
 
-    expect(helper.byTestId("form-field-label-destination")).toContainText("Destination");
+    expect(helper.byTestId("form-field-label-destination")).toContainText("目标");
     expect(helper.byTestId("form-field-input-destination")).toBeInDOM();
     expect(helper.qa("span")).toContainText(destinationHelpText);
   });

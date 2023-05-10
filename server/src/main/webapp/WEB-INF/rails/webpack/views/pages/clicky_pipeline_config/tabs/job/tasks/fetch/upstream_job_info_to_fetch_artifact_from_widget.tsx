@@ -50,9 +50,9 @@ export class UpstreamJobToFetchArtifactFromWidget extends MithrilComponent<Attrs
   view(vnode: m.Vnode<Attrs, State>) {
     const attributes = vnode.attrs.attributes;
 
-    const pipelineHelpText = "The name of direct upstream pipeline or ancestor pipeline of one of the upstream pipelines on which the pipeline of the job depends on. The pipeline should be a dependency material or should be reachable as an ancestor(of the form fetch-from-pipeline/path/to/upstream-pipeline) of at-least one dependency material. Defaults to current pipeline if not specified.";
-    const stageHelpText    = "The name of the stage to fetch artifacts from.";
-    const jobHelpText      = "The name of the job to fetch artifacts from.";
+    const pipelineHelpText = "作业的算法所依赖的直接上游算法或上游算法之一的祖先算法的名称。该算法（形式为从管道/路径/到上游管道的获取）应为可访问。如果未指定，则默认为当前管道。";
+    const stageHelpText    = "要从中提取文档的阶段的名称。";
+    const jobHelpText      = "要从中获取文档的作业的名称。";
 
     let onJobSuggestionChange = () => {
       //do nothing;
@@ -69,7 +69,7 @@ export class UpstreamJobToFetchArtifactFromWidget extends MithrilComponent<Attrs
                          errorText={attributes.errors().errorsForDisplay("pipeline")}
                          provider={vnode.state.pipelineSuggestions}
                          onchange={vnode.state.stageSuggestions.update.bind(vnode.state.stageSuggestions)}
-                         label="Pipeline"
+                         label="算法"
                          property={attributes.pipeline}/>
       <AutocompleteField helpText={stageHelpText}
                          autoEvaluate={!vnode.attrs.readonly}
@@ -78,7 +78,7 @@ export class UpstreamJobToFetchArtifactFromWidget extends MithrilComponent<Attrs
                          provider={vnode.state.stageSuggestions}
                          onchange={vnode.state.jobSuggestions.update.bind(vnode.state.jobSuggestions)}
                          required={true}
-                         label="Stage"
+                         label="阶段"
                          property={attributes.stage}/>
       <AutocompleteField helpText={jobHelpText}
                          autoEvaluate={!vnode.attrs.readonly}
@@ -87,7 +87,7 @@ export class UpstreamJobToFetchArtifactFromWidget extends MithrilComponent<Attrs
                          provider={vnode.state.jobSuggestions}
                          onchange={onJobSuggestionChange}
                          required={true}
-                         label="Job"
+                         label="作业"
                          property={attributes.job}/>
     </div>;
   }

@@ -105,7 +105,7 @@ public class ConsoleOutMatcherJunit5 extends AbstractAssert<ConsoleOutMatcherJun
     }
 
     public ConsoleOutMatcherJunit5 printedAppsMissingInfoOnWindows(final String app) {
-        return contains(format("'%s' is not recognized as an internal or external command", app));
+        return contains(format("'%s' 未被识别为内部或外部命令", app));
     }
 
     public ConsoleOutMatcherJunit5 matchUsingRegex(final String stringContainingRegex) {

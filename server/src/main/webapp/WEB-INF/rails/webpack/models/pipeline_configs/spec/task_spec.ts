@@ -78,7 +78,7 @@ describe("Task", () => {
 
     it("should provide description", () => {
       const task = new ExecTask("", []);
-      expect(task.description(new PluginInfos())).toEqual("Custom Command");
+      expect(task.description(new PluginInfos())).toEqual("自定义命令");
     });
 
     it("should provide properties", () => {

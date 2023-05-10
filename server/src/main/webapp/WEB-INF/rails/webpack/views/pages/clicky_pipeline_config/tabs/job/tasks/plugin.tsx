@@ -69,10 +69,10 @@ export class PluggableTaskModal extends AbstractTaskModal {
 
       let msg;
       if (this.isNewTaskDefinition) {
-        msg = "Can not define plugin task as no task plugins are installed!";
+        msg = "无法定义插件任务，因为没有安装任务插件！";
       } else {
         const attrs = this.task.attributes() as PluggableTaskAttributes;
-        msg         = `Can not edit plugin task as the '${attrs.pluginConfiguration().id}' plugin associated with this task is missing!`;
+        msg         = `无法编辑插件任务，因为缺少与此任务关联的 '${attrs.pluginConfiguration().id}' 插件！`;
       }
 
       return <FlashMessage type={MessageType.info} message={msg}/>;
@@ -82,7 +82,7 @@ export class PluggableTaskModal extends AbstractTaskModal {
     return <div data-test-id="task-plugin-modal">
       {this.renderFlashMessage()}
       <SelectField property={this.selectedPluginId}
-                   label="Select Task Plugin:"
+                   label="选择任务插件:"
                    readonly={this.readonly}
                    onchange={this.setPluginConfigOnTask.bind(this)}
                    required={true}>
@@ -107,7 +107,7 @@ export class PluggableTaskModal extends AbstractTaskModal {
   }
 
   title(): string {
-    return "Plugin Task";
+    return "插件任务";
   }
 
   private setPluginConfigOnTask(e: Event) {

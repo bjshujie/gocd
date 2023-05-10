@@ -67,7 +67,7 @@ export class ExternalFetchArtifactView extends MithrilComponent<Attrs, State> {
     const onJobSuggestionChange = vnode.state.artifactIdSuggestions.update.bind(vnode.state.artifactIdSuggestions);
 
     if (vnode.attrs.artifactPluginInfos.length === 0) {
-      const msg = "Can not create/edit external fetch artifact task as No Artifact Plugins are installed.";
+      const msg = "无法创建/编辑外部获取文档任务，因为未安装工件插件。";
       return <FlashMessage type={MessageType.info} message={msg}/>;
     }
 
@@ -87,7 +87,7 @@ export class ExternalFetchArtifactView extends MithrilComponent<Attrs, State> {
       if (!vnode.state.pluginId()) {
         vnode.state.pluginId(allArtifactPluginIds[0]);
       }
-      couldNotAutoSelectPluginError = "The plugin with which the artifact is associated cannot be determined because: the pipeline, stage, job or artifact id is a parameter or is non-existent. Please choose a plugin to configure the plugin properties.";
+      couldNotAutoSelectPluginError = "无法确定与文档相关联的插件，因为：算法、阶段、作业或文档 id是一个参数或不存在。请选择一个插件来配置插件属性。";
     } else {
       vnode.state.pluginId(pluginIdDeterminedFrom);
     }
@@ -96,7 +96,7 @@ export class ExternalFetchArtifactView extends MithrilComponent<Attrs, State> {
     const artifactExtension = pluginInfo.extensionOfType(ExtensionTypeString.ARTIFACT)! as ArtifactExtension;
 
     const attributes         = vnode.attrs.attributes;
-    const artifactIdHelpText = "The id of the external artifact uploaded by the upstream job.";
+    const artifactIdHelpText = "上游作业上传的外部文档的id。";
 
     let optionalPluginIdDropdown: m.Children;
 
@@ -118,7 +118,7 @@ export class ExternalFetchArtifactView extends MithrilComponent<Attrs, State> {
                            required={true}
                            errorText={attributes.errors().errorsForDisplay("artifactId")}
                            provider={vnode.state.artifactIdSuggestions}
-                           label="Artifact Id"
+                           label="文档 Id"
                            property={attributes.artifactId}/>
         {optionalPluginIdDropdown}
       </div>

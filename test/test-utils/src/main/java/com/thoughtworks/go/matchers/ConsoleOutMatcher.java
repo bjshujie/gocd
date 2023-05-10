@@ -293,13 +293,13 @@ public class ConsoleOutMatcher {
             @Override
             public boolean matchesSafely(String consoleOut) {
                 this.consoleOut = consoleOut;
-                message = format("'%s' is not recognized as an internal or external command", app);
+                message = format("'%s' 未被识别为内部或外部命令", app);
                 return StringUtils.contains(consoleOut, message);
             }
 
             @Override
             public void describeTo(Description description) {
-                description.appendText("Expected console to contain [" + message + "] but was " + consoleOut);
+                description.appendText("期望控制台包含 [" + message + "] 但确是 " + consoleOut);
             }
         };
     }

@@ -70,14 +70,14 @@ export class FetchArtifactTaskModal extends AbstractTaskModal {
     return <div data-test-id="fetch-artifact-task-modal">
       {this.renderFlashMessage()}
       <div class={styles.radioWrapper}>
-        <RadioField label="Type of Fetch Artifact"
+        <RadioField label="获取文档类型"
                     readonly={this.readonly}
                     inline={true}
                     property={attributes.artifactOrigin}
                     required={true}
                     possibleValues={[
-                      {label: "GoCD", value: "gocd"},
-                      {label: "External", value: "external"}
+                      {label: "内部", value: "gocd"},
+                      {label: "外部", value: "external"}
                     ]}>
         </RadioField>
       </div>
@@ -91,7 +91,7 @@ export class FetchArtifactTaskModal extends AbstractTaskModal {
   }
 
   title(): string {
-    return "Fetch Artifact Task";
+    return "获取文档任务";
   }
 
   getTask(): Task {

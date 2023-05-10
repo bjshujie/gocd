@@ -101,10 +101,10 @@ public abstract class AbstractFetchTask extends AbstractTask implements FetchArt
     public List<TaskProperty> getPropertiesForDisplay() {
         List<TaskProperty> taskProperties = new ArrayList<>();
         if (pipelineName != null && !CaseInsensitiveString.isBlank(pipelineName.getPath())) {
-            taskProperties.add(new TaskProperty("Pipeline Name", CaseInsensitiveString.str(pipelineName.getPath())));
+            taskProperties.add(new TaskProperty("算法名称", CaseInsensitiveString.str(pipelineName.getPath())));
         }
-        taskProperties.add(new TaskProperty("Stage Name", CaseInsensitiveString.str(stage)));
-        taskProperties.add(new TaskProperty("Job Name", job.toString()));
+        taskProperties.add(new TaskProperty("阶段名称", CaseInsensitiveString.str(stage)));
+        taskProperties.add(new TaskProperty("作业名称", job.toString()));
         return taskProperties;
     }
 
@@ -186,11 +186,11 @@ public abstract class AbstractFetchTask extends AbstractTask implements FetchArt
         boolean atLeastOneBlank = false;
         if (CaseInsensitiveString.isBlank(stage)) {
             atLeastOneBlank = true;
-            addError(STAGE, "Stage is a required field.");
+            addError(STAGE, "阶段是必填字段。");
         }
         if (CaseInsensitiveString.isBlank(job)) {
             atLeastOneBlank = true;
-            addError(JOB, "Job is a required field.");
+            addError(JOB, "作业是必填字段");
         }
         return atLeastOneBlank;
     }
@@ -200,7 +200,7 @@ public abstract class AbstractFetchTask extends AbstractTask implements FetchArt
 
         PipelineConfig ancestor = validationContext.getPipelineConfigByName(pipelineName.getAncestorName());
         if (matchingMaterial == null) {
-            String message = String.format("Pipeline \"%s\" tries to fetch artifact from pipeline \"%s\" which is not an upstream pipeline", currentPipeline.name(), pipelineName);
+            String message = String.format("算法 \"%s\" tries to fetch artifact from pipeline \"%s\" which is not an upstream pipeline", currentPipeline.name(), pipelineName);
             addError(PIPELINE_NAME, message);
             currentPipeline.addError("base", message);
             return;

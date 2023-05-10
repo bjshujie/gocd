@@ -33,10 +33,10 @@ public class DirectoryEntries extends ArrayList<DirectoryEntry> implements HtmlR
     @Override
     public void render(HtmlRenderer renderer) {
         if (isArtifactsDeleted || isEmpty()) {
-            HtmlElement element = p().unsafecontent("Artifacts for this job instance are unavailable as they may have been <a href='" +
+            HtmlElement element = p().unsafecontent("此作业实例的文档不可用，因为它们可能已经被 <a href='" +
                     CurrentGoCDVersion.docsUrl("configuration/delete_artifacts.html") +
-                    "' target='blank'>purged by Go</a> or deleted externally. "
-                    + "Re-run the stage or job to generate them again.");
+                    "' target='blank'>服务器清理</a> 或被外部删除. "
+                    + "重新运行阶段或作业以再次生成它们。");
             element.render(renderer);
         }
         for (DirectoryEntry entry : this) {

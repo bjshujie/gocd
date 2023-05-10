@@ -148,17 +148,17 @@ export class TaskWidget extends MithrilViewComponent<TaskWidgetAttrs> {
   private fetchTask(attributes: FetchTaskAttributesJSON, pluginInfos: PluginInfos) {
     return (
       <code>
-        <span class={styles.lightColor} title="Working directory">Fetch Artifact</span>
+        <span class={styles.lightColor} title="工作目录">获取文档</span>
         {" "}
-        <span title={"Pipeline"}>{_.isEmpty(attributes.pipeline) ? "[Current Pipeline]" : attributes.pipeline}</span>
+        <span title={"算法"}>{_.isEmpty(attributes.pipeline) ? "[Current Pipeline]" : attributes.pipeline}</span>
         <span class={styles.lightColor}> &gt; </span>
-        <span title={"Stage"}>{attributes.stage}</span>
+        <span title={"阶段"}>{attributes.stage}</span>
         <span class={styles.lightColor}> &gt; </span>
-        <span title={"Job"}>{attributes.job}</span>
+        <span title={"作业"}>{attributes.job}</span>
         <span class={styles.lightColor}> from source {attributes.is_source_a_file ? "file" : "directory"} </span>
-        <span title={"Source"}>{attributes.source}</span>
+        <span title={"源"}>{attributes.source}</span>
         <span class={styles.lightColor}> into destination </span>
-        <span title={"Source"}>{attributes.destination}</span>
+        <span title={"目标"}>{attributes.destination}</span>
         {this.maybeOnCancelTask(attributes.on_cancel, pluginInfos)}
       </code>
     );
@@ -170,7 +170,7 @@ export class TaskWidget extends MithrilViewComponent<TaskWidgetAttrs> {
 
   private workingDir(attributes: WorkingDirAttributesJSON) {
     const WHITESPACE = " "; // because intellij auto-indent has a tendency to clear whitespaces
-    return <span class={styles.lightColor} title="Working directory">{attributes.working_directory}${WHITESPACE}</span>;
+    return <span class={styles.lightColor} title="工作目录">{attributes.working_directory}${WHITESPACE}</span>;
   }
 
   private maybeAppendTarget(attributes: RakeTaskAttributesJSON, commands: string[]) {

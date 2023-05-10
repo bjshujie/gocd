@@ -99,7 +99,7 @@ export class TasksWidget extends MithrilComponent<Attrs, State> {
       case "Fetch Artifact":
         return new FetchArtifactTaskModal(task, showOnCancel, onSave, pluginInfos, readonly, autoSuggestions!);
       default:
-        throw new Error("Unsupported Task Type!");
+        throw new Error("不支持的任务类型!");
     }
   }
 
@@ -250,12 +250,12 @@ export class TasksWidget extends MithrilComponent<Attrs, State> {
         </Link>,
         <KeyValuePair inline={true} data={task.attributes().properties()}/>,
         <i>{runIf.join(", ")}</i>,
-        task.attributes().onCancel()?.type || "No"
+        task.attributes().onCancel()?.type || "否"
       ];
 
       let deleteDisabledMessage: string | undefined;
       if (tasks.length === 1) {
-        deleteDisabledMessage = "Can not delete the only task from the job.";
+        deleteDisabledMessage = "无法从作业中删除唯一的任务。";
       }
 
       if (vnode.attrs.isEditable) {
@@ -273,7 +273,7 @@ export class TasksWidget extends MithrilComponent<Attrs, State> {
   private deleteTask(vnode: m.Vnode<Attrs, State>, taskToDelete: Task, taskIndex: number) {
     new ConfirmationDialog(
       "删除任务",
-      <div>Do you want to delete the task at index '<em>{taskIndex + 1}</em>'?</div>,
+      <div>是否要删除索引 '<em>{taskIndex + 1}</em>'处的任务?</div>,
       this.onDelete.bind(this, vnode, taskToDelete, taskIndex)
     ).render();
   }
@@ -281,7 +281,7 @@ export class TasksWidget extends MithrilComponent<Attrs, State> {
   private onDelete(vnode: m.Vnode<Attrs, State>, taskToDelete: Task, taskIndex: number) {
     vnode.attrs.tasks().splice(taskIndex, 1);
     return vnode.attrs.pipelineConfigSave().then(() => {
-      vnode.attrs.flashMessage.setMessage(MessageType.success, `Task deleted successfully.`);
+      vnode.attrs.flashMessage.setMessage(MessageType.success, `已成功删除任务`);
     }).catch((errorResponse: ErrorResponse) => {
       vnode.attrs.tasks().splice(taskIndex, 0, taskToDelete);
     }).finally(m.redraw.sync);

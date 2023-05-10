@@ -33,22 +33,22 @@ export class BuiltInFetchArtifactView extends MithrilViewComponent<BuiltInArtifa
   view(vnode: m.Vnode<BuiltInArtifactViewAttrs>) {
     const attributes = vnode.attrs.attributes;
 
-    const sourceHelpText      = "The path of the artifact directory or file of a specific job, relative to the sandbox directory. If the directory or file does not exist, the job is failed.";
-    const destinationHelpText = "The path of the directory where the artifact is fetched to. The directory is overwritten if it already exists. The directory path is relative to the pipeline working directory.";
+    const sourceHelpText      = "特定作业的工件目录或文件相对于沙箱目录的路径。如果目录或文件不存在，则作业失败。";
+    const destinationHelpText = "文档被提取到的目录的路径。如果目录已经存在，则会覆盖该目录。目录路径是相对于算法工作目录的。";
 
     return <div data-test-id="built-in-fetch-artifact-view">
       <UpstreamJobToFetchArtifactFromWidget {...vnode.attrs}/>
       <TextField helpText={sourceHelpText}
                  required={true}
-                 label="Source"
+                 label="源"
                  readonly={vnode.attrs.readonly}
                  errorText={attributes.errors().errorsForDisplay("source")}
                  property={attributes.source}/>
-      <CheckboxField label="Source is a file (Not a directory)"
+      <CheckboxField label="源为一个文件 (不是一个目录)"
                      readonly={vnode.attrs.readonly}
                      property={attributes.isSourceAFile}/>
       <TextField helpText={destinationHelpText}
-                 label="Destination"
+                 label="目标"
                  readonly={vnode.attrs.readonly}
                  errorText={attributes.errors().errorsForDisplay("destination")}
                  property={attributes.destination}/>

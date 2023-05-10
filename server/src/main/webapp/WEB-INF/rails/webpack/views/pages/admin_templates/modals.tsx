@@ -210,10 +210,10 @@ export class ShowTemplateModal extends Modal {
 
   private showJob(stage: StageJSON, job: JobJSON) {
     const jobProperties = new Map<string, any>([
-      ["Resources", _.isEmpty(job.resources) ? null : job.resources.join(", ")],
-      ["Elastic Profile ID", job.elastic_profile_id],
-      ["Job Timeout", (this.jobTimeout(job))],
-      ["Run type", this.jobRunType(job)],
+      ["资源", _.isEmpty(job.resources) ? null : job.resources.join(", ")],
+      ["弹性节点配置ID", job.elastic_profile_id],
+      ["作业超时", (this.jobTimeout(job))],
+      ["运行类型", this.jobRunType(job)],
     ]);
 
     return (
@@ -295,7 +295,7 @@ export class ShowTemplateModal extends Modal {
 
   private artifacts(artifacts: ArtifactJSON[]) {
     if (_.isEmpty(artifacts)) {
-      return (<FlashMessage message="No artifacts have been configured" type={MessageType.info}/>);
+      return (<FlashMessage message="未配置任何文档" type={MessageType.info}/>);
     }
 
     const artifactsGroupedByType = _.groupBy(artifacts,
@@ -310,18 +310,18 @@ export class ShowTemplateModal extends Modal {
 
   private tabs(tabs: TabJSON[]) {
     if (_.isEmpty(tabs)) {
-      return (<FlashMessage message="No custom tabs have been configured" type={MessageType.info}/>);
+      return (<FlashMessage message="未配置任何自定义选项卡" type={MessageType.info}/>);
     }
     const data = tabs.map((eachTab) => {
       return [eachTab.name, eachTab.path];
     });
 
-    return <Table headers={["Tab Name", "Path"]} data={data}/>;
+    return <Table headers={["选项卡名称", "路径"]} data={data}/>;
   }
 
   private tasks(tasks: TaskJSON[]) {
     if (_.isEmpty(tasks)) {
-      return (<FlashMessage message="No tasks have been configured" type={MessageType.info}/>);
+      return (<FlashMessage message="未配置任何任务" type={MessageType.info}/>);
     }
 
     return (
@@ -344,35 +344,35 @@ export class ShowTemplateModal extends Modal {
 
   private buildArtifacts(artifacts: ArtifactJSON[]) {
     if (_.isEmpty(artifacts)) {
-      return <FlashMessage message="No build artifacts have been configured" type={MessageType.info}/>;
+      return <FlashMessage message="未配置任何构建文档" type={MessageType.info}/>;
     }
 
     const data = artifacts.map((eachArtifact) => {
       return [eachArtifact.source, eachArtifact.destination];
     });
 
-    return <Table caption="Build Artifacts" headers={["Source", "Destination"]} data={data}/>;
+    return <Table caption="构建文档" headers={["源", "目录"]} data={data}/>;
   }
 
   private testArtifacts(artifacts: ArtifactJSON[]) {
     if (_.isEmpty(artifacts)) {
-      return <FlashMessage message="No test artifacts have been configured" type={MessageType.info}/>;
+      return <FlashMessage message="未配置任务测试文档" type={MessageType.info}/>;
     }
 
     const data = artifacts.map((eachArtifact) => {
       return [eachArtifact.source, eachArtifact.destination];
     });
 
-    return <Table caption="Test Artifacts" headers={["Source", "Destination"]} data={data}/>;
+    return <Table caption="测试报告文档" headers={["源", "目标"]} data={data}/>;
   }
 
   private externalArtifacts(artifacts: ArtifactJSON[]) {
     if (_.isEmpty(artifacts)) {
-      return <FlashMessage message="No external artifacts have been configured" type={MessageType.info}/>;
+      return <FlashMessage message="未配置任何外部文档" type={MessageType.info}/>;
     }
 
     return [
-      <div>External Artifacts</div>,
+      <div>外部文档</div>,
       artifacts.map((eachArtifact) => {
         return this.externalArtifact(eachArtifact);
       })

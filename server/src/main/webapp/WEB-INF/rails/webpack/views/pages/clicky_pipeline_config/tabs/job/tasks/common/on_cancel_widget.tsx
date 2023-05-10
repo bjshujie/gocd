@@ -64,7 +64,7 @@ export class OnCancelTaskWidget extends MithrilComponent<Attrs, State> {
 
     return <div data-test-id="on-cancel-view">
       <CheckboxField label="取消任务时"
-                     helpText="取消父任务时运行附加任务，而不是终止父任务（默认行为）"
+                     helpText="  取消父任务时运行附加任务，而不是终止父任务（默认行为）"
                      readonly={vnode.attrs.readonly}
                      onchange={this.updateOnCancelTask.bind(this, vnode)}
                      property={vnode.state.onCancelCheckbox}/>

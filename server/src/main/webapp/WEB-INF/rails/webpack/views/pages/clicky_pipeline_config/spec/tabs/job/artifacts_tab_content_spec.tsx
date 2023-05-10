@@ -58,9 +58,9 @@ describe("Artifacts Tab", () => {
     job.artifacts().push(new GoCDArtifact(ArtifactType.build, "source", "destination"));
     mount(job);
 
-    const typeDescription        = "There are 3 types of artifacts - build, test and external. When 'Test Artifact' is selected, GoCD will use this artifact to generate a test report. When artifact type external is selected, you can configure the external artifact store to which you can push an artifact.";
-    const sourceDescription      = "The file or folders to publish to the server. GoCD will only upload files that are in the working directory of the job. You can use wildcards to specify the files and folders to upload (** means any path, * means any file or folder name).";
-    const destinationDescription = "The destination is relative to the artifacts folder of the current instance on the server side. If it is not specified, the artifact will be stored in the root of the artifacts directory";
+    const typeDescription        = "文档有三种类型——构建、测试和外部。当选择test时，服务器将使用此文档生成测试报告。当选择工件类型external时，您可以配置外部文档存储，您可以将文档推送到该存储。";
+    const sourceDescription      = "要发布到服务器的文件或文件夹。服务器将只上载作业的工作目录中的文件。您可以使用通配符指定要上载的文件和文件夹（**表示任何路径，*表示任何文件或文件夹名称）。";
+    const destinationDescription = "目标是相对于服务器端当前实例的文档文件夹的。如果未指定，则文档将存储在文档目录的根目录中";
 
     expect(helper.byTestId("type-header")).toContainText("Type");
     expect(helper.allByTestId("tooltip-wrapper")[0]).toContainText(typeDescription);
@@ -75,7 +75,7 @@ describe("Artifacts Tab", () => {
     expect(helper.allByTestId("build-artifact-view")).toHaveLength(1);
     expect(helper.allByTestId("test-artifact-view")).toHaveLength(0);
 
-    expect(helper.byTestId("artifact-type")).toHaveText("Build Artifact");
+    expect(helper.byTestId("artifact-type")).toHaveText("构建文档");
     expect(helper.byTestId("artifact-source-source")).toHaveValue("source");
     expect(helper.byTestId("artifact-destination-destination")).toHaveValue("destination");
   });
@@ -85,24 +85,24 @@ describe("Artifacts Tab", () => {
     job.artifacts().push(new GoCDArtifact(ArtifactType.test, "source", "destination"));
     mount(job);
 
-    const typeDescription        = "There are 3 types of artifacts - build, test and external. When 'Test Artifact' is selected, GoCD will use this artifact to generate a test report. When artifact type external is selected, you can configure the external artifact store to which you can push an artifact.";
-    const sourceDescription      = "The file or folders to publish to the server. GoCD will only upload files that are in the working directory of the job. You can use wildcards to specify the files and folders to upload (** means any path, * means any file or folder name).";
-    const destinationDescription = "The destination is relative to the artifacts folder of the current instance on the server side. If it is not specified, the artifact will be stored in the root of the artifacts directory";
+    const typeDescription        = "文档有三种类型——构建、测试和外部。当选择test时，服务器将使用此文档生成测试报告。当选择工件类型external时，您可以配置外部文档存储，您可以将文档推送到该存储。";
+    const sourceDescription      = "要发布到服务器的文件或文件夹。服务器将只上载作业的工作目录中的文件。您可以使用通配符指定要上载的文件和文件夹（**表示任何路径，*表示任何文件或文件夹名称）。";
+    const destinationDescription = "目标是相对于服务器端当前实例的文档文件夹的。如果未指定，则文档将存储在文档目录的根目录中";
 
-    expect(helper.byTestId("type-header")).toContainText("Type");
+    expect(helper.byTestId("type-header")).toContainText("类型");
     expect(helper.allByTestId("tooltip-wrapper")[0]).toContainText(typeDescription);
 
-    expect(helper.byTestId("source-header")).toContainText("Source");
+    expect(helper.byTestId("source-header")).toContainText("源");
     expect(helper.allByTestId("tooltip-wrapper")[1]).toContainText(sourceDescription);
 
-    expect(helper.byTestId("destination-header")).toContainText("Destination");
+    expect(helper.byTestId("destination-header")).toContainText("目标");
     expect(helper.allByTestId("tooltip-wrapper")[2]).toContainText(destinationDescription);
 
     expect(job.artifacts()).toHaveLength(1);
     expect(helper.allByTestId("build-artifact-view")).toHaveLength(0);
     expect(helper.allByTestId("test-artifact-view")).toHaveLength(1);
 
-    expect(helper.byTestId("artifact-type")).toHaveText("Test Artifact");
+    expect(helper.byTestId("artifact-type")).toHaveText("测试报告文档");
     expect(helper.byTestId("artifact-source-source")).toHaveValue("source");
     expect(helper.byTestId("artifact-destination-destination")).toHaveValue("destination");
   });
@@ -189,7 +189,7 @@ describe("Artifacts Tab", () => {
 
     helper.redraw();
 
-    const expectedMsg = "No artifact store is configured. GoCD to artifact store page to configure artifact store.";
+    const expectedMsg = "未配置任何文件存储。请到文件存储页面进行配置。";
     expect(helper.byTestId("flash-message-warning")).toContainText(expectedMsg);
 
     expect(helper.q("button")).toBeDisabled();
@@ -228,7 +228,7 @@ describe("Artifacts Tab", () => {
     mount(job);
 
     expect(helper.allByTestId("external-artifact-view")).toHaveLength(1);
-    const msg = "Can not create/edit external artifact as the external artifact plugin 'cd.go.artifact.docker.registry' associated with artifact store 'storeid' is missing!";
+    const msg = "无法创建/编辑外部文档，因为缺少与文档存储“storeid”关联的外部文档插件“cd.go.artifact.docker.registry”！";
 
     expect(helper.byTestId("flash-message-info")).toContainText(msg);
   });
@@ -242,9 +242,9 @@ describe("Artifacts Tab", () => {
     job.artifacts().push(new ExternalArtifact("id", "storeid"));
     mount(job);
 
-    const typeDescription    = "There are 3 types of artifacts - build, test and external. When 'Test Artifact' is selected, GoCD will use this artifact to generate a test report. When artifact type external is selected, you can configure the external artifact store to which you can push an artifact.";
-    const idDescription      = "This id is used to identify the artifact that is pushed to an external store. The id is used later in a downstream pipeline to fetch the artifact from the external store.";
-    const storeIdDescription = "This is a reference to the global artifact store defined in the config. At the time of publishing the artifact to an external store, the plugin makes use of the global properties associated with this store id.";
+    const typeDescription    = "文档有三种类型——构建、测试和外部。当选择test时，服务器将使用此文档生成测试报告。当选择工件类型external时，您可以配置外部文档存储，您可以将文档推送到该存储。";
+    const idDescription      = "这个id用于标识被推送到外部存储的文档。id稍后在下游算法中使用，以从外部存储中获取文档。";
+    const storeIdDescription = "这是对配置中定义的全局文档存储的引用。在将文档发布到外部存储时，插件会使用与此存储id相关联的全局属性。";
 
     expect(helper.byTestId("type-header")).toContainText("Type");
     expect(helper.allByTestId("tooltip-wrapper")[0]).toContainText(typeDescription);
@@ -258,7 +258,7 @@ describe("Artifacts Tab", () => {
     expect(job.artifacts()).toHaveLength(1);
     expect(helper.allByTestId("external-artifact-view")).toHaveLength(1);
 
-    expect(helper.byTestId("artifact-type")).toHaveText("External Artifact");
+    expect(helper.byTestId("artifact-type")).toHaveText("外部文档");
 
     expect(helper.byTestId("artifact-id-id")).toHaveValue("id");
     expect(helper.byTestId("artifact-store-id")).toHaveValue("storeid");

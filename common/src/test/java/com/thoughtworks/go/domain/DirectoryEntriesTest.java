@@ -44,7 +44,7 @@ public class DirectoryEntriesTest {
         Element document = getRenderedDocument(renderer);
         assertThat(document.getChildren().size(), is(2));
         assertThat(document.getChild("p").getTextNormalize(),
-                Matchers.containsString("Artifacts for this job instance are unavailable as they may have been or deleted externally. Re-run the stage or job to generate them again."));
+                Matchers.containsString("此作业实例的文档不可用，因为它们可能已被外部删除。重新运行阶段或作业以再次生成它们。"));
         assertThat(document.getChild("ul").getChild("div").getChild("span").getChild("a").getTextNormalize(), is("cruise-output"));
     }
 

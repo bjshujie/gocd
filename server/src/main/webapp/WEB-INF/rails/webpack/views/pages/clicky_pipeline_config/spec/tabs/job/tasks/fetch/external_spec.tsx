@@ -50,16 +50,16 @@ describe("External Fetch Artifact Task", () => {
   it("should render no artifact plugins available message", () => {
     mount(attributes, new PluginInfos());
 
-    const expectedMsg = "Can not create/edit external fetch artifact task as No Artifact Plugins are installed.";
+    const expectedMsg = "无法创建/编辑外部获取文档任务，因为未安装工件插件。";
     expect(helper.byTestId("flash-message-info")).toContainText(expectedMsg);
   });
 
   it("should render pipeline input", () => {
     mount();
 
-    const pipelineHelpText = "The name of direct upstream pipeline or ancestor pipeline of one of the upstream pipelines on which the pipeline of the job depends on. The pipeline should be a dependency material or should be reachable as an ancestor(of the form fetch-from-pipeline/path/to/upstream-pipeline) of at-least one dependency material. Defaults to current pipeline if not specified.";
+    const pipelineHelpText = "作业的算法所依赖的直接上游算法或上游算法之一的祖先算法的名称。该算法（形式为从算法/路径/到上游算法的获取）可访问。如果未指定，则默认为当前算法。";
 
-    expect(helper.byTestId("form-field-label-pipeline")).toContainText("Pipeline");
+    expect(helper.byTestId("form-field-label-pipeline")).toContainText("算法");
     expect(helper.byTestId("form-field-input-pipeline")).toBeInDOM();
     expect(helper.qa("span")).toContainText(pipelineHelpText);
   });
@@ -78,9 +78,9 @@ describe("External Fetch Artifact Task", () => {
 
   it("should render stage input", () => {
     mount();
-    const stageHelpText = "The name of the stage to fetch artifacts from.";
+    const stageHelpText = "要从中提取文档的阶段的名称。";
 
-    expect(helper.byTestId("form-field-label-stage")).toContainText("Stage");
+    expect(helper.byTestId("form-field-label-stage")).toContainText("阶段");
     expect(helper.byTestId("form-field-input-stage")).toBeInDOM();
     expect(helper.qa("span")).toContainText(stageHelpText);
   });
@@ -99,9 +99,9 @@ describe("External Fetch Artifact Task", () => {
 
   it("should render job input", () => {
     mount();
-    const jobHelpText = "The name of the job to fetch artifacts from.";
+    const jobHelpText = "要从中获取文档的作业的名称。";
 
-    expect(helper.byTestId("form-field-label-job")).toContainText("Job");
+    expect(helper.byTestId("form-field-label-job")).toContainText("作业");
     expect(helper.byTestId("form-field-input-job")).toBeInDOM();
     expect(helper.qa("span")).toContainText(jobHelpText);
   });
@@ -120,9 +120,9 @@ describe("External Fetch Artifact Task", () => {
 
   it("should render artifact id input", () => {
     mount();
-    const artifactIdHelpText = "The id of the external artifact uploaded by the upstream job.";
+    const artifactIdHelpText = "上游作业上传的外部文档的id。";
 
-    expect(helper.byTestId("form-field-label-artifact-id")).toContainText("Artifact Id");
+    expect(helper.byTestId("form-field-label-artifact-id")).toContainText("文档 Id");
     expect(helper.byTestId("form-field-input-artifact-id")).toBeInDOM();
     expect(helper.qa("span")).toContainText(artifactIdHelpText);
   });
@@ -144,7 +144,7 @@ describe("External Fetch Artifact Task", () => {
 
     expect(attributes.artifactId()).toBeTruthy();
 
-    expect(helper.byTestId("form-field-label-plugin-id")).toContainText("Plugin Id");
+    expect(helper.byTestId("form-field-label-plugin-id")).toContainText("插件 Id");
     expect(helper.byTestId("form-field-input-plugin-id")).toBeInDOM();
   });
 
@@ -187,7 +187,7 @@ describe("External Fetch Artifact Task", () => {
     attributes.artifactId("some-non-existing-plugin");
     m.redraw.sync();
 
-    const pluginAutoDetectError = "The plugin with which the artifact is associated cannot be determined because: the pipeline, stage, job or artifact id is a parameter or is non-existent. Please choose a plugin to configure the plugin properties.";
+    const pluginAutoDetectError = "无法确定与文档相关联的插件，因为：算法、阶段、作业或文档id是一个参数或不存在。请选择一个插件来配置插件属性。";
     const pluginIdDropdown      = (helper.byTestId("form-field-input-plugin-id") as HTMLInputElement);
     expect(pluginIdDropdown).not.toBeDisabled();
 

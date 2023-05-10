@@ -277,7 +277,7 @@ export class ExecTask extends AbstractTask {
   }
 
   description(pluginInfos: PluginInfos): string {
-    return "Custom Command";
+    return "自定义命令";
   }
 }
 
@@ -383,7 +383,7 @@ export class FetchArtifactTask extends AbstractTask {
   }
 
   description(pluginInfos: PluginInfos): string {
-    return "Fetch Artifact";
+    return "获取文档";
   }
 }
 

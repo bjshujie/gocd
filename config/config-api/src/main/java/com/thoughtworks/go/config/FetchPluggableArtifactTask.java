@@ -40,7 +40,7 @@ import static org.apache.commons.lang3.StringUtils.isNotBlank;
 public class FetchPluggableArtifactTask extends AbstractFetchTask {
     public static final String ARTIFACT_ID = "artifactId";
     public static final String CONFIGURATION = "configuration";
-    public static final String FETCH_EXTERNAL_ARTIFACT = "Fetch External Artifact";
+    public static final String FETCH_EXTERNAL_ARTIFACT = "获取外部文档";
 
     @ConfigAttribute(value = "artifactId", optional = false)
     private String artifactId;

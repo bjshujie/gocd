@@ -41,7 +41,7 @@ public class FetchTask extends AbstractFetchTask {
     public static final String SRC = "src";
 
     public static final String IS_SOURCE_A_FILE = "isSourceAFile";
-    private final String FETCH_ARTIFACT = "Fetch Artifact";
+    private final String FETCH_ARTIFACT = "获取文档";
 
     public FetchTask() {
     }

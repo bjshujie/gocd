@@ -97,6 +97,30 @@
       </configuration>
     </scm>
   </scms>
+  <artifactStores>
+    <artifactStore id="minio-test" pluginId="com.bjshujie.minio.artifact">
+      <property>
+        <key>S3Endpoint</key>
+        <value>http://192.168.1.120:9000</value>
+      </property>
+      <property>
+        <key>S3Bucket</key>
+        <value>detectfiles</value>
+      </property>
+      <property>
+        <key>Region</key>
+        <value>buckets</value>
+      </property>
+      <property>
+        <key>AccessKey</key>
+        <value>admin</value>
+      </property>
+      <property>
+        <key>SecretAccessKey</key>
+        <encryptedValue>AES:AsZ/tMERLN3FTsYVNJ3nDw==:SlrmVC8pMH7url88rXDOSA==</encryptedValue>
+      </property>
+    </artifactStore>
+  </artifactStores>
   <pipelines group="first">
     <authorization>
       <view>
@@ -228,6 +252,46 @@
         </jobs>
       </stage>
     </pipeline>
+    <pipeline name="t7">
+      <materials>
+        <scm ref="412022b6-9f2f-49d7-85e8-99f5b1e43bca" />
+      </materials>
+      <stage name="s1">
+        <jobs>
+          <job name="j1">
+            <tasks>
+              <exec command="ls" />
+            </tasks>
+            <artifacts>
+              <artifact type="external" id="testid" storeId="minio-test">
+                <configuration>
+                  <property>
+                    <key>Source</key>
+                    <value>file.txt</value>
+                  </property>
+                  <property>
+                    <key>Destination</key>
+                    <value>pipelines/t7</value>
+                  </property>
+                </configuration>
+              </artifact>
+            </artifacts>
+          </job>
+        </jobs>
+      </stage>
+      <stage name="s2">
+        <jobs>
+          <job name="j2">
+            <tasks>
+              <exec command="ls" />
+              <fetchartifact artifactOrigin="external" artifactId="testid" pipeline="t7" stage="s1" job="j1">
+                <runif status="passed" />
+              </fetchartifact>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
   </pipelines>
   <pipelines group="elect" />
   <templates>
@@ -252,6 +316,7 @@
         <pipeline name="t5" />
         <pipeline name="t6" />
         <pipeline name="t4" />
+        <pipeline name="t7" />
       </pipelines>
     </environment>
   </environments>

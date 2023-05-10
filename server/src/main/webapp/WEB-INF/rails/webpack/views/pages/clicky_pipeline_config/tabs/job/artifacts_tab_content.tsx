@@ -89,15 +89,15 @@ export class ArtifactsTabContent extends TabContent<Job> {
     return <div class={styles.builtInArtifactHeader} data-test-id="tabs-header">
       <span data-test-id="type-header">
         类型: <Tooltip.Info size={TooltipSize.small}
-                            content={"There are 3 types of artifacts - build, test and external. When 'Test Artifact' is selected, GoCD will use this artifact to generate a test report. When artifact type external is selected, you can configure the external artifact store to which you can push an artifact."}/>
+                            content={"文档有三种类型——构建、测试和外部。当选择test时，服务器将使用此文档生成测试报告。当选择工件类型external时，您可以配置外部文档存储，您可以将文档推送到该存储。"}/>
       </span>
       <span data-test-id="source-header">
         源文件: <Tooltip.Info size={TooltipSize.small}
-                              content={"The file or folders to publish to the server. GoCD will only upload files that are in the working directory of the job. You can use wildcards to specify the files and folders to upload (** means any path, * means any file or folder name)."}/>
+                              content={"要发布到服务器的文件或文件夹。服务器将只上载作业的工作目录中的文件。您可以使用通配符指定要上载的文件和文件夹（**表示任何路径，*表示任何文件或文件夹名称）。"}/>
       </span>
       <span data-test-id="destination-header">
         目标目录: <Tooltip.Info size={TooltipSize.small}
-                                   content={"The destination is relative to the artifacts folder of the current instance on the server side. If it is not specified, the artifact will be stored in the root of the artifacts directory"}/>
+                                   content={"目标是相对于服务器端当前实例的文档文件夹的。如果未指定，则文档将存储在文档目录的根目录中"}/>
       </span>
     </div>;
   }
@@ -135,16 +135,16 @@ export class ArtifactsTabContent extends TabContent<Job> {
   private getExternalArtifactHeaders() {
     return <div class={styles.builtInArtifactHeader} data-test-id="tabs-header">
       <span data-test-id="type-header">
-        Type: <Tooltip.Info size={TooltipSize.small}
-                            content={"There are 3 types of artifacts - build, test and external. When 'Test Artifact' is selected, GoCD will use this artifact to generate a test report. When artifact type external is selected, you can configure the external artifact store to which you can push an artifact."}/>
+        类型: <Tooltip.Info size={TooltipSize.small}
+                            content={"文档有三种类型——构建、测试和外部。当选择test时，服务器将使用此文档生成测试报告。当选择工件类型external时，您可以配置外部文档存储，您可以将文档推送到该存储。"}/>
       </span>
       <span class={styles.idHeader} data-test-id="id-header">
         Id: <Tooltip.Info size={TooltipSize.small}
-                          content={"This id is used to identify the artifact that is pushed to an external store. The id is used later in a downstream pipeline to fetch the artifact from the external store."}/>
+                          content={"这个id用于标识被推送到外部存储的文档。id稍后在下游算法中使用，以从外部存储中获取文件。"}/>
       </span>
       <span data-test-id="store-id-header">
-        Store Id: <Tooltip.Info size={TooltipSize.small}
-                                content={"This is a reference to the global artifact store defined in the config. At the time of publishing the artifact to an external store, the plugin makes use of the global properties associated with this store id."}/>
+        文档存储 Id: <Tooltip.Info size={TooltipSize.small}
+                                content={"这是对配置中定义的全局文档存储的引用。在将文档发布到外部存储时，插件会使用与此存储id相关联的全局属性。"}/>
       </span>
     </div>;
   }
@@ -156,7 +156,7 @@ export class ArtifactsTabContent extends TabContent<Job> {
       const pluginInfo = this.pluginInfos().findByPluginId(found.pluginId())!;
 
       if (!pluginInfo) {
-        const msg = `Can not create/edit external artifact as the external artifact plugin '${found.pluginId()}' associated with artifact store '${found.id()}' is missing!`;
+        const msg = `法创建/编辑外部项目，因为缺少与项目存储'${found.id()}'关联的外部项目插件'${found.pluginId()}'！`;
         pluginConfigurations = <FlashMessage type={MessageType.info} message={msg}/>;
       } else {
         const artifactExtension = pluginInfo.extensionOfType(ExtensionTypeString.ARTIFACT) as ArtifactExtension;
@@ -219,7 +219,7 @@ export class ArtifactsTabContent extends TabContent<Job> {
 
     if (this.addArtifactType() === ArtifactType.external && this.artifactStores().length === 0) {
       const msg = <div data-test-id="no-artifact-store-configured-msg">
-        No artifact store is configured. GoCD to <a href="/go/admin/artifact_stores" title="Artifact Stores">artifact store page</a> to configure artifact store.
+        未配置文档存储. 请到 <a href="/go/admin/artifact_stores" title="Artifact Stores">文档存储页面</a> 配置文档存储.
       </div>;
       noArtifactStoreError = <FlashMessage type={MessageType.warning} message={msg}/>;
     }
